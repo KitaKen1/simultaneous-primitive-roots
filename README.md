@@ -11,14 +11,13 @@ The simultaneous primitive-root problem for positive integer bases asks for the 
 > \prod_{a\in B}a\text{ is not a square whenever }B\subseteq A\text{ has odd cardinality}.
 > $$
 >
-> There exist constants $c_A>0$ and $x_A\ge2$ such that, for every real $x\ge x_A$,
+> Let $N_A(x)$ count the primes $p$ with $x<p\le2x$ for which every element of $A$ is a primitive root modulo $p$. There exist constants $c_A>0$ and $x_A\ge2$ such that, for every real $x\ge x_A$,
 >
 > $$
-> \#\{x<p\le2x:p\text{ prime},\ p\nmid\prod_{a\in A}a,\ \mathrm{ord}_p(a)=p-1\text{ for every }a\in A\}
-> \ge c_A\frac{x}{\log x}.
+> N_A(x)\ge c_A\frac{x}{\log x}.
 > $$
 
-Here $\mathrm{ord}_p(a)$ denotes the multiplicative order of $a$ modulo $p$. The constants may depend on $A$, which remains fixed as $x$ grows. The square condition is necessary: every primitive root modulo an odd prime is a quadratic nonresidue, whereas a square cannot be the product of an odd number of quadratic nonresidues. The pairs $\{2,3\}$ and $\{3,6\}$ satisfy the condition; the triple $\{2,3,6\}$ does not.
+Here $\mathrm{ord}_p(a)$ denotes the multiplicative order of $a$ modulo $p$. The constants may depend on $A$, which remains fixed as $x$ grows. The square condition is necessary: every primitive root modulo an odd prime is a quadratic nonresidue, whereas a square cannot be the product of an odd number of quadratic nonresidues. The pairs 2, 3 and 3, 6 satisfy the condition; the triple 2, 3, 6 does not.
 
 This repository presents a proposed proof of this conjecture for submission to **Formal Conjectures**. A proof sketch follows; the [PDF manuscript](PDF/simultaneous-primitive-roots.pdf) contains the detailed argument. The proof takes the analytic estimates stated in Section 2 of the manuscript as inputs.
 
