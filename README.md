@@ -14,11 +14,11 @@ The simultaneous primitive-root problem for positive integer bases asks for the 
 > There exist constants $c_A>0$ and $x_A\ge2$ such that, for every real $x\ge x_A$,
 >
 > $$
-> \#\{x<p\le2x:p\text{ prime},\ p\nmid\prod_{a\in A}a,\ \operatorname{ord}_p(a)=p-1\text{ for every }a\in A\}
+> \#\{x<p\le2x:p\text{ prime},\ p\nmid\prod_{a\in A}a,\ \mathrm{ord}_p(a)=p-1\text{ for every }a\in A\}
 > \ge c_A\frac{x}{\log x}.
 > $$
 
-Here $\operatorname{ord}_p(a)$ denotes the multiplicative order of $a$ modulo $p$. The constants may depend on $A$, which remains fixed as $x$ grows. The square condition is necessary: every primitive root modulo an odd prime is a quadratic nonresidue, whereas a square cannot be the product of an odd number of quadratic nonresidues. The pairs $\{2,3\}$ and $\{3,6\}$ satisfy the condition; the triple $\{2,3,6\}$ does not.
+Here $\mathrm{ord}_p(a)$ denotes the multiplicative order of $a$ modulo $p$. The constants may depend on $A$, which remains fixed as $x$ grows. The square condition is necessary: every primitive root modulo an odd prime is a quadratic nonresidue, whereas a square cannot be the product of an odd number of quadratic nonresidues. The pairs $\{2,3\}$ and $\{3,6\}$ satisfy the condition; the triple $\{2,3,6\}$ does not.
 
 This repository presents a proposed proof of this conjecture for submission to **Formal Conjectures**. A proof sketch follows; the [PDF manuscript](PDF/simultaneous-primitive-roots.pdf) contains the detailed argument. The proof takes the analytic estimates stated in Section 2 of the manuscript as inputs.
 
@@ -102,7 +102,7 @@ $$
 p-1=Qr,\qquad x^{1-\eta}<Q\le x^{1-\eta/2},\qquad r<2x^\eta.
 $$
 
-If $a$ is not a primitive root, choose a prime divisor $q$ of $(p-1)/\operatorname{ord}_p(a)$. The quadratic signs exclude $q=2$, and the congruence conditions exclude odd $q\le Y$.
+If $a$ is not a primitive root, choose a prime divisor $q$ of $(p-1)/\mathrm{ord}_p(a)$. The quadratic signs exclude $q=2$, and the congruence conditions exclude odd $q\le Y$.
 
 If $q\ne Q$, then $q\mid r$. Summing the splitting estimate over $Y<q<2x^\eta$ removes at most
 
@@ -110,7 +110,7 @@ $$
 O_a\!\left(\frac{x}{Y\log x}\right)+o(x/\log x)
 $$
 
-primes. If $q=Q$, then $\operatorname{ord}_p(a)<2x^\eta$, so $p$ divides
+primes. If $q=Q$, then $\mathrm{ord}_p(a)<2x^\eta$, so $p$ divides
 
 $$
 \prod_{j\le2x^\eta}(a^j-1).
