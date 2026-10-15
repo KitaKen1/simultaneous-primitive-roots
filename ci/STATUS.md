@@ -11,7 +11,7 @@ Snapshot prepared on 15 October 2026 (Asia/Tokyo), stock Lean 4.33.1.
 | Proof builds and four public axiom reports | Passed; exactly `propext`, `Classical.choice`, `Quot.sound` |
 | FC format and standalone statements | Passed using real FC utilities on Lean 4.33.1; reference keys and proof URLs included |
 | Source and migration audit | Passed; 4,465 proof files, 1,251 ported sources, 22 backports and the main bridge accounted for |
-| Private Linux CI | [Independent statements passed; full proof and Comparator running](https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38738032026) |
+| Private Linux CI | [Disk-capacity fix: retry running](https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38768651954); previous statement build passed, previous full job exhausted disk |
 | Public Linux CI | Candidate prepared locally; publication requires explicit approval |
 
 The four current targets are:
@@ -32,9 +32,10 @@ The current configuration and source hashes are in
 Historical two-target and three-target checks are preserved in
 [local-verification.json](local-verification.json) and
 [three-theorem-review.json](three-theorem-review.json). Neither is a four-target CI result.
-The three-target macOS run had captured its exports before this update and was
-in final kernel replay; its completion receipt is `results/three-theorem-comparator-run.json`.
+The three-target macOS run captured its exports before this update and passed
+kernel replay; its completion receipt is `results/three-theorem-comparator-run.json`.
 
 The private CI workflow provisions swap on its ephemeral Linux runner and uses
 real Landrun. The FC files are built in the separate pinned `tools/fc-style/`
-project. Their proof URLs point to the planned public `main` branch.
+project. Their proof URLs name the fixed proof-snapshot commit; the links become
+available when the prepared candidate is published.

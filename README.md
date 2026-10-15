@@ -201,7 +201,7 @@ The earlier three-target run is recorded [separately](ci/three-theorem-review.js
 It does not check main. The current four-target configuration and private CI are
 tracked in [four-target-review.json](ci/four-target-review.json).
 The macOS development check used the upstream sandbox shim. Real Linux sandboxing
-is tested in [private CI](https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38738032026), followed by [public CI](https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml).
+is tested in [private CI](https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38768651954), followed by [public CI](https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml).
 
 ## Appendix: comparison with earlier work
 
@@ -338,7 +338,7 @@ The workflow retains logs and artifacts for 30 days.
 Private Linux CI in [`KitaKen1/ci-test-sandbox`](https://github.com/KitaKen1/ci-test-sandbox)
 and public Linux CI in
 [`KitaKen1/simultaneous-primitive-roots`](https://github.com/KitaKen1/simultaneous-primitive-roots)
-are tracked in [private Actions](https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38738032026) and [public Actions](https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml).
+are tracked in [private Actions](https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38768651954) and [public Actions](https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml).
 The intended order is human review, private CI, then public CI on the reviewed sources.
 
 ### Certification After 30 days: archive

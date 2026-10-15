@@ -61,10 +61,13 @@ jobs:
           LEAN_NUM_THREADS: '2'
           MATHLIB_CACHE_DIR: ${{ runner.temp }}/mathlib-cache
         run: |
+          set -euo pipefail
           mkdir -p ci/results
           python3 scripts/check_sources.py --check-port-record | tee ci/results/source-check.json
           cd lean
           lake exe cache get 2>&1 | tee ../ci/results/cache.log
+          # The extracted official artifacts remain; only download archives go.
+          find "$MATHLIB_CACHE_DIR" -type f -name '*.ltar' -delete
           cd ../tools/comparator
           lake build comparator lean4export
       - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5
@@ -73,6 +76,10 @@ jobs:
           cache: false
       - name: Build the pinned Linux sandbox
         run: bash scripts/install-landrun-linux.sh
+      - name: Check disk headroom and low-disk abort
+        run: |
+          python3 scripts/monitor-linux-resources.py preflight --min-free-gib 20
+          python3 scripts/monitor-linux-resources.py control
       - name: Check comparator acceptance and rejection controls
         run: python3 scripts/check_comparator_controls.py
       - name: Compare statements, check axioms and replay the proof

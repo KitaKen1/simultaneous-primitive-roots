@@ -1,5 +1,5 @@
 {
-  "date_jst": "2026-10-15",
+  "date_jst": "2026-10-16",
   "scope": "Independently compare OpenAI conditional main, unconditional prime-base corollary, stronger variant and square obstruction.",
   "lean_toolchain": "leanprover/lean4:v4.33.1",
   "comparator_configuration": {
@@ -92,7 +92,7 @@
     "branch": "ci/simultaneous-primitive-roots-lean4331",
     "status": "in_progress",
     "workflow": ".github/workflows/lean.yml",
-    "linux_kernel_replay_swap_gib": "8\u201316, reserving 16 GiB of disk after removing unused runner SDKs",
+    "linux_kernel_replay_swap_gib": "8–16, reserving 36 GiB for Lean after removing unused hosted-runner SDKs",
     "first_attempt": {
       "commit": "f4ba815a386b19ddf848bbbcdb74aea079fb37dd",
       "run": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38736732676",
@@ -109,10 +109,42 @@
         "disk_gib_remaining": 17
       }
     },
-    "commit": "8cfd6967c633f56a488fe3224d45722f295f4e14",
-    "run_url": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38738032026",
-    "independent_statements": "success",
-    "complete_proof_and_comparator": "in_progress"
+    "commit": "70a05dcc93415b4c574f8c4a3a65c75a04c65842",
+    "run_url": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38768651954",
+    "independent_statements": "pending result for the retry",
+    "complete_proof_and_comparator": "in_progress",
+    "third_attempt": {
+      "commit": "8cfd6967c633f56a488fe3224d45722f295f4e14",
+      "run": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38738032026",
+      "independent_statements": "success",
+      "conclusion": "failure",
+      "failure": "Runner exhausted disk during the full build/comparison step; its diagnostic log could no longer be written. No completed comparator result or artifact was recovered.",
+      "annotation": "results/private-ci-third-annotations.json",
+      "job_duration_seconds": 11694
+    },
+    "resource_fix": {
+      "status": "private CI retry in progress",
+      "post_cache_free_disk_min_gib": 20,
+      "low_disk_abort_gib": 4,
+      "monitor_interval_seconds": 30,
+      "preserves_checking_algorithms": true,
+      "proof_sources_unchanged": true,
+      "local_wrapper_checks": {
+        "passed": true,
+        "scope": "Contained process/systemd fixtures; not real Linux/Lean verification",
+        "record": "results/resource-wrapper-tests.json",
+        "scenarios": [
+          "success preserves zero status",
+          "comparison failure preserves nonzero status",
+          "monitor crash aborts",
+          "low-disk abort fails"
+        ]
+      },
+      "hosted_runner_cleanup_and_swap_preparation": "success",
+      "free_disk_20gib_preflight": "success",
+      "actual_low_disk_unit_stop_control": "success"
+    },
+    "real_landrun_controls_current_retry": "all three passed"
   },
   "public_ci": {
     "repository": "KitaKen1/simultaneous-primitive-roots",
@@ -139,10 +171,11 @@
     "FClikelean/SquareConditionNecessary.lean": "76ffd4d018b52e5ec6f384a89d7c936e9784f74595fb81bc14353da542886905",
     "scripts/check_sources.py": "d5f36fa51886665dbf3aba1066c41f359a9d0aaeb0a08b507245920be7946d91",
     "scripts/build.sh": "965a967463a7bad69f79e182cb9a8fb47db730477376b6f3ef0723256d9770e0",
-    "scripts/prepare-linux-memory.sh": "753c9680123d93e9182902043c263e66f91bfcd8f42ab55bad5bb183d2e25403",
-    ".github/workflows/lean.yml": "4c10a1a1dad90147ba324207eca7dfdfbdadbf1e05bd4d3a10c21797ecdbc4f3",
-    "scripts/compare.sh": "21a063e418deb29ee2c7bb831a71684c1f64afb13bc1a3673af38e4731930d4d",
-    "lean/lakefile.toml": "4da804ec12a96af7f1c41a1ef0d7731f01b4dec1266b6b519f190e340595f1eb"
+    "scripts/prepare-linux-memory.sh": "68c54b3db4223fe17624e1282c7275823f2a671c3be437742c67d9f7ea9933b4",
+    ".github/workflows/lean.yml": "7d9a44310fcec4df2fab75008d64196181d5608d681b5e581309859f6757cbe4",
+    "scripts/compare.sh": "2a77c35cc7be7e39dfd380156440d611210070e1c791defed3d85fe118c7c91b",
+    "lean/lakefile.toml": "4da804ec12a96af7f1c41a1ef0d7731f01b4dec1266b6b519f190e340595f1eb",
+    "scripts/monitor-linux-resources.py": "e5da518181bd23fd4ae0e4e892edd20070e37c3ebcbb5bc2de9bcb3a0f5f75e0"
   },
   "html_checks": {
     "passed": true,
