@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "file": "vendor/ArtinPrimitiveRoots/Proofs/qs_e_p/NQ1Helpers.lean",
+  "original_sha256": "fab24139397a5583447f6e0279ba84bf1e0e8711842015a1ae9bd7641f4e8498",
+  "before_sha256": "fab24139397a5583447f6e0279ba84bf1e0e8711842015a1ae9bd7641f4e8498",
+  "after_sha256": "e4c1cd18d4a27e0350ff38a95f3482f8b64bacbf7469878e01dbec1f39737913",
+  "source_freeze_sha256": "e4c1cd18d4a27e0350ff38a95f3482f8b64bacbf7469878e01dbec1f39737913",
+  "original_source_matches_manifest": true,
+  "edits": [
+    {
+      "before": "  apply Finset.prod_le_prod_of_subset_of_one_le hTU\n",
+      "after": "  apply Finset.prod_le_prod_of_subset_of_one_le hTU (fun _ _ => Nat.zero_le _)\n",
+      "count": 1
+    }
+  ],
+  "inverse_recovers_all_before_bytes": true,
+  "inverse_recovers_all_original_bytes": true,
+  "all_public_private_headers_byte_identical": true,
+  "public_private_declaration_header_count": 21,
+  "scope": "Only the hf0 proof argument in qsNormT_mono_NQ1; original hTU, all natural absNorm factors, products, pointwise 1≤absNorm proof, declaration types/hypotheses/definition values/data and imports unchanged.",
+  "justification": "Stock GroupWithZero/Finset.lean:98–100 prod_le_prod_of_subset_of_one_le requires hf0 : ∀ i ∈ s, 0 ≤ f i between the same subset and existing pointwise lower-bound arguments. Original qsNormT uses natural-valued ideal absolute norms, so Nat.zero_le _ proves this for every original smaller-set factor without a new premise. Original hf proof remains byte-identical.",
+  "status": "static original/proof/capture audit; source frozen; root next integration pending; no direct Lean checks",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/Proofs/qs_e_p/NQ1Helpers.lean (original)\n+++ vendor/ArtinPrimitiveRoots/Proofs/qs_e_p/NQ1Helpers.lean (ported)\n@@ -38,7 +38,7 @@\n     (hTU : T ⊆ U) : qsNormT T ≤ qsNormT U := by\n   classical\n   unfold qsNormT\n-  apply Finset.prod_le_prod_of_subset_of_one_le hTU\n+  apply Finset.prod_le_prod_of_subset_of_one_le hTU (fun _ _ => Nat.zero_le _)\n   intro v hv hvT\n   have hn : 0 < Ideal.absNorm v.asIdeal :=\n     Ideal.absNorm_pos_of_nonZeroDivisors ⟨v.asIdeal,\n"
+}

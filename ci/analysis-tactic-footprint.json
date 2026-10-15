@@ -1,0 +1,2813 @@
+{
+  "method": "Read-only transitive source import graph including public/meta/all imports. Proposed per-source tactic imports are Mathlib.Tactic.Common plus recognized tactic tokens and referenced original ilean tactic owners. Source regex proposals require compiler validation; no source changes applied.",
+  "box_means": {
+    "actual_setup_imports": 3437,
+    "graph_imports_in_setup": 3437,
+    "graph_missing_setup_modules": [],
+    "baseline": {
+      "modules": 4816,
+      "mathlib_modules": 3163,
+      "tactic_modules": 360,
+      "setup_artifacts_olean_bytes": 877114328
+    },
+    "replace_narrowed_headers_in_box_closure": {
+      "modules": 4170,
+      "mathlib_modules": 2526,
+      "tactic_modules": 249,
+      "setup_artifacts_olean_bytes": 666270592
+    },
+    "replace_only_current_unbuilt_narrowed_headers": {
+      "modules": 4816,
+      "mathlib_modules": 3163,
+      "tactic_modules": 360,
+      "setup_artifacts_olean_bytes": 877114328
+    },
+    "broad_tactic_ancestors": [
+      {
+        "module": "OAI.NumberTheory.PrimeGaps.Indices",
+        "file": "vendor/OAI/NumberTheory/PrimeGaps/Indices.lean",
+        "fresh_olean": true,
+        "used_tactic_tokens": [
+          "ring",
+          "linarith",
+          "nlinarith",
+          "norm_num",
+          "positivity",
+          "field_simp",
+          "exact_mod_cast",
+          "omega",
+          "split_ifs",
+          "by_contra!"
+        ],
+        "proposed_tactic_imports": [
+          "Lean.Elab.Tactic.Omega",
+          "Mathlib.Tactic.ByContra",
+          "Mathlib.Tactic.Common",
+          "Mathlib.Tactic.FieldSimp",
+          "Mathlib.Tactic.Linarith",
+          "Mathlib.Tactic.NormNum",
+          "Mathlib.Tactic.Positivity",
+          "Mathlib.Tactic.Ring",
+          "Mathlib.Tactic.SplitIfs"
+        ]
+      }
+    ],
+    "saved_modules": [
+      "Batteries.Data.Array.Match",
+      "Batteries.Data.String.Basic",
+      "Batteries.Data.String.Matcher",
+      "Batteries.Lean.HashMap",
+      "Lake.Util.Casing",
+      "Lean.Meta.Inductive",
+      "Mathlib.Algebra.Algebra.Subalgebra.IsSimpleOrder",
+      "Mathlib.Algebra.Algebra.Subalgebra.Pointwise",
+      "Mathlib.Algebra.Algebra.ZMod",
+      "Mathlib.Algebra.Category.Grp.Basic",
+      "Mathlib.Algebra.Category.Grp.ForgetCorepresentable",
+      "Mathlib.Algebra.Category.Grp.Limits",
+      "Mathlib.Algebra.Category.Grp.Preadditive",
+      "Mathlib.Algebra.Category.MonCat.Basic",
+      "Mathlib.Algebra.Category.MonCat.ForgetCorepresentable",
+      "Mathlib.Algebra.Category.MonCat.Limits",
+      "Mathlib.Algebra.Category.Ring.Adjunctions",
+      "Mathlib.Algebra.Category.Ring.Basic",
+      "Mathlib.Algebra.Category.Ring.Colimits",
+      "Mathlib.Algebra.Category.Ring.Constructions",
+      "Mathlib.Algebra.Category.Ring.Instances",
+      "Mathlib.Algebra.Category.Ring.Limits",
+      "Mathlib.Algebra.CharP.Algebra",
+      "Mathlib.Algebra.CharP.CharAndCard",
+      "Mathlib.Algebra.CharP.IntermediateField",
+      "Mathlib.Algebra.CharZero.AddMonoidHom",
+      "Mathlib.Algebra.Field.TransferInstance",
+      "Mathlib.Algebra.Field.ZMod",
+      "Mathlib.Algebra.GCDMonoid.IntegrallyClosed",
+      "Mathlib.Algebra.GroupWithZero.Range",
+      "Mathlib.Algebra.GroupWithZero.Submonoid.Instances",
+      "Mathlib.Algebra.Module.LocalizedModule.Basic",
+      "Mathlib.Algebra.Module.LocalizedModule.IsLocalization",
+      "Mathlib.Algebra.Module.LocalizedModule.Submodule",
+      "Mathlib.Algebra.Module.SpanRank",
+      "Mathlib.Algebra.Module.Torsion.Basic",
+      "Mathlib.Algebra.Module.ZMod",
+      "Mathlib.Algebra.MvPolynomial.Monad",
+      "Mathlib.Algebra.MvPolynomial.Supported",
+      "Mathlib.Algebra.Order.Group.Cyclic",
+      "Mathlib.Algebra.Order.GroupWithZero.Range",
+      "Mathlib.Algebra.Order.GroupWithZero.WithZero",
+      "Mathlib.Algebra.Order.Hom.Units",
+      "Mathlib.Algebra.Order.Ring.Idempotent",
+      "Mathlib.Algebra.Order.Ring.IsNonarchimedean",
+      "Mathlib.Algebra.Polynomial.CancelLeads",
+      "Mathlib.Algebra.Polynomial.Eval.SMul",
+      "Mathlib.Algebra.Polynomial.Eval.Subring",
+      "Mathlib.Algebra.Polynomial.Expand",
+      "Mathlib.Algebra.Polynomial.FieldDivision",
+      "Mathlib.Algebra.Polynomial.GroupRingAction",
+      "Mathlib.Algebra.Polynomial.HasseDeriv",
+      "Mathlib.Algebra.Polynomial.Identities",
+      "Mathlib.Algebra.Polynomial.Laurent",
+      "Mathlib.Algebra.Polynomial.Lifts",
+      "Mathlib.Algebra.Polynomial.Module.AEval",
+      "Mathlib.Algebra.Polynomial.Module.Basic",
+      "Mathlib.Algebra.Polynomial.Splits",
+      "Mathlib.Algebra.Polynomial.Taylor",
+      "Mathlib.Algebra.Ring.Action.End",
+      "Mathlib.Algebra.Ring.Action.Field",
+      "Mathlib.Algebra.Ring.Action.Invariant",
+      "Mathlib.Algebra.Ring.Int.Field",
+      "Mathlib.Algebra.Ring.Shrink",
+      "Mathlib.Algebra.Ring.Subring.Pointwise",
+      "Mathlib.Algebra.Ring.Subsemiring.Pointwise",
+      "Mathlib.Analysis.Complex.Arg",
+      "Mathlib.Analysis.Convex.StrictConvexSpace",
+      "Mathlib.Analysis.Convex.Uniform",
+      "Mathlib.Analysis.InnerProductSpace.Convex",
+      "Mathlib.Analysis.Normed.Module.Ray",
+      "Mathlib.CategoryTheory.Adjunction.Basic",
+      "Mathlib.CategoryTheory.Adjunction.FullyFaithful",
+      "Mathlib.CategoryTheory.Adjunction.Limits",
+      "Mathlib.CategoryTheory.Adjunction.Mates",
+      "Mathlib.CategoryTheory.Balanced",
+      "Mathlib.CategoryTheory.Bicategory.Basic",
+      "Mathlib.CategoryTheory.Bicategory.Free",
+      "Mathlib.CategoryTheory.Bicategory.Functor.Lax",
+      "Mathlib.CategoryTheory.Bicategory.Functor.Oplax",
+      "Mathlib.CategoryTheory.Bicategory.Functor.Prelax",
+      "Mathlib.CategoryTheory.Bicategory.Functor.Pseudofunctor",
+      "Mathlib.CategoryTheory.Bicategory.Strict.Basic",
+      "Mathlib.CategoryTheory.Category.Basic",
+      "Mathlib.CategoryTheory.Category.Cat",
+      "Mathlib.CategoryTheory.Category.Cat.AsSmall",
+      "Mathlib.CategoryTheory.Category.Init",
+      "Mathlib.CategoryTheory.Category.Preorder",
+      "Mathlib.CategoryTheory.Category.ULift",
+      "Mathlib.CategoryTheory.CommSq",
+      "Mathlib.CategoryTheory.Comma.Arrow",
+      "Mathlib.CategoryTheory.Comma.Basic",
+      "Mathlib.CategoryTheory.Comma.Over.Basic",
+      "Mathlib.CategoryTheory.Comma.Over.Pullback",
+      "Mathlib.CategoryTheory.Comma.StructuredArrow.Basic",
+      "Mathlib.CategoryTheory.ConcreteCategory.Basic",
+      "Mathlib.CategoryTheory.ConcreteCategory.Bundled",
+      "Mathlib.CategoryTheory.ConcreteCategory.Elementwise",
+      "Mathlib.CategoryTheory.ConcreteCategory.Forget",
+      "Mathlib.CategoryTheory.ConcreteCategory.ReflectsIso",
+      "Mathlib.CategoryTheory.Discrete.Basic",
+      "Mathlib.CategoryTheory.EffectiveEpi.Basic",
+      "Mathlib.CategoryTheory.Elements",
+      "Mathlib.CategoryTheory.Elementwise",
+      "Mathlib.CategoryTheory.Endomorphism",
+      "Mathlib.CategoryTheory.EpiMono",
+      "Mathlib.CategoryTheory.EqToHom",
+      "Mathlib.CategoryTheory.Equivalence",
+      "Mathlib.CategoryTheory.EssentialImage",
+      "Mathlib.CategoryTheory.EssentiallySmall",
+      "Mathlib.CategoryTheory.Filtered.Basic",
+      "Mathlib.CategoryTheory.Filtered.Connected",
+      "Mathlib.CategoryTheory.FinCategory.AsType",
+      "Mathlib.CategoryTheory.FinCategory.Basic",
+      "Mathlib.CategoryTheory.Functor.Basic",
+      "Mathlib.CategoryTheory.Functor.Category",
+      "Mathlib.CategoryTheory.Functor.Const",
+      "Mathlib.CategoryTheory.Functor.Currying",
+      "Mathlib.CategoryTheory.Functor.EpiMono",
+      "Mathlib.CategoryTheory.Functor.FullyFaithful",
+      "Mathlib.CategoryTheory.Functor.Hom",
+      "Mathlib.CategoryTheory.Functor.ReflectsIso.Basic",
+      "Mathlib.CategoryTheory.Functor.Trifunctor",
+      "Mathlib.CategoryTheory.Functor.TwoSquare",
+      "Mathlib.CategoryTheory.Grothendieck",
+      "Mathlib.CategoryTheory.Groupoid",
+      "Mathlib.CategoryTheory.HomCongr",
+      "Mathlib.CategoryTheory.InducedCategory",
+      "Mathlib.CategoryTheory.IsConnected",
+      "Mathlib.CategoryTheory.Iso",
+      "Mathlib.CategoryTheory.IsomorphismClasses",
+      "Mathlib.CategoryTheory.LiftingProperties.Adjunction",
+      "Mathlib.CategoryTheory.LiftingProperties.Basic",
+      "Mathlib.CategoryTheory.Limits.ConcreteCategory.Basic",
+      "Mathlib.CategoryTheory.Limits.Cones",
+      "Mathlib.CategoryTheory.Limits.Connected",
+      "Mathlib.CategoryTheory.Limits.Constructions.BinaryProducts",
+      "Mathlib.CategoryTheory.Limits.Creates",
+      "Mathlib.CategoryTheory.Limits.Final",
+      "Mathlib.CategoryTheory.Limits.FunctorCategory.Basic",
+      "Mathlib.CategoryTheory.Limits.HasLimits",
+      "Mathlib.CategoryTheory.Limits.IsLimit",
+      "Mathlib.CategoryTheory.Limits.Opposites",
+      "Mathlib.CategoryTheory.Limits.Preserves.Basic",
+      "Mathlib.CategoryTheory.Limits.Preserves.Limits",
+      "Mathlib.CategoryTheory.Limits.Preserves.Shapes.Pullbacks",
+      "Mathlib.CategoryTheory.Limits.Preserves.Shapes.Terminal",
+      "Mathlib.CategoryTheory.Limits.Preserves.Shapes.Zero",
+      "Mathlib.CategoryTheory.Limits.Preserves.Ulift",
+      "Mathlib.CategoryTheory.Limits.Shapes.BinaryProducts",
+      "Mathlib.CategoryTheory.Limits.Shapes.Diagonal",
+      "Mathlib.CategoryTheory.Limits.Shapes.Equalizers",
+      "Mathlib.CategoryTheory.Limits.Shapes.FiniteLimits",
+      "Mathlib.CategoryTheory.Limits.Shapes.Grothendieck",
+      "Mathlib.CategoryTheory.Limits.Shapes.Images",
+      "Mathlib.CategoryTheory.Limits.Shapes.IsTerminal",
+      "Mathlib.CategoryTheory.Limits.Shapes.KernelPair",
+      "Mathlib.CategoryTheory.Limits.Shapes.Kernels",
+      "Mathlib.CategoryTheory.Limits.Shapes.Opposites.Equalizers",
+      "Mathlib.CategoryTheory.Limits.Shapes.Opposites.Pullbacks",
+      "Mathlib.CategoryTheory.Limits.Shapes.Products",
+      "Mathlib.CategoryTheory.Limits.Shapes.Pullback.Assoc",
+      "Mathlib.CategoryTheory.Limits.Shapes.Pullback.Cospan",
+      "Mathlib.CategoryTheory.Limits.Shapes.Pullback.HasPullback",
+      "Mathlib.CategoryTheory.Limits.Shapes.Pullback.IsPullback.Basic",
+      "Mathlib.CategoryTheory.Limits.Shapes.Pullback.IsPullback.Defs",
+      "Mathlib.CategoryTheory.Limits.Shapes.Pullback.Iso",
+      "Mathlib.CategoryTheory.Limits.Shapes.Pullback.Mono",
+      "Mathlib.CategoryTheory.Limits.Shapes.Pullback.Pasting",
+      "Mathlib.CategoryTheory.Limits.Shapes.Pullback.PullbackCone",
+      "Mathlib.CategoryTheory.Limits.Shapes.RegularMono",
+      "Mathlib.CategoryTheory.Limits.Shapes.StrictInitial",
+      "Mathlib.CategoryTheory.Limits.Shapes.StrongEpi",
+      "Mathlib.CategoryTheory.Limits.Shapes.Terminal",
+      "Mathlib.CategoryTheory.Limits.Shapes.WidePullbacks",
+      "Mathlib.CategoryTheory.Limits.Shapes.ZeroMorphisms",
+      "Mathlib.CategoryTheory.Limits.Shapes.ZeroObjects",
+      "Mathlib.CategoryTheory.Limits.Types.ColimitType",
+      "Mathlib.CategoryTheory.Limits.Types.Colimits",
+      "Mathlib.CategoryTheory.Limits.Types.Filtered",
+      "Mathlib.CategoryTheory.Limits.Types.Images",
+      "Mathlib.CategoryTheory.Limits.Types.Limits",
+      "Mathlib.CategoryTheory.Limits.Types.Products",
+      "Mathlib.CategoryTheory.Limits.Types.Yoneda",
+      "Mathlib.CategoryTheory.Limits.Yoneda",
+      "Mathlib.CategoryTheory.Monad.Algebra",
+      "Mathlib.CategoryTheory.Monad.Basic",
+      "Mathlib.CategoryTheory.Monad.Products",
+      "Mathlib.CategoryTheory.Monoidal.Category",
+      "Mathlib.CategoryTheory.Monoidal.Free.Basic",
+      "Mathlib.CategoryTheory.Monoidal.Functor",
+      "Mathlib.CategoryTheory.MorphismProperty.Basic",
+      "Mathlib.CategoryTheory.MorphismProperty.Composition",
+      "Mathlib.CategoryTheory.MorphismProperty.Factorization",
+      "Mathlib.CategoryTheory.MorphismProperty.Limits",
+      "Mathlib.CategoryTheory.NatIso",
+      "Mathlib.CategoryTheory.NatTrans",
+      "Mathlib.CategoryTheory.ObjectProperty.Basic",
+      "Mathlib.CategoryTheory.ObjectProperty.ClosedUnderIsomorphisms",
+      "Mathlib.CategoryTheory.ObjectProperty.CompleteLattice",
+      "Mathlib.CategoryTheory.ObjectProperty.Equivalence",
+      "Mathlib.CategoryTheory.ObjectProperty.FullSubcategory",
+      "Mathlib.CategoryTheory.ObjectProperty.Opposite",
+      "Mathlib.CategoryTheory.ObjectProperty.Small",
+      "Mathlib.CategoryTheory.Opposites",
+      "Mathlib.CategoryTheory.PEmpty",
+      "Mathlib.CategoryTheory.PUnit",
+      "Mathlib.CategoryTheory.Pi.Basic",
+      "Mathlib.CategoryTheory.Preadditive.Basic",
+      "Mathlib.CategoryTheory.Products.Basic",
+      "Mathlib.CategoryTheory.Products.Unitor",
+      "Mathlib.CategoryTheory.Retract",
+      "Mathlib.CategoryTheory.ShrinkYoneda",
+      "Mathlib.CategoryTheory.Skeletal",
+      "Mathlib.CategoryTheory.Thin",
+      "Mathlib.CategoryTheory.Types.Basic",
+      "Mathlib.CategoryTheory.Whiskering",
+      "Mathlib.CategoryTheory.Yoneda",
+      "Mathlib.Combinatorics.Matroid.Basic",
+      "Mathlib.Combinatorics.Matroid.Circuit",
+      "Mathlib.Combinatorics.Matroid.Closure",
+      "Mathlib.Combinatorics.Matroid.Constructions",
+      "Mathlib.Combinatorics.Matroid.Dual",
+      "Mathlib.Combinatorics.Matroid.IndepAxioms",
+      "Mathlib.Combinatorics.Matroid.Init",
+      "Mathlib.Combinatorics.Matroid.Loop",
+      "Mathlib.Combinatorics.Matroid.Map",
+      "Mathlib.Combinatorics.Matroid.Minor.Restrict",
+      "Mathlib.Combinatorics.Matroid.Rank.Cardinal",
+      "Mathlib.Combinatorics.Matroid.Rank.ENat",
+      "Mathlib.Combinatorics.Matroid.Rank.Finite",
+      "Mathlib.Combinatorics.Quiver.Basic",
+      "Mathlib.Combinatorics.Quiver.Path",
+      "Mathlib.Combinatorics.Quiver.Prefunctor",
+      "Mathlib.Combinatorics.Quiver.Push",
+      "Mathlib.Combinatorics.Quiver.Symmetric",
+      "Mathlib.Control.Traversable.Lemmas",
+      "Mathlib.Data.DFinsupp.Small",
+      "Mathlib.Data.Int.Range",
+      "Mathlib.Data.Int.WithZero",
+      "Mathlib.Data.Multiset.Fintype",
+      "Mathlib.Data.Nat.Choose.Vandermonde",
+      "Mathlib.Data.Nat.DvdSequence",
+      "Mathlib.Data.Nat.Factorial.SuperFactorial",
+      "Mathlib.Data.Nat.Fib.Basic",
+      "Mathlib.Data.Opposite",
+      "Mathlib.Data.PNat.Prime",
+      "Mathlib.Data.Rat.Sqrt",
+      "Mathlib.Data.Seq.Basic",
+      "Mathlib.Data.Seq.Computation",
+      "Mathlib.Data.Seq.Defs",
+      "Mathlib.Data.SetLike.Fintype",
+      "Mathlib.Data.Stream.Defs",
+      "Mathlib.Data.Stream.Init",
+      "Mathlib.Data.ZMod.Units",
+      "Mathlib.Data.ZMod.ValMinAbs",
+      "Mathlib.Dynamics.FixedPoints.Topology",
+      "Mathlib.FieldTheory.AlgebraicClosure",
+      "Mathlib.FieldTheory.Extension",
+      "Mathlib.FieldTheory.Finite.Basic",
+      "Mathlib.FieldTheory.Finite.GaloisField",
+      "Mathlib.FieldTheory.Finite.Trace",
+      "Mathlib.FieldTheory.Finiteness",
+      "Mathlib.FieldTheory.Fixed",
+      "Mathlib.FieldTheory.Galois.Abelian",
+      "Mathlib.FieldTheory.Galois.Basic",
+      "Mathlib.FieldTheory.Galois.GaloisClosure",
+      "Mathlib.FieldTheory.Galois.Infinite",
+      "Mathlib.FieldTheory.Galois.Notation",
+      "Mathlib.FieldTheory.IntermediateField.Adjoin.Algebra",
+      "Mathlib.FieldTheory.IntermediateField.Adjoin.Basic",
+      "Mathlib.FieldTheory.IntermediateField.Adjoin.Defs",
+      "Mathlib.FieldTheory.IntermediateField.Algebraic",
+      "Mathlib.FieldTheory.IntermediateField.Basic",
+      "Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure",
+      "Mathlib.FieldTheory.IsAlgClosed.Basic",
+      "Mathlib.FieldTheory.IsSepClosed",
+      "Mathlib.FieldTheory.KrullTopology",
+      "Mathlib.FieldTheory.KummerPolynomial",
+      "Mathlib.FieldTheory.Minpoly.Basic",
+      "Mathlib.FieldTheory.Minpoly.Field",
+      "Mathlib.FieldTheory.Minpoly.Finite",
+      "Mathlib.FieldTheory.Minpoly.IsIntegrallyClosed",
+      "Mathlib.FieldTheory.Minpoly.MinpolyDiv",
+      "Mathlib.FieldTheory.Normal.Basic",
+      "Mathlib.FieldTheory.Normal.Closure",
+      "Mathlib.FieldTheory.Normal.Defs",
+      "Mathlib.FieldTheory.Perfect",
+      "Mathlib.FieldTheory.PrimitiveElement",
+      "Mathlib.FieldTheory.PurelyInseparable.Basic",
+      "Mathlib.FieldTheory.RatFunc.AsPolynomial",
+      "Mathlib.FieldTheory.RatFunc.Basic",
+      "Mathlib.FieldTheory.RatFunc.Defs",
+      "Mathlib.FieldTheory.Separable",
+      "Mathlib.FieldTheory.SeparableClosure",
+      "Mathlib.FieldTheory.SeparableDegree",
+      "Mathlib.FieldTheory.SplittingField.Construction",
+      "Mathlib.FieldTheory.SplittingField.IsSplittingField",
+      "Mathlib.FieldTheory.Tower",
+      "Mathlib.GroupTheory.GroupAction.FixedPoints",
+      "Mathlib.GroupTheory.GroupAction.FixingSubgroup",
+      "Mathlib.GroupTheory.MonoidLocalization.Away",
+      "Mathlib.GroupTheory.PGroup",
+      "Mathlib.GroupTheory.Perm.ViaEmbedding",
+      "Mathlib.GroupTheory.Rank",
+      "Mathlib.GroupTheory.Solvable",
+      "Mathlib.GroupTheory.Sylow",
+      "Mathlib.GroupTheory.Torsion",
+      "Mathlib.LinearAlgebra.Basis.Bilinear",
+      "Mathlib.LinearAlgebra.BilinearForm.Basic",
+      "Mathlib.LinearAlgebra.BilinearForm.DualLattice",
+      "Mathlib.LinearAlgebra.BilinearForm.Hom",
+      "Mathlib.LinearAlgebra.BilinearForm.Properties",
+      "Mathlib.LinearAlgebra.Contraction",
+      "Mathlib.LinearAlgebra.Dimension.Localization",
+      "Mathlib.LinearAlgebra.FreeModule.Finite.Matrix",
+      "Mathlib.LinearAlgebra.FreeModule.PID",
+      "Mathlib.LinearAlgebra.LinearIndependent.Algebra",
+      "Mathlib.LinearAlgebra.Matrix.BilinearForm",
+      "Mathlib.LinearAlgebra.Matrix.Charpoly.Basic",
+      "Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff",
+      "Mathlib.LinearAlgebra.Matrix.Charpoly.LinearMap",
+      "Mathlib.LinearAlgebra.Matrix.Charpoly.Minpoly",
+      "Mathlib.LinearAlgebra.Matrix.Determinant.Bird.Correctness",
+      "Mathlib.LinearAlgebra.Matrix.Determinant.Bird.Defs",
+      "Mathlib.LinearAlgebra.Matrix.SchurComplement",
+      "Mathlib.LinearAlgebra.Matrix.SesquilinearForm",
+      "Mathlib.LinearAlgebra.SModEq.Basic",
+      "Mathlib.LinearAlgebra.TensorProduct.Finiteness",
+      "Mathlib.LinearAlgebra.TensorProduct.Quotient",
+      "Mathlib.LinearAlgebra.TensorProduct.RightExactness",
+      "Mathlib.LinearAlgebra.Trace",
+      "Mathlib.LinearAlgebra.Vandermonde",
+      "Mathlib.Logic.Lemmas",
+      "Mathlib.NumberTheory.Cyclotomic.Basic",
+      "Mathlib.NumberTheory.Cyclotomic.PrimitiveRoots",
+      "Mathlib.NumberTheory.GaussSum",
+      "Mathlib.NumberTheory.LegendreSymbol.AddCharacter",
+      "Mathlib.NumberTheory.LegendreSymbol.Basic",
+      "Mathlib.NumberTheory.LegendreSymbol.JacobiSymbol",
+      "Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic",
+      "Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.GaussSum",
+      "Mathlib.NumberTheory.LegendreSymbol.QuadraticReciprocity",
+      "Mathlib.NumberTheory.LegendreSymbol.ZModChar",
+      "Mathlib.NumberTheory.MulChar.Basic",
+      "Mathlib.NumberTheory.MulChar.Lemmas",
+      "Mathlib.NumberTheory.NumberField.Basic",
+      "Mathlib.NumberTheory.Padics.PadicVal.Basic",
+      "Mathlib.NumberTheory.Real.Irrational",
+      "Mathlib.Order.BooleanSubalgebra",
+      "Mathlib.Order.CompleteLattice.Group",
+      "Mathlib.Order.Heyting.Hom",
+      "Mathlib.Order.Ideal",
+      "Mathlib.RingTheory.AdicCompletion.Basic",
+      "Mathlib.RingTheory.Adjoin.Dimension",
+      "Mathlib.RingTheory.Adjoin.Field",
+      "Mathlib.RingTheory.Adjoin.PowerBasis",
+      "Mathlib.RingTheory.Adjoin.Singleton",
+      "Mathlib.RingTheory.AdjoinRoot",
+      "Mathlib.RingTheory.Algebraic.Basic",
+      "Mathlib.RingTheory.Algebraic.Defs",
+      "Mathlib.RingTheory.Algebraic.Integral",
+      "Mathlib.RingTheory.Algebraic.MvPolynomial",
+      "Mathlib.RingTheory.AlgebraicIndependent.Adjoin",
+      "Mathlib.RingTheory.AlgebraicIndependent.AlgebraicClosure",
+      "Mathlib.RingTheory.AlgebraicIndependent.Basic",
+      "Mathlib.RingTheory.AlgebraicIndependent.Defs",
+      "Mathlib.RingTheory.AlgebraicIndependent.TranscendenceBasis",
+      "Mathlib.RingTheory.AlgebraicIndependent.Transcendental",
+      "Mathlib.RingTheory.Artinian.Defs",
+      "Mathlib.RingTheory.Artinian.Module",
+      "Mathlib.RingTheory.Bezout",
+      "Mathlib.RingTheory.ChainOfDivisors",
+      "Mathlib.RingTheory.Coprime.Ideal",
+      "Mathlib.RingTheory.DedekindDomain.AdicValuation",
+      "Mathlib.RingTheory.DedekindDomain.Basic",
+      "Mathlib.RingTheory.DedekindDomain.Dvr",
+      "Mathlib.RingTheory.DedekindDomain.Ideal.Basic",
+      "Mathlib.RingTheory.DedekindDomain.Ideal.Lemmas",
+      "Mathlib.RingTheory.DedekindDomain.IntegralClosure",
+      "Mathlib.RingTheory.DiscreteValuationRing.Basic",
+      "Mathlib.RingTheory.DiscreteValuationRing.TFAE",
+      "Mathlib.RingTheory.EssentialFiniteness",
+      "Mathlib.RingTheory.EuclideanDomain",
+      "Mathlib.RingTheory.Filtration",
+      "Mathlib.RingTheory.FiniteLength",
+      "Mathlib.RingTheory.FinitePresentation",
+      "Mathlib.RingTheory.Finiteness.Bilinear",
+      "Mathlib.RingTheory.Finiteness.Ideal",
+      "Mathlib.RingTheory.Finiteness.Nakayama",
+      "Mathlib.RingTheory.Finiteness.Prod",
+      "Mathlib.RingTheory.Finiteness.Subalgebra",
+      "Mathlib.RingTheory.FractionalIdeal.Basic",
+      "Mathlib.RingTheory.FractionalIdeal.Inverse",
+      "Mathlib.RingTheory.FractionalIdeal.Operations",
+      "Mathlib.RingTheory.FreeCommRing",
+      "Mathlib.RingTheory.FreeRing",
+      "Mathlib.RingTheory.Ideal.BigOperators",
+      "Mathlib.RingTheory.Ideal.Cotangent",
+      "Mathlib.RingTheory.Ideal.GoingUp",
+      "Mathlib.RingTheory.Ideal.IsPrimary",
+      "Mathlib.RingTheory.Ideal.MinimalPrime.Basic",
+      "Mathlib.RingTheory.Ideal.MinimalPrime.Localization",
+      "Mathlib.RingTheory.Ideal.Oka",
+      "Mathlib.RingTheory.Ideal.Over",
+      "Mathlib.RingTheory.Ideal.Pointwise",
+      "Mathlib.RingTheory.Ideal.Quotient.Nilpotent",
+      "Mathlib.RingTheory.Ideal.Quotient.Noetherian",
+      "Mathlib.RingTheory.Ideal.Quotient.PowTransition",
+      "Mathlib.RingTheory.Int.Basic",
+      "Mathlib.RingTheory.IntegralClosure.Algebra.Basic",
+      "Mathlib.RingTheory.IntegralClosure.Algebra.Defs",
+      "Mathlib.RingTheory.IntegralClosure.IntegrallyClosed",
+      "Mathlib.RingTheory.IntegralClosure.IsIntegral.Basic",
+      "Mathlib.RingTheory.IntegralClosure.IsIntegral.Defs",
+      "Mathlib.RingTheory.IntegralClosure.IsIntegralClosure.Basic",
+      "Mathlib.RingTheory.IntegralClosure.IsIntegralClosure.Defs",
+      "Mathlib.RingTheory.IsPrimary",
+      "Mathlib.RingTheory.IsTensorProduct",
+      "Mathlib.RingTheory.Jacobson.Polynomial",
+      "Mathlib.RingTheory.Jacobson.Ring",
+      "Mathlib.RingTheory.Jacobson.Semiprimary",
+      "Mathlib.RingTheory.KrullDimension.Basic",
+      "Mathlib.RingTheory.KrullDimension.Zero",
+      "Mathlib.RingTheory.Length",
+      "Mathlib.RingTheory.LocalProperties.Basic",
+      "Mathlib.RingTheory.LocalProperties.IntegrallyClosed",
+      "Mathlib.RingTheory.LocalProperties.Submodule",
+      "Mathlib.RingTheory.LocalRing.MaximalIdeal.Basic",
+      "Mathlib.RingTheory.LocalRing.MaximalIdeal.Defs",
+      "Mathlib.RingTheory.LocalRing.ResidueField.Basic",
+      "Mathlib.RingTheory.LocalRing.ResidueField.Defs",
+      "Mathlib.RingTheory.LocalRing.ResidueField.Ideal",
+      "Mathlib.RingTheory.LocalRing.RingHom.Basic",
+      "Mathlib.RingTheory.Localization.Algebra",
+      "Mathlib.RingTheory.Localization.AsSubring",
+      "Mathlib.RingTheory.Localization.AtPrime.Basic",
+      "Mathlib.RingTheory.Localization.Away.Basic",
+      "Mathlib.RingTheory.Localization.BaseChange",
+      "Mathlib.RingTheory.Localization.Ideal",
+      "Mathlib.RingTheory.Localization.Integral",
+      "Mathlib.RingTheory.Localization.LocalizationLocalization",
+      "Mathlib.RingTheory.Localization.Module",
+      "Mathlib.RingTheory.Localization.NumDen",
+      "Mathlib.RingTheory.Localization.Submodule",
+      "Mathlib.RingTheory.MatrixAlgebra",
+      "Mathlib.RingTheory.MatrixPolynomialAlgebra",
+      "Mathlib.RingTheory.MvPolynomial.Basic",
+      "Mathlib.RingTheory.MvPolynomial.Symmetric.Defs",
+      "Mathlib.RingTheory.MvPolynomial.Tower",
+      "Mathlib.RingTheory.MvPowerSeries.Basic",
+      "Mathlib.RingTheory.Nakayama",
+      "Mathlib.RingTheory.Nilpotent.Lemmas",
+      "Mathlib.RingTheory.Norm.Basic",
+      "Mathlib.RingTheory.Norm.Defs",
+      "Mathlib.RingTheory.Norm.Transitivity",
+      "Mathlib.RingTheory.OreLocalization.OreSet",
+      "Mathlib.RingTheory.Polynomial.Content",
+      "Mathlib.RingTheory.Polynomial.Cyclotomic.Basic",
+      "Mathlib.RingTheory.Polynomial.Cyclotomic.Eval",
+      "Mathlib.RingTheory.Polynomial.Cyclotomic.Expand",
+      "Mathlib.RingTheory.Polynomial.Cyclotomic.Roots",
+      "Mathlib.RingTheory.Polynomial.Eisenstein.Basic",
+      "Mathlib.RingTheory.Polynomial.Eisenstein.Criterion",
+      "Mathlib.RingTheory.Polynomial.GaussLemma",
+      "Mathlib.RingTheory.Polynomial.Ideal",
+      "Mathlib.RingTheory.Polynomial.IntegralNormalization",
+      "Mathlib.RingTheory.Polynomial.Nilpotent",
+      "Mathlib.RingTheory.Polynomial.Quotient",
+      "Mathlib.RingTheory.Polynomial.RationalRoot",
+      "Mathlib.RingTheory.Polynomial.ScaleRoots",
+      "Mathlib.RingTheory.Polynomial.SeparableDegree",
+      "Mathlib.RingTheory.Polynomial.Subring",
+      "Mathlib.RingTheory.Polynomial.Tower",
+      "Mathlib.RingTheory.Polynomial.UniqueFactorization",
+      "Mathlib.RingTheory.Polynomial.Vieta",
+      "Mathlib.RingTheory.PolynomialAlgebra",
+      "Mathlib.RingTheory.PowerBasis",
+      "Mathlib.RingTheory.PrincipalIdealDomainOfPrime",
+      "Mathlib.RingTheory.ReesAlgebra",
+      "Mathlib.RingTheory.RingHomProperties",
+      "Mathlib.RingTheory.RootsOfUnity.Complex",
+      "Mathlib.RingTheory.RootsOfUnity.Minpoly",
+      "Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots",
+      "Mathlib.RingTheory.Spectrum.Maximal.Basic",
+      "Mathlib.RingTheory.Spectrum.Maximal.Defs",
+      "Mathlib.RingTheory.Spectrum.Maximal.Localization",
+      "Mathlib.RingTheory.Spectrum.Prime.Basic",
+      "Mathlib.RingTheory.Spectrum.Prime.Defs",
+      "Mathlib.RingTheory.Spectrum.Prime.RingHom",
+      "Mathlib.RingTheory.Spectrum.Prime.Topology",
+      "Mathlib.RingTheory.SurjectiveOnStalks",
+      "Mathlib.RingTheory.TensorProduct.Finite",
+      "Mathlib.RingTheory.TensorProduct.Free",
+      "Mathlib.RingTheory.TensorProduct.MonoidAlgebra",
+      "Mathlib.RingTheory.TensorProduct.MvPolynomial",
+      "Mathlib.RingTheory.TensorProduct.Quotient",
+      "Mathlib.RingTheory.Trace.Basic",
+      "Mathlib.RingTheory.Trace.Defs",
+      "Mathlib.RingTheory.UniqueFactorizationDomain.Finite",
+      "Mathlib.RingTheory.Valuation.Basic",
+      "Mathlib.RingTheory.Valuation.Discrete.Basic",
+      "Mathlib.RingTheory.Valuation.ExtendToLocalization",
+      "Mathlib.RingTheory.Valuation.Integers",
+      "Mathlib.RingTheory.Valuation.IsTrivialOn",
+      "Mathlib.RingTheory.Valuation.PrimeMultiplicity",
+      "Mathlib.RingTheory.Valuation.ValuationRing",
+      "Mathlib.RingTheory.Valuation.ValuationSubring",
+      "Mathlib.RingTheory.Valuation.ValuativeRel.Basic",
+      "Mathlib.Tactic",
+      "Mathlib.Tactic.AddGroup",
+      "Mathlib.Tactic.Algebra.AlgebraNF",
+      "Mathlib.Tactic.Algebra.Basic",
+      "Mathlib.Tactic.Algebra.Lemmas",
+      "Mathlib.Tactic.Assume",
+      "Mathlib.Tactic.BDSimp",
+      "Mathlib.Tactic.CancelDenoms",
+      "Mathlib.Tactic.Cases",
+      "Mathlib.Tactic.CategoryTheory.BicategoricalComp",
+      "Mathlib.Tactic.CategoryTheory.Bicategory.Basic",
+      "Mathlib.Tactic.CategoryTheory.Bicategory.Datatypes",
+      "Mathlib.Tactic.CategoryTheory.Bicategory.Normalize",
+      "Mathlib.Tactic.CategoryTheory.Bicategory.PureCoherence",
+      "Mathlib.Tactic.CategoryTheory.BicategoryCoherence",
+      "Mathlib.Tactic.CategoryTheory.CancelIso",
+      "Mathlib.Tactic.CategoryTheory.CategoryStar",
+      "Mathlib.Tactic.CategoryTheory.CheckCompositions",
+      "Mathlib.Tactic.CategoryTheory.Coherence",
+      "Mathlib.Tactic.CategoryTheory.Coherence.Basic",
+      "Mathlib.Tactic.CategoryTheory.Coherence.Datatypes",
+      "Mathlib.Tactic.CategoryTheory.Coherence.Normalize",
+      "Mathlib.Tactic.CategoryTheory.Coherence.PureCoherence",
+      "Mathlib.Tactic.CategoryTheory.Elementwise",
+      "Mathlib.Tactic.CategoryTheory.IsoReassoc",
+      "Mathlib.Tactic.CategoryTheory.Monoidal.Basic",
+      "Mathlib.Tactic.CategoryTheory.Monoidal.Datatypes",
+      "Mathlib.Tactic.CategoryTheory.Monoidal.Normalize",
+      "Mathlib.Tactic.CategoryTheory.Monoidal.PureCoherence",
+      "Mathlib.Tactic.CategoryTheory.MonoidalComp",
+      "Mathlib.Tactic.CategoryTheory.Reassoc",
+      "Mathlib.Tactic.CategoryTheory.Slice",
+      "Mathlib.Tactic.CategoryTheory.ToApp",
+      "Mathlib.Tactic.Change",
+      "Mathlib.Tactic.Clean",
+      "Mathlib.Tactic.ComputeAsymptotics.Lemmas",
+      "Mathlib.Tactic.ComputeAsymptotics.Multiseries.Basic",
+      "Mathlib.Tactic.ComputeAsymptotics.Multiseries.Basis",
+      "Mathlib.Tactic.ComputeAsymptotics.Multiseries.Corecursion",
+      "Mathlib.Tactic.ComputeAsymptotics.Multiseries.Defs",
+      "Mathlib.Tactic.ComputeAsymptotics.Multiseries.Majorized",
+      "Mathlib.Tactic.ComputeAsymptotics.Multiseries.Monomial.Basic",
+      "Mathlib.Tactic.ComputeAsymptotics.Multiseries.Monomial.Predicates",
+      "Mathlib.Tactic.ComputeAsymptotics.Multiseries.Trimming",
+      "Mathlib.Tactic.DeriveCountable",
+      "Mathlib.Tactic.DeriveEncodable",
+      "Mathlib.Tactic.DeriveTraversable",
+      "Mathlib.Tactic.Determinant.Bird.Cert",
+      "Mathlib.Tactic.Determinant.Bird.Meta",
+      "Mathlib.Tactic.DuplicateDecls",
+      "Mathlib.Tactic.ENatToNat",
+      "Mathlib.Tactic.Eval",
+      "Mathlib.Tactic.Explode",
+      "Mathlib.Tactic.Explode.Datatypes",
+      "Mathlib.Tactic.Explode.Pretty",
+      "Mathlib.Tactic.Ext",
+      "Mathlib.Tactic.FindSyntax",
+      "Mathlib.Tactic.Generalize",
+      "Mathlib.Tactic.Have",
+      "Mathlib.Tactic.ITauto",
+      "Mathlib.Tactic.Linarith.NNRealPreprocessor",
+      "Mathlib.Tactic.Linarith.Oracle.FourierMotzkin",
+      "Mathlib.Tactic.LinearCombinationPrime",
+      "Mathlib.Tactic.Linter.CommandRanges",
+      "Mathlib.Tactic.Linter.CommandStart",
+      "Mathlib.Tactic.Linter.DeprecatedModule",
+      "Mathlib.Tactic.Linter.FindDeprecations",
+      "Mathlib.Tactic.Linter.TextBased",
+      "Mathlib.Tactic.Linter.TextBased.UnicodeLinter",
+      "Mathlib.Tactic.Linter.ValidatePRTitle",
+      "Mathlib.Tactic.ModCases",
+      "Mathlib.Tactic.Monotonicity",
+      "Mathlib.Tactic.Monotonicity.Basic",
+      "Mathlib.Tactic.Monotonicity.Lemmas",
+      "Mathlib.Tactic.MoveAdd",
+      "Mathlib.Tactic.NormDet",
+      "Mathlib.Tactic.NormNum.Irrational",
+      "Mathlib.Tactic.NormNum.IsCoprime",
+      "Mathlib.Tactic.NormNum.IsSquare",
+      "Mathlib.Tactic.NormNum.LegendreSymbol",
+      "Mathlib.Tactic.NormNum.ModEq",
+      "Mathlib.Tactic.NormNum.NatFib",
+      "Mathlib.Tactic.NormNum.NatLog",
+      "Mathlib.Tactic.NormNum.NatSqrt",
+      "Mathlib.Tactic.NormNum.Ordinal",
+      "Mathlib.Tactic.NormNum.Parity",
+      "Mathlib.Tactic.NormNum.PowMod",
+      "Mathlib.Tactic.NormNum.Prime",
+      "Mathlib.Tactic.NormNum.RealSqrt",
+      "Mathlib.Tactic.PNatToNat",
+      "Mathlib.Tactic.Polynomial.Basic",
+      "Mathlib.Tactic.Polyrith",
+      "Mathlib.Tactic.ProdAssoc",
+      "Mathlib.Tactic.Recall",
+      "Mathlib.Tactic.ReduceModChar",
+      "Mathlib.Tactic.ReduceModChar.Ext",
+      "Mathlib.Tactic.Relation.Symm",
+      "Mathlib.Tactic.Replace",
+      "Mathlib.Tactic.RewriteSearch",
+      "Mathlib.Tactic.Ring.NamePolyVars",
+      "Mathlib.Tactic.Ring.NamePowerVars",
+      "Mathlib.Tactic.Sat.FromLRAT",
+      "Mathlib.Tactic.Simproc.Divisors",
+      "Mathlib.Tactic.Simproc.Factors",
+      "Mathlib.Tactic.Simproc.FinsetInterval",
+      "Mathlib.Tactic.Simproc.VecPerm",
+      "Mathlib.Tactic.StacksAttribute",
+      "Mathlib.Tactic.TypeCheck",
+      "Mathlib.Tactic.Widget.CommDiag",
+      "Mathlib.Tactic.Widget.GCongr",
+      "Mathlib.Tactic.Widget.StringDiagram",
+      "Mathlib.Tactic.WithoutCDot",
+      "Mathlib.Topology.Algebra.Group.ClosedSubgroup",
+      "Mathlib.Topology.Algebra.Nonarchimedean.Bases",
+      "Mathlib.Topology.Algebra.Nonarchimedean.Basic",
+      "Mathlib.Topology.Algebra.OpenSubgroup",
+      "Mathlib.Topology.Algebra.Polynomial",
+      "Mathlib.Topology.Algebra.UniformFilterBasis",
+      "Mathlib.Topology.Algebra.ValuativeRel.ValuativeTopology",
+      "Mathlib.Topology.Algebra.Valued.ValuationTopology",
+      "Mathlib.Topology.Algebra.Valued.ValuedField",
+      "Mathlib.Topology.Algebra.Valued.WithVal",
+      "Mathlib.Topology.Algebra.WithZeroTopology",
+      "Mathlib.Topology.Constructible",
+      "Mathlib.Topology.KrullDimension",
+      "Mathlib.Topology.LocalAtTarget",
+      "Mathlib.Topology.Maps.Proper.CompactlyGenerated",
+      "Mathlib.Topology.MetricSpace.Contracting",
+      "Mathlib.Topology.MetricSpace.UniformConvergence",
+      "Mathlib.Topology.Sets.OpenCover",
+      "Mathlib.Topology.Sober",
+      "Mathlib.Topology.Spectral.Basic",
+      "Mathlib.Topology.Spectral.Hom",
+      "Mathlib.Topology.Spectral.Prespectral",
+      "ProofWidgets.Component.HtmlDisplay",
+      "ProofWidgets.Component.PenroseDiagram",
+      "ProofWidgets.Presentation.Expr"
+    ],
+    "actual_setup_comparison": {
+      "snapshot": "BoxMeans setup read before the authorized Indices import replacement",
+      "baseline_actual_imports": 3437,
+      "predicted_actual_imports_after_Indices_replacement": 2793,
+      "removed_actual_imports": 644,
+      "baseline_olean_related_bytes": 2477559696,
+      "predicted_olean_related_bytes_after_Indices_replacement": 1914230248,
+      "removed_olean_related_bytes": 563329448
+    }
+  },
+  "mathlib_tactic_alone": {
+    "modules": 4368,
+    "mathlib_modules": 2726,
+    "tactic_modules": 360,
+    "setup_artifacts_olean_bytes": 762022984
+  },
+  "common_tactic_alone": {
+    "modules": 1758,
+    "mathlib_modules": 204,
+    "tactic_modules": 157,
+    "setup_artifacts_olean_bytes": 94762472
+  },
+  "unbuilt_narrowed_sources": [
+    {
+      "module": "ArtinPrimitiveRoots.A1.Field",
+      "file": "vendor/ArtinPrimitiveRoots/A1/Field.lean",
+      "baseline": {
+        "modules": 4914,
+        "mathlib_modules": 3271,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 855794136
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4757,
+        "mathlib_modules": 3123,
+        "tactic_modules": 254,
+        "setup_artifacts_olean_bytes": 794290288
+      },
+      "saved_modules": 157,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity"
+      ],
+      "used_tactic_tokens": [
+        "linarith",
+        "norm_num",
+        "positivity",
+        "field_simp",
+        "exact_mod_cast"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true
+    },
+    {
+      "module": "ArtinPrimitiveRoots.A1.Proofs.A1_GAUSS.FiniteField",
+      "file": "vendor/ArtinPrimitiveRoots/A1/Proofs/A1_GAUSS/FiniteField.lean",
+      "baseline": {
+        "modules": 4374,
+        "mathlib_modules": 2731,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 762022984
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4206,
+        "mathlib_modules": 2572,
+        "tactic_modules": 252,
+        "setup_artifacts_olean_bytes": 692300528
+      },
+      "saved_modules": 168,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Convert",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.LinearCombination",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "norm_num",
+        "field_simp",
+        "linear_combination",
+        "exact_mod_cast",
+        "convert"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true
+    },
+    {
+      "module": "ArtinPrimitiveRoots.A1.Proofs.A1_WEIL.NormCoset",
+      "file": "vendor/ArtinPrimitiveRoots/A1/Proofs/A1_WEIL/NormCoset.lean",
+      "baseline": {
+        "modules": 4369,
+        "mathlib_modules": 2726,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 762022984
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 2051,
+        "mathlib_modules": 485,
+        "tactic_modules": 186,
+        "setup_artifacts_olean_bytes": 164020000
+      },
+      "saved_modules": 2318,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "field_simp"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true
+    },
+    {
+      "module": "ArtinPrimitiveRoots.A1.Proofs.A1_WEIL.w_g.OddGaussSign",
+      "file": "vendor/ArtinPrimitiveRoots/A1/Proofs/A1_WEIL/w_g/OddGaussSign.lean",
+      "baseline": {
+        "modules": 5020,
+        "mathlib_modules": 3377,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 863920824
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4877,
+        "mathlib_modules": 3243,
+        "tactic_modules": 255,
+        "setup_artifacts_olean_bytes": 804632864
+      },
+      "saved_modules": 143,
+      "proposed_tactic_imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Convert",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "ring_nf",
+        "linarith",
+        "nlinarith",
+        "norm_num",
+        "positivity",
+        "field_simp",
+        "fun_prop",
+        "exact_mod_cast",
+        "push_cast",
+        "norm_cast",
+        "omega",
+        "convert"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true
+    },
+    {
+      "module": "ArtinPrimitiveRoots.A2.FSide",
+      "file": "vendor/ArtinPrimitiveRoots/A2/FSide.lean",
+      "baseline": {
+        "modules": 6753,
+        "mathlib_modules": 4144,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 864969280
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 6753,
+        "mathlib_modules": 4144,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 864969280
+      },
+      "saved_modules": 0,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Convert",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.SplitIfs"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "ring_nf",
+        "linarith",
+        "nlinarith",
+        "norm_num",
+        "positivity",
+        "field_simp",
+        "fun_prop",
+        "exact_mod_cast",
+        "push_cast",
+        "norm_cast",
+        "split_ifs",
+        "convert"
+      ]
+    },
+    {
+      "module": "ArtinPrimitiveRoots.A2.Proofs.A2-QS-MATRIX.Defs",
+      "file": "vendor/ArtinPrimitiveRoots/A2/Proofs/A2-QS-MATRIX/Defs.lean",
+      "baseline": {
+        "modules": 7481,
+        "mathlib_modules": 4276,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 877114328
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 7481,
+        "mathlib_modules": 4276,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 877114328
+      },
+      "saved_modules": 0,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common"
+      ],
+      "used_tactic_tokens": []
+    },
+    {
+      "module": "ArtinPrimitiveRoots.A2.Proofs.A2-QS-POISSON.P2.Contour",
+      "file": "vendor/ArtinPrimitiveRoots/A2/Proofs/A2-QS-POISSON/P2/Contour.lean",
+      "baseline": {
+        "modules": 4779,
+        "mathlib_modules": 3136,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 861262488
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4112,
+        "mathlib_modules": 2478,
+        "tactic_modules": 247,
+        "setup_artifacts_olean_bytes": 647882160
+      },
+      "saved_modules": 667,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.LinearCombination",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "linarith",
+        "field_simp",
+        "linear_combination",
+        "fun_prop",
+        "push_cast"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true
+    },
+    {
+      "module": "ArtinPrimitiveRoots.A2.Proofs.A2-QS-POISSON.P2.PL",
+      "file": "vendor/ArtinPrimitiveRoots/A2/Proofs/A2-QS-POISSON/P2/PL.lean",
+      "baseline": {
+        "modules": 4752,
+        "mathlib_modules": 3109,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 855999408
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4089,
+        "mathlib_modules": 2455,
+        "tactic_modules": 247,
+        "setup_artifacts_olean_bytes": 642790712
+      },
+      "saved_modules": 663,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.GCongr",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Push",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "linarith",
+        "nlinarith",
+        "positivity",
+        "field_simp",
+        "gcongr",
+        "fun_prop",
+        "push"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true
+    },
+    {
+      "module": "ArtinPrimitiveRoots.A2.Proofs.A2_ZERO_DETECT.Sobolev",
+      "file": "vendor/ArtinPrimitiveRoots/A2/Proofs/A2_ZERO_DETECT/Sobolev.lean",
+      "baseline": {
+        "modules": 4680,
+        "mathlib_modules": 3037,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 850609216
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4010,
+        "mathlib_modules": 2376,
+        "tactic_modules": 247,
+        "setup_artifacts_olean_bytes": 637068344
+      },
+      "saved_modules": 670,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.GCongr",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "linarith",
+        "nlinarith",
+        "positivity",
+        "field_simp",
+        "gcongr",
+        "fun_prop"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true
+    },
+    {
+      "module": "ArtinPrimitiveRoots.A2.QuadraticSieve",
+      "file": "vendor/ArtinPrimitiveRoots/A2/QuadraticSieve.lean",
+      "baseline": {
+        "modules": 12343,
+        "mathlib_modules": 8313,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 877114328
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 12343,
+        "mathlib_modules": 8313,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 877114328
+      },
+      "saved_modules": 0,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common"
+      ],
+      "used_tactic_tokens": []
+    },
+    {
+      "module": "ArtinPrimitiveRoots.Arith.DavenportHasse",
+      "file": "vendor/ArtinPrimitiveRoots/Arith/DavenportHasse.lean",
+      "baseline": {
+        "modules": 4797,
+        "mathlib_modules": 3152,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 855844296
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4653,
+        "mathlib_modules": 3017,
+        "tactic_modules": 256,
+        "setup_artifacts_olean_bytes": 796990624
+      },
+      "saved_modules": 144,
+      "proposed_tactic_imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "norm_num",
+        "field_simp",
+        "exact_mod_cast",
+        "omega"
+      ]
+    },
+    {
+      "module": "ArtinPrimitiveRoots.Arith.DavenportHasse.Polynomial",
+      "file": "vendor/ArtinPrimitiveRoots/Arith/DavenportHasse/Polynomial.lean",
+      "baseline": {
+        "modules": 4404,
+        "mathlib_modules": 2761,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 762073144
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4235,
+        "mathlib_modules": 2601,
+        "tactic_modules": 254,
+        "setup_artifacts_olean_bytes": 692878184
+      },
+      "saved_modules": 169,
+      "proposed_tactic_imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "omega"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true
+    },
+    {
+      "module": "ArtinPrimitiveRoots.Ext.TypeIIInputs",
+      "file": "vendor/ArtinPrimitiveRoots/Ext/TypeIIInputs.lean",
+      "baseline": {
+        "modules": 5320,
+        "mathlib_modules": 3608,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 877114328
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 5320,
+        "mathlib_modules": 3608,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 877114328
+      },
+      "saved_modules": 0,
+      "proposed_tactic_imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Convert",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.GCongr",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.LinearCombination",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.SplitIfs"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "ring_nf",
+        "linarith",
+        "nlinarith",
+        "norm_num",
+        "positivity",
+        "field_simp",
+        "gcongr",
+        "linear_combination",
+        "fun_prop",
+        "exact_mod_cast",
+        "push_cast",
+        "omega",
+        "split_ifs",
+        "convert"
+      ]
+    },
+    {
+      "module": "ArtinPrimitiveRoots.Hecke.Dict.FiniteAdeleIdeal",
+      "file": "vendor/ArtinPrimitiveRoots/Hecke/Dict/FiniteAdeleIdeal.lean",
+      "baseline": {
+        "modules": 4948,
+        "mathlib_modules": 3298,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 857048952
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4758,
+        "mathlib_modules": 3117,
+        "tactic_modules": 252,
+        "setup_artifacts_olean_bytes": 790963272
+      },
+      "saved_modules": 190,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common"
+      ],
+      "used_tactic_tokens": []
+    },
+    {
+      "module": "ArtinPrimitiveRoots.Hecke.Dict.WeakApproximation",
+      "file": "vendor/ArtinPrimitiveRoots/Hecke/Dict/WeakApproximation.lean",
+      "baseline": {
+        "modules": 4767,
+        "mathlib_modules": 3122,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 855794136
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4567,
+        "mathlib_modules": 2931,
+        "tactic_modules": 252,
+        "setup_artifacts_olean_bytes": 788439544
+      },
+      "saved_modules": 200,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Convert",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "used_tactic_tokens": [
+        "norm_num",
+        "convert"
+      ]
+    },
+    {
+      "module": "ArtinPrimitiveRoots.Hecke.Proofs.HK-DICT-IDELIC.LocalBridge",
+      "file": "vendor/ArtinPrimitiveRoots/Hecke/Proofs/HK-DICT-IDELIC/LocalBridge.lean",
+      "baseline": {
+        "modules": 6934,
+        "mathlib_modules": 4253,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 865540696
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 6934,
+        "mathlib_modules": 4253,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 865540696
+      },
+      "saved_modules": 0,
+      "proposed_tactic_imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "used_tactic_tokens": [
+        "norm_num",
+        "omega"
+      ]
+    },
+    {
+      "module": "ArtinPrimitiveRoots.Hecke.RayClassCopy",
+      "file": "vendor/ArtinPrimitiveRoots/Hecke/RayClassCopy.lean",
+      "baseline": {
+        "modules": 6479,
+        "mathlib_modules": 3893,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 863056488
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 6479,
+        "mathlib_modules": 3893,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 863056488
+      },
+      "saved_modules": 0,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common"
+      ],
+      "used_tactic_tokens": []
+    },
+    {
+      "module": "ArtinPrimitiveRoots.Hecke.Theta.DualLattice",
+      "file": "vendor/ArtinPrimitiveRoots/Hecke/Theta/DualLattice.lean",
+      "baseline": {
+        "modules": 4625,
+        "mathlib_modules": 2982,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 820572008
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 3969,
+        "mathlib_modules": 2335,
+        "tactic_modules": 245,
+        "setup_artifacts_olean_bytes": 611281968
+      },
+      "saved_modules": 656,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Module",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "used_tactic_tokens": [
+        "module",
+        "exact_mod_cast"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true,
+      "header_token_false_positive": "module"
+    },
+    {
+      "module": "ArtinPrimitiveRoots.Hecke.Theta.PoissonLattice",
+      "file": "vendor/ArtinPrimitiveRoots/Hecke/Theta/PoissonLattice.lean",
+      "baseline": {
+        "modules": 5028,
+        "mathlib_modules": 3383,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 863920824
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4502,
+        "mathlib_modules": 2866,
+        "tactic_modules": 248,
+        "setup_artifacts_olean_bytes": 685239024
+      },
+      "saved_modules": 526,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Module"
+      ],
+      "used_tactic_tokens": [
+        "module"
+      ],
+      "header_token_false_positive": "module"
+    },
+    {
+      "module": "ArtinPrimitiveRoots.Hecke.Theta.PoissonSummation",
+      "file": "vendor/ArtinPrimitiveRoots/Hecke/Theta/PoissonSummation.lean",
+      "baseline": {
+        "modules": 5017,
+        "mathlib_modules": 3374,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 863920824
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4488,
+        "mathlib_modules": 2854,
+        "tactic_modules": 248,
+        "setup_artifacts_olean_bytes": 684927184
+      },
+      "saved_modules": 529,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Measurability",
+        "Mathlib.Tactic.Module",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "ring_nf",
+        "linarith",
+        "measurability",
+        "module",
+        "exact_mod_cast",
+        "push_cast"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true,
+      "header_token_false_positive": "module"
+    },
+    {
+      "module": "ArtinPrimitiveRoots.Sieve.Density.B_DENSITY.BlockSieve",
+      "file": "vendor/ArtinPrimitiveRoots/Sieve/Density/B_DENSITY/BlockSieve.lean",
+      "baseline": {
+        "modules": 5232,
+        "mathlib_modules": 3572,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 865540696
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 5232,
+        "mathlib_modules": 3572,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 865540696
+      },
+      "saved_modules": 0,
+      "proposed_tactic_imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "linarith",
+        "nlinarith",
+        "norm_num",
+        "positivity",
+        "field_simp",
+        "exact_mod_cast",
+        "omega"
+      ]
+    },
+    {
+      "module": "ArtinPrimitiveRoots.Sieve.Density.B_DENSITY.Counting",
+      "file": "vendor/ArtinPrimitiveRoots/Sieve/Density/B_DENSITY/Counting.lean",
+      "baseline": {
+        "modules": 5220,
+        "mathlib_modules": 3572,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 865540696
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 5081,
+        "mathlib_modules": 3442,
+        "tactic_modules": 256,
+        "setup_artifacts_olean_bytes": 809549848
+      },
+      "saved_modules": 139,
+      "proposed_tactic_imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "linarith",
+        "nlinarith",
+        "norm_num",
+        "positivity",
+        "field_simp",
+        "exact_mod_cast",
+        "omega"
+      ]
+    },
+    {
+      "module": "ArtinPrimitiveRoots.Sieve.Density.B_DENSITY.Grid",
+      "file": "vendor/ArtinPrimitiveRoots/Sieve/Density/B_DENSITY/Grid.lean",
+      "baseline": {
+        "modules": 4709,
+        "mathlib_modules": 3065,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 854381808
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4042,
+        "mathlib_modules": 2407,
+        "tactic_modules": 247,
+        "setup_artifacts_olean_bytes": 641001480
+      },
+      "saved_modules": 667,
+      "proposed_tactic_imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.Bound",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "linarith",
+        "nlinarith",
+        "norm_num",
+        "positivity",
+        "field_simp",
+        "bound",
+        "exact_mod_cast",
+        "push_cast",
+        "omega"
+      ]
+    },
+    {
+      "module": "ArtinPrimitiveRoots.Sieve.RoughDensity",
+      "file": "vendor/ArtinPrimitiveRoots/Sieve/RoughDensity.lean",
+      "baseline": {
+        "modules": 5294,
+        "mathlib_modules": 3584,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 877114328
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 5294,
+        "mathlib_modules": 3584,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 877114328
+      },
+      "saved_modules": 0,
+      "proposed_tactic_imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "linarith",
+        "nlinarith",
+        "positivity",
+        "field_simp",
+        "exact_mod_cast",
+        "omega"
+      ]
+    },
+    {
+      "module": "ArtinPrimitiveRoots.Spec.Interface",
+      "file": "vendor/ArtinPrimitiveRoots/Spec/Interface.lean",
+      "baseline": {
+        "modules": 4765,
+        "mathlib_modules": 3122,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 855794136
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4305,
+        "mathlib_modules": 2671,
+        "tactic_modules": 247,
+        "setup_artifacts_olean_bytes": 687935376
+      },
+      "saved_modules": 460,
+      "proposed_tactic_imports": [
+        "Aesop",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "field_simp",
+        "fin_cases",
+        "aesop",
+        "exact_mod_cast"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true
+    },
+    {
+      "module": "ArtinPrimitiveRoots.Splitting.Proofs.S7-EXT-ARTIN.FractionalIdeals",
+      "file": "vendor/ArtinPrimitiveRoots/Splitting/Proofs/S7-EXT-ARTIN/FractionalIdeals.lean",
+      "baseline": {
+        "modules": 5775,
+        "mathlib_modules": 3745,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 862982416
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 5775,
+        "mathlib_modules": 3745,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 862982416
+      },
+      "saved_modules": 0,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common"
+      ],
+      "used_tactic_tokens": []
+    },
+    {
+      "module": "ArtinPrimitiveRoots.Splitting.Proofs.S7-EXT-ARTIN.Frobenius",
+      "file": "vendor/ArtinPrimitiveRoots/Splitting/Proofs/S7-EXT-ARTIN/Frobenius.lean",
+      "baseline": {
+        "modules": 5781,
+        "mathlib_modules": 3746,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 862982416
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 5781,
+        "mathlib_modules": 3746,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 862982416
+      },
+      "saved_modules": 0,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common"
+      ],
+      "used_tactic_tokens": []
+    },
+    {
+      "module": "ArtinPrimitiveRoots.Splitting.Proofs.S7-EXT-ARTIN.LocalUnits",
+      "file": "vendor/ArtinPrimitiveRoots/Splitting/Proofs/S7-EXT-ARTIN/LocalUnits.lean",
+      "baseline": {
+        "modules": 5763,
+        "mathlib_modules": 3745,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 862982416
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 5763,
+        "mathlib_modules": 3745,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 862982416
+      },
+      "saved_modules": 0,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common"
+      ],
+      "used_tactic_tokens": []
+    },
+    {
+      "module": "ArtinPrimitiveRoots.Splitting.Proofs.S7-EXT-ARTIN.RayClasses",
+      "file": "vendor/ArtinPrimitiveRoots/Splitting/Proofs/S7-EXT-ARTIN/RayClasses.lean",
+      "baseline": {
+        "modules": 5776,
+        "mathlib_modules": 3745,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 862982416
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 5776,
+        "mathlib_modules": 3745,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 862982416
+      },
+      "saved_modules": 0,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common"
+      ],
+      "used_tactic_tokens": []
+    },
+    {
+      "module": "ArtinPrimitiveRoots.Splitting.Proofs.S7-EXT-ARTIN.Unramified",
+      "file": "vendor/ArtinPrimitiveRoots/Splitting/Proofs/S7-EXT-ARTIN/Unramified.lean",
+      "baseline": {
+        "modules": 5778,
+        "mathlib_modules": 3745,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 862982416
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 5778,
+        "mathlib_modules": 3745,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 862982416
+      },
+      "saved_modules": 0,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common"
+      ],
+      "used_tactic_tokens": []
+    },
+    {
+      "module": "ArtinPrimitiveRoots.Splitting.Proofs.S7_EXT_GAMMA.Helpers",
+      "file": "vendor/ArtinPrimitiveRoots/Splitting/Proofs/S7_EXT_GAMMA/Helpers.lean",
+      "baseline": {
+        "modules": 4833,
+        "mathlib_modules": 3190,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 862926528
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4166,
+        "mathlib_modules": 2532,
+        "tactic_modules": 247,
+        "setup_artifacts_olean_bytes": 649546200
+      },
+      "saved_modules": 667,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.GCongr",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.LinearCombination",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "ring_nf",
+        "linarith",
+        "nlinarith",
+        "norm_num",
+        "positivity",
+        "field_simp",
+        "gcongr",
+        "linear_combination",
+        "exact_mod_cast",
+        "push_cast"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true
+    },
+    {
+      "module": "ArtinPrimitiveRoots.Theta.Proofs.TH_EIS_CONVERGE.CubeClasses",
+      "file": "vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_EIS_CONVERGE/CubeClasses.lean",
+      "baseline": {
+        "modules": 4581,
+        "mathlib_modules": 2938,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 762417672
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4050,
+        "mathlib_modules": 2416,
+        "tactic_modules": 242,
+        "setup_artifacts_olean_bytes": 608120960
+      },
+      "saved_modules": 531,
+      "proposed_tactic_imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.SplitIfs"
+      ],
+      "used_tactic_tokens": [
+        "norm_num",
+        "omega",
+        "split_ifs"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true
+    },
+    {
+      "module": "ArtinPrimitiveRoots.TypeII.Defs",
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/Defs.lean",
+      "baseline": {
+        "modules": 5295,
+        "mathlib_modules": 3584,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 877114328
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 5295,
+        "mathlib_modules": 3584,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 877114328
+      },
+      "saved_modules": 0,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common"
+      ],
+      "used_tactic_tokens": []
+    },
+    {
+      "module": "ArtinPrimitiveRoots.TypeII.Proofs.R_LOW.LowFrequency",
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/R_LOW/LowFrequency.lean",
+      "baseline": {
+        "modules": 5295,
+        "mathlib_modules": 3584,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 877114328
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 5295,
+        "mathlib_modules": 3584,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 877114328
+      },
+      "saved_modules": 0,
+      "proposed_tactic_imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.Abel",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.LinearCombination",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Push",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "abel",
+        "linarith",
+        "nlinarith",
+        "norm_num",
+        "positivity",
+        "field_simp",
+        "linear_combination",
+        "fun_prop",
+        "exact_mod_cast",
+        "push_cast",
+        "push_neg",
+        "omega"
+      ]
+    },
+    {
+      "module": "ArtinPrimitiveRoots.TypeII.Proofs.R_TYPEII.FamilyUniformization",
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/R_TYPEII/FamilyUniformization.lean",
+      "baseline": {
+        "modules": 4369,
+        "mathlib_modules": 2726,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 762022984
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 2268,
+        "mathlib_modules": 699,
+        "tactic_modules": 206,
+        "setup_artifacts_olean_bytes": 205175496
+      },
+      "saved_modules": 2101,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "linarith",
+        "norm_num",
+        "positivity"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true
+    },
+    {
+      "module": "ArtinPrimitiveRoots.TypeII.Proofs.R_TYPEII.FrequencyGrowth",
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/R_TYPEII/FrequencyGrowth.lean",
+      "baseline": {
+        "modules": 4369,
+        "mathlib_modules": 2726,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 762022984
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 3316,
+        "mathlib_modules": 1739,
+        "tactic_modules": 236,
+        "setup_artifacts_olean_bytes": 464093096
+      },
+      "saved_modules": 1053,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "linarith",
+        "norm_num"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true
+    },
+    {
+      "module": "ArtinPrimitiveRoots.TypeII.Proofs.pd4c.CutoffIntegral",
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd4c/CutoffIntegral.lean",
+      "baseline": {
+        "modules": 4557,
+        "mathlib_modules": 2914,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 807499552
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 3879,
+        "mathlib_modules": 2245,
+        "tactic_modules": 245,
+        "setup_artifacts_olean_bytes": 591531624
+      },
+      "saved_modules": 678,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true
+    },
+    {
+      "module": "ArtinPrimitiveRoots.TypeII.Proofs.pd4c.FiniteTensor",
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd4c/FiniteTensor.lean",
+      "baseline": {
+        "modules": 4369,
+        "mathlib_modules": 2726,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 762022984
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 2243,
+        "mathlib_modules": 674,
+        "tactic_modules": 183,
+        "setup_artifacts_olean_bytes": 200010064
+      },
+      "saved_modules": 2126,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true
+    },
+    {
+      "module": "ArtinPrimitiveRoots.TypeII.Proofs.pd4c.MatrixCutoff",
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd4c/MatrixCutoff.lean",
+      "baseline": {
+        "modules": 5324,
+        "mathlib_modules": 3608,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 877114328
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 5324,
+        "mathlib_modules": 3608,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 877114328
+      },
+      "saved_modules": 0,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FunProp"
+      ],
+      "used_tactic_tokens": [
+        "fun_prop"
+      ]
+    },
+    {
+      "module": "ArtinPrimitiveRoots.TypeII.Proofs.pd4c.MinorPacket",
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd4c/MinorPacket.lean",
+      "baseline": {
+        "modules": 4369,
+        "mathlib_modules": 2726,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 762022984
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 3312,
+        "mathlib_modules": 1735,
+        "tactic_modules": 234,
+        "setup_artifacts_olean_bytes": 463286784
+      },
+      "saved_modules": 1057,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "norm_num",
+        "field_simp"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true
+    },
+    {
+      "module": "ArtinPrimitiveRoots.TypeII.Proofs.pd4c.PacketBound",
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd4c/PacketBound.lean",
+      "baseline": {
+        "modules": 4369,
+        "mathlib_modules": 2726,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 762022984
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 2279,
+        "mathlib_modules": 703,
+        "tactic_modules": 210,
+        "setup_artifacts_olean_bytes": 207701336
+      },
+      "saved_modules": 2090,
+      "proposed_tactic_imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "nlinarith",
+        "norm_num",
+        "positivity",
+        "field_simp",
+        "exact_mod_cast",
+        "push_cast",
+        "omega"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true
+    },
+    {
+      "module": "ArtinPrimitiveRoots.TypeII.Proofs.pd6b.CoverVolume",
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd6b/CoverVolume.lean",
+      "baseline": {
+        "modules": 4557,
+        "mathlib_modules": 2914,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 807499552
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 3879,
+        "mathlib_modules": 2245,
+        "tactic_modules": 245,
+        "setup_artifacts_olean_bytes": 591531624
+      },
+      "saved_modules": 678,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "used_tactic_tokens": [
+        "exact_mod_cast"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true
+    },
+    {
+      "module": "ArtinPrimitiveRoots.TypeII.Proofs.pd6b.GroupedCounting",
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd6b/GroupedCounting.lean",
+      "baseline": {
+        "modules": 4369,
+        "mathlib_modules": 2726,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 762022984
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 2216,
+        "mathlib_modules": 647,
+        "tactic_modules": 193,
+        "setup_artifacts_olean_bytes": 197735216
+      },
+      "saved_modules": 2153,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Bound",
+        "Mathlib.Tactic.Common"
+      ],
+      "used_tactic_tokens": [
+        "bound"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true,
+      "manual_tactic_import_recommendation": [
+        "Mathlib.Tactic.Common"
+      ],
+      "variable_token_false_positive": "bound"
+    },
+    {
+      "module": "DedekindResidue.CompletedZeta.ClassTheta",
+      "file": "vendor/DedekindResidue/CompletedZeta/ClassTheta.lean",
+      "baseline": {
+        "modules": 5249,
+        "mathlib_modules": 3600,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 864196928
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 5046,
+        "mathlib_modules": 3406,
+        "tactic_modules": 253,
+        "setup_artifacts_olean_bytes": 792895248
+      },
+      "saved_modules": 203,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.LinearCombination",
+        "Mathlib.Tactic.Module",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "norm_num",
+        "positivity",
+        "field_simp",
+        "linear_combination",
+        "module",
+        "exact_mod_cast",
+        "push_cast"
+      ],
+      "header_token_false_positive": "module"
+    },
+    {
+      "module": "DedekindResidue.CompletedZeta.DualLattice",
+      "file": "vendor/DedekindResidue/CompletedZeta/DualLattice.lean",
+      "baseline": {
+        "modules": 4625,
+        "mathlib_modules": 2982,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 820572008
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 3969,
+        "mathlib_modules": 2335,
+        "tactic_modules": 245,
+        "setup_artifacts_olean_bytes": 611281968
+      },
+      "saved_modules": 656,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Module",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "used_tactic_tokens": [
+        "module",
+        "exact_mod_cast"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true,
+      "header_token_false_positive": "module"
+    },
+    {
+      "module": "DedekindResidue.CompletedZeta.Existence",
+      "file": "vendor/DedekindResidue/CompletedZeta/Existence.lean",
+      "baseline": {
+        "modules": 5289,
+        "mathlib_modules": 3633,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 864412360
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 5086,
+        "mathlib_modules": 3439,
+        "tactic_modules": 253,
+        "setup_artifacts_olean_bytes": 793110680
+      },
+      "saved_modules": 203,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.LinearCombination",
+        "Mathlib.Tactic.Module",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "ring_nf",
+        "linarith",
+        "nlinarith",
+        "norm_num",
+        "positivity",
+        "field_simp",
+        "linear_combination",
+        "fun_prop",
+        "module",
+        "exact_mod_cast",
+        "push_cast",
+        "norm_cast"
+      ],
+      "header_token_false_positive": "module"
+    },
+    {
+      "module": "DedekindResidue.CompletedZeta.FEPair",
+      "file": "vendor/DedekindResidue/CompletedZeta/FEPair.lean",
+      "baseline": {
+        "modules": 5252,
+        "mathlib_modules": 3601,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 864196928
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 5049,
+        "mathlib_modules": 3407,
+        "tactic_modules": 253,
+        "setup_artifacts_olean_bytes": 792895248
+      },
+      "saved_modules": 203,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Module",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "ring_nf",
+        "nlinarith",
+        "norm_num",
+        "positivity",
+        "field_simp",
+        "module",
+        "push_cast"
+      ],
+      "header_token_false_positive": "module"
+    },
+    {
+      "module": "DedekindResidue.CompletedZeta.FunctionalEquation",
+      "file": "vendor/DedekindResidue/CompletedZeta/FunctionalEquation.lean",
+      "baseline": {
+        "modules": 5040,
+        "mathlib_modules": 3396,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 864068680
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4831,
+        "mathlib_modules": 3196,
+        "tactic_modules": 252,
+        "setup_artifacts_olean_bytes": 792059152
+      },
+      "saved_modules": 209,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Module",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "used_tactic_tokens": [
+        "norm_num",
+        "module"
+      ],
+      "header_token_false_positive": "module"
+    },
+    {
+      "module": "DedekindResidue.CompletedZeta.HeckeTheta",
+      "file": "vendor/DedekindResidue/CompletedZeta/HeckeTheta.lean",
+      "baseline": {
+        "modules": 5248,
+        "mathlib_modules": 3600,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 864196928
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 5045,
+        "mathlib_modules": 3406,
+        "tactic_modules": 253,
+        "setup_artifacts_olean_bytes": 792895248
+      },
+      "saved_modules": 203,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Abel",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Module",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.SplitIfs"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "abel",
+        "linarith",
+        "norm_num",
+        "positivity",
+        "field_simp",
+        "fin_cases",
+        "module",
+        "exact_mod_cast",
+        "push_cast",
+        "norm_cast",
+        "split_ifs"
+      ],
+      "header_token_false_positive": "module"
+    },
+    {
+      "module": "DedekindResidue.CompletedZeta.IdealLattice",
+      "file": "vendor/DedekindResidue/CompletedZeta/IdealLattice.lean",
+      "baseline": {
+        "modules": 5243,
+        "mathlib_modules": 3596,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 864196928
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 5040,
+        "mathlib_modules": 3402,
+        "tactic_modules": 253,
+        "setup_artifacts_olean_bytes": 792895248
+      },
+      "saved_modules": 203,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.Module",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "ring_nf",
+        "norm_num",
+        "field_simp",
+        "fin_cases",
+        "module",
+        "exact_mod_cast",
+        "push_cast"
+      ],
+      "header_token_false_positive": "module"
+    },
+    {
+      "module": "DedekindResidue.CompletedZeta.MellinAgreement",
+      "file": "vendor/DedekindResidue/CompletedZeta/MellinAgreement.lean",
+      "baseline": {
+        "modules": 5275,
+        "mathlib_modules": 3623,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 864334504
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 5072,
+        "mathlib_modules": 3429,
+        "tactic_modules": 253,
+        "setup_artifacts_olean_bytes": 793032824
+      },
+      "saved_modules": 203,
+      "proposed_tactic_imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.Abel",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Module",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Push",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.SplitIfs"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "ring_nf",
+        "abel",
+        "linarith",
+        "nlinarith",
+        "norm_num",
+        "positivity",
+        "field_simp",
+        "fun_prop",
+        "module",
+        "exact_mod_cast",
+        "push_cast",
+        "norm_cast",
+        "push",
+        "omega",
+        "split_ifs"
+      ],
+      "header_token_false_positive": "module"
+    },
+    {
+      "module": "DedekindResidue.CompletedZeta.Normalisation",
+      "file": "vendor/DedekindResidue/CompletedZeta/Normalisation.lean",
+      "baseline": {
+        "modules": 4834,
+        "mathlib_modules": 3191,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 862718480
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4373,
+        "mathlib_modules": 2739,
+        "tactic_modules": 247,
+        "setup_artifacts_olean_bytes": 694800992
+      },
+      "saved_modules": 461,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Module"
+      ],
+      "used_tactic_tokens": [
+        "module"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true,
+      "header_token_false_positive": "module"
+    },
+    {
+      "module": "DedekindResidue.CompletedZeta.PoissonLattice",
+      "file": "vendor/DedekindResidue/CompletedZeta/PoissonLattice.lean",
+      "baseline": {
+        "modules": 5028,
+        "mathlib_modules": 3383,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 863920824
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4502,
+        "mathlib_modules": 2866,
+        "tactic_modules": 248,
+        "setup_artifacts_olean_bytes": 685239024
+      },
+      "saved_modules": 526,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Module"
+      ],
+      "used_tactic_tokens": [
+        "module"
+      ],
+      "header_token_false_positive": "module"
+    },
+    {
+      "module": "DedekindResidue.CompletedZeta.PoissonSummation",
+      "file": "vendor/DedekindResidue/CompletedZeta/PoissonSummation.lean",
+      "baseline": {
+        "modules": 5017,
+        "mathlib_modules": 3374,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 863920824
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4488,
+        "mathlib_modules": 2854,
+        "tactic_modules": 248,
+        "setup_artifacts_olean_bytes": 684927184
+      },
+      "saved_modules": 529,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Measurability",
+        "Mathlib.Tactic.Module",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "ring_nf",
+        "linarith",
+        "measurability",
+        "module",
+        "exact_mod_cast",
+        "push_cast"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true,
+      "header_token_false_positive": "module"
+    },
+    {
+      "module": "DedekindResidue.CompletedZeta.ThetaEstimates",
+      "file": "vendor/DedekindResidue/CompletedZeta/ThetaEstimates.lean",
+      "baseline": {
+        "modules": 5250,
+        "mathlib_modules": 3600,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 864196928
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 5047,
+        "mathlib_modules": 3406,
+        "tactic_modules": 253,
+        "setup_artifacts_olean_bytes": 792895248
+      },
+      "saved_modules": 203,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Bound",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Module",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Push",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.SplitIfs"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "linarith",
+        "nlinarith",
+        "norm_num",
+        "positivity",
+        "module",
+        "bound",
+        "exact_mod_cast",
+        "push",
+        "split_ifs"
+      ],
+      "header_token_false_positive": "module"
+    },
+    {
+      "module": "DedekindResidue.CompletedZeta.ThetaLattice",
+      "file": "vendor/DedekindResidue/CompletedZeta/ThetaLattice.lean",
+      "baseline": {
+        "modules": 5029,
+        "mathlib_modules": 3383,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 863920824
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4503,
+        "mathlib_modules": 2866,
+        "tactic_modules": 248,
+        "setup_artifacts_olean_bytes": 685239024
+      },
+      "saved_modules": 526,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Module",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "linarith",
+        "nlinarith",
+        "norm_num",
+        "positivity",
+        "field_simp",
+        "fun_prop",
+        "module",
+        "push_cast"
+      ],
+      "header_token_false_positive": "module"
+    },
+    {
+      "module": "OAI.NumberTheory.EgyptianFractions.GeometricCharacterBound",
+      "file": "vendor/OAI/NumberTheory/EgyptianFractions/GeometricCharacterBound.lean",
+      "baseline": {
+        "modules": 4776,
+        "mathlib_modules": 3133,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 856914032
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4623,
+        "mathlib_modules": 2989,
+        "tactic_modules": 254,
+        "setup_artifacts_olean_bytes": 795950008
+      },
+      "saved_modules": 153,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Convert",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "linarith",
+        "nlinarith",
+        "norm_num",
+        "positivity",
+        "field_simp",
+        "exact_mod_cast",
+        "push_cast",
+        "convert"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true
+    },
+    {
+      "module": "OAI.NumberTheory.EgyptianFractions.RationalPhaseSpacing",
+      "file": "vendor/OAI/NumberTheory/EgyptianFractions/RationalPhaseSpacing.lean",
+      "baseline": {
+        "modules": 4765,
+        "mathlib_modules": 3122,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 862295720
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4098,
+        "mathlib_modules": 2464,
+        "tactic_modules": 247,
+        "setup_artifacts_olean_bytes": 648915392
+      },
+      "saved_modules": 667,
+      "proposed_tactic_imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.LinearCombination",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.SplitIfs"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "linarith",
+        "nlinarith",
+        "positivity",
+        "field_simp",
+        "linear_combination",
+        "exact_mod_cast",
+        "push_cast",
+        "omega",
+        "split_ifs"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true
+    },
+    {
+      "module": "OAI.NumberTheory.EgyptianFractions.VaughanBilinear",
+      "file": "vendor/OAI/NumberTheory/EgyptianFractions/VaughanBilinear.lean",
+      "baseline": {
+        "modules": 4372,
+        "mathlib_modules": 2729,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 762022984
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 3253,
+        "mathlib_modules": 1676,
+        "tactic_modules": 234,
+        "setup_artifacts_olean_bytes": 452897528
+      },
+      "saved_modules": 1119,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.SplitIfs"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "nlinarith",
+        "norm_num",
+        "push_cast",
+        "split_ifs"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true
+    },
+    {
+      "module": "OAI.NumberTheory.Jacobsthal.Estimates.FactorDividesAbscissa",
+      "file": "vendor/OAI/NumberTheory/Jacobsthal/Estimates/FactorDividesAbscissa.lean",
+      "baseline": {
+        "modules": 4882,
+        "mathlib_modules": 3206,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 862607728
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4882,
+        "mathlib_modules": 3206,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 862607728
+      },
+      "saved_modules": 0,
+      "proposed_tactic_imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Convert",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.LinearCombination",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.SplitIfs"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "linarith",
+        "nlinarith",
+        "norm_num",
+        "positivity",
+        "linear_combination",
+        "exact_mod_cast",
+        "omega",
+        "split_ifs",
+        "convert"
+      ]
+    },
+    {
+      "module": "OAI.NumberTheory.Jacobsthal.Estimates.RegularImplicitArc",
+      "file": "vendor/OAI/NumberTheory/Jacobsthal/Estimates/RegularImplicitArc.lean",
+      "baseline": {
+        "modules": 4457,
+        "mathlib_modules": 2812,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 796830056
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 3560,
+        "mathlib_modules": 1924,
+        "tactic_modules": 239,
+        "setup_artifacts_olean_bytes": 532746104
+      },
+      "saved_modules": 897,
+      "proposed_tactic_imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.ByContra",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.GCongr",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.LinearCombination",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Push",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "linarith",
+        "nlinarith",
+        "norm_num",
+        "positivity",
+        "field_simp",
+        "gcongr",
+        "linear_combination",
+        "exact_mod_cast",
+        "push_cast",
+        "push",
+        "omega",
+        "by_contra!"
+      ]
+    },
+    {
+      "module": "OAI.NumberTheory.Jacobsthal.Partitions.FiberCardinalityConstancy",
+      "file": "vendor/OAI/NumberTheory/Jacobsthal/Partitions/FiberCardinalityConstancy.lean",
+      "baseline": {
+        "modules": 4491,
+        "mathlib_modules": 2841,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 802288408
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 3794,
+        "mathlib_modules": 2153,
+        "tactic_modules": 243,
+        "setup_artifacts_olean_bytes": 580778696
+      },
+      "saved_modules": 697,
+      "proposed_tactic_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Linarith"
+      ],
+      "used_tactic_tokens": [
+        "linarith"
+      ]
+    },
+    {
+      "module": "OAI.NumberTheory.Jacobsthal.Sieve.AlignedPrimeCongruence",
+      "file": "vendor/OAI/NumberTheory/Jacobsthal/Sieve/AlignedPrimeCongruence.lean",
+      "baseline": {
+        "modules": 4886,
+        "mathlib_modules": 3207,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 862980944
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4886,
+        "mathlib_modules": 3207,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 862980944
+      },
+      "saved_modules": 0,
+      "proposed_tactic_imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "used_tactic_tokens": [
+        "linarith",
+        "exact_mod_cast",
+        "omega"
+      ]
+    },
+    {
+      "module": "StrongPNT.Erdos970.PNT1_ComplexAnalysis",
+      "file": "vendor/StrongPNT/Erdos970/PNT1_ComplexAnalysis.lean",
+      "baseline": {
+        "modules": 4790,
+        "mathlib_modules": 3147,
+        "tactic_modules": 360,
+        "setup_artifacts_olean_bytes": 860873704
+      },
+      "after_all_narrowed_header_replacements": {
+        "modules": 4127,
+        "mathlib_modules": 2493,
+        "tactic_modules": 247,
+        "setup_artifacts_olean_bytes": 647665008
+      },
+      "saved_modules": 663,
+      "proposed_tactic_imports": [
+        "Aesop",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Convert",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Push",
+        "Mathlib.Tactic.Ring"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "ring_nf",
+        "linarith",
+        "nlinarith",
+        "norm_num",
+        "field_simp",
+        "aesop",
+        "norm_cast",
+        "push",
+        "convert"
+      ],
+      "direct_header_has_no_other_vendor_project_import": true
+    }
+  ],
+  "standalone_unbuilt_candidates": [
+    "vendor/ArtinPrimitiveRoots/A1/Proofs/A1_WEIL/NormCoset.lean",
+    "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd6b/GroupedCounting.lean",
+    "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd4c/FiniteTensor.lean",
+    "vendor/ArtinPrimitiveRoots/TypeII/Proofs/R_TYPEII/FamilyUniformization.lean",
+    "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd4c/PacketBound.lean",
+    "vendor/OAI/NumberTheory/EgyptianFractions/VaughanBilinear.lean",
+    "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd4c/MinorPacket.lean",
+    "vendor/ArtinPrimitiveRoots/TypeII/Proofs/R_TYPEII/FrequencyGrowth.lean",
+    "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd4c/CutoffIntegral.lean",
+    "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd6b/CoverVolume.lean",
+    "vendor/ArtinPrimitiveRoots/A2/Proofs/A2_ZERO_DETECT/Sobolev.lean",
+    "vendor/ArtinPrimitiveRoots/A2/Proofs/A2-QS-POISSON/P2/Contour.lean",
+    "vendor/ArtinPrimitiveRoots/Splitting/Proofs/S7_EXT_GAMMA/Helpers.lean",
+    "vendor/OAI/NumberTheory/EgyptianFractions/RationalPhaseSpacing.lean",
+    "vendor/ArtinPrimitiveRoots/A2/Proofs/A2-QS-POISSON/P2/PL.lean",
+    "vendor/StrongPNT/Erdos970/PNT1_ComplexAnalysis.lean",
+    "vendor/ArtinPrimitiveRoots/Hecke/Theta/DualLattice.lean",
+    "vendor/DedekindResidue/CompletedZeta/DualLattice.lean",
+    "vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_EIS_CONVERGE/CubeClasses.lean",
+    "vendor/ArtinPrimitiveRoots/Hecke/Theta/PoissonSummation.lean",
+    "vendor/DedekindResidue/CompletedZeta/PoissonSummation.lean",
+    "vendor/DedekindResidue/CompletedZeta/Normalisation.lean",
+    "vendor/ArtinPrimitiveRoots/Spec/Interface.lean",
+    "vendor/ArtinPrimitiveRoots/Arith/DavenportHasse/Polynomial.lean",
+    "vendor/ArtinPrimitiveRoots/A1/Proofs/A1_GAUSS/FiniteField.lean",
+    "vendor/ArtinPrimitiveRoots/A1/Field.lean",
+    "vendor/OAI/NumberTheory/EgyptianFractions/GeometricCharacterBound.lean",
+    "vendor/ArtinPrimitiveRoots/A1/Proofs/A1_WEIL/w_g/OddGaussSign.lean"
+  ],
+  "manual_review_notes": [
+    "Candidate tactic selection is read-only and conservative. The module header token is a false positive for Mathlib.Tactic.Module, and bound in GroupedCounting is a variable rather than a tactic. Do not apply these rows mechanically without checking the source.",
+    "Original ilean source references do not list all implicitly synthesized instances. For example, Complex norm instances may need explicit Mathlib.Analysis.Complex.Basic/Norm imports when a broad tactic import is removed."
+  ]
+}

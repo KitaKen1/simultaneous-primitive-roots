@@ -1,0 +1,25 @@
+{
+  "file": "vendor/ArtinPrimitiveRoots/A2/Proofs/A2_PROBE/HaarDilation.lean",
+  "before_sha256": "7ff50f74aba1b41ab2241d623dc316c954889756ca818df25c00ec8a30a6aef0",
+  "after_sha256": "67c30155614e45a4dbdb4c777541a3dcc55d2a88c642e1d9dfb73f92a378a5e7",
+  "edits": [
+    {
+      "before": "        exact @Measure.map_smul S.FS S.FS m0 (borel S.FS) NNReal _ _ C ν0 id\n          (@Measurable.aemeasurable S.FS S.FS m0 (borel S.FS) id ν0 hId)",
+      "after": "        exact @Measure.map_smul S.FS S.FS m0 (borel S.FS) NNReal _ _ C ν0 id"
+    },
+    {
+      "before": "    rw [hμ, Measure.map_smul q hδ.aemeasurable, hνmap, smul_comm]",
+      "after": "    rw [hμ, Measure.map_smul q ν δ, hνmap, smul_comm]"
+    }
+  ],
+  "schema_version": 1,
+  "original_sha256": "7ff50f74aba1b41ab2241d623dc316c954889756ca818df25c00ec8a30a6aef0",
+  "source_freeze_sha256": "67c30155614e45a4dbdb4c777541a3dcc55d2a88c642e1d9dfb73f92a378a5e7",
+  "inverse_recovers_all_before_bytes": true,
+  "inverse_recovers_all_original_bytes": true,
+  "original_source_matches_manifest": true,
+  "scope": "Exactly two existing measure-map/scalar proof invocations, preserving all explicit measurable-space dictionaries, maps, measures, scalars, declaration types/hypotheses/definitions/data and other proofs.",
+  "justification": "Stock Mathlib MeasureTheory/Measure/Map.lean:128 map_smul takes c, μ, f without the newer AEMeasurable proof. The first call retains fully explicit S.FS/m0/borel/NNReal dictionaries and C ν0 id, omitting only the extra proof; the second names the same q, ν and δ. The hId and hδ measurable facts remain for their original other uses.",
+  "status": "saved; next root whole-build integration pending; no direct Lean checks",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/A2/Proofs/A2_PROBE/HaarDilation.lean (before)\n+++ vendor/ArtinPrimitiveRoots/A2/Proofs/A2_PROBE/HaarDilation.lean (after)\n@@ -213,9 +213,8 @@\n       _ = C • ν := by\n         rw [hnatural]\n         exact @Measure.map_smul S.FS S.FS m0 (borel S.FS) NNReal _ _ C ν0 id\n-          (@Measurable.aemeasurable S.FS S.FS m0 (borel S.FS) id ν0 hId)\n   have hresult : Measure.map δ sd.measure = C • sd.measure := by\n-    rw [hμ, Measure.map_smul q hδ.aemeasurable, hνmap, smul_comm]\n+    rw [hμ, Measure.map_smul q ν δ, hνmap, smul_comm]\n   change Measure.map δ sd.measure = _\n   calc\n     _ = C • sd.measure := hresult\n"
+}

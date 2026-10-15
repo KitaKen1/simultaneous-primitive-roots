@@ -1,0 +1,33 @@
+{
+  "status": "static_only",
+  "sources": [
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_CONTINUE/Laurent.lean",
+      "before_sha256": "d1fdce60342463984174c9e0772c911d66238ebb9c3c3e01b1a31639f5623532",
+      "ported_sha256": "e1a24c5d35fdf47887a63355bbfacaaf52da1fe2a53ef75989068f65ca750033",
+      "edits": [
+        {
+          "before": "  have hlin : AnalyticOnNhd ℂ (fun s : ℂ => (s - (s₁ : ℂ))) B := by\n    fun_prop",
+          "after": "  have hlin : AnalyticOnNhd ℂ (fun s : ℂ => (s - (s₁ : ℂ))) B := by\n    intro s hs\n    exact analyticAt_id.sub analyticAt_const"
+        }
+      ],
+      "inverse_edit_recovers_before_bytes": true,
+      "formal_validation": "pending next wholebuild",
+      "scope": "local proof only; same polynomial, set, public headers, hypotheses and data"
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_CONTINUE/UnsmoothedIdentity.lean",
+      "before_sha256": "a8dcf51019f9d788e28197be5632e4c2b424a3dcf04fa5200d7ed554460c3a7f",
+      "ported_sha256": "b1b3080bec5ced006fb78b8ce261f543dc8dda266c7f057656de9efc89513cb9",
+      "edits": [
+        {
+          "before": "    have hδ : AnalyticOnNhd ℂ (fun t : ℂ => t - c) B := by fun_prop",
+          "after": "    have hδ : AnalyticOnNhd ℂ (fun t : ℂ => t - c) B := by\n      intro t ht\n      exact analyticAt_id.sub analyticAt_const"
+        }
+      ],
+      "inverse_edit_recovers_before_bytes": true,
+      "formal_validation": "pending next wholebuild",
+      "scope": "local proof only; same polynomial, set, public headers, hypotheses and data"
+    }
+  ]
+}

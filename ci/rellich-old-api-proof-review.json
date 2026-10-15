@@ -1,0 +1,63 @@
+{
+  "status": "static_only",
+  "sources": [
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_RELLICH/localized_chart_H1_bound.lean",
+      "before_sha256": "ed2e3f1e9f168abb14c25f2e9b002050ce93c837f7834839ab3d83607790fbf6",
+      "ported_sha256": "c7c2e9ce856c2132243d27df481b88510635006e988f5890e4614f543b03c658",
+      "edits": [
+        {
+          "before": "    exact Topology.IsOpenQuotientMap.secondCountableTopology\n      (QuotientGroup.isOpenQuotientMap_mk (N := SU2))",
+          "after": "    have hq := QuotientGroup.isOpenQuotientMap_mk (N := SU2)\n    exact hq.isQuotientMap.secondCountableTopology hq.isOpenMap"
+        },
+        {
+          "before": "      rw [Lp.norm_def, toReal_eLpNorm]",
+          "after": "      rw [Lp.norm_def, toReal_eLpNorm]\n      exact Lp.aestronglyMeasurable u"
+        }
+      ],
+      "inverse_edit_recovers_before_bytes": true,
+      "formal_validation": "pending next wholebuild",
+      "scope": "private proof terms only; public declarations, hypotheses, definitions and map data preserved"
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_RELLICH/orbitRestrictedMass_eq_indicator.lean",
+      "before_sha256": "d1a048874d7a1158815b61e9adb5f25cd9fa722a39f7f3f0e3633cc7bac300d8",
+      "ported_sha256": "38d8899b01a0d5dff367ec025de7d3e5da253a6a6b0ca9a91db9296ba62e277b",
+      "edits": [
+        {
+          "before": "    exact Topology.IsOpenQuotientMap.secondCountableTopology\n      (QuotientGroup.isOpenQuotientMap_mk (N := SU2))",
+          "after": "    have hq := QuotientGroup.isOpenQuotientMap_mk (N := SU2)\n    exact hq.isQuotientMap.secondCountableTopology hq.isOpenMap"
+        },
+        {
+          "before": "MemLp.indicator hS.nullMeasurableSet (Lp.memLp u)",
+          "after": "MemLp.indicator hS (Lp.memLp u)"
+        },
+        {
+          "before": "eLpNorm_indicator_le (u : X F → ℂ) hS.nullMeasurableSet",
+          "after": "eLpNorm_indicator_le (u : X F → ℂ)"
+        }
+      ],
+      "inverse_edit_recovers_before_bytes": true,
+      "formal_validation": "pending next wholebuild",
+      "scope": "private proof terms only; public declarations, hypotheses, definitions and map data preserved"
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_RELLICH/quotient_to_chart_finite_overlap.lean",
+      "before_sha256": "35f380cbda1d205aacd9ae56191895269211f403cf2115918066ab815a56bf4f",
+      "ported_sha256": "b3d79c3f301548449c694397c77f8358fe0595e5ba12811e4431bf09cef99a32",
+      "edits": [
+        {
+          "before": "    exact Topology.IsOpenQuotientMap.secondCountableTopology\n      (QuotientGroup.isOpenQuotientMap_mk (N := SU2))",
+          "after": "    have hq := QuotientGroup.isOpenQuotientMap_mk (N := SU2)\n    exact hq.isQuotientMap.secondCountableTopology hq.isOpenMap"
+        },
+        {
+          "before": "(eLpNorm_norm (u : X F → GradientField F) (Lp.aestronglyMeasurable u))",
+          "after": "(eLpNorm_norm (u : X F → GradientField F))"
+        }
+      ],
+      "inverse_edit_recovers_before_bytes": true,
+      "formal_validation": "pending next wholebuild",
+      "scope": "private proof terms only; public declarations, hypotheses, definitions and map data preserved"
+    }
+  ]
+}

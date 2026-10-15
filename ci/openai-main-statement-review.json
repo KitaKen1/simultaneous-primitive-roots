@@ -1,0 +1,121 @@
+{
+  "verified_at_utc": "2026-10-15T08:40:57.031050+00:00",
+  "scope": "Add the complete conditional OpenAI main statement with four defined analytic inputs, alongside the existing stronger variant and square obstruction. Short docstrings; detailed source correspondence in FClikelean/README.md and the human HTML.",
+  "lean_version": "4.33.1",
+  "lean_commit": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+  "source": {
+    "title": "Simultaneous primitive roots: a conditional lower bound for prime bases",
+    "date": "2026-10-04",
+    "commit": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+    "pdf_sha256": "0f36acf08bd34758b209b05f11193c27df9da38173058c8f96731972d27e3716",
+    "theorem": "1.1",
+    "input_pages": {
+      "3.1": [
+        3
+      ],
+      "4.1": [
+        7,
+        8
+      ],
+      "5.1": [
+        12,
+        13
+      ],
+      "5.2": [
+        13
+      ]
+    },
+    "supporting_definitions_pages": [
+      6,
+      7
+    ]
+  },
+  "statement_order": [
+    "SimultaneousPrimitiveRootsChallenge.openai_main",
+    "SimultaneousPrimitiveRootsChallenge.positive_lower_density",
+    "SimultaneousPrimitiveRootsChallenge.square_condition_necessary"
+  ],
+  "input_definitions": {
+    "3.1": "OpenAIPrimitiveRoots.input31",
+    "4.1": "OpenAIPrimitiveRoots.input41",
+    "5.1": "OpenAIPrimitiveRoots.input51",
+    "5.2": "OpenAIPrimitiveRoots.input52"
+  },
+  "formalization_choices": [
+    "Finite-order Hecke characters represented by ray class characters. Continuation existence is required. Nonprincipal characters include regularity and nonvanishing at s=1; only the principal pole is excluded. Classical equivalence to the idele formulation and harmless imprimitive Euler factors has not been newly proved in Lean.",
+    "Input 4.1(i) uses a family of coefficients with common cancellation constants and thresholds. K is selected after the fixed family and before the band exponents. Both parts of Input 4.1 are present; the rough difference in (4.11) uses the density of (4.7).",
+    "Finite sieve objects are indexed by natural numbers. Squarefree products of designated primes are indexed by subsets; the empty subset includes the remainder at 1. Multiplicative g on squarefree products and R are defined from prime values and the actual weight.",
+    "Rough density is the explicit sum of the integrals in (4.7); input52 states both assertions in (5.3)."
+  ],
+  "validation": {
+    "build": {
+      "command": "lake build Challenge Solution FClikelean.SimultaneousPrimitiveRoots",
+      "working_directory": "lean",
+      "exit_code": 0,
+      "lake_jobs": 12715,
+      "log": "ci/results/openai-main-statement-build.log",
+      "expected_statement_placeholders": {
+        "Challenge": 2,
+        "FClikelean.SimultaneousPrimitiveRoots": 3
+      }
+    },
+    "input_checks": {
+      "command": "lake env lean ../ci/openai-input-definition-checks.lean",
+      "working_directory": "lean",
+      "exit_code": 0,
+      "log": "ci/results/openai-input-definition-checks.log",
+      "checks": [
+        "Nonprincipal Hecke characters require nonvanishing at s=1",
+        "Empty designated sieve set still includes the absolute remainder at 1",
+        "All four input definitions depend only on propext, Classical.choice and Quot.sound"
+      ]
+    },
+    "source_audit": {
+      "passed": true,
+      "lean_files": 4464,
+      "source_sha256": "5c4ece81c20e7aa34ea65651d8e4eac2814e91ce61b7ecb382c12a6d727e0296",
+      "intentional_statement_placeholders": 2,
+      "fclikelean": {
+        "lean_files": 6,
+        "source_sha256": "98565d37c46eb3dac04a33ab48920213842f98dfc465dc87cf9f2fd1bde0a83b",
+        "intentional_statement_placeholders": 3,
+        "input_definition_placeholders": 0
+      },
+      "port_record": {
+        "passed": true,
+        "changed_existing_files": 1251,
+        "new_proof_backports": 22
+      }
+    },
+    "html_theorem_blocks_match_actual_lean_source": true,
+    "html_desktop_medium_mobile_passed": true,
+    "main_statement_compiles": true,
+    "four_input_definitions_have_no_placeholders": true,
+    "four_inputs_proved_in_this_update": false,
+    "main_proof_or_variant_to_main_bridge_added": false,
+    "full_comparator_rerun": false,
+    "comparator_targets_unchanged": true,
+    "proof_source_digest_unchanged_since_previous_documentation_update": true,
+    "private_or_public_ci_run": false
+  },
+  "files_sha256": {
+    "FClikelean/OpenAIInputs/Density.lean": "b83d772cfd6e86708d9aa03f6b5b4212e3f6b3464f6bb9bc9c2a43edc6637223",
+    "FClikelean/OpenAIInputs/Hecke.lean": "264b2019ec1d3c47bd1550a0409c2fb9cbc1a644d906870e640a1b436a5d1440",
+    "FClikelean/OpenAIInputs/Sieve.lean": "cbea18b5fc1a783885eb9d3b6b18f60ba32262972fb8db5dd8f0584bf6ef41d4",
+    "FClikelean/OpenAIInputs/TypeII.lean": "579d4eb2fbe5c8c7560bac8cbc8ebe9f71c2b49b84ebeaba902c4425ba3f3b2a",
+    "FClikelean/OpenAIInputs.lean": "a3803cab5d0b423ff4b76c62846b97eee64b919b8c88c5a18b3775fb601d27a0",
+    "FClikelean/SimultaneousPrimitiveRoots.lean": "81404eaa24ba797a5ac7502eb59340e5156df9f7deff64e6d563368eae6a233d",
+    "lean/lakefile.toml": "3be95fbd8e47609460c0238e4cf03a5bc87c5a04a7e4f8f55c614b3ada5f3976",
+    "scripts/check_sources.py": "aeb76026b7cd9edf8fb6722490a690648289a385700fc68c5a7668de2c885313",
+    ".github/workflows/lean.yml": "5a8efd0680cf1c1cced2d149b883d842588b16cd8f52fb8409175fec1048bc5f",
+    "ci/openai-input-definition-checks.lean": "daab47b1ede77fa073acd38d7fabe25adf7650b638e237345e69f80834541865"
+  },
+  "html_sha256": {
+    "FClikelean.html": "395dd68314e3daa0704817419b6a195df8a467f3c7254fd80985296e6dbaf38d",
+    "mainvariantsCorrespondence.html": "f710f3f5c508e37357454fd994c52e41ee4f5868c239a403b13da2c197910243",
+    "backgorund.html": "fdc279efc72c59e1c1a5b9b21a0ee16a96aa6ef6e5eed1000985a93437223e58"
+  },
+  "review_status": "Compiler and source checks passed. User review of the paper-to-Lean correspondence remains pending; classical re-expression bridges are described explicitly in the statement guide.",
+  "superseded_by": "fclike-single-file-review.json",
+  "superseded_reason": "Current FC statement is one Mathlib-only file; the former split input modules and OpenAIPrimitiveRoots namespace have been removed."
+}

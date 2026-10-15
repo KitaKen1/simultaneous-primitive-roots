@@ -1,0 +1,9 @@
+{
+  "actual_diagnostic": {"file": "vendor/ClassFieldTheory/GlobalClassFieldTheory/IdealClassFieldTheory/RationalFiniteNormTransfer/MembershipTypes.lean", "log": "lean/.lake/port-round-036.log", "line": 105, "error": "SMul E U typeclass timeout"},
+  "verified_fix": {"term": "letI : SMul E U := (inferInstance : Module E U).toSMul", "prefix_log": "/private/tmp/spr-norm-membership-prefix4331.log", "exit_code": 0, "artifacts_generated": false},
+  "proactive_consistency": {"file": "vendor/ClassFieldTheory/GlobalClassFieldTheory/IdealClassFieldTheory/RationalFiniteNormTransfer/ZeroTransport.lean", "line": 402, "basis": "Exact same E/U alias, local Algebra/Module, relative finite-dimensional and scalar-tower provider chain. No diagnostic yet.", "validation": "Awaiting root whole build"},
+  "scope": "rg over vendor/ClassFieldTheory found four exact Module E U / IsScalarTower ℚ E U chains in three files; MembershipTypes and ZeroTransport adjusted.",
+  "public_scope": "One existing action explicitly selected; public headers/hypotheses and all providers unchanged.",
+  "sha256": {"MembershipTypes.lean": "54474493c9dd64cf8236f3107ca9e999bc0c303e2a9b917b0f8d88666b8ec400", "ZeroTransport.lean": "c3a2090645fc3aa718a6ed484220e2fd33adfa846bde070d5bcfbf4bcf0075a7"},
+  "static_unmodified": {"file": "vendor/ClassFieldTheory/GlobalClassFieldTheory/IdealClassFieldTheory/PrincipalIdealTransfer.lean", "tower_lines": [165, 494], "status": "Same alias/action chains found; first occurs in public statement, so neither was edited without an actual diagnostic or further scope instruction."}
+}

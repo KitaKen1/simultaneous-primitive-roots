@@ -1,0 +1,19 @@
+{
+  "file": "vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_FAMILY_FIELDS/theta_compact_fourier_majorant.lean",
+  "before_sha256": "113d7070df9dce64625f376966219479b8c257f8b70d582bffbe426e61a358fb",
+  "after_sha256": "c59032126ab10acad52e9e2ad0d12c9a0d668dbb0d4c9d613752d3c39876cb24",
+  "old_proof_lines": "    convert hs using 1\n    funext ν\n    dsimp only [M, Function.comp_apply]\n    rw [dif_pos ν.2]\n    rfl",
+  "new_proof_lines": "    convert hs using 1 <;>\n      first\n      | rfl\n      | (funext ν; dsimp only [M, Function.comp_apply]; rw [dif_pos ν.2]; rfl)",
+  "schema_version": 1,
+  "line": 61,
+  "original_sha256": "113d7070df9dce64625f376966219479b8c257f8b70d582bffbe426e61a358fb",
+  "source_freeze_sha256": "c59032126ab10acad52e9e2ad0d12c9a0d668dbb0d4c9d613752d3c39876cb24",
+  "original_source_matches_manifest": true,
+  "inverse_recovers_all_before_bytes": true,
+  "inverse_recovers_all_original_bytes": true,
+  "all_public_private_headers_byte_identical": true,
+  "scope": "One local hsDual proof body only; original hs, weights, summability conclusion, all functions, public theorem header/hypotheses and definition/data values unchanged.",
+  "justification": "Actual093 convert generates Real.instAddCommMonoid = CommRing-derived AddCommMonoid in addition to the original mathematical function equality. rfl handles this definitional class-record equality first; the original funext ν, dsimp only [M, Function.comp_apply], rw [dif_pos ν.2], rfl proof is retained as fallback for the same remaining mathematical goal.",
+  "status": "source frozen; static original/proof/capture audit; root next whole-source integration pending; no direct Lean checks",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_FAMILY_FIELDS/theta_compact_fourier_majorant.lean (original)\n+++ vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_FAMILY_FIELDS/theta_compact_fourier_majorant.lean (ported)\n@@ -58,11 +58,10 @@\n     · exact le_rfl\n   have hsDual : Summable (fun ν : thetaDualUnits 𝔞 => M ν.1) := by\n     have hs := ((theta_lattice_weight_summable n).comp_injective κ.injective).mul_left C\n-    convert hs using 1\n-    funext ν\n-    dsimp only [M, Function.comp_apply]\n-    rw [dif_pos ν.2]\n-    rfl\n+    convert hs using 1 <;>\n+      first\n+      | rfl\n+      | (funext ν; dsimp only [M, Function.comp_apply]; rw [dif_pos ν.2]; rfl)\n   have hinj : Function.Injective (fun ν : thetaDualUnits 𝔞 => ν.1) :=\n     Subtype.val_injective\n   have hsM : Summable M := by\n"
+}

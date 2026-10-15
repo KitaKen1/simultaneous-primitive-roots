@@ -1,0 +1,13 @@
+{
+  "challenge_module": "ControlChallenge",
+  "solution_module": "ControlExtraAxiom",
+  "theorem_names": [
+    "control_test"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}

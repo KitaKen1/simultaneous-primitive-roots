@@ -1,0 +1,22 @@
+{
+  "file": "vendor/ArtinPrimitiveRoots/A2/Proofs/A2-BRIDGES/ANALYSIS.lean",
+  "before_sha256": "468e7823eb303fd9f76e933ac2e74e237fb37b31ca8111fa80cd1801e1de0293",
+  "after_sha256": "65d491e29314b415b12a78414e018c4ad5cd83ee28de3e9f1f2959486dc04b6a",
+  "old_proof_lines": "    convert (bridgeFS_measurable_div_const (u : S.FS)).comp\n      (comap_measurable (Units.val : S.FSˣ → S.FS)) using 1\n    funext y\n    simp",
+  "new_proof_lines": "    convert (bridgeFS_measurable_div_const (u : S.FS)).comp\n      (comap_measurable (Units.val : S.FSˣ → S.FS)) using 1 <;>\n      first | rfl | (funext y; simp)",
+  "schema_version": 1,
+  "line": 230,
+  "original_sha256": "d5cf2dcb98059ee110de0cbb7afb031cd2134647bf4174f8bca353b3f8c5439c",
+  "source_freeze_sha256": "65d491e29314b415b12a78414e018c4ad5cd83ee28de3e9f1f2959486dc04b6a",
+  "original_source_matches_manifest": true,
+  "inverse_recovers_all_before_bytes": true,
+  "inverse_full_port_edits_recovers_all_original_bytes": true,
+  "public_private_declaration_header_count": 40,
+  "all_public_private_headers_byte_identical": true,
+  "prior_port_changes": "Three previously audited apply Finset.prod_le_prod₀ → prod_le_prod proof-name substitutions; reversing them plus the new convert block restores the complete original bytes.",
+  "scope": "This wave changes one hmap convert proof only. All declaration types/hypotheses, original composition/comap maps, measurable spaces, functions/sets and all definitions/data unchanged.",
+  "justification": "Stock Units.instMeasurableSpace (MeasureTheory/Group/Arithmetic.lean:668) is definitionally MeasurableSpace.comap Units.val of the original base measurable space, matching the actual094 additional record equality. rfl discharges this first on each convert-generated goal; the original funext y; simp proof is retained for the same mathematical function equality. The previous three product monotonicity name substitutions use the unchanged signatures and original arguments.",
+  "status": "source frozen; static original/proof/capture audit; root next integration pending; no direct Lean checks",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/A2/Proofs/A2-BRIDGES/ANALYSIS.lean (before)\n+++ vendor/ArtinPrimitiveRoots/A2/Proofs/A2-BRIDGES/ANALYSIS.lean (after)\n@@ -229,9 +229,8 @@\n     exact bridgeUnits_sixthPower_range_eq_preimage\n   have hmap : Measurable (fun y : S.FSˣ => ((y / u : S.FSˣ) : S.FS)) := by\n     convert (bridgeFS_measurable_div_const (u : S.FS)).comp\n-      (comap_measurable (Units.val : S.FSˣ → S.FS)) using 1\n-    funext y\n-    simp\n+      (comap_measurable (Units.val : S.FSˣ → S.FS)) using 1 <;>\n+      first | rfl | (funext y; simp)\n   rw [hH]\n   exact bridgeFS_sixthPower_range_closed.measurableSet.preimage hmap\n \n",
+  "full_original_diff": "--- vendor/ArtinPrimitiveRoots/A2/Proofs/A2-BRIDGES/ANALYSIS.lean (original)\n+++ vendor/ArtinPrimitiveRoots/A2/Proofs/A2-BRIDGES/ANALYSIS.lean (ported)\n@@ -229,9 +229,8 @@\n     exact bridgeUnits_sixthPower_range_eq_preimage\n   have hmap : Measurable (fun y : S.FSˣ => ((y / u : S.FSˣ) : S.FS)) := by\n     convert (bridgeFS_measurable_div_const (u : S.FS)).comp\n-      (comap_measurable (Units.val : S.FSˣ → S.FS)) using 1\n-    funext y\n-    simp\n+      (comap_measurable (Units.val : S.FSˣ → S.FS)) using 1 <;>\n+      first | rfl | (funext y; simp)\n   rw [hH]\n   exact bridgeFS_sixthPower_range_closed.measurableSet.preimage hmap\n \n@@ -418,7 +417,7 @@\n   have harch_le :\n       (∏ w : InfinitePlace F, bridgeComplexMajorant δ (((a : S.FS) * y).2 w)) ≤\n         ∏ w : InfinitePlace F, Cw w * bridgeComplexMajorant δ (y.2 w) := by\n-    apply Finset.prod_le_prod₀\n+    apply Finset.prod_le_prod\n     · intro w hw\n       exact bridgeComplexMajorant_nonneg δ (((a : S.FS) * y).2 w)\n     · intro w hw\n@@ -757,7 +756,7 @@\n       calc\n         (∏ v : S.Sf, ‖ff ℓ v (y.1 v)‖) ≤\n             ∏ v : S.Sf, Clv ℓ v * bridgeFinMajorant v.1 δ (N v) (y.1 v) := by\n-          apply Finset.prod_le_prod₀ (s := Finset.univ)\n+          apply Finset.prod_le_prod (s := Finset.univ)\n           · intro v hv\n             exact norm_nonneg _\n           · intro v hv\n@@ -774,7 +773,7 @@\n       calc\n         (∏ w : InfinitePlace F, ‖fc ℓ w (y.2 w)‖) ≤\n             ∏ w : InfinitePlace F, Carch ℓ w * bridgeComplexMajorant δ (y.2 w) := by\n-          apply Finset.prod_le_prod₀ (s := Finset.univ)\n+          apply Finset.prod_le_prod (s := Finset.univ)\n           · intro w hw\n             exact norm_nonneg _\n           · intro w hw\n"
+}

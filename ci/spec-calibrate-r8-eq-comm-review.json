@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "file": "vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_CALIBRATE/R8.lean",
+  "sites": [
+    35,
+    90
+  ],
+  "before_sha256": "30470412518e7ad7f8ce7d83f2418e8fdac6bf2bd002465f15331e312688013b",
+  "original_sha256": "30470412518e7ad7f8ce7d83f2418e8fdac6bf2bd002465f15331e312688013b",
+  "after_sha256": "23ae48ca6cd8fedc0c1c985ec4462f1e25f8de8d60565f6cff9b095927793efd",
+  "source_freeze_sha256": "23ae48ca6cd8fedc0c1c985ec4462f1e25f8de8d60565f6cff9b095927793efd",
+  "inverse_restores_all_before_bytes": true,
+  "inverse_recovers_all_original_bytes": true,
+  "edits": [
+    {
+      "old_proof_lines": "  congr 1\n  ext x\n  simp\n",
+      "new_proof_lines": "  congr 1\n  ext x\n  simp [eq_comm]\n"
+    },
+    {
+      "old_proof_lines": "  apply congrArg (Submodule.span (𝓞 F))\n  ext x\n  simp\n",
+      "new_proof_lines": "  apply congrArg (Submodule.span (𝓞 F))\n  ext x\n  simp [eq_comm]\n"
+    }
+  ],
+  "scope": "Only the two existing private bottom-row fractional-ideal proofs add eq_comm to terminal simp; all public/private declaration headers, hypotheses, field/map/ideal definitions and other proofs are byte-identical to original.",
+  "justification": "Actual074 goals differ only by orientation of the two equalities inside a disjunction. Equality symmetry eq_comm proves the same membership iff; it adds no premise and changes no set/ideal. This is the same proved normalization repair used in Spec/Reduction.",
+  "status": "saved; root next full-build integration pending; no direct Lean checks or limits changed",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_CALIBRATE/R8.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_CALIBRATE/R8.lean (after)\n@@ -38,7 +38,7 @@\n     IsLocalization.coeSubmodule_span, h₀, h₁]\n   congr 1\n   ext x\n-  simp\n+  simp [eq_comm]\n \n private lemma r8_bottomRowIdeal_right_le (g : SL(2,F)) (γ : SL(2,𝓞 F)) :\n     bottomRowFractionalIdeal F (g * toSLF F γ) ≤ bottomRowFractionalIdeal F g := by\n@@ -107,7 +107,7 @@\n     hrow₀, hrow₁, Submodule.span_mul_span]\n   apply congrArg (Submodule.span (𝓞 F))\n   ext x\n-  simp\n+  simp [eq_comm]\n \n private lemma r8_exists_matrix_with_bottomRow (a b : F) (h : a ≠ 0 ∨ b ≠ 0) :\n     ∃ g : SL(2,F), g 1 0 = a ∧ g 1 1 = b := by\n"
+}

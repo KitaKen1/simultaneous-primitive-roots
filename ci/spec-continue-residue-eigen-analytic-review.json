@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "file": "vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_CONTINUE/ResidueEigen.lean",
+  "sites": [
+    65,
+    113
+  ],
+  "original_sha256": "00b70b1aebead097fd5e4a16be576a94bce1fdbe64fc9a332cb1af5fc3d9dc4b",
+  "before_sha256": "00b70b1aebead097fd5e4a16be576a94bce1fdbe64fc9a332cb1af5fc3d9dc4b",
+  "after_sha256": "4278abe934a406e58cc11ccaa50cdf9dceda1625e27aa87ac2143ebbca083dbc",
+  "source_freeze_sha256": "4278abe934a406e58cc11ccaa50cdf9dceda1625e27aa87ac2143ebbca083dbc",
+  "inverse_recovers_all_original_bytes": true,
+  "edits": [
+    {
+      "before": "  have hEigenScalar : AnalyticOnNhd ℂ (fun s : ℂ => 1 - 4 * s ^ 2) S := by fun_prop\n",
+      "after": "  have hEigenScalar : AnalyticOnNhd ℂ (fun s : ℂ => 1 - 4 * s ^ 2) S := by\n    intro s hs\n    change AnalyticAt ℂ (fun s : ℂ => 1 - 4 * s ^ 2) s\n    exact (analyticAt_const (v := (1 : ℂ))).sub\n      ((analyticAt_const (v := (4 : ℂ))).mul (analyticAt_id.pow 2))\n"
+    },
+    {
+      "before": "  have hEigenScalarBall : AnalyticOnNhd ℂ (fun s : ℂ => 1 - 4 * s ^ 2) B := by fun_prop\n",
+      "after": "  have hEigenScalarBall : AnalyticOnNhd ℂ (fun s : ℂ => 1 - 4 * s ^ 2) B := by\n    intro s hs\n    change AnalyticAt ℂ (fun s : ℂ => 1 - 4 * s ^ 2) s\n    exact (analyticAt_const (v := (1 : ℂ))).sub\n      ((analyticAt_const (v := (4 : ℂ))).mul (analyticAt_id.pow 2))\n"
+    }
+  ],
+  "scope": "Only hEigenScalar and hEigenScalarBall proof terms; same polynomial 1-4*s^2 and exact sets S/B, all public/private headers/hypotheses/formula/data/other proofs byte-identical to original.",
+  "justification": "Unfold AnalyticOnNhd pointwise by intro s hs. Existing stock analyticAt_const, analyticAt_id, AnalyticAt.pow/mul/sub prove the identical polynomial at every point, hence on the same neighborhoods, without a new premise.",
+  "primary_sources": [
+    "Mathlib/Analysis/Analytic/Constructions.lean:54,187,670",
+    "Mathlib/Analysis/Analytic/Linear.lean:156"
+  ],
+  "status": "saved; next whole-build integration pending; no direct Lean checks",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_CONTINUE/ResidueEigen.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_CONTINUE/ResidueEigen.lean (after)\n@@ -62,7 +62,11 @@\n     y ^ 2 * (Φ1 s pp + Φ2 s pp + Φ3 s pp) - (1 - 4 * s ^ 2) * Φ0 s pp\n   have hy : AnalyticOnNhd ℂ (fun _ : ℂ => y) S := analyticOnNhd_const\n   have hy2 : AnalyticOnNhd ℂ (fun _ : ℂ => y ^ 2) S := analyticOnNhd_const\n-  have hEigenScalar : AnalyticOnNhd ℂ (fun s : ℂ => 1 - 4 * s ^ 2) S := by fun_prop\n+  have hEigenScalar : AnalyticOnNhd ℂ (fun s : ℂ => 1 - 4 * s ^ 2) S := by\n+    intro s hs\n+    change AnalyticAt ℂ (fun s : ℂ => 1 - 4 * s ^ 2) s\n+    exact (analyticAt_const (v := (1 : ℂ))).sub\n+      ((analyticAt_const (v := (4 : ℂ))).mul (analyticAt_id.pow 2))\n   have hD : AnalyticOnNhd ℂ D S :=\n     ((hy.mul (T.comp_analyticOnNhd hΦy)).sub\n       (hy2.mul (((T.comp_analyticOnNhd hΦ1).add\n@@ -110,7 +114,11 @@\n     y ^ 2 * (Ψ1 s pp + Ψ2 s pp + Ψ3 s pp) - (1 - 4 * s ^ 2) * Ψ0 s pp\n   have hyB : AnalyticOnNhd ℂ (fun _ : ℂ => y) B := analyticOnNhd_const\n   have hy2B : AnalyticOnNhd ℂ (fun _ : ℂ => y ^ 2) B := analyticOnNhd_const\n-  have hEigenScalarBall : AnalyticOnNhd ℂ (fun s : ℂ => 1 - 4 * s ^ 2) B := by fun_prop\n+  have hEigenScalarBall : AnalyticOnNhd ℂ (fun s : ℂ => 1 - 4 * s ^ 2) B := by\n+    intro s hs\n+    change AnalyticAt ℂ (fun s : ℂ => 1 - 4 * s ^ 2) s\n+    exact (analyticAt_const (v := (1 : ℂ))).sub\n+      ((analyticAt_const (v := (4 : ℂ))).mul (analyticAt_id.pow 2))\n   have hP : AnalyticOnNhd ℂ P B :=\n     ((hyB.mul (T.comp_analyticOnNhd hΨy)).sub\n       (hy2B.mul (((T.comp_analyticOnNhd hΨ1).add\n"
+}

@@ -1,0 +1,19 @@
+{
+  "status": "static_only",
+  "sources": [
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_CUSP/ResidueLinearCombination.lean",
+      "before_sha256": "12dff2d515cb0137a804e190e519fc60946162d879085d46f388e8f4b237add7",
+      "ported_sha256": "2e5ab9689d4e994640f374b22d7e94be429764e3a10b72816879a0bf4227487c",
+      "edits": [
+        {
+          "before": "(f := u) (x := p) hu.contDiffAt (by norm_num : 2 ≤ (∞ : ℕ∞ω))",
+          "after": "(f := u) (x := p) hu.contDiffAt (ENat.natCast_le_of_coe_top_le_withTop le_rfl 2)"
+        }
+      ],
+      "inverse_edit_recovers_before_bytes": true,
+      "formal_validation": "pending next wholebuild",
+      "scope": "single smooth-order premise proof; original types, hypotheses, functions and derivative order2 preserved"
+    }
+  ]
+}

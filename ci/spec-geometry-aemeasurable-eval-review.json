@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "file": "vendor/ArtinPrimitiveRoots/Spec/Geometry.lean",
+  "line": 1166,
+  "before_sha256": "acdf8063a70eb8292c21a4de46002a53112276192ba649cd08a0c8468969b347",
+  "after_sha256": "e35a8e97bfceca058623fd1400bae17f0fd65c9691061d762fc310dd3ca5840f",
+  "old_line": "      apply AEMeasurable.of_eval\n",
+  "new_line": "      apply aemeasurable_pi_lambda (ptX F)\n",
+  "inverse_restores_all_bytes": true,
+  "scope": "Only the hptX proof applies the old pi-lambda lemma with the same ptX F function made explicit; original coordinatewise aemeasurability proof unchanged. Public/private declaration types, assumptions, and data definitions unchanged.",
+  "primary_source": "Mathlib/MeasureTheory/Measure/MeasureSpaceDef.lean:491 stock aemeasurable_pi_lambda has explicit f, versus later AEMeasurable.of_eval at 492 with implicit f; both use aemeasurable_pi_iff.mpr hf and the same Countable index assumption.",
+  "status": "saved; whole067 integration validation pending; no direct Lean checks",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/Spec/Geometry.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Spec/Geometry.lean (after)\n@@ -1163,7 +1163,7 @@\n   · intro f hf\n     have hptX : AEMeasurable (ptX F)\n         (Measure.pi (fun _ : InfinitePlace F => positiveCoordMeasure)) := by\n-      apply AEMeasurable.of_eval\n+      apply aemeasurable_pi_lambda (ptX F)\n       intro w\n       change AEMeasurable (fun p : Coord F => factorChart (p w)) _\n       exact factorChart_aemeasurable.comp_quasiMeasurePreserving\n"
+}

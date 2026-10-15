@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "file": "vendor/ArtinPrimitiveRoots/A2/Reflection/Missing.lean",
+  "owner": "port_analysis",
+  "source_edit_mechanism": "exact-context apply_patch only; four assigned hunks; no whole-file write",
+  "edits": [
+    {
+      "before": "    rw [rf_local_positive_alpha_chi_sum D S A v (primeGen R v) χ hχval hχorder 1]\n    norm_num",
+      "after": "    rw [rf_local_positive_alpha_chi_sum D S A v (primeGen R v) χ hχval hχorder 1]\n    norm_num [show (1 : Fin 6) ≠ 4 by decide]",
+      "reported_lines": [
+        7702
+      ]
+    },
+    {
+      "before": "    have hpowAssoc : (Associates.mk v.asIdeal) ^ 2 ≤ Associates.mk I.1 := by\n      rw [Associates.prime_pow_dvd_iff_le hI0 v.associates_irreducible]\n      exact hge\n    have hpow' : Associates.mk (v.asIdeal ^ 2) ≤ Associates.mk I.1 := by\n      simpa only [Associates.mk_pow] using hpowAssoc",
+      "after": "    have hpowAssoc :\n        @LE.le (Associates (Ideal (𝓞 F))) Associates.instPreorder.toLE\n          ((Associates.mk v.asIdeal) ^ 2) (Associates.mk I.1) :=\n      (Associates.prime_pow_dvd_iff_le hI0 v.associates_irreducible).2 hge\n    have hpow' :\n        @LE.le (Associates (Ideal (𝓞 F))) Associates.instPreorder.toLE\n          (Associates.mk (v.asIdeal ^ 2)) (Associates.mk I.1) := by\n      simpa only [Associates.mk_pow] using hpowAssoc",
+      "reported_lines": [
+        11443,
+        11447
+      ]
+    },
+    {
+      "before": "      rw [hscale hpos.le, hzero hpos (by norm_num : (0 : Fin 6) ≠ 4), zero_mul]",
+      "after": "      rw [hscale hpos.le, hzero hpos (by decide : (0 : Fin 6) ≠ 4), zero_mul]",
+      "reported_lines": [
+        15847
+      ]
+    },
+    {
+      "before": "    have h := hFinite.mul_of_nonneg hZeta hCouterNonneg hPowerNonneg\n    simpa [Base, DU] using h",
+      "after": "    have h := hFinite.mul_of_nonneg hZeta hCouterNonneg hPowerNonneg\n    exact h",
+      "reported_lines": [
+        20082
+      ]
+    }
+  ],
+  "all_current_fragments_exist_once": true,
+  "combined_frozen_sha256": "0100b7df25bcab769ae8560e5a621ad3477dcb95a649c13a3dd7675aee3dc319",
+  "public_headers_hyp_data_unchanged": true,
+  "justification": "Fin6 literal inequality proofs use kernel decide (not native_decide); the two intermediate Associates comparisons name the canonical Associates preorder le=Dvd, which is exactly the original count/power/divisibility theorem order, avoiding the incompatible generic Quotient LE instance; same square-divides contradiction remains. The same Summable.mul_of_nonneg result is definitionally the target, so exact avoids unnecessary broad simp and Nonempty search without adding nonemptiness.",
+  "validation": "Source frozen after all three editors finished; no direct or heavy Lean check; root097 integration pending."
+}

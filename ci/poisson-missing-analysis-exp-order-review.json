@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "file": "vendor/ArtinPrimitiveRoots/A2/Poisson/Missing.lean",
+  "owner": "port_analysis",
+  "edits": [
+    {
+      "before": "  have hvalgLt : HeightOneSpectrum.valuation F v (g : F) < 1 := by\n    rw [hvalg]\n    simp",
+      "after": "  have hvalgLt : HeightOneSpectrum.valuation F v (g : F) < 1 := by\n    rw [hvalg]\n    change WithZero.exp (-1 : ℤ) < WithZero.exp (0 : ℤ)\n    exact (WithZero.exp_lt_exp (a := (-1 : ℤ)) (b := (0 : ℤ))).mpr (by norm_num)"
+    },
+    {
+      "before": "  have hpValLt : HeightOneSpectrum.valuation F v (p : F) < 1 := by\n    rw [hpVal]\n    simp\n  have hpValLe : HeightOneSpectrum.valuation F v (p : F) ≤ 1 := hpValLt.le\n  have hvalPowLe (n : ℕ) : HeightOneSpectrum.valuation F v ((p : F) ^ n) ≤ 1 := by",
+      "after": "  have hpValLt : HeightOneSpectrum.valuation F v (p : F) < 1 := by\n    rw [hpVal]\n    change WithZero.exp (-1 : ℤ) < WithZero.exp (0 : ℤ)\n    exact (WithZero.exp_lt_exp (a := (-1 : ℤ)) (b := (0 : ℤ))).mpr (by norm_num)\n  have hpValLe : HeightOneSpectrum.valuation F v (p : F) ≤ 1 := hpValLt.le\n  have hvalPowLe (n : ℕ) : HeightOneSpectrum.valuation F v ((p : F) ^ n) ≤ 1 := by"
+    },
+    {
+      "before": "          have hpLtLocal : HeightOneSpectrum.valuation F v (p : F) < 1 := by\n            rw [hpValLocal]\n            simp",
+      "after": "          have hpLtLocal : HeightOneSpectrum.valuation F v (p : F) < 1 := by\n            rw [hpValLocal]\n            change WithZero.exp (-1 : ℤ) < WithZero.exp (0 : ℤ)\n            exact (WithZero.exp_lt_exp (a := (-1 : ℤ)) (b := (0 : ℤ))).mpr (by norm_num)"
+    },
+    {
+      "before": "  have hpValLt : HeightOneSpectrum.valuation F v (p : F) < 1 := by\n    rw [hpVal]\n    simp\n  have hpValLe : HeightOneSpectrum.valuation F v (p : F) ≤ 1 := hpValLt.le\n  have hvalPowLe (m : ℕ) : HeightOneSpectrum.valuation F v ((p : F) ^ m) ≤ 1 := by",
+      "after": "  have hpValLt : HeightOneSpectrum.valuation F v (p : F) < 1 := by\n    rw [hpVal]\n    change WithZero.exp (-1 : ℤ) < WithZero.exp (0 : ℤ)\n    exact (WithZero.exp_lt_exp (a := (-1 : ℤ)) (b := (0 : ℤ))).mpr (by norm_num)\n  have hpValLe : HeightOneSpectrum.valuation F v (p : F) ≤ 1 := hpValLt.le\n  have hvalPowLe (m : ℕ) : HeightOneSpectrum.valuation F v ((p : F) ^ m) ≤ 1 := by"
+    }
+  ],
+  "mechanism": "Only exact-context apply_patch; no full-source write",
+  "each_fragment_exists_once": true,
+  "scope": "Only four assigned valuation exp(-1)<1 proof blocks; same original valuations/generators/hypotheses/data and public/private headers. Typed exp0 and exp_lt_exp transfer the same inequality to integer -1<0, as passed LocalSectors.",
+  "validation": "No direct Lean checks; owner edits done, combined final SHA/audit deferred until all three owners finish."
+}

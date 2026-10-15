@@ -1,0 +1,35 @@
+{
+  "file": "vendor/ArtinPrimitiveRoots/A2/Proofs/A2_WEIGHTS/Complex.lean",
+  "before_sha256": "149b39924d68a8154570c68a446a688a3029fd74cb115d7113b4a5b6f0288cf0",
+  "after_sha256": "5bbc675363ddf59f8470033983b6d2cc10bb0bdca68fbfda1d7c122ebdb0eff5",
+  "edits": [
+    {
+      "before": "private theorem reCoeff_temperate :\n    (fun z : ℂ => (z.re : ℂ)).HasTemperateGrowth := by\n  fun_prop",
+      "after": "private theorem reCoeff_temperate :\n    (fun z : ℂ => (z.re : ℂ)).HasTemperateGrowth := by\n  exact (Complex.ofRealCLM.comp Complex.reCLM).hasTemperateGrowth"
+    },
+    {
+      "before": "private theorem imCoeff_temperate :\n    (fun z : ℂ => (z.im : ℂ)).HasTemperateGrowth := by\n  fun_prop",
+      "after": "private theorem imCoeff_temperate :\n    (fun z : ℂ => (z.im : ℂ)).HasTemperateGrowth := by\n  exact (Complex.ofRealCLM.comp Complex.imCLM).hasTemperateGrowth"
+    },
+    {
+      "before": "    convert (hasDerivAt_id t).div_const 2 using 1 <;> simp",
+      "after": "    convert (hasDerivAt_id t).div_const 2 using 1 <;> first | rfl | simp"
+    },
+    {
+      "before": "    convert (Real.hasDerivAt_exp (t / 2)).comp t hdiv using 1\n    · funext u\n      simp only [Function.comp_apply]\n    · ring",
+      "after": "    convert (Real.hasDerivAt_exp (t / 2)).comp t hdiv using 1 <;>\n      first\n      | rfl\n      | (funext u; simp only [Function.comp_apply])\n      | ring"
+    }
+  ],
+  "schema_version": 1,
+  "original_sha256": "149b39924d68a8154570c68a446a688a3029fd74cb115d7113b4a5b6f0288cf0",
+  "source_freeze_sha256": "5bbc675363ddf59f8470033983b6d2cc10bb0bdca68fbfda1d7c122ebdb0eff5",
+  "original_source_matches_manifest": true,
+  "inverse_recovers_all_before_bytes": true,
+  "inverse_recovers_all_original_bytes": true,
+  "all_public_private_headers_byte_identical": true,
+  "public_private_declaration_header_count": 17,
+  "scope": "Four private proof blocks only; all public/private declaration headers, functions, formulas, smoothness assumptions, SchwartzMap definition values/data and imports unchanged. No new Compat module/provider/import or limit.",
+  "justification": "Stock ContinuousLinearMap.hasTemperateGrowth (TemperateGrowth.lean:293) applies directly to (Complex.ofRealCLM.comp Complex.reCLM/imCLM), which are definitionally the original z↦(z.re/im:ℂ) functions (Complex.Basic reCLM/imCLM/ofRealCLM_apply are rfl). Existing TemperatePhase only covers sin/cos/exp(xI), so no backport is required. Original HasDerivAt.div_const and exp-chain terms remain identical; rfl first discharges additional stock Real class-record equalities and exact original simp/funext/simp-only/ring mathematical proofs remain as fallbacks.",
+  "status": "source frozen; static original/proof/capture audit; root next complete-source integration pending; no direct Lean checks",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/A2/Proofs/A2_WEIGHTS/Complex.lean (original)\n+++ vendor/ArtinPrimitiveRoots/A2/Proofs/A2_WEIGHTS/Complex.lean (ported)\n@@ -11,11 +11,11 @@\n \n private theorem reCoeff_temperate :\n     (fun z : ℂ => (z.re : ℂ)).HasTemperateGrowth := by\n-  fun_prop\n+  exact (Complex.ofRealCLM.comp Complex.reCLM).hasTemperateGrowth\n \n private theorem imCoeff_temperate :\n     (fun z : ℂ => (z.im : ℂ)).HasTemperateGrowth := by\n-  fun_prop\n+  exact (Complex.ofRealCLM.comp Complex.imCLM).hasTemperateGrowth\n \n private def eulerSchwartz (f : SchwartzMap ℂ ℂ) : SchwartzMap ℂ ℂ :=\n   (1 / 2 : ℂ) •\n@@ -51,13 +51,14 @@\n     HasDerivAt (fun u : ℝ => (Real.exp (u / 2) : ℂ))\n       ((Real.exp (t / 2) / 2 : ℝ) : ℂ) t := by\n   have hdiv : HasDerivAt (fun u : ℝ => u / 2) (1 / 2) t := by\n-    convert (hasDerivAt_id t).div_const 2 using 1 <;> simp\n+    convert (hasDerivAt_id t).div_const 2 using 1 <;> first | rfl | simp\n   have hexp : HasDerivAt (fun u : ℝ => Real.exp (u / 2))\n       (Real.exp (t / 2) / 2) t := by\n-    convert (Real.hasDerivAt_exp (t / 2)).comp t hdiv using 1\n-    · funext u\n-      simp only [Function.comp_apply]\n-    · ring\n+    convert (Real.hasDerivAt_exp (t / 2)).comp t hdiv using 1 <;>\n+      first\n+      | rfl\n+      | (funext u; simp only [Function.comp_apply])\n+      | ring\n   exact hexp.ofReal_comp\n \n private theorem euler_chain (f : SchwartzMap ℂ ℂ) (z : ℂ) (t : ℝ) :\n"
+}

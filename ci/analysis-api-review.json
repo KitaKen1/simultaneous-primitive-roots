@@ -1,0 +1,886 @@
+{
+  "target_toolchain": "leanprover/lean4:v4.33.1",
+  "target_mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "api_candidates": [
+    {
+      "file": "SimultaneousPrimitiveRoots/ComplexJacquetGaussian.lean",
+      "reference_name": "MeasureTheory.IntegrableOn.ofReal",
+      "resolution": "Retained: IntegrableOn is definitionally Integrable on a restricted measure; old MeasureTheory.Integrable.ofReal provides dot elaboration.",
+      "target_source": "Mathlib/MeasureTheory/Function/L1Space/Integrable.lean:1107"
+    },
+    {
+      "files": [
+        "SimultaneousPrimitiveRoots/ComplexNormKernelHaar.lean",
+        "SimultaneousPrimitiveRoots/ComplexPlaceHaar.lean"
+      ],
+      "reference_name": "MeasureTheory.Measure.IsHaarMeasure.toIsFiniteMeasureOnCompacts",
+      "resolution": "Retained: generated superclass projection from old IsHaarMeasure extends IsFiniteMeasureOnCompacts.",
+      "target_source": "Mathlib/MeasureTheory/Group/Measure.lean:779"
+    },
+    {
+      "file": "SimultaneousPrimitiveRoots/EndpointJacquetBounds.lean",
+      "reference_name": "MeasureTheory.convolution_symm",
+      "resolution": "Replaced by old convolution_flip and commutativity of the multiplication continuous bilinear map.",
+      "target_source": "Mathlib/Analysis/Convolution.lean:642"
+    },
+    {
+      "file": "SimultaneousPrimitiveRoots/Hecke/GaussianMainTerm.lean",
+      "reference_name": "MeasureTheory.IntegrableOn.re",
+      "resolution": "Retained: current target .olean newer than source, full build has already checked this usage."
+    },
+    {
+      "file": "SimultaneousPrimitiveRoots/Hecke/PoissonTorus.lean",
+      "reference_names": [
+        "Filter.EventuallyEqSet.symm",
+        "Filter.EventuallyEqSet.trans"
+      ],
+      "resolution": "Retained: current target .olean newer than source, full build has already checked these usages."
+    }
+  ],
+  "targeted_api_fixture": {
+    "file": ".lake/analysis-api-candidates-check.lean",
+    "log": ".lake/analysis-api-candidates-check.log",
+    "status": "Completed with exit 1: Haar superclass projection and IntegrableOn h.ofReal accepted; specialized convolution_flip rewrite requires volume.IsNegInvariant, absent from reduced fixture imports. Full source validation remains in whole Lake build.",
+    "exit_code": 1
+  },
+  "additional_convert_fixes": [
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/MeanSquare/ReflectedDyadicSeries.lean",
+      "line": 394
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/PrincipalDensity.lean",
+      "line": 131
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/PrimeGaps/PrincipalGrowth.lean",
+      "line": 172
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/EgyptianFractions/GeometricCharacterBound.lean",
+      "line": 88
+    }
+  ],
+  "convert_fix_method": "Close definitionally equal goals with rfl before the original field_simp (and ring where applicable), preserving the numerical proof fallback.",
+  "additional_imports": [
+    {
+      "file": "SimultaneousPrimitiveRoots/MultiplicativeMellinConvolution.lean",
+      "import": "Mathlib.MeasureTheory.Measure.Haar.Unique",
+      "purpose": "Supply old generated IsAddHaarMeasure.isNegInvariant_of_regular/innerRegular used by h.comp_neg, integral_neg_eq_self and downstream convolution_flip."
+    }
+  ],
+  "additional_convert_fixes_with_function_ext": [
+    {
+      "file": "vendor/StrongPNT/Erdos970/PNT2_LogDerivative.lean",
+      "sites": 1,
+      "before_sha256": "04bd63602dafdd66beaea060e63260ea078f461cd1bc00867972e3ae778bdc26",
+      "after_sha256": "fc1ec916399524145347b94429f6b640c104bdd7a0b289fd66a23b9d7b3bf80c",
+      "method": "Run rfl and the original ext/ring fallback across every convert goal, including old inferred-instance equalities."
+    },
+    {
+      "file": "vendor/StrongPNT/Erdos970/PNT4_ZeroFreeRegion.lean",
+      "sites": 3,
+      "before_sha256": "797b891fd4914bf95343c239452b78e1143df0c49f41a51c77beadc32ef7b8e4",
+      "after_sha256": "92b2b8b73345a44219e9fa1ddcf7e56cd977ee05d18ab4d97f61670ba79471cc",
+      "method": "Run rfl and the original ext/ring fallback across every convert goal, including old inferred-instance equalities."
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/A2/Proofs/A2-QS-POISSON/P0.lean",
+      "sites": 2,
+      "before_sha256": "3d84fba2d1fb35064d4bb108a84b099d490c9a5fb0615e592b32e3982916e10c",
+      "after_sha256": "0ec57c876191ca50fb9a5161bcdbaf563f727d47c5f2b46fe93c3d5a16f540b1",
+      "method": "Run rfl and the original ext/ring fallback across every convert goal, including old inferred-instance equalities."
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/A2/Proofs/A2_PROBE/FourierCoefficients.lean",
+      "sites": 1,
+      "before_sha256": "e210f5fa8efa7ee5d8d85de37d4db3edfb80d6503c4aa182822663f599365b00",
+      "after_sha256": "04dda7b9a5d05b02f1f0ebe5f32ef7416f553ceeee949459dd196e3d6e988225",
+      "method": "Run rfl and the original ext/ring fallback across every convert goal, including old inferred-instance equalities."
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/A2/Proofs/A2_EULER/Parts/e_f/ProductGrowth.lean",
+      "sites": 1,
+      "before_sha256": "87cebe15851e97a0e3afe2cc1698d77f8260e48b28a41d0d16afe9bd0e59d0d4",
+      "after_sha256": "8bfaa63320f7a7490de51327111b1532fb98a43eaac4a69c5e7f23bf74f351d4",
+      "method": "Run rfl and the original ext/ring fallback across every convert goal, including old inferred-instance equalities."
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/RowMajorants.lean",
+      "sites": 1,
+      "method": "Multiline conversion: run rfl or the same funext/ring proof across all generated goals."
+    }
+  ],
+  "whole_diagnostic_fixes": [
+    {
+      "file": "SimultaneousPrimitiveRoots/GaussianZeroCounting.lean",
+      "line": 33,
+      "log": "lean/.lake/port-round-012.log",
+      "diagnostic": "convert left an additional function equality goal after the original ext/ring sequence",
+      "resolution": "Apply rfl or pointwise ring normalization to every generated conversion goal.",
+      "compiler_validated": true,
+      "validation_log": "lean/.lake/port-round-013.log",
+      "validation_result": "Built SimultaneousPrimitiveRoots.GaussianZeroCounting (36s)."
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/PrimeGaps/SingularTails.lean",
+      "line": 205,
+      "log": "lean/.lake/port-round-013.log",
+      "diagnostic": "Missing concrete Field (ZMod p) instance after removing the broad tactic import prevented isUnit_iff_ne_zero from matching; round014 residual IsUnit confirms this.",
+      "resolution": "Explicit import Mathlib.Algebra.Field.ZMod; restore the original strict simp_rw rewrite sequence.",
+      "compiler_validated": true,
+      "followup_log": "lean/.lake/port-round-014.log",
+      "validation_log": "lean/.lake/port-round-015.log",
+      "validation_result": "Built OAI.NumberTheory.PrimeGaps.SingularTails (268s)."
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/Jacobsthal/Estimates/DivisibleInflection.lean",
+      "line": 54,
+      "log": "lean/.lake/port-round-013.log",
+      "diagnostic": "Old simplification leaves the multiplication-associativity equality in commuting mixed partial derivatives.",
+      "resolution": "Add mul_assoc to the preserved coefficient simplification list.",
+      "compiler_validated": true,
+      "validation_log": "lean/.lake/port-round-014.log"
+    },
+    {
+      "file": "SimultaneousPrimitiveRoots/GaussianLeftSpatialIntegral.lean",
+      "line": 37,
+      "log": "lean/.lake/port-round-014.log",
+      "diagnostic": "Additional conversion goals leave polynomial function equality e'_5 unsolved.",
+      "resolution": "Apply rfl or the preserved pointwise ring proof to all conversion goals.",
+      "compiler_validated": true,
+      "validation_log": "lean/.lake/port-round-015.log",
+      "validation_result": "Built SimultaneousPrimitiveRoots.GaussianLeftSpatialIntegral (139s)."
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/TwoPoint/Halasz/HalaszZeroRepresentation.lean",
+      "line": 55,
+      "log": "lean/.lake/port-round-014.log",
+      "diagnostic": "convert leaves the equality between Nat-to-Real-to-Complex and Nat-to-Complex casts.",
+      "resolution": "Prove the remaining explicit conversion goal with old Complex.ofReal_natCast.",
+      "compiler_validated": true,
+      "validation_log": "lean/.lake/port-round-017.log",
+      "validation_result": "Built OAI.NumberTheory.TwoPoint.Halasz.HalaszZeroRepresentation (118s)."
+    },
+    {
+      "file": "SimultaneousPrimitiveRoots/Explicit/GaussianLeftSpatialIntegral.lean",
+      "lines": [
+        74,
+        88
+      ],
+      "log": "lean/.lake/port-round-016.log",
+      "diagnostic": "Old Real order instance equality causes dsimp to make no progress, leaving the numerical conversion equality unsolved.",
+      "resolution": "Apply grouped try rfl to all conversion goals before the unchanged dsimp/ring sequence, exactly as in the whole-validated core file.",
+      "before_sha256": "e12bd2692cbb90d3cd0cde0f187101cfd042aba34e11cadc1b48513847d4be6a",
+      "after_sha256": "a926f82d81f5edc1242bf0d5cf1a9113a13d14fca894bf4e4f3bb0da71573a16",
+      "compiler_validated": true,
+      "validation_log": "lean/.lake/port-round-017.log",
+      "validation_result": "Built SimultaneousPrimitiveRoots.Explicit.GaussianLeftSpatialIntegral (158s)."
+    },
+    {
+      "file": "SimultaneousPrimitiveRoots/Explicit/KummerGaussianLeftAverage.lean",
+      "lines": [
+        111,
+        137
+      ],
+      "log": "lean/.lake/port-round-017.log",
+      "diagnostic": "Old Real order instance conversion goals cause dsimp/unfold to make no progress and leave numerical equalities unsolved.",
+      "resolution": "Grouped try rfl before unchanged dsimp/unfold/ring fallback, matching the core proof.",
+      "before_sha256": "c46083f219a5edb107729af7009fea2d64b6c1ab3c359d16903058d0c6129ab3",
+      "after_sha256": "1cb0b9651e0e62d0981b7e40558f68c6283a14ddcb6fe490fafad13b8653595e",
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/PrimeGaps/CharacterErrors.lean",
+      "lines": [
+        48,
+        216
+      ],
+      "log": "lean/.lake/port-round-020.log",
+      "diagnostic": "Missing HasEnoughRootsOfUnity ℂ (Monoid.exponent (ZMod q)ˣ) concrete instance chain; simp failure is secondary.",
+      "resolution": "Explicitly import Complex.Polynomial.Basic (IsAlgClosed ℂ) and RootsOfUnity.AlgebraicallyClosed (IsSepClosed.hasEnoughRootsOfUnity); preserve entire proof body.",
+      "added_imports": [
+        "Mathlib.Analysis.Complex.Polynomial.Basic",
+        "Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed"
+      ],
+      "before_sha256": "772ae1036b8101fcb2cb967cfaabfc3fc7c56baace032d06d942040ccc7659c5",
+      "after_sha256": "717fac2ac7c5a1356ad92bb28371e62cd6cf23b8757a543b3c275601adba3985",
+      "body_unchanged": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ValuedFieldTheory/LocalField/DiscreteValuationField/ValuationSubringUnits/CompleteRangeRestriction.lean",
+      "line": 168,
+      "log": "lean/.lake/port-round-021.log",
+      "diagnostic": "generator_zpowers_eq_valueGroup rewrites valueGroup (.ofClass v), whereas the explicit membership used toMonoidWithZeroHom.",
+      "resolution": "Use MonoidWithZeroHom.ofClass F.valuation for the local valueGroup membership type and its mem_valueGroup proof, matching the old generator theorem.",
+      "evidence": "Old Discrete/Basic:90-92 generator_zpowers_eq_valueGroup; old Valuation/Basic:138-148 both function coercions are rfl.",
+      "after_sha256": "2fd58c727695206d1633360ed7f8673d09d6ec0f674754e7752a3929fb6af173",
+      "statement_unchanged": true,
+      "assumptions_unchanged": true,
+      "compiler_validated": true,
+      "validation_log": "lean/.lake/port-round-022.log"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/PrimeGaps/LogParameters.lean",
+      "line": 240,
+      "log": "lean/.lake/port-round-021.log",
+      "diagnostic": "norm_num leaves Real.sqrt 4 = 2 because its optional real-square-root extension was absent after broad tactic import narrowing.",
+      "resolution": "Explicit import Mathlib.Tactic.NormNum.RealSqrt; preserve original sqrt_mul/norm_num proof.",
+      "evidence": "Setup importArts contains NormNum but not NormNum.RealSqrt; old RealSqrt:57-72 registers evalRealSqrt and derives exact square rational results.",
+      "before_sha256": "d72ab85db496afdb7d70ce2c493a107bc01004a04649482a239481881d378c30",
+      "after_sha256": "8245794329ff091bb4f4ccbd72ed91c9b5d4f4f0645543d36936a80a2d8187ae",
+      "body_unchanged": true,
+      "compiler_validated": true,
+      "validation_log": "lean/.lake/port-round-022.log"
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/A2/Proofs/A2_ZF_TOP/PuncturedHalfPlane.lean",
+      "line": 51,
+      "log": "lean/.lake/port-round-023.log",
+      "diagnostic": "convert creates Real.semiring and Complex.addCommMonoid instance equalities in addition to the structural function equality.",
+      "resolution": "Apply rfl or the unchanged simp proof to every conversion goal.",
+      "before_sha256": "0d9657a033ed2889040cf72a6296e282646aabdd2fcbed008378fb85455286ff",
+      "after_sha256": "eda176cc2171b5580f85333b91eb7859ce49c3bd0162854f65dd2eadc20420be",
+      "compiler_validated": true,
+      "validation_log": "lean/.lake/port-round-024.log",
+      "validation_result": "Built ArtinPrimitiveRoots.A2.Proofs.A2_ZF_TOP.PuncturedHalfPlane (28s)."
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/A1/Field.lean",
+      "line": 539,
+      "log": "lean/.lake/port-round-023.log",
+      "diagnostic": "Missing concrete Fintype (ClassGroup (𝓞 F)) instance after broad import narrowing.",
+      "resolution": "Import Mathlib.NumberTheory.NumberField.ClassNumber, which supplies instFintypeClassGroup at line58. Preserve all proof body.",
+      "before_sha256": "6ff588339a378bf59eeb8ec50cb29496400e31eebc9aebb9dd1a0d8e61885f25",
+      "after_sha256": "a5e86d2aad064b2b0c178e0b728515194ed67505ffe6344036927aa7585c6e17",
+      "body_unchanged": true,
+      "compiler_validated": true,
+      "validation_log": "lean/.lake/port-round-024.log",
+      "validation_result": "Built ArtinPrimitiveRoots.A1.Field (80s)."
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Ext/TypeIIInputs.lean",
+      "line": 200,
+      "log": "lean/.lake/port-round-024.log",
+      "diagnostic": "Untyped filter binder makes Lean 4.33.1 infer p : ℝ from its real ascription and expect a Finset ℝ.",
+      "resolution": "Annotate filter binder p : ℕ, matching primesUpTo : ℝ → Finset ℕ, so the existing real cast is elaborated as the intended Nat-to-Real coercion.",
+      "evidence": "TypeII/Defs:71 declares primesUpTo (y : ℝ) : Finset ℕ; adjacent primeProgressionError already uses the identical Nat binder fix.",
+      "before_sha256": "4a40b8ee143f4f2d4d02cfcb26a1f71156992c290bc88dd1f6d588d771e1c9b6",
+      "after_sha256": "9c7feae397e81a1d9f8e43e2efeac9ca6b24bcb3e230c4dd65bc74528cd28106",
+      "statement_unchanged": true,
+      "compiler_validated": false,
+      "same_file_other_untyped_filter_binders": 0
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Arith/SUnit.lean",
+      "line": 111,
+      "log": "lean/.lake/port-round-024.log",
+      "diagnostic": "Unspecified MonoidHom.mem_ker infers Group (Additive sUnitGroup) from the target toAddSubgroup membership before considering h0.",
+      "resolution": "Specify f := sUnitValuation K S and x := x.toMul, so kernel membership is formed in the original multiplicative group.",
+      "evidence": "Old Subgroup/Ker:245 has implicit f and x; Subgroup/Lattice:73-75 identifies Additive subgroup membership with original group membership by rfl.",
+      "before_sha256": "4d9be95801e0972d97bed98a3bc1abf9e98304ce181e53577120b013bc23c2dd",
+      "after_sha256": "7fa1fdec5333d3626a55e10c56b04aa647e9133c7e88ba29eb8ad17489765ca0",
+      "statement_unchanged": true,
+      "assumptions_unchanged": true,
+      "compiler_validated": true,
+      "fixture": "/private/tmp/spr-check-sunit-ker4331.lean",
+      "fixture_validated": true,
+      "fixture_result": "Lean 4.33.1, import Mathlib.Algebra.Group.Subgroup.Ker; original additive-subgroup membership with explicit f and x, exit 0.",
+      "validation_log": "lean/.lake/port-round-025.log",
+      "validation_result": "Built ArtinPrimitiveRoots.Arith.SUnit (73s)."
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/A1/Proofs/A1_LATTICE/Core.lean",
+      "lines": [
+        543,
+        564
+      ],
+      "log": "lean/.lake/port-round-024.log",
+      "diagnostic": "Missing concrete IsDiscreteValuationRing for adicCompletionIntegers and RankOne for its valuation.",
+      "resolution": "Import Mathlib.NumberTheory.NumberField.Completion.FinitePlace, preserving the complete proof body.",
+      "evidence": "Old FinitePlace:76 IsDiscreteValuationRing instance and :153 instRankOneAdicCompletion; module absent from Core setup importArts.",
+      "before_sha256": "df8d4be595034ede95f11c4da52c8239537d902b03329a7c493a3a4bba1c5528",
+      "after_sha256": "871c5584a9047d53d455dfdcef376eb2a58516e77ad1bfc6522c5b8c5be6313e",
+      "body_unchanged": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Arithmetic/EisensteinCoordinates.lean",
+      "lines": [
+        114,
+        115
+      ],
+      "log": "lean/.lake/port-round-025.log",
+      "diagnostic": "New split module paths Analysis.Asymptotics.Arith and Ring do not exist in old pinned Mathlib.",
+      "resolution": "Replace both split imports by Mathlib.Analysis.Asymptotics.Defs, the old owner module for all corresponding declarations.",
+      "evidence": "Compared all 69 theorem/lemma/def names in new Arith and all 43 in new Ring against old Asymptotics sources: all 112 declared in old Defs, zero in Lemmas.",
+      "before_sha256": "e3699b0164e7d25f292cfa429ee3ec9c0ab0cf4444cffc705ca57493ff006b13",
+      "after_sha256": "f0c0664b35e07eb8efcf45fedaa2cdf7848ffd511156077549241aa2803cd1d0",
+      "body_unchanged": true,
+      "owned_same_path_occurrences_remaining": 0,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Arith/DavenportHasse/Polynomial.lean",
+      "log": "lean/.lake/port-round-025.log",
+      "diagnostic": "Old Complex.instField is noncomputable, so dhPolyWeight cannot generate executable code.",
+      "resolution": "Mark dhPolyWeight noncomputable; preserve type and expression.",
+      "evidence": "Lean 4.33.1 diagnostic names Complex.instField.",
+      "before_sha256": "65c09ffb80ab60b223bad629058249bbbfe930d770d72759f60c2a6d8005e527",
+      "after_sha256": "b8433ad4f2c0c191e43f562d5e0eae242cbfb2f66e2d36d93c4ffd935c2b721d",
+      "statement_unchanged": true,
+      "assumptions_unchanged": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_COVER/CompletionCompact.lean",
+      "log": "lean/.lake/port-round-025.log",
+      "diagnostic": "Missing DVR and RankOne instances for the finite completion.",
+      "resolution": "Explicit import Mathlib.NumberTheory.NumberField.Completion.FinitePlace; preserve entire proof.",
+      "evidence": "Old FinitePlace:76 and :153 supply exactly these two instances.",
+      "before_sha256": "8231b7d681c5c16b05d6dd498d17b51c3ce34743c69778dcc68cc0d504d77b6c",
+      "after_sha256": "105b3c212f5744288ba25016e0a85bc480244c939a4a67b93a566c4bd372a783",
+      "statement_unchanged": true,
+      "assumptions_unchanged": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/A1/Proofs/A1_WEIL/QuadraticNorm.lean",
+      "log": "lean/.lake/port-round-025.log",
+      "diagnostic": "Old QuadraticAlgebra Field instance requires Fact no root, while new Fact-not-square bridge is absent.",
+      "resolution": "Prove the required local Fact no-root condition directly from the existing ha, with the exact upstream bridge proof.",
+      "evidence": "Old Basic:381-406 requires Fact (∀ r, r^2 ≠ a+b*r); new Basic:529-530 proves the bridge using the same proof.",
+      "before_sha256": "d71aaaee12c9b0192782506eba11140e89378dca8130168139a1aa5b822fbd83",
+      "after_sha256": "bf629c5617ffdc21bc3dd0e438dc233445f0fecac050cdfc550c6d16961fef2a",
+      "statement_unchanged": true,
+      "assumptions_unchanged": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/PD/Preliminaries.lean",
+      "lines": [
+        61,
+        813
+      ],
+      "log": "lean/.lake/port-round-026.log",
+      "diagnostic": "Old derivative convert introduces additional inferred-instance/function equality goals; new Set subset eventuallySubset method is unavailable.",
+      "resolution": "Run grouped try rfl over every conversion goal, then retain the original explicit derivative value equality/field_simp proof. Replace eventuallySubset with the old LE.le.eventuallyLE hsubset.",
+      "evidence": "Same Complex derivative conversion pattern passed batch25 fixture; old Order/Filter/Basic:1281 proves LE.le.eventuallyLE from s ⊆ t by Filter.Eventually.of_forall h.",
+      "before_sha256": "1dad2d15b45a4bd1335ae2e61fc98a969f3f9d86a16662d445033ed9db33076d",
+      "after_sha256": "608d67489c836148b7a6601a093c6367543878ab3327364d77894f0695168c86",
+      "statement_unchanged": true,
+      "assumptions_unchanged": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/PD/Determinant.lean",
+      "lines": [
+        1058,
+        1468,
+        1629
+      ],
+      "log": "lean/.lake/port-round-026.log",
+      "diagnostic": "Missing explicit Circle norm normalization and new prod_le_prod_of_subset_of_one_le₀ name unavailable in old Mathlib.",
+      "resolution": "Add Circle.norm_coe to the preserved norm simp; replace the two product theorem names by old prod_le_prod_of_subset_of_one_le with all three hypotheses unchanged.",
+      "evidence": "Circle phase norm example passed batch25 fixture; old GroupWithZero/Finset:98-101 has the same subset/nonnegative/one-le three arguments.",
+      "before_sha256": "57466f05bf080924002d0096fca5412bd00d5653072ff26bae3669dfae1d79a8",
+      "after_sha256": "aa9b6b50c1cce8bb9d71a819c67c9410a1aed1ab8aa8b4782f0c47c03f51e750",
+      "public_declarations_preserved": true,
+      "assumptions_preserved": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Mellin/LogProfiles.lean",
+      "lines": [
+        378,
+        583,
+        670,
+        762,
+        1244,
+        1283
+      ],
+      "log": "lean/.lake/port-round-027.log",
+      "diagnostic": "Complex field code generation, finite-order bounds below smooth infinity, and two newer smooth cutoff/derivative-boundedness helpers.",
+      "resolution": "Mark mulCharProd noncomputable; use old ENat finite-order bounds; construct the same cutoff via old exists_contMDiff_support_eq_eq_one_iff and contMDiff_iff_contDiff; prove the uniform derivative bound via continuous_iteratedFDeriv.bounded_above_of_compact_support and finite sup.",
+      "evidence": "Old manifold cutoff theorem provides identical support/range/one-locus; derivative compact-support bound follows the same old API proof validated in PP_PRIME/Plan. Required owner modules already present in setup, no import changes/new Compat declarations.",
+      "before_sha256": "ff8735e421a2ee659df15272704206f2d114d7e2a849e8a755d545508f4038be",
+      "after_sha256": "40f9ae5f630a9842972a8b0e76d36fb6f28b55990585dfdbfd9bc24fb26dde3b",
+      "public_declarations_preserved": true,
+      "assumptions_preserved": true,
+      "compiler_validated": false,
+      "fixture": "/private/tmp/spr-logprofiles27-cutoff-fixture.lean",
+      "fixture_log": "lean/.lake/analysis-logprofiles27-fixture.log",
+      "model_parameter": "modelWithCornersSelf ℝ ℝ; avoids requiring Manifold notation scope.",
+      "fixture_validated": true,
+      "fixture_result": "Lean 4.33.1 -j1, both complete cutoff existence/finite derivative bound proofs, exit 0; no errors."
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Fourier/PositiveLogProfiles.lean",
+      "lines": [
+        398,
+        485
+      ],
+      "log": "lean/.lake/port-round-028.log",
+      "diagnostic": "simp no progress on finite differentiability order bounded by smooth infinity.",
+      "resolution": "Use old ENat.natCast_le_of_coe_top_le_withTop le_rfl n at both norm_iteratedFDeriv_mul_le calls.",
+      "before_sha256": "5fd3ab9a7523009f2ea23a36b42f220eee975e8db31b1205dc932509aa21f2e8",
+      "after_sha256": "85f85c1d2053a04d2a1d83b1aefa05e3bdb0a788a88b055a0802fdd2f37b3589",
+      "public_declarations_preserved": true,
+      "assumptions_preserved": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/PD-HIGH/pd5_edge_position_mass_le.lean",
+      "line": 291,
+      "log": "lean/.lake/port-round-029.log",
+      "diagnostic": "After exact integer interval-cardinality normalization, norm_num leaves Int.toNat 16 = 16.",
+      "resolution": "Close the literal definitional equality with rfl; retain all interval/cardinality arguments and the original bound.",
+      "before_sha256": "ea0e7edd628f35604fb4ce9b1e547c424a99a45915c815d0ab5d8f0f4bb22588",
+      "after_sha256": "9d8728353bd6919634a298a28413b463eca14b871cfc0ca81d0f0a9c49ad3dcc",
+      "public_declarations_preserved": true,
+      "assumptions_preserved": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Poisson/OscillatoryGaussian.lean",
+      "line": 509,
+      "log": "lean/.lake/port-round-029.log",
+      "diagnostic": "simp after a Tendsto conversion makes no progress on a generated equality goal.",
+      "resolution": "Apply rfl or the unchanged simp fallback across all conversion goals.",
+      "before_sha256": "a57d5f82137b5908d287a50eee88f6a6d7810c1eff3f1b5f8960134723cc70dd",
+      "after_sha256": "d7b60e4f8214b8e62a3291507c13f9fadc919faa1d1c53f9c70735b044907300",
+      "public_declarations_preserved": true,
+      "assumptions_preserved": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd7d/PartialDerivativeNorms.lean",
+      "line": 20,
+      "log": "lean/.lake/port-round-029.log",
+      "diagnostic": "simp no progress proving k ≤ smooth infinity at norm_iteratedFDeriv_clm_apply_const.",
+      "resolution": "Explicit ENat.natCast_le_of_coe_top_le_withTop le_rfl k, matching the exact finite-order argument.",
+      "before_sha256": "939535e9b81e22292602f14dc3d039cb9cab9a67c029296b5d23f3a0b3422107",
+      "after_sha256": "fb30abb2f83647987a96fcf6370dffc3620d86b58fc2da135249f8ec5449cbf7",
+      "public_declarations_preserved": true,
+      "assumptions_preserved": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Proofs/pd5_low_b/EdgeColumn.lean",
+      "line": 1822,
+      "log": "lean/.lake/port-round-030.log",
+      "diagnostic": "New Finset.sum_le_sum_of_injOn is absent in target Mathlib.",
+      "resolution": "Prove the same finite-sum inequality directly: pointwise sum_le_sum, sum_image using the existing injection, and old sum_le_sum_of_subset_of_nonneg using the existing image inclusion/nonnegativity.",
+      "before_sha256": "076c6db202bebc3ce75093430e018f7d4f5bd9612bb3a928c5ee99361ad71688",
+      "after_sha256": "736caa623c86857aa6fc2a88ec743072287dc760bd4609f175b8e360a4ce7169",
+      "public_declarations_preserved": true,
+      "assumptions_preserved": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Poisson/RadialFourier.lean",
+      "lines": [
+        126,
+        195
+      ],
+      "log": "lean/.lake/port-round-032.log",
+      "diagnostic": "ring_nf/simp make no progress after conversions because old inferred-instance equalities need reflexivity.",
+      "resolution": "Apply rfl or the unchanged ring_nf/rfl proof across all inequality-conversion goals. In the derivative conversion, run grouped try rfl, optional id simplification, and ring across all remaining goals.",
+      "before_sha256": "68d0d11ce81916b00e43a03bdb65a60094954c2fec44bea991dc9f7f29a84263",
+      "after_sha256": "63ea6958b12f68c451c8d313e6a4687a21a5ff836c66b3b86d6af571a4b21218",
+      "public_declarations_preserved": true,
+      "assumptions_preserved": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/GaussSum/MixedConversion.lean",
+      "lines": [
+        538,
+        551,
+        565
+      ],
+      "log": "lean/.lake/port-round-033.log",
+      "diagnostic": "New integrable_inv_one_add_mul_sq helper absent; conversion leaves a second scaled-Cauchy function equality.",
+      "resolution": "Private proved scaled-integrability lemma from old integrable_inv_one_add_sq.comp_mul_left'; run rfl or the unchanged ext/push_cast/congr/ring proof across every conversion goal.",
+      "evidence": "Later ImproperIntegrals:297-299 derives the same statement from comp_mul_left'; old base provider already in setup.",
+      "before_sha256": "7a7d7459142cb9f2462fd41c7d59b28ab4c5a55e725a6cf2336f1083dca84df8",
+      "after_sha256": "66b6b5f545d8ce7d8ec74c73f3b12184c5680b82c2e062b1e4fa84957580a1af",
+      "public_declarations_preserved": true,
+      "assumptions_preserved": true,
+      "compiler_validated": false,
+      "fixture": "/private/tmp/spr-mixed33-cauchy-fixture.lean",
+      "fixture_log": "lean/.lake/analysis-mixed33-cauchy-fixture.log",
+      "fixture_validated": true,
+      "fixture_result": "Lean 4.33.1 -j1, scaled Cauchy integrability/antitone/Nat bound/Nat summability/Int summability/Int bound, exit 0, no diagnostics."
+    }
+  ],
+  "narrowed_file_api_audit": {
+    "sources": 25,
+    "target_mathlib_name_count": 310721,
+    "missing_imports": 0,
+    "missing_reference_metadata": 0,
+    "candidates": 1,
+    "method": "Reference vendor ilean paths omit the vendor directory; checked a local derivative of the root-tree audit with the corrected metadata path.",
+    "false_positives": 1,
+    "false_positive_resolution": {
+      "name": "Equiv.mulLeft₀_apply",
+      "evidence": "Parent-authorized 4.33.1 fixture, import Mathlib.Algebra.GroupWithZero.Units.Equiv; #check Equiv.mulLeft₀_apply, exit 0.",
+      "fixture": "/private/tmp/spr-check-mulLeft4331.lean",
+      "resolved": "Restore original proof; generated simps lemma exists despite being absent from ilean declaration/reference name cache."
+    }
+  },
+  "static_api_fixes": [],
+  "try_sequence_grouping_fix": {
+    "reason": "Parenthesize try rfl before subsequent <;> tactics so a failing rfl cannot prevent the preserved dsimp/unfold/ring fallback from running.",
+    "changes": [
+      {
+        "file": "SimultaneousPrimitiveRoots/QuotientLeftHeightBands.lean",
+        "sites": 1,
+        "before_sha256": "61f4f06ff6524ad7aa6180d910ac252f221022bfb207588af45d49fba7b10253",
+        "after_sha256": "dd03f2de7def0dd3f43491bd1a93e1a9bc3a56bfd72709a615be7838d9afe3ed"
+      },
+      {
+        "file": "SimultaneousPrimitiveRoots/Explicit/QuotientLeftHeightBands.lean",
+        "sites": 1,
+        "before_sha256": "331d4d4f699d772d0b0a893f79bbe137187830c5d37f110937eeb6037db56bdc",
+        "after_sha256": "6851cc94634f0e20730fa38ea838d3158a555b8bb8407b9869a9089fa3745cfc"
+      },
+      {
+        "file": "SimultaneousPrimitiveRoots/GaussianLeftSpatialIntegral.lean",
+        "sites": 2,
+        "before_sha256": "e73b80bd39dd9b3b9dab953594e49479044240266f01e1bd55a0a3823a108eab",
+        "after_sha256": "118764f534c1c3815eef7a10e28ba5ba176e3cd77ee1528061ac4e08a76b7eb6"
+      },
+      {
+        "file": "SimultaneousPrimitiveRoots/KummerGaussianLeftAverage.lean",
+        "sites": 2,
+        "before_sha256": "df4c42522c2230bc3045dd51464f2a177457befbbbfc9d58df39b748b0ecdfb4",
+        "after_sha256": "9ea45f9d6da6a5dde2accb5185e4fdeaf64fbf39a729566f41ad61dc9916cc2b"
+      }
+    ],
+    "validation_log": "lean/.lake/port-round-013.log",
+    "compiler_validated": false,
+    "partial_validation": {
+      "files": [
+        "SimultaneousPrimitiveRoots/QuotientLeftHeightBands.lean",
+        "SimultaneousPrimitiveRoots/Explicit/QuotientLeftHeightBands.lean",
+        "SimultaneousPrimitiveRoots/GaussianLeftSpatialIntegral.lean"
+      ],
+      "log": "lean/.lake/port-round-014.log",
+      "compiler_validated": true,
+      "additional_validation_logs": [
+        "lean/.lake/port-round-015.log"
+      ]
+    }
+  },
+  "helper_validations": [
+    {
+      "file": "lean/Compat4331/OAIElementarySymmetric.lean",
+      "validation_log": "lean/.lake/port-round-013.log",
+      "result": "Built Compat4331.OAIElementarySymmetric (9.6s).",
+      "compiler_validated": true
+    }
+  ],
+  "explicit_convert_pattern_audit": {
+    "files_root": "lean/SimultaneousPrimitiveRoots/Explicit",
+    "convert_sites": 9,
+    "remaining_unguarded_convert_dsimp_unfold_chains": 0,
+    "remaining_ungrouped_try_rfl_chains": 0,
+    "method": "Inspected all convert sites and next three lines; retained two Tendsto/function proofs in KummerQuotientLogResidue because they are not the Real-order-instance conversion pattern."
+  },
+  "one_le_prod_api_fix": {
+    "log": "lean/.lake/port-round-017.log",
+    "target_declaration": "Mathlib/Algebra/Order/BigOperators/GroupWithZero/Finset.lean:83",
+    "target_signature": "Finset.one_le_prod (hf : ∀ i ∈ s, 1 ≤ f i) : 1 ≤ ∏ i ∈ s, f i",
+    "resolution": "Replace new name Finset.one_le_prod₀ with the identical old API Finset.one_le_prod; retain all pointwise lower-bound proofs.",
+    "changes": [
+      {
+        "file": "vendor/OAI/NumberTheory/Jacobsthal/Estimates/SquarefreeHarmonic.lean",
+        "sites": 1,
+        "before_sha256": "75b9eeeb67aef8b52f2a94f5b4f7b5fc7d4861cacac94ca43e042c0bbc3227ee",
+        "after_sha256": "a384bfaabb7fbcba14c82d2e71bc04828408b19151a6d319151f7569fbe9e86d"
+      },
+      {
+        "file": "vendor/OAI/NumberTheory/DirichletL/Mellin/VerticalContourShift.lean",
+        "sites": 1,
+        "before_sha256": "58bf5cc6eea4e4cbb530518eab4067c296833000fbd13ef3cc603a4faa727a7f",
+        "after_sha256": "463e6ed6c06d9e01ed57e21605ab538e3002435883b36f35c42630c5a6b8bc26"
+      },
+      {
+        "file": "vendor/ArtinPrimitiveRoots/TypeII/Rough.lean",
+        "sites": 2,
+        "before_sha256": "f9a3dbac1886fc4d434e85392b782c6383d784d015e61e42c1e4b666f2a291ff",
+        "after_sha256": "2c876fb7147785fa943dc5567aa713c891b5682c4ca56636dd042c5862ffadbb"
+      }
+    ],
+    "owned_occurrences_remaining": 0,
+    "compiler_validated": false
+  },
+  "set_equiv_api_fix": {
+    "log": "lean/.lake/port-round-019.log",
+    "target_declaration": "Mathlib/Logic/Equiv/Set.lean:157",
+    "target_signature": "Equiv.setCongr {α} {s t : Set α} (h : s = t) : s ≃ t",
+    "resolution": "Use the identical old Equiv.setCongr definition (subtypeEquivProp <| h ▸ rfl) in place of Set.equivOfEq.",
+    "changes": [
+      {
+        "file": "vendor/OAI/NumberTheory/PrimeGaps/WeightMoments.lean",
+        "sites": 1,
+        "before_sha256": "208e2dd66c872b90b76549164d3eb3e6781bfa2c7488a6b6c660557dcb1a4a37",
+        "after_sha256": "7363e5aefcc1909d7c6283d4849d09543e89e9ff42f35a9700cc45034cacaeff"
+      },
+      {
+        "file": "vendor/ArtinPrimitiveRoots/Spec/Energy.lean",
+        "sites": 1,
+        "before_sha256": "77eb32649a0c0c7200022f4f80ef0336b25183a6ae85600c8276f594d896b4cf",
+        "after_sha256": "6e5999da7e43b4d250ef26ffddefcb579d2f90e206b9f1c8399ea782799141f5"
+      }
+    ],
+    "owned_occurrences_remaining": 0,
+    "compiler_validated": false
+  },
+  "complex_character_instance_audit": {
+    "owned_files_checked": [
+      "OAI.NumberTheory.PrimeGaps.CharacterErrors",
+      "OAI.NumberTheory.PrimeGaps.MultiplicativeSieve",
+      "OAI.NumberTheory.PrimeGaps.DyadicMeans",
+      "OAI.NumberTheory.PrimeGaps.ConductorBounds",
+      "ArtinPrimitiveRoots.TypeII.Proofs.pd7d.CharacterExpansion"
+    ],
+    "method": "Source import closure after stripping nested comments; check both concrete instance owner modules present.",
+    "all_instance_modules_present_after_fix": true,
+    "additional_source_changes": 0
+  },
+  "future_missing_import_paths": {
+    "method": "Scanned every Mathlib import in all five owned vendor trees and project root for target source existence.",
+    "changes": [
+      {
+        "file": "vendor/ArtinPrimitiveRoots/A2/Reflection/Missing.lean",
+        "old_import": "Mathlib.Analysis.Asymptotics.Basic",
+        "replacement": "Mathlib.Analysis.Asymptotics.Defs",
+        "before_sha256": "0846b12875e9683732f9061cf0863fda6277c07f5295045118c0990390329890",
+        "after_sha256": "a6f9ff17cf2c289a619cd11358449b02edc36d896ebbc5753432116085814af5",
+        "body_unchanged": true
+      },
+      {
+        "file": "vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_RELLICH/orbitRestrictedMass_eq_indicator.lean",
+        "old_import": "Mathlib.Basic.Countable.Basic",
+        "replacement": "Mathlib.Data.Countable.Basic",
+        "before_sha256": "90ea3bc95ba76d5e714ac61c414511fad94c36195c2186d0865babc1e767fc7d",
+        "after_sha256": "d1a048874d7a1158815b61e9adb5f25cd9fa722a39f7f3f0e3633cc7bac300d8",
+        "body_unchanged": true
+      }
+    ],
+    "evidence": "New Asymptotics.Basic has 92/93 direct declarations in old Defs; the sole additional IsTheta.comp_tendsto is unused in Reflection/Missing. Old Data.Countable.Basic matches new Basic.Countable.Basic basic countable instances.",
+    "compiler_validated": false
+  },
+  "round025_batch11_fixes": {
+    "log": "lean/.lake/port-round-025.log",
+    "files": [
+      {
+        "file": "vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_COVER/SmallPowers.lean",
+        "before_sha256": "75500bc217a298f40f9f9f19f6e10026682fc85052520c1598b8ac910f99014e",
+        "after_sha256": "9012edff01a9f6d5906851f021224417d6327b18f6adc58dad9ae616271248eb",
+        "resolution": "Import FinitePlace for RankOne; use ofClass in value-group embedding to match old Valuation.restrict.",
+        "public_declarations_preserved": true,
+        "assumptions_preserved": true
+      },
+      {
+        "file": "vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_COVER/Congruence.lean",
+        "before_sha256": "5420709ca7ac3077de8d782bebf541bbe81aa84014d74ce0bcc4e284b51a5344",
+        "after_sha256": "da442dafa912a4c54df9042d3436b22bced1841025e4c50a06c0a2dffa7b5bc4",
+        "resolution": "Retain exp(-m) form with change rather than dsimp, which simplifes exp_neg to inverse before rewriting.",
+        "public_declarations_preserved": true,
+        "assumptions_preserved": true
+      },
+      {
+        "file": "vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_COVER/RationalIntegral.lean",
+        "before_sha256": "34fe415486de3d245643718c6ccfd1f7ac8eab51a2dfa175f1685d9d718668a3",
+        "after_sha256": "cd677e6355d2e94c01ecd1306e3f1c3e69fa347501d23407feda5b0f319eef2a",
+        "resolution": "Use the finite adele subtype property .2 through an explicitly typed cofinite membership, matching the old DFunLike coercion before simplification.",
+        "public_declarations_preserved": true,
+        "assumptions_preserved": true
+      },
+      {
+        "file": "vendor/RellichKondrachov/Analysis/FunctionalSpaces/Sobolev/Euclidean/TranslationEstimateL2.lean",
+        "before_sha256": "c02b0a1cb186b427f07f9b6047cdf222f259fe0650b64b79ceaed10b549adc48",
+        "after_sha256": "66610e240f0bb42b36a8eecb1a5068f7c64aaea12183420b4d0b30514b679130",
+        "resolution": "Old eLpNorm_eq_lintegral_rpow_enorm_toReal takes only nonzero/finite exponent arguments; omit the two new measurability arguments.",
+        "public_declarations_preserved": true,
+        "assumptions_preserved": true
+      },
+      {
+        "file": "vendor/ArtinPrimitiveRoots/A2/Proofs/A2_ZERO_DETECT/MaxBound.lean",
+        "before_sha256": "917ac35a56246e24f12b3c4d7fc85dfb63b4b08bcd96d4c4039d71cdf1cf9d33",
+        "after_sha256": "17ead5726f563c0a9f24b37da3806641ecf3e74abd9c0aa0fd98e0e1535132ef",
+        "resolution": "Apply rfl or the unchanged ring/ext/simp proofs to every derivative-conversion goal.",
+        "public_declarations_preserved": true,
+        "assumptions_preserved": true
+      },
+      {
+        "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd0/ModeratePhase.lean",
+        "before_sha256": "fbabff00bc676a85ea8e831c5b76a58411a24e0591b2bda901516ea2f296e7ab",
+        "after_sha256": "6967d5765ec54e02e24e343f875ba7e8eb053399ae1852387e2ba70b421d4b6d",
+        "resolution": "Close old inferred-instance equalities before the unchanged derivative/function/numeric conversion proofs.",
+        "public_declarations_preserved": true,
+        "assumptions_preserved": true
+      },
+      {
+        "file": "vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_SMOOTH/MellinKernel.lean",
+        "before_sha256": "f573c217b6d32ee6ce18e1ea7967daa32d7b3d4d767f3183e6068c019de1aa84",
+        "after_sha256": "44c04ba127706df72724900022c039bd8d732eda35d8436aee72bdf9d11b3658",
+        "resolution": "Private proved integrable_comp_exp backport using old Jacobian change-of-variables theorem; no public API changes.",
+        "public_declarations_preserved": true,
+        "assumptions_preserved": true
+      },
+      {
+        "file": "vendor/ArtinPrimitiveRoots/Splitting/Proofs/S7_EXT_ZEROS/Jensen.lean",
+        "before_sha256": "4fd1303c21ab5eefd8f76b5e03480a6d5965d24940eb147c1a3fcb75ca73ca74",
+        "after_sha256": "cdac2554a1a8aa834628a2cf3ce1199b9176979fea0008ec0fa2927a5a9f42e1",
+        "resolution": "Old finsum monotonicity with two finite support hypotheses is finsum_le_finsum'.",
+        "public_declarations_preserved": true,
+        "assumptions_preserved": true
+      },
+      {
+        "file": "vendor/ArtinPrimitiveRoots/A2/Proofs/A2_PROBE/FourierFamily.lean",
+        "before_sha256": "6cb3ba38e8065e36fa2635bcd0b74546ccb7b71fb3da219440f0bd7ca71545f6",
+        "after_sha256": "a73a5eb6583dbb52e64d45b73a5c3bbb07beacb36c6e6f1917c1df53cb86d3dd",
+        "resolution": "Explicit old ENat finite-order bound below smooth infinity.",
+        "public_declarations_preserved": true,
+        "assumptions_preserved": true
+      },
+      {
+        "file": "vendor/ArtinPrimitiveRoots/Proofs/th_continue_b/PartialDerivatives.lean",
+        "before_sha256": "6744c77901b7c2fb605aa8bd59846dd296b911d6e6f40b33c98501c813c48b33",
+        "after_sha256": "7236c978aa5da4e52d513b7c2da3aa3828b17eeb92018cd2c7fa2357f83c7414",
+        "resolution": "Explicit old ENat finite-order bound below smooth infinity.",
+        "public_declarations_preserved": true,
+        "assumptions_preserved": true
+      },
+      {
+        "file": "vendor/ArtinPrimitiveRoots/Proofs/th_family_lead_p/PeriodicFourier.lean",
+        "before_sha256": "c255623a3b35eab3646aa38b2713f6cd72781dcb8bb7e53ffb55ef4a729da04a",
+        "after_sha256": "20dd42d055710710ce64c9bf747dd610dcf95e44e02b4d34ab5b9b0a71899904",
+        "resolution": "Close conversion goals using rfl or old vadd_eq_add/Set.image_vadd notation identities.",
+        "public_declarations_preserved": true,
+        "assumptions_preserved": true
+      },
+      {
+        "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd1c/RootFourier.lean",
+        "resolution": "Explicit Circle.norm_coe in phase norm simp, matching the old normalized-circle norm API.",
+        "public_declarations_preserved": true,
+        "assumptions_preserved": true,
+        "before_sha256": "87504cf0ea8e6a849ca4df992dc6a4175f3840ac594b616c32f4d55b0979c7cf",
+        "after_sha256": "5c7d65203d5fa81668c71f1d68e440a2cb68d092796de6a9eab12b9129699a36"
+      },
+      {
+        "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd2/Raw/RootFourier.lean",
+        "resolution": "Explicit Circle.norm_coe in phase norm simp, matching the old normalized-circle norm API.",
+        "public_declarations_preserved": true,
+        "assumptions_preserved": true,
+        "before_sha256": "4a0bd5991e08e3a3bbfd7ae668d4dd2347e862b68bc9de1036080dbc99453bff",
+        "after_sha256": "b17f1ed0edb4d7ad6d07b5f518e9a9a0c64b77aaa8c0d9eeb739a15823980c4d"
+      },
+      {
+        "file": "vendor/ArtinPrimitiveRoots/A2/Reflection/Missing.lean",
+        "resolution": "Resolve namespace ambiguity by specifying _root_.not_imp.",
+        "public_declarations_preserved": true,
+        "assumptions_preserved": true,
+        "before_sha256": "a6f9ff17cf2c289a619cd11358449b02edc36d896ebbc5753432116085814af5",
+        "after_sha256": "4db532d354f44a39c850838c702a80964289051b4915115ebe2b2cc4fe1d7bbd"
+      }
+    ],
+    "fixture": "/private/tmp/spr-analysis-batch25-fixture.lean",
+    "fixture_log": "lean/.lake/analysis-batch25-fixture.log",
+    "compiler_validated": false,
+    "file_count": 14,
+    "first_fixture_result": "Only RationalIntegral failed because simplification did not see FiniteAdeleRing.algebraMap_apply through the raw subtype projection; explicit local type fixes the coercion form.",
+    "fixture_validated": true,
+    "fixture_result": "Lean 4.33.1 -j1, exit 0 after the local RationalIntegral coercion repair. No errors; only linter warnings.",
+    "fixture_coverage": "Complete SmallPowers/RationalIntegral/FourierFamily/PartialDerivatives/PeriodicFourier/Jensen proofs; MaxBound first two derivative proofs; ModeratePhase first two derivative proofs; MellinKernel through smoothing_kernel_mellin_convergent; Congruence exp-order example; old eLpNorm signature check; shared RootFourier norm example.",
+    "whole_build_validation_pending": true
+  },
+  "round026_theta_followup": {
+    "log": "lean/.lake/port-round-026.log",
+    "files": [
+      {
+        "file": "vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_SMOOTH/Convolution.lean",
+        "before_sha256": "1fcdfa7fb133ff483021caddc68b2d06ad3c78116832ff3fb918186fdae0c4b1",
+        "after_sha256": "18f86b895ff2e060d7ea9d7f38f213bcf44c9110167d805e65ff0da4ca6901b8",
+        "resolution": "Import existing generic Compat4331.ExpSubstitution for both integral/integrable exp substitutions; rfl-first on the same old Integrable conversion pattern.",
+        "public_declarations_preserved": true,
+        "assumptions_preserved": true
+      },
+      {
+        "file": "vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_COVER/CongruenceCompact.lean",
+        "before_sha256": "78b414ea77ed3e6f07e6621b14147a6e044bf4f1ce4942c78bc1b4fb61329765",
+        "after_sha256": "eec91bac5258249d00e3a227be95a4e28d720a77303d9ad240c4eb655f34eae4",
+        "resolution": "Keep exp(-m) syntax by change and use exp_lt_exp; same order example validated in batch25 fixture.",
+        "public_declarations_preserved": true,
+        "assumptions_preserved": true
+      },
+      {
+        "file": "vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_COVER/CongruenceTopology.lean",
+        "before_sha256": "a62865c2c91e8506becdc6eeb3b5ac9a637d4b726cab2d4daac98cd311e39b72",
+        "after_sha256": "c13d1f41174194e38e9e363e900ae04809f9297e23cc2129fbad3552f574be30",
+        "resolution": "Use MonoidWithZeroHom.ofClass for old value-group embedding, as in fixture-validated SmallPowers.",
+        "public_declarations_preserved": true,
+        "assumptions_preserved": true
+      }
+    ],
+    "shared_helper": "lean/Compat4331/ExpSubstitution.lean",
+    "new_helper_declarations": 0,
+    "compiler_validated": false
+  },
+  "round027_lipschitz_api_fix": {
+    "log": "lean/.lake/port-round-027.log",
+    "files": [
+      {
+        "file": "SimultaneousPrimitiveRoots/Unconditional/Supply/Extraction/ProxyProof.lean",
+        "before_sha256": "be9d6dd8bf37f035e30c9fb02aeaea3db29d2ac428a7c500c041f9692a4e8d21",
+        "after_sha256": "cdff4b2635fad183638ad0c10f1442a6028af92d9c29952331854b62ea3ac563",
+        "public_declarations_preserved": true,
+        "assumptions_preserved": true
+      },
+      {
+        "file": "vendor/OAI/NumberTheory/DirichletL/Hecke/FiniteEulerFactors.lean",
+        "before_sha256": "2131b877c0d6dee5b9589553cde29f065034cf8ab9f836a476eda15b762b0614",
+        "after_sha256": "41954c565b9c5dc63792b1621a10d842afb8bf101d71cde42e745eb57fe06bd6",
+        "public_declarations_preserved": true,
+        "assumptions_preserved": true
+      }
+    ],
+    "resolution": "Use existing old ContDiff.lipschitzWith_of_hasCompactSupport and prove smooth order nonzero via the existing ENat finite-order bound.",
+    "evidence": "Old ContDiff/RCLike:156-163 gives exactly ∃ C, LipschitzWith C f; its proof bounds the compactly-supported continuous fderiv and applies lipschitzWith_of_nnnorm_fderiv_le.",
+    "new_compat_declarations": 0,
+    "compiler_validated": false
+  },
+  "compact_smooth_bounds_backport": {
+    "file": "Compat4331/CompactSmoothBounds.lean",
+    "upstream": "Mathlib/Analysis/Calculus/ContDiff/Basic.lean",
+    "upstream_commit": "f6090c7095e1e56b3464c1daba5f24631f1290d2",
+    "declaration": "HasCompactSupport.exists_bound_iteratedFDeriv",
+    "statement_preserved": true,
+    "method": "Old continuous_iteratedFDeriv with explicit ENat order bound, compact-support boundedness, and maximum of finitely many chosen bounds.",
+    "sha256": "9f061eb53fd3abeca0c9f4316ce577fbe99643e7694273e34698d32b98befe38",
+    "caller": {
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd7d/KernelDerivativeBounds.lean",
+      "before_sha256": "cf83f0f894927c37904fdb5221e5d0907db1a53dcf34fc54c81b2bdbc6df5fb4",
+      "after_sha256": "f093c785e9e6ee45efdc6d1a61dd84975cbf9fcbe21f2da875d5bd55f6f48b34",
+      "body_unchanged": true
+    },
+    "notice": "Compat4331/THIRD_PARTY.md",
+    "compat_module_count": 15,
+    "check_log": "lean/.lake/analysis-compact-smooth-bounds-check.log",
+    "compiler_validated": true,
+    "validation_result": "Lean 4.33.1 -j1 direct helper check, exit 0, no diagnostics.",
+    "caller_whole_validation_pending": true
+  },
+  "pd7d_unverified_order_audit": {
+    "unverified_files": 3,
+    "by_simp_sites": 2,
+    "same_order_pattern_sites": 1,
+    "additional_preventive_edits": 0,
+    "method": "Inspect every by simp site in pd7d files without a target olean, plus the actual failing file. The other site proves the norm of a EuclideanSpace.single unit and is not a differentiability-order bound."
+  }
+}

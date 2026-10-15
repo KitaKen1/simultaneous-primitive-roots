@@ -1,0 +1,127 @@
+name = "simultaneous_primitive_roots"
+version = "0.1.0"
+defaultTargets = ["Challenge", "Solution", "SimultaneousPrimitiveRootsFinal.OpenAIMain"]
+weakLeanArgs = ["-j1"]
+
+[leanOptions]
+autoImplicit = false
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "0df444a360eaa60ab8c11dca51a86af692955474"
+
+[[lean_lib]]
+name = "SimultaneousPrimitiveRoots"
+
+[[lean_lib]]
+name = "TauCeti"
+srcDir = "vendor"
+leanOptions = { autoImplicit = true }
+
+[[lean_lib]]
+name = "LeanPool"
+srcDir = "vendor"
+leanOptions = { autoImplicit = true }
+
+[[lean_lib]]
+name = "PNTAnd"
+srcDir = "ported"
+leanOptions = { autoImplicit = true }
+
+[[lean_lib]]
+name = "OAI"
+srcDir = "vendor"
+leanOptions = { autoImplicit = true }
+
+# ClassFieldTheory (n-yamaguchi-0729, 2eb22d6, Apache-2.0): the import closure of
+# `finiteAbelianGlobalReciprocity` (959 files), vendored for step Z3. Non-module files: only
+# non-module files (the final assembly) may import them.
+[[lean_lib]]
+name = "ClassFieldTheory"
+srcDir = "vendor"
+leanOptions = { relaxedAutoImplicit = false }
+
+[[lean_lib]]
+name = "ValuedFieldTheory"
+srcDir = "vendor"
+leanOptions = { relaxedAutoImplicit = false }
+
+[[lean_lib]]
+name = "GaloisCohomology"
+srcDir = "vendor"
+leanOptions = { relaxedAutoImplicit = false }
+
+[[lean_lib]]
+name = "ProCGroups"
+srcDir = "vendor"
+leanOptions = { relaxedAutoImplicit = false }
+
+# AINTLIB (CBirkbeck/aintlib, 160e446, Apache-2.0): `CebotarevDensity.Frobenius` and its import
+# `CebotarevDensity.Density` (module form), for the Frobenius order and prime-count facts of
+# step Z4(a).
+[[lean_lib]]
+name = "CebotarevDensity"
+srcDir = "vendor"
+
+# The `Erdos970` modules that openai/math (fd4aeeb) adds to PrimeNumberTheoremAnd and StrongPNT
+# through `lean/patches/{PrimeNumberTheoremAnd,StrongPNT}-lean4341.patch` (20 + 8 new files,
+# Apache-2.0). Only those new files are vendored; they import Mathlib, Batteries and each other.
+# They carry Mertens' theorems, zeta bounds, the classical zero-free region and the strong PNT,
+# and are imported by the OAI weak Vinogradov–Korobov and zero-density files.
+[[lean_lib]]
+name = "PrimeNumberTheoremAnd"
+srcDir = "vendor"
+leanOptions = { autoImplicit = false }
+
+[[lean_lib]]
+name = "StrongPNT"
+srcDir = "vendor"
+leanOptions = { autoImplicit = false }
+
+# rellich-kondrachov (Adam Benenson, Apache-2.0): the Euclidean Rellich--Kondrachov compactness
+# theorem, in the module-system port carried by LeanPool (lean-pool 01db1d7,
+# `LeanPool/RellichKondrachov/`, 15 files; only the import prefixes are renamed back to the
+# upstream module names). Imported by `OAI.NumberTheory.DirichletL.CubicSieve.RadialWindows`.
+[[lean_lib]]
+name = "RellichKondrachov"
+srcDir = "vendor"
+leanOptions = { autoImplicit = false }
+
+# AINTLIB (CBirkbeck/AINTLIB, 160e446, Apache-2.0), project `DedekindResidue`: the import closure of
+# `DedekindResidue.CompletedZeta.{ClassTheta,Existence,FunctionalEquation,MellinAgreement}` (14 files),
+# with openai/math's `AINTLIB-lean4341.patch` applied (8 of the 14 files). Options as upstream.
+[[lean_lib]]
+name = "DedekindResidue"
+srcDir = "vendor"
+leanOptions = { autoImplicit = false, relaxedAutoImplicit = false, maxSynthPendingDepth = 3 }
+
+# cadamcat/artin-primitive-roots-lean4 (Yao Xu, Apache-2.0, commit 5a36d86): a Lean formalization of
+# [A]. Vendored: the import closure of `ArtinPrimitiveRoots.Splitting.ZeroFree` (1,021 modules) and of
+# the marked Type II files (570 modules, see vendor/ARTINPRIMITIVEROOTS_SOURCES.md). The first
+# contains [A, Theorem 1.2] (`HeckeBoundary.thm_hecke_zero_free`) and the Artin factorization of
+# `ζ_T` for abelian `T/B` (`Splitting.upstairs_rhp_euler_identity`). Written for Lean 4.34.1 and
+# Mathlib d13f23b; edits made for this toolchain are logged in `vendor/ARTINPRIMITIVEROOTS_SOURCES.md`.
+[[lean_lib]]
+name = "ArtinPrimitiveRoots"
+srcDir = "vendor"
+leanOptions = { autoImplicit = false }
+
+# The final, non-module layer of the unconditional route (the class field theory bridge of step Z3
+# and the assembly). It imports ClassFieldTheory, so the module root cannot import it.
+[[lean_lib]]
+name = "SimultaneousPrimitiveRootsFinal"
+
+[[lean_lib]]
+name = "Challenge"
+
+[[lean_lib]]
+name = "Solution"
+
+[[lean_lib]]
+name = "Compat4331"
+leanOptions = { autoImplicit = true }
+
+[[lean_lib]]
+name = "FClikelean"
+srcDir = ".."

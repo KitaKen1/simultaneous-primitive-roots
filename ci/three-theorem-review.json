@@ -1,0 +1,189 @@
+{
+  "date_jst": "2026-10-15",
+  "scope": "Add the prime-base corollary without the four analytic hypotheses, and present conditional main, corollary, and stronger variant in that order.",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "main_and_corollary_differ_only_by_the_four_hypotheses": true,
+  "all_five_definitions_unchanged": true,
+  "stronger_variant_type_unchanged": true,
+  "new_corollary_proof": {
+    "file": "lean/Solution.lean",
+    "theorem": "SimultaneousPrimitiveRootsChallenge.simultaneous_primitive_roots_unconditional",
+    "uses": "SimultaneousPrimitiveRootsChallenge.positive_lower_density",
+    "square_condition": "Distinct prime products are squarefree; an odd-cardinality subset is nonempty.",
+    "open_interval": "Use the stronger theorem at n=floor(x); primes in (n,2n] lie in (x,2x), since 2n is composite for n>=2.",
+    "new_constant": "c / 2"
+  },
+  "build": {
+    "exit_code": 0,
+    "jobs": 12711,
+    "log": "results/three-theorem-build.log"
+  },
+  "public_axioms": {
+    "SimultaneousPrimitiveRootsChallenge.simultaneous_primitive_roots_unconditional": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "SimultaneousPrimitiveRootsChallenge.positive_lower_density": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "SimultaneousPrimitiveRootsChallenge.square_condition_necessary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "SimultaneousPrimitiveRootsChallenge.simultaneous_primitive_roots": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "source_audit": {
+    "passed": true,
+    "lean_files": 4465,
+    "source_sha256": "8a5b5ea1ee7686f60a17ca8c3d267e7427c4d4d77eba1fd6856f292baf38df90",
+    "intentional_statement_placeholders": 3,
+    "fclikelean": {
+      "lean_files": 2,
+      "source_sha256": "f48d02bf8cc14b3ff5c15faf7a441890c810b0ba7cf55f98cc2e41812f1bf0c7",
+      "intentional_statement_placeholders": 4,
+      "input_definition_placeholders": 0,
+      "main_self_contained": true,
+      "auxiliary_separate": true,
+      "standard_import": "FormalConjecturesUtil",
+      "all_theorems_category": "research solved",
+      "AMS": [
+        11
+      ]
+    },
+    "port_record": {
+      "passed": true,
+      "changed_existing_files": 1251,
+      "new_proof_backports": 22,
+      "added_publication_proofs": [
+        "SimultaneousPrimitiveRootsFinal/OpenAIMain.lean"
+      ]
+    }
+  },
+  "independent_statements": {
+    "passed": true,
+    "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+    "each_file_self_contained": true,
+    "standard_import": "FormalConjecturesUtil",
+    "real_fc_attributes": true,
+    "own_statement_build_path_removed": true,
+    "files": [
+      {
+        "file": "FClikelean/SimultaneousPrimitiveRoots.lean",
+        "exit_code": 0
+      },
+      {
+        "file": "FClikelean/SquareConditionNecessary.lean",
+        "exit_code": 0
+      }
+    ],
+    "log": "results/three-theorem-fc-style-standalone.json",
+    "scope": "Independent compilation before final reference/URL additions; the subsequent final FC build also passed with those metadata additions."
+  },
+  "complete_comparator": {
+    "status": "passed",
+    "theorem_names": [
+      "SimultaneousPrimitiveRootsChallenge.simultaneous_primitive_roots_unconditional",
+      "SimultaneousPrimitiveRootsChallenge.positive_lower_density",
+      "SimultaneousPrimitiveRootsChallenge.square_condition_necessary"
+    ],
+    "mode": "upstream macOS development shim",
+    "nanoda_enabled": false,
+    "executed_configuration": "results/three-target-comparator-config-used.json",
+    "executed_solution_module": "Solution",
+    "current_solution_module": "SimultaneousPrimitiveRootsFinal.OpenAIMain",
+    "configuration_extension": "Current CI root imports the same Solution and additionally compiles the exact conditional-main bridge. The added module passed the local build and axiom checks; it is not a fourth selected replay target. The full local run uses the recorded Solution root.",
+    "selected_target_sources_unchanged_during_run": false,
+    "last_checked_at_utc": "2026-10-15T12:31:21.514743+00:00",
+    "stage_observed": "Final Lean default-kernel replay; observed in a one-second sample of the owned Comparator process.",
+    "target_and_definition_comparison_passed": true,
+    "permitted_axiom_check_passed": true,
+    "completion_receipt": "results/three-theorem-comparator-run.json",
+    "log": "results/three-theorem-comparator.log",
+    "selected_sources_unchanged_through_export": true,
+    "later_update": "After the exports were captured and kernel replay started, Challenge and the configuration were extended to four targets. This run still checks the recorded three-target export, not current four-target CI.",
+    "exit_code": 0,
+    "lean_kernel_replay_passed": true,
+    "official_success_marker": "Your solution is okay!",
+    "elapsed_seconds": 3122.37,
+    "log_sha256": "93841315010bcd4a6e96c7f32d9c0a6ba2b62ecbe42a143b40a98eeb43980022",
+    "scope": "The recorded three-target Solution export, before the four-target Challenge update. Not a four-target or Linux CI result."
+  },
+  "private_ci": "not_run",
+  "public_ci": "not_run",
+  "files_sha256": {
+    "FClikelean/SimultaneousPrimitiveRoots.lean": "619082bc6954b3f98ca6bd0f485a11d5bd96bec9b1731b37203c3a1715600bf4",
+    "FClikelean/SquareConditionNecessary.lean": "c09f1de2eb99334c947302f7d20cbc6f2b1e2067560b17a94748e64777ee3a9b",
+    "lean/Challenge.lean": "6522a311d3818491e2cd0bdff0fe6da2e8a5df1766d726f765a3040a215e26d6",
+    "lean/Solution.lean": "0b7e7952c6febee0dcd49beea8937f3e23fbc75770ae16b7b5d755f963e6465e",
+    "lean/comparator.json": "2d874afd6e10f485ac999c9b7d96b0a5f337bded6552dc55dac0130f4ec69503",
+    "scripts/check_sources.py": "1617a03546a6329a4f61eb55ca898d3d0ea6dd0086c7b97cfd21a5278b149533",
+    "scripts/build.sh": "965a967463a7bad69f79e182cb9a8fb47db730477376b6f3ef0723256d9770e0",
+    "scripts/check_fclike_standalone.py": "6699d4ce6e7d6ffc4860ba61e8153131a677efe849185cc29a458fed08effb43",
+    "tools/fc-style/lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71",
+    "tools/fc-style/lakefile.toml": "d4ca12477e46b247da7eaf17bc8b326f60a68d35eb20cd8d2d2c7371dbc30f43",
+    "tools/fc-style/lake-manifest.json": "0b0a7372a8f35aabc3d2731939c2206fdb6c53b40783a87f731d67140ff58151",
+    ".github/workflows/lean.yml": "15c1dfea6312a5d378d8e0fb9abc0e2c49231e1f8ccb27db7d943e11894becad",
+    "lean/SimultaneousPrimitiveRootsFinal/OpenAIMain.lean": "253e4882393eb3453569b50aa39da29fd8fd3bad64a47c91605a79e7a7aeb163"
+  },
+  "previous_complete_verification": "local-verification.json",
+  "fc_style": {
+    "reference": "https://github.com/KitaKen1/entropic-rogers-shephard/blob/main/FClikelean/EntropicRogersShephard.lean",
+    "standard_import": "FormalConjecturesUtil",
+    "module_and_expose_public_section": true,
+    "category": "research solved",
+    "AMS": [
+      11
+    ],
+    "formal_conjectures_commit": "79eac378a26b46d30974cdb33962e0752591b79d",
+    "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "fc_build_exit_code": 0,
+    "fc_build_jobs": 8953,
+    "fc_build_log": "results/three-theorem-fc-style-build-final.log",
+    "formal_proof_urls": {
+      "simultaneous_primitive_roots": "https://github.com/KitaKen1/simultaneous-primitive-roots/blob/main/lean/SimultaneousPrimitiveRootsFinal/OpenAIMain.lean",
+      "variants_and_obstruction": "https://github.com/KitaKen1/simultaneous-primitive-roots/blob/main/lean/Solution.lean"
+    },
+    "publication_url_status": "Planned public main-branch URLs; no push or publication performed.",
+    "bibliography": {
+      "OAI26": "OpenAI, Simultaneous primitive roots: a conditional lower bound for prime bases (2026), Theorem 1.1.",
+      "Ki26": "Kenta Kitamura, Positive Lower Density of Simultaneous Primitive Roots (2026), accompanying Lean formalization."
+    }
+  },
+  "html_checks": {
+    "passed": true,
+    "pages": 7,
+    "viewports": [
+      1440,
+      900,
+      390
+    ],
+    "source_excerpts_and_local_links_checked": true,
+    "log": "results/three-theorem-html-qa.json"
+  },
+  "conditional_main_proof": {
+    "file": "lean/SimultaneousPrimitiveRootsFinal/OpenAIMain.lean",
+    "theorem": "SimultaneousPrimitiveRootsChallenge.simultaneous_primitive_roots",
+    "proof": "Applies simultaneous_primitive_roots_unconditional; no use of the four hypotheses is needed.",
+    "five_definition_bodies_match_fc_file": true,
+    "statement_matches_fc_file": true,
+    "build_exit_code": 0,
+    "build_jobs": 12707,
+    "build_log": "results/three-theorem-main-proof-build.log"
+  },
+  "four_input_axioms": {
+    "all_exactly": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "log": "results/three-theorem-fc-inputs.log"
+  }
+}

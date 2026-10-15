@@ -1,0 +1,16 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "SimultaneousPrimitiveRootsFinal.OpenAIMain",
+  "theorem_names": [
+    "SimultaneousPrimitiveRootsChallenge.simultaneous_primitive_roots",
+    "SimultaneousPrimitiveRootsChallenge.simultaneous_primitive_roots_unconditional",
+    "SimultaneousPrimitiveRootsChallenge.positive_lower_density",
+    "SimultaneousPrimitiveRootsChallenge.square_condition_necessary"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}

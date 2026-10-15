@@ -1,0 +1,70 @@
+{
+  "verified_at_utc": "2026-10-14T22:52:38.412979+00:00",
+  "verification_date_jst": "2026-10-15",
+  "platform": "macOS arm64",
+  "compiler": {
+    "version": "4.33.1",
+    "commit": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+    "unmodified_release": true
+  },
+  "source_sha256": "17507fc1eef82975bf58c4b5e210569ad5e5a7f97cf8bc8d953e35e13f2ca18d",
+  "lean_source_files": 4464,
+  "original_workspace_sources_unchanged": 4440,
+  "ported_existing_sources": 1251,
+  "new_compatibility_modules": 22,
+  "independent_statement_placeholders": 2,
+  "complete_build": {
+    "exit_code": 0,
+    "targets": [
+      "Challenge",
+      "Solution"
+    ],
+    "jobs": 12709,
+    "scope": "Required dependency closure; unused vendored files not all compiled individually"
+  },
+  "public_axioms": {
+    "exit_code": 0,
+    "target_names": [
+      "SimultaneousPrimitiveRootsChallenge.positive_lower_density",
+      "SimultaneousPrimitiveRootsChallenge.square_condition_necessary"
+    ],
+    "exact_axiom_set": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "complete_comparator": {
+    "exit_code": 0,
+    "target_and_definition_comparison_passed": true,
+    "axiom_check_passed": true,
+    "lean_kernel_replay_passed": true,
+    "official_success_marker": "Your solution is okay!",
+    "upstream_macos_development_shim": true,
+    "checking_algorithm_sources_unchanged": true,
+    "nanoda_enabled": false
+  },
+  "linux_sandbox_ci": "not_run",
+  "private_sandbox_ci": "not_run",
+  "public_repository_ci": "not_run",
+  "user_manuscript_fc_readme_review": "pending",
+  "log_policy": "Full generated logs and run receipts are in ignored ci/results; GitHub runs upload their own logs as artifacts.",
+  "source_audit_passed": true,
+  "declaration_audit": {
+    "reviewed_unique_changed_sources": 1251,
+    "unreviewed_sources": 0,
+    "source_sha_mismatches": 0,
+    "analysis_ledger_sha256": "df2576e470e2b152aabf6cdea54f30120fc45b0d9fce3532a70f0713932182ae",
+    "arithmetic_ledger_sha256": "0c2f436f7a8d192889b7613344c04a2753b03411e1540a4dd98b37e1b611c0b1"
+  },
+  "later_statement_documentation_update": {
+    "record": "statement-docstring-review.json",
+    "current_statement_sha256": "7232f72f9242ee30f453f530f8fdd92a1a4cb7112c05132ab9f10038203ec4ec",
+    "comment_stripped_code_unchanged": true,
+    "note": "Earlier verification hashes and executed results are preserved above; this later update changes comments only."
+  },
+  "later_statement_layout_update": {
+    "record": "fclike-comparable-statements-review.json",
+    "note": "Challenge parameters are now written as forall/arrows after the colon. Both public target types were proved definitionally equal to the prior forms. The frozen original verification results above remain unchanged."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "file": "vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_LOCAL_COEFF/UnitInversion.lean",
+  "line": 98,
+  "original_sha256": "c9806553cf5ab03e5a08f275765c1c151824118c93bb301a967045395a9ee653",
+  "before_sha256": "c9806553cf5ab03e5a08f275765c1c151824118c93bb301a967045395a9ee653",
+  "after_sha256": "d666ab075585412cf1bce44892831697a66b5ea755dac7bc3f950e68db59a793",
+  "source_freeze_sha256": "d666ab075585412cf1bce44892831697a66b5ea755dac7bc3f950e68db59a793",
+  "old_proof_lines": "    rw [hscale, Measure.map_smul _ measurable_inv.aemeasurable, Measure.map_inv_eq_self]",
+  "new_proof_lines": "    rw [hscale, Measure.map_smul (Measure.haarScalarFactor ν η) η (Inv.inv : G → G),\n      Measure.map_inv_eq_self]",
+  "inverse_restores_all_before_bytes": true,
+  "inverse_restores_all_original_bytes": true,
+  "scope": "One existing proof rewrite only. The same haarScalarFactor ν η, measure η and inverse map Inv.inv are supplied explicitly; every declaration, hypothesis, map, measure, scalar and definition value remains unchanged.",
+  "justification": "Stock Mathlib MeasureTheory/Measure/Map.lean:128 Measure.map_smul takes explicit (c : R) (μ : Measure α) (f : α → β). The original newer API takes c and AEMeasurable f μ with μ/f implicit. Removing that newer proof argument and supplying the same η and Inv.inv preserves exactly the measure equality used by hscale and map_inv_eq_self.",
+  "status": "saved; root next whole-build integration pending; no direct Lean checks",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_LOCAL_COEFF/UnitInversion.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_LOCAL_COEFF/UnitInversion.lean (after)\n@@ -95,7 +95,8 @@\n     Measure.isMulInvariant_eq_smul_of_compactSpace ν η\n   letI : ν.IsInvInvariant := ⟨by\n     change Measure.map Inv.inv ν = ν\n-    rw [hscale, Measure.map_smul _ measurable_inv.aemeasurable, Measure.map_inv_eq_self]\n+    rw [hscale, Measure.map_smul (Measure.haarScalarFactor ν η) η (Inv.inv : G → G),\n+      Measure.map_inv_eq_self]\n   ⟩\n   let j : G → K := r ∘ g\n   have hj : MeasurableEmbedding j := hr.comp hg\n"
+}

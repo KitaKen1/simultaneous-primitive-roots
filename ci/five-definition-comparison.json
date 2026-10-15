@@ -1,0 +1,70 @@
+{
+  "checked_at_utc": "2026-10-15T13:22:04.921316+00:00",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "scope": "Compiled values and transitive dependencies of the five definitions, not theorem-proof replay or proof of the hypotheses.",
+  "method": "Unmodified upstream Comparator.compareAt; theorem and definition-hole target arrays empty; the five concrete definitions start the ordinary constant worklist, so values are compared.",
+  "definitions": [
+    "HeckeZeroFreeHypothesis",
+    "roughDensity",
+    "MarkedTypeIIHypothesis",
+    "BlockSieveHypothesis",
+    "RoughDensityHypothesis"
+  ],
+  "modules": {
+    "challenge": "Challenge",
+    "fc": "FClikelean.SimultaneousPrimitiveRoots",
+    "proof": "SimultaneousPrimitiveRootsFinal.OpenAIMain"
+  },
+  "source_files": {
+    "challenge": {
+      "path": "lean/Challenge.lean",
+      "sha256": "d562fd86aeb8f7129f6230f55c39b93a2cba1f05dc48cb070dc60b6590aa2d8e"
+    },
+    "fc": {
+      "path": "FClikelean/SimultaneousPrimitiveRoots.lean",
+      "sha256": "619082bc6954b3f98ca6bd0f485a11d5bd96bec9b1731b37203c3a1715600bf4"
+    },
+    "proof": {
+      "path": "lean/SimultaneousPrimitiveRootsFinal/OpenAIMain.lean",
+      "sha256": "253e4882393eb3453569b50aa39da29fd8fd3bad64a47c91605a79e7a7aeb163"
+    }
+  },
+  "whitespace_normalized_definition_body_sha256": {
+    "HeckeZeroFreeHypothesis": "9e342713cfa43febb501016d9672ae1592c09abb1d0004003131eced1305bd88",
+    "roughDensity": "f370becbf0507007ca9ed30ee302985619ba3f9706b6f9dfaba21e60ecdea058",
+    "MarkedTypeIIHypothesis": "32f2a4a51ab2dde563f1d4a992548efe0315378f3609a813de90602db41ff5b4",
+    "BlockSieveHypothesis": "18a9ec5aa89f738a7d5a40c9f709a2f45741793611781583f71fdcf49cba234d",
+    "RoughDensityHypothesis": "48632cc950abe80f10fa8931356941d74c7ee4d2f0a5258c46e8b4f3e06da6f0"
+  },
+  "comparisons": [
+    {
+      "left": "challenge",
+      "right": "fc",
+      "passed": true,
+      "log": "results/five-defs-challenge-fc.log",
+      "log_sha256": "e50f558bf579c79eb3c6b46cf9b5462a7b5712cc95d57c39f4bbb88a8f953753"
+    },
+    {
+      "left": "challenge",
+      "right": "proof",
+      "passed": true,
+      "log": "results/five-defs-challenge-proof.log",
+      "log_sha256": "e50f558bf579c79eb3c6b46cf9b5462a7b5712cc95d57c39f4bbb88a8f953753"
+    }
+  ],
+  "export_digests": {
+    "challenge": {
+      "bytes": 261641871,
+      "sha256": "b9d4c7d0d39e4d0ba1d0e1095c312292bffd1d5c542619585d9449e78e3b0b4a"
+    },
+    "fc": {
+      "bytes": 261642013,
+      "sha256": "b65813fa6dc116640fa77c2cd21420542f08a71902060fd01356764731b956e2"
+    },
+    "proof": {
+      "bytes": 261642023,
+      "sha256": "bbd69aeb5000577094e59042ac67430e8d7d0fe8842cc5b589cd9553954d3885"
+    }
+  },
+  "export_format_note": "Raw exports contain module-specific hygienic binder names; equality is checked using the upstream comparator."
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "file": "vendor/ArtinPrimitiveRoots/A2/Poisson/Missing.lean",
+  "owner": "review_ci",
+  "reported_line_round099": 10674,
+  "proof_anchor": "po_H_eta_properties.hMaps",
+  "status": "one assigned proof block saved; shared file final SHA/audit deferred until every editor completes",
+  "source_edit_mechanism": "one apply_patch exact-context hunk; no full-file write",
+  "edits": [
+    {
+      "before": "    refine ⟨?_, by norm_num, by norm_num⟩\n    simpa using hs",
+      "after": "    refine ⟨?_, by norm_num, by\n      norm_num\n      change (15999 / 100000 : ℝ) < (1 / 6 : ℂ).re\n      norm_num⟩\n    simpa using hs",
+      "count": 1
+    }
+  ],
+  "local_inverse_recovery_verified": true,
+  "scope": "Only the third constant inequality proof in hMaps, retaining original vector ![s,1,1/6], threshold, domain/eulerNeighborhood conditions, hs and all theorem headers/hypotheses/data.",
+  "justification": "Original norm_num leaves actual099 goal (15999/100000:Real) < (![s,1,1/6] 2).re. The third vector component is definitionally (1/6:Complex); explicit change exposes only that same constant, then norm_num proves the unchanged rational strict inequality.",
+  "full_file_sha_and_arithmetic_ledger_not_updated": true,
+  "validation": "No direct Lean build or heavy checks; next root whole-source integration pending; analysis owns combined final audit."
+}

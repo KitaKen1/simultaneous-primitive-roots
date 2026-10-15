@@ -1,0 +1,177 @@
+{
+  "verified_at_utc": "2026-10-15T09:50:48.527276+00:00",
+  "scope": "Move the supplementary square obstruction into its own independent Lean file; keep main and variant together and self-contained.",
+  "central_statement": "FClikelean/SimultaneousPrimitiveRoots.lean",
+  "supplementary_statement": "FClikelean/SquareConditionNecessary.lean",
+  "central_file_theorems": [
+    "simultaneous_primitive_roots",
+    "positive_lower_density"
+  ],
+  "supplementary_file_theorems": [
+    "square_condition_necessary"
+  ],
+  "main_file_unchanged_except_auxiliary_removal": true,
+  "auxiliary_declaration_moved_verbatim": true,
+  "cross_imports": false,
+  "source_audit": {
+    "passed": true,
+    "lean_files": 4464,
+    "source_sha256": "053ab44f97520ed50d1b41ce4c2b970d1326c26736cae0404d2e04fe2c4aa18e",
+    "intentional_statement_placeholders": 2,
+    "fclikelean": {
+      "lean_files": 2,
+      "source_sha256": "d544ab17e1e1789909e66a53aaa09b28b3b6467ac80e895c9d6174c2f7ad9961",
+      "intentional_statement_placeholders": 3,
+      "input_definition_placeholders": 0,
+      "main_self_contained": true,
+      "auxiliary_separate": true,
+      "imports_only_mathlib": true
+    },
+    "port_record": {
+      "passed": true,
+      "changed_existing_files": 1251,
+      "new_proof_backports": 22
+    }
+  },
+  "independent_compilation": {
+    "passed": true,
+    "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+    "each_file_self_contained": true,
+    "imports_only_mathlib": true,
+    "publication_build_path_removed": true,
+    "files": [
+      {
+        "file": "FClikelean/SimultaneousPrimitiveRoots.lean",
+        "exit_code": 0,
+        "compiler_output": "/Users/kenta/Dropbox/Intellectual Moonshine/?AI数学/同時原始根/forgithubpublication/FClikelean/SimultaneousPrimitiveRoots.lean:132:8: warning: declaration uses `sorry`\n/Users/kenta/Dropbox/Intellectual Moonshine/?AI数学/同時原始根/forgithubpublication/FClikelean/SimultaneousPrimitiveRoots.lean:145:8: warning: declaration uses `sorry`\n"
+      },
+      {
+        "file": "FClikelean/SquareConditionNecessary.lean",
+        "exit_code": 0,
+        "compiler_output": "/Users/kenta/Dropbox/Intellectual Moonshine/?AI数学/同時原始根/forgithubpublication/FClikelean/SquareConditionNecessary.lean:12:8: warning: declaration uses `sorry`\n"
+      }
+    ]
+  },
+  "html_theorem_extracts_match_sources": true,
+  "html_qa": {
+    "results": [
+      {
+        "name": "desktop",
+        "viewport": 1200,
+        "documentWidth": 1200,
+        "theorems": [
+          "openai",
+          "repo"
+        ],
+        "overflows": [],
+        "expanded": {
+          "viewport": 1200,
+          "documentWidth": 1200,
+          "leanBlocks": [
+            true,
+            true,
+            true
+          ]
+        }
+      },
+      {
+        "name": "medium",
+        "viewport": 900,
+        "documentWidth": 900,
+        "theorems": [
+          "openai",
+          "repo"
+        ],
+        "overflows": [],
+        "expanded": {
+          "viewport": 900,
+          "documentWidth": 900,
+          "leanBlocks": [
+            true,
+            true,
+            true
+          ]
+        }
+      },
+      {
+        "name": "mobile",
+        "viewport": 390,
+        "documentWidth": 390,
+        "theorems": [
+          "openai",
+          "repo"
+        ],
+        "overflows": [],
+        "expanded": {
+          "viewport": 390,
+          "documentWidth": 390,
+          "leanBlocks": [
+            true,
+            true,
+            true
+          ]
+        }
+      }
+    ],
+    "pageErrors": []
+  },
+  "correspondence_html_qa": {
+    "results": [
+      {
+        "name": "desktop",
+        "viewport": 1200,
+        "documentWidth": 1200,
+        "roles": 3,
+        "sections": 4,
+        "overflows": [],
+        "expanded": {
+          "viewport": 1200,
+          "documentWidth": 1200
+        }
+      },
+      {
+        "name": "medium",
+        "viewport": 900,
+        "documentWidth": 900,
+        "roles": 3,
+        "sections": 4,
+        "overflows": [],
+        "expanded": {
+          "viewport": 900,
+          "documentWidth": 900
+        }
+      },
+      {
+        "name": "mobile",
+        "viewport": 390,
+        "documentWidth": 390,
+        "roles": 3,
+        "sections": 4,
+        "overflows": [],
+        "expanded": {
+          "viewport": 390,
+          "documentWidth": 390
+        }
+      }
+    ],
+    "pageErrors": []
+  },
+  "proof_scope": {
+    "challenge_solution_and_proof_sources_unchanged": true,
+    "new_full_comparator_run": false,
+    "previous_full_comparator_record": "ci/local-verification.json",
+    "main_statement_has_no_new_proof": true,
+    "remote_ci_or_publication": false
+  },
+  "files_sha256": {
+    "FClikelean/SimultaneousPrimitiveRoots.lean": "3094dd79c25ef03580769e64e89132aa935cec44182747045c4b7be7b382ef3a",
+    "FClikelean/SquareConditionNecessary.lean": "1dcea17f3c52a8e2360f4d158d983744b52e01df2a415cf0af0246f10fddd72f",
+    "lean/Challenge.lean": "af418973d7e47f95c849f07093e91a655ada3d25f5f98ee1c07217ffc8ab7aae",
+    "lean/Solution.lean": "96ee847ea0d6998757b7d72cda58cd0df7c2a94911564e73a6262d67a5a54916",
+    "scripts/check_sources.py": "db5a295868c6a0b6686fa920a67b922b4af3605d79396513763f62d7cfa06d2a",
+    "scripts/check_fclike_standalone.py": "c87f3b9388cedfa2c57e429dcfd83c0b78b12902c39b95893e7d5f046d3af7cf",
+    "FClikelean/README.md": "f75d9226f10e80bf792e0d00820b1a2f9b10b18cc5e1f58f9b61e9a021d62a33",
+    "README.md": "5826410f83416fd31bb50a18a789eba32ff5674d509e7fe9698cb1d1ebf49940",
+    ".github/workflows/lean.yml": "42ff5d49284352bda1f84e22e417beaa062be4ade61d86c0e9722868063e88fd"
+  }
+}

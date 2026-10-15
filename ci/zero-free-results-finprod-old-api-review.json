@@ -1,0 +1,19 @@
+{
+  "file": "vendor/ArtinPrimitiveRoots/A2/ZeroFree/Results.lean",
+  "before_sha256": "dc582defc82e02b6497d788400117a265ae1e02c3fb4315cbb281cbaa7adad15",
+  "after_sha256": "ec4570c3b4cb6b7c2e6fe02f7cf3e22f912d500ec06e68e87baae42db64c8d45",
+  "old_proof_lines": "  have hprod := finprod_le_finprod₀ hg (fun _ => by positivity) hfs hpoint",
+  "new_proof_lines": "  have hprod := finprod_le_finprod hg (fun _ => by positivity) hfs hpoint",
+  "schema_version": 1,
+  "line": 2833,
+  "original_sha256": "062fea692670a72ed01c410fd2aa526c6242e88dadf2cab289f582d9f9b6277e",
+  "source_freeze_sha256": "ec4570c3b4cb6b7c2e6fe02f7cf3e22f912d500ec06e68e87baae42db64c8d45",
+  "original_source_matches_manifest": true,
+  "inverse_recovers_all_before_bytes": true,
+  "inverse_recovers_all_original_bytes": false,
+  "scope": "One local finite-product inequality proof-name replacement, all original factors/supports/four arguments/rewrites and all declaration types, hypotheses, definition values/data unchanged.",
+  "justification": "Stock Mathlib Algebra/BigOperators/Finprod.lean:624 finprod_le_finprod has the same [CommMonoidWithZero M] [PartialOrder M] [ZeroLEOneClass M] [PosMulMono M], four support/nonnegative/support/pointwise arguments, and finite product comparison conclusion as original newer :616 finprod_le_finprod₀. The proof reuses exactly hg, (fun _ => by positivity), hfs, hpoint; the surrounding original ideal norm factorization is unchanged.",
+  "remaining_literal_name_scan": "rg finprod_le_finprod₀ vendor before mutation found only this actual site, so no further unbuilt public-closure references exist; after mutation no references remain.",
+  "status": "saved; next root whole-build integration pending; no direct Lean checks",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/A2/ZeroFree/Results.lean (before)\n+++ vendor/ArtinPrimitiveRoots/A2/ZeroFree/Results.lean (after)\n@@ -2830,7 +2830,7 @@\n   have hsprod : (∏ᶠ v, s v) = ∏ v ∈ S.Sf, (Ideal.absNorm v.asIdeal : ℝ) := by\n     rw [finprod_eq_finsetProd_of_mulSupport_subset s hsupp]\n     simp [s]\n-  have hprod := finprod_le_finprod₀ hg (fun _ => by positivity) hfs hpoint\n+  have hprod := finprod_le_finprod hg (fun _ => by positivity) hfs hpoint\n   rw [← hnormJ, finprod_mul_distrib hf hs, ← hnormI, hsprod] at hprod\n   simpa [J, N, mul_comm] using hprod\n \n"
+}

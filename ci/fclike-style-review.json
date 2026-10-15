@@ -1,0 +1,183 @@
+{
+  "verified_at_utc": "2026-10-15T09:02:31.974022+00:00",
+  "scope": "Simplify the one-file FC statement after reading Formal Conjectures examples and guides. Replace one-use wrappers by formulas and local lets; retain explicit complete analytic hypotheses.",
+  "statement": "FClikelean/SimultaneousPrimitiveRoots.lean",
+  "before_sha256": "b50cc5c806f5ed3cf4b7b42d29300ec5bbef04981854e0b2c92a2bcfc79ee42e",
+  "after_sha256": "2e0f739366ce6aa3f4bbf6bf8418682584be121a5eee6154f08305af5ec7aaa9",
+  "before": {
+    "lines": 297,
+    "imports": 19,
+    "definitions": 34,
+    "abbreviations": 1,
+    "sections": 2,
+    "open_commands": 3
+  },
+  "after": {
+    "lines": 182,
+    "imports": 1,
+    "definitions": 14,
+    "abbreviations": 0,
+    "sections": 0,
+    "open_commands": 2
+  },
+  "naming": {
+    "input31": "HeckeZeroFreeHypothesis",
+    "input41": "MarkedTypeIIHypothesis",
+    "input51": "BlockSieveHypothesis",
+    "input52": "RoughDensityHypothesis",
+    "openai_main": "simultaneous_primitive_roots"
+  },
+  "reviewed_fc_examples": [
+    "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/Wikipedia/ArtinPrimitiveRootsConjecture.lean",
+    "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/Millennium/RiemannHypothesis.lean",
+    "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/Arxiv/2607.03582/LpRogersShephard.lean",
+    "https://github.com/KitaKen1/entropic-rogers-shephard/blob/main/FClikelean/EntropicRogersShephard.lean"
+  ],
+  "reviewed_fc_guides": [
+    "https://github.com/google-deepmind/formal-conjectures/blob/main/STATEMENTS.md",
+    "https://github.com/google-deepmind/formal-conjectures/blob/main/CONTRIBUTING.md"
+  ],
+  "validation": {
+    "lean_version": "4.33.1",
+    "build": {
+      "command": "lake build FClikelean.SimultaneousPrimitiveRoots",
+      "cwd": "lean",
+      "exit_code": 0,
+      "lake_jobs": 8706,
+      "log": "ci/results/fclike-style-build.log"
+    },
+    "hypothesis_definitional_equality": {
+      "command": "lake env lean ../ci/results/fclike-style-equivalence.lean",
+      "cwd": "lean",
+      "exit_code": 0,
+      "proof": "rfl for each of the four equalities",
+      "checked_proofs": [
+        "hecke_hypothesis_unchanged",
+        "typeII_hypothesis_unchanged",
+        "sieve_hypothesis_unchanged",
+        "density_hypothesis_unchanged"
+      ],
+      "log": "ci/results/fclike-style-equivalence.log",
+      "comparison_source_sha256": "1d14523f1d07a70ad4289f6ef6e4eb5f7f225473f6c58484afe6d250c837b058",
+      "current_helper_source_included_exactly": true
+    },
+    "isolated_compile": {
+      "passed": true,
+      "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+      "single_file": true,
+      "imports_only_mathlib": true,
+      "publication_build_path_removed": true,
+      "exit_code": 0,
+      "compiler_output": "/Users/kenta/Dropbox/Intellectual Moonshine/?AI数学/同時原始根/forgithubpublication/FClikelean/SimultaneousPrimitiveRoots.lean:153:8: warning: declaration uses `sorry`\n/Users/kenta/Dropbox/Intellectual Moonshine/?AI数学/同時原始根/forgithubpublication/FClikelean/SimultaneousPrimitiveRoots.lean:165:8: warning: declaration uses `sorry`\n/Users/kenta/Dropbox/Intellectual Moonshine/?AI数学/同時原始根/forgithubpublication/FClikelean/SimultaneousPrimitiveRoots.lean:175:8: warning: declaration uses `sorry`\n"
+    },
+    "source_audit": {
+      "passed": true,
+      "lean_files": 4464,
+      "source_sha256": "5c4ece81c20e7aa34ea65651d8e4eac2814e91ce61b7ecb382c12a6d727e0296",
+      "intentional_statement_placeholders": 2,
+      "fclikelean": {
+        "lean_files": 1,
+        "source_sha256": "112e7e1bcdaeff7f50beb3f0044e760dbaabef99c89012c83c01deda593793b2",
+        "intentional_statement_placeholders": 3,
+        "input_definition_placeholders": 0,
+        "single_file": true,
+        "imports_only_mathlib": true
+      },
+      "port_record": {
+        "passed": true,
+        "changed_existing_files": 1251,
+        "new_proof_backports": 22
+      }
+    },
+    "input_checks": {
+      "command": "lake env lean ../ci/openai-input-definition-checks.lean",
+      "exit_code": 0,
+      "log": "ci/results/fclike-style-input-checks.log",
+      "principal_character_example_passed": true,
+      "all_four_proposition_definitions_use_only_standard_three_axioms": true
+    },
+    "html_theorem_blocks_match_source": true,
+    "html_qa": {
+      "results": [
+        {
+          "name": "desktop",
+          "viewport": 1200,
+          "documentWidth": 1200,
+          "theorems": [
+            "openai",
+            "repo"
+          ],
+          "overflows": [],
+          "expanded": {
+            "viewport": 1200,
+            "documentWidth": 1200,
+            "leanBlocks": [
+              true,
+              true,
+              true,
+              true
+            ]
+          }
+        },
+        {
+          "name": "medium",
+          "viewport": 900,
+          "documentWidth": 900,
+          "theorems": [
+            "openai",
+            "repo"
+          ],
+          "overflows": [],
+          "expanded": {
+            "viewport": 900,
+            "documentWidth": 900,
+            "leanBlocks": [
+              true,
+              true,
+              true,
+              true
+            ]
+          }
+        },
+        {
+          "name": "mobile",
+          "viewport": 390,
+          "documentWidth": 390,
+          "theorems": [
+            "openai",
+            "repo"
+          ],
+          "overflows": [],
+          "expanded": {
+            "viewport": 390,
+            "documentWidth": 390,
+            "leanBlocks": [
+              true,
+              true,
+              true,
+              true
+            ]
+          }
+        }
+      ],
+      "pageErrors": []
+    }
+  },
+  "scope_limits": {
+    "four_hypotheses_and_main_conclusion_unchanged": true,
+    "variant_declarations_match_unchanged_challenge": true,
+    "analytic_inputs_newly_proved": false,
+    "new_main_or_implication_proof": false,
+    "fc_pr_or_remote_ci_run": false,
+    "actual_fc_standard_import_and_tags_not_added_to_local_mathlib_only_file": true
+  },
+  "files_sha256": {
+    "FClikelean/SimultaneousPrimitiveRoots.lean": "2e0f739366ce6aa3f4bbf6bf8418682584be121a5eee6154f08305af5ec7aaa9",
+    "FClikelean/README.md": "81a9c0332a9c2f96c2fea7c5baa9082c0fa375944672db6d3b664eb4b1c6fddb",
+    "README.md": "081f3d7b33370426626cff521c3f4911fa23208b5ea7443a7927679537e3a7fc",
+    "scripts/check_sources.py": "26aa6692eaafe39f440a276b7d6c7a6af98bdab209af3d10078fe849ddc30997",
+    "scripts/check_fclike_standalone.py": "4d458981b7d53207490046a8f0a0fde3aac55e1e79060525c3fca5b5a3e53a58",
+    "ci/openai-input-definition-checks.lean": "a9bfdc61f605dfc03bc5c64dce8d492c1bb33c74adb6dbb1b13bcd93e4c45c5a"
+  },
+  "superseded_by": "fclike-comparable-statements-review.json"
+}

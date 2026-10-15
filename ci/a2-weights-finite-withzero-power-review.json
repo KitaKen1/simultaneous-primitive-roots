@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "file": "vendor/ArtinPrimitiveRoots/A2/Proofs/A2_WEIGHTS/Finite.lean",
+  "original_sha256": "e24f713891952a820e9a124d61d05fb8a2a0c3e31cf92437a45820a717e5b1a2",
+  "before_sha256": "64865f29f2af51ef41052336ff40b2860ac9be1c93e6f24aa676554046aa285d",
+  "after_sha256": "6d6a35f72af06e8f46b8062b6450f2ef140b26c097e3b5eb6506a9f0b57dd327",
+  "source_freeze_sha256": "6d6a35f72af06e8f46b8062b6450f2ef140b26c097e3b5eb6506a9f0b57dd327",
+  "original_source_matches_manifest": true,
+  "edits": [
+    {
+      "before": "  rw [Theta.absFin_eq_norm, NumberField.FinitePlace.norm_def,\n    WithZeroMulInt.toNNReal_neg_apply (HeightOneSpectrum.absNorm_ne_zero v) hvne,\n    ← WithZero.toAdd_unzero_eq_log hvne]\n",
+      "after": "  rw [Theta.absFin_eq_norm, NumberField.FinitePlace.norm_def,\n    WithZeroMulInt.toNNReal_neg_apply (HeightOneSpectrum.absNorm_ne_zero v) hvne]\n",
+      "count": 1
+    },
+    {
+      "before": "      rw [WithZeroMulInt.toNNReal_neg_apply (HeightOneSpectrum.absNorm_ne_zero v) (by simp)]\n      simp [qv]\n",
+      "after": "      rw [WithZeroMulInt.toNNReal_neg_apply (HeightOneSpectrum.absNorm_ne_zero v) (by simp)]\n      change (Ideal.absNorm v.asIdeal : NNReal) ^ (-1 : ℤ) =\n        (Ideal.absNorm v.asIdeal : NNReal)⁻¹\n      simp\n",
+      "count": 1
+    },
+    {
+      "before": "    rw [WithZeroMulInt.toNNReal_neg_apply (HeightOneSpectrum.absNorm_ne_zero v) hvne,\n      hval', WithZero.log_exp]\n",
+      "after": "    rw [WithZeroMulInt.toNNReal_neg_apply (HeightOneSpectrum.absNorm_ne_zero v) hvne,\n      WithZero.toAdd_unzero_eq_log hvne, hval', WithZero.log_exp]\n",
+      "count": 1
+    }
+  ],
+  "inverse_recovers_all_before_bytes": true,
+  "inverse_full_port_edits_recovers_all_original_bytes": true,
+  "prior_proof_only_hom_adapters": [
+    {
+      "ported": "MonoidWithZeroHom.ofClass (Valued.v : Valuation (v.adicCompletion F) (WithZero (Multiplicative ℤ)))",
+      "original": "Valuation.toMonoidWithZeroHom (Valued.v : Valuation (v.adicCompletion F) (WithZero (Multiplicative ℤ)))"
+    },
+    {
+      "ported": "Units.map (MonoidWithZeroHom.ValueGroup₀.embedding (f := vf)).toMonoidHom i",
+      "original": "Units.map (MonoidWithZeroHom.ValueGroup₀.embedding (f := vf)) i"
+    }
+  ],
+  "all_public_private_headers_byte_identical": true,
+  "public_private_declaration_header_count": 71,
+  "scope": "This wave changes three private norm/power proof blocks; all functions, valuation values, integer exponents, bounds, public/private declaration types/hypotheses and definition/data values/imports unchanged. Prior proof-local valuation and forgetful MonoidHom adapters preserve their underlying maps.",
+  "justification": "Stock Data/Int/WithZero.lean:66–68 toNNReal_neg_apply expresses the same nonzero valuation as e^((unzero hx).toAdd). At125 hpowReal already uses that exact exponent, so the newer backward log rewrite is redundant. At438 exp(-1) gives the same typed NNReal zpow(-1)=inverse. At574 existing WithZero.toAdd_unzero_eq_log (Algebra/GroupWithZero/WithZero.lean:424) first replaces this exponent by the equal log before rewriting the same hval' and log_exp, avoiding a dependent proof motive. No nonzero or order premise is added.",
+  "status": "static original/proof/capture audit; source frozen; next root complete-source integration pending; no direct Lean checks",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/A2/Proofs/A2_WEIGHTS/Finite.lean (before)\n+++ vendor/ArtinPrimitiveRoots/A2/Proofs/A2_WEIGHTS/Finite.lean (after)\n@@ -121,8 +121,7 @@\n       _ = ((Ideal.absNorm v.asIdeal : ℝ) ^ k)⁻¹ := by\n         simp [NNReal.coe_zpow, NNReal.coe_natCast, zpow_neg]\n   rw [Theta.absFin_eq_norm, NumberField.FinitePlace.norm_def,\n-    WithZeroMulInt.toNNReal_neg_apply (HeightOneSpectrum.absNorm_ne_zero v) hvne,\n-    ← WithZero.toAdd_unzero_eq_log hvne]\n+    WithZeroMulInt.toNNReal_neg_apply (HeightOneSpectrum.absNorm_ne_zero v) hvne]\n   rw [Real.rpow_intCast, zpow_neg]\n   simpa [qv, NNReal.coe_zpow, NNReal.coe_natCast] using hpowReal\n \n@@ -437,7 +436,9 @@\n     have hqexp : WithZeroMulInt.toNNReal (HeightOneSpectrum.absNorm_ne_zero v)\n         (WithZero.exp (-1 : ℤ)) = ((Ideal.absNorm v.asIdeal : NNReal)⁻¹) := by\n       rw [WithZeroMulInt.toNNReal_neg_apply (HeightOneSpectrum.absNorm_ne_zero v) (by simp)]\n-      simp [qv]\n+      change (Ideal.absNorm v.asIdeal : NNReal) ^ (-1 : ℤ) =\n+        (Ideal.absNorm v.asIdeal : NNReal)⁻¹\n+      simp\n     change ((WithZeroMulInt.toNNReal (HeightOneSpectrum.absNorm_ne_zero v)\n       (WithZero.exp (-1 : ℤ)) : NNReal) : ℝ) = _\n     rw [hqexp]\n@@ -571,7 +572,7 @@\n       WithZeroMulInt.toNNReal (HeightOneSpectrum.absNorm_ne_zero v) (Valued.v x) =\n         (Ideal.absNorm v.asIdeal : NNReal) ^ (-k : ℤ) := by\n     rw [WithZeroMulInt.toNNReal_neg_apply (HeightOneSpectrum.absNorm_ne_zero v) hvne,\n-      hval', WithZero.log_exp]\n+      WithZero.toAdd_unzero_eq_log hvne, hval', WithZero.log_exp]\n   unfold absFin\n   rw [dif_pos (HeightOneSpectrum.absNorm_ne_zero v), hpow]\n   rw [Real.rpow_intCast, zpow_neg]\n",
+  "full_original_diff": "--- vendor/ArtinPrimitiveRoots/A2/Proofs/A2_WEIGHTS/Finite.lean (original)\n+++ vendor/ArtinPrimitiveRoots/A2/Proofs/A2_WEIGHTS/Finite.lean (ported)\n@@ -22,9 +22,9 @@\n     ∃ k : ℤ, Theta.ball v k ⊆ U := by\n   obtain ⟨i, hsub⟩ := (Valued.mem_nhds_zero (R := v.adicCompletion F)).mp (hU.mem_nhds h0)\n   let vf : v.adicCompletion F →*₀ WithZero (Multiplicative ℤ) :=\n-    Valuation.toMonoidWithZeroHom (Valued.v : Valuation (v.adicCompletion F) (WithZero (Multiplicative ℤ)))\n+    MonoidWithZeroHom.ofClass (Valued.v : Valuation (v.adicCompletion F) (WithZero (Multiplicative ℤ)))\n   let γ : (WithZero (Multiplicative ℤ))ˣ :=\n-    Units.map (MonoidWithZeroHom.ValueGroup₀.embedding (f := vf)) i\n+    Units.map (MonoidWithZeroHom.ValueGroup₀.embedding (f := vf)).toMonoidHom i\n   let n : ℤ := (WithZero.log (γ : WithZero (Multiplicative ℤ)))\n   have hγ : (γ : WithZero (Multiplicative ℤ)) = WithZero.exp n := by\n     dsimp [n]\n@@ -121,8 +121,7 @@\n       _ = ((Ideal.absNorm v.asIdeal : ℝ) ^ k)⁻¹ := by\n         simp [NNReal.coe_zpow, NNReal.coe_natCast, zpow_neg]\n   rw [Theta.absFin_eq_norm, NumberField.FinitePlace.norm_def,\n-    WithZeroMulInt.toNNReal_neg_apply (HeightOneSpectrum.absNorm_ne_zero v) hvne,\n-    ← WithZero.toAdd_unzero_eq_log hvne]\n+    WithZeroMulInt.toNNReal_neg_apply (HeightOneSpectrum.absNorm_ne_zero v) hvne]\n   rw [Real.rpow_intCast, zpow_neg]\n   simpa [qv, NNReal.coe_zpow, NNReal.coe_natCast] using hpowReal\n \n@@ -437,7 +436,9 @@\n     have hqexp : WithZeroMulInt.toNNReal (HeightOneSpectrum.absNorm_ne_zero v)\n         (WithZero.exp (-1 : ℤ)) = ((Ideal.absNorm v.asIdeal : NNReal)⁻¹) := by\n       rw [WithZeroMulInt.toNNReal_neg_apply (HeightOneSpectrum.absNorm_ne_zero v) (by simp)]\n-      simp [qv]\n+      change (Ideal.absNorm v.asIdeal : NNReal) ^ (-1 : ℤ) =\n+        (Ideal.absNorm v.asIdeal : NNReal)⁻¹\n+      simp\n     change ((WithZeroMulInt.toNNReal (HeightOneSpectrum.absNorm_ne_zero v)\n       (WithZero.exp (-1 : ℤ)) : NNReal) : ℝ) = _\n     rw [hqexp]\n@@ -571,7 +572,7 @@\n       WithZeroMulInt.toNNReal (HeightOneSpectrum.absNorm_ne_zero v) (Valued.v x) =\n         (Ideal.absNorm v.asIdeal : NNReal) ^ (-k : ℤ) := by\n     rw [WithZeroMulInt.toNNReal_neg_apply (HeightOneSpectrum.absNorm_ne_zero v) hvne,\n-      hval', WithZero.log_exp]\n+      WithZero.toAdd_unzero_eq_log hvne, hval', WithZero.log_exp]\n   unfold absFin\n   rw [dif_pos (HeightOneSpectrum.absNorm_ne_zero v), hpow]\n   rw [Real.rpow_intCast, zpow_neg]\n"
+}

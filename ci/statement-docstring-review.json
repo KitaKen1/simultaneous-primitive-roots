@@ -1,0 +1,56 @@
+{
+  "changed_at_utc": "2026-10-15T08:19:01.628503+00:00",
+  "scope": "Short mathematical docstrings and an OpenAI reference; no imports, namespaces, declaration names, types or proof bodies changed.",
+  "reference_style": "https://github.com/KitaKen1/entropic-rogers-shephard/blob/main/FClikelean/EntropicRogersShephard.lean",
+  "files": [
+    "FClikelean/SimultaneousPrimitiveRoots.lean",
+    "lean/Challenge.lean"
+  ],
+  "before_sha256": "4c14e70b0ec55def661f31a40e99839b97629d3ddddfe29df64bda8345559ca7",
+  "after_sha256": "81acb58310a8a8e2a5cea2e7c0c99b0b345d58aac48c4ac39e5a7fadce08db0f",
+  "comment_stripped_code_unchanged": true,
+  "reference_and_challenge_byte_identical": true,
+  "validation": {
+    "compiler": "Lean 4.33.1",
+    "command": "lake env lean Challenge.lean",
+    "working_directory": "lean",
+    "exit_code": 0,
+    "expected_sorry_warnings": 2,
+    "source_audit": {
+      "command": "python3 scripts/check_sources.py --check-port-record",
+      "exit_code": 0,
+      "passed": true,
+      "lean_files": 4464,
+      "source_sha256": "ca6bc358f677132c56751aaf8685d44b873cb40fde2643ea7b6052f073d0afca",
+      "changed_existing_files": 1251,
+      "new_proof_backports": 22
+    },
+    "html_theorem_extracts_match_current_source": true,
+    "full_proof_or_comparator_rerun": false,
+    "reason": "Only comments changed. Earlier complete proof and Comparator checks remain recorded against their original source digest in local-verification.json."
+  },
+  "verified_at_utc": "2026-10-15T08:19:49.428879+00:00",
+  "later_revisions": [
+    {
+      "changed_at_utc": "2026-10-15T08:27:28.813511+00:00",
+      "before_sha256": "81acb58310a8a8e2a5cea2e7c0c99b0b345d58aac48c4ac39e5a7fadce08db0f",
+      "after_sha256": "7232f72f9242ee30f453f530f8fdd92a1a4cb7112c05132ab9f10038203ec4ec",
+      "scope": "State OpenAI's conditional simultaneous result in the module docstring and describe the positive-integer strengthening in the variant docstring.",
+      "comment_stripped_code_unchanged": true,
+      "reference_and_challenge_byte_identical": true,
+      "verified_at_utc": "2026-10-15T08:27:56.827550+00:00",
+      "validation": {
+        "compiler": "Lean 4.33.1",
+        "command": "lake env lean Challenge.lean",
+        "exit_code": 0,
+        "expected_sorry_warnings": 2,
+        "source_audit_command": "python3 scripts/check_sources.py --check-port-record",
+        "source_audit_exit_code": 0,
+        "source_audit_passed": true,
+        "source_sha256": "5c4ece81c20e7aa34ea65651d8e4eac2814e91ce61b7ecb382c12a6d727e0296",
+        "html_theorem_extracts_match_current_source": true,
+        "full_proof_or_comparator_rerun": false
+      }
+    }
+  ]
+}

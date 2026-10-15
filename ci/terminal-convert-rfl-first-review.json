@@ -1,0 +1,1490 @@
+{
+  "schema_version": 1,
+  "scope": "One-line, balanced, terminal convert using 1 followed by ring/ring_nf; no declaration or definition edit.",
+  "stock_toolchain": "leanprover/lean4:v4.33.1",
+  "status": "saved; whole-build integration validation pending; no direct Lean checks run",
+  "root": "/Users/kenta/Dropbox/Intellectual Moonshine/?AI数学/同時原始根/forgithubpublication/lean",
+  "script_sha256": "d78e54a20d1ddbfdbca31dc7b2030392df4a932d3bccf772572678e1c4a75335",
+  "file_count": 45,
+  "site_count": 94,
+  "terminal_tactic_counts": {
+    "ring": 88,
+    "ring_nf": 6
+  },
+  "entries": [
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/ChineseRemainder/FrequencyLifts.lean",
+      "before_sha256": "ca3e0aa0f5140e662f6b6da5b5d38acdba57e2f9cf679e5219524ca637691320",
+      "after_sha256": "1e060dfee69c42991f73842880dbd87e354a7c65b6672a522aba9b19532b3067",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 515,
+          "old_line": "      convert dvd_mul_of_dvd_right (Ideal.mem_span_singleton.mp hxy) u.val using 1 ; ring\n",
+          "new_line": "      convert dvd_mul_of_dvd_right (Ideal.mem_span_singleton.mp hxy) u.val using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 516,
+          "following_text": "    have hl:lambda^2∣u.val*x-u.val*y:=",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 519,
+          "old_line": "      convert dvd_sub hux hl using 1 ; ring\n",
+          "new_line": "      convert dvd_sub hux hl using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 520,
+          "following_text": "    have hsp (z:Eis) : Ideal.span {u.val*z}=Ideal.span {z}:=",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 564,
+          "old_line": "      convert dvd_sub hLam hsub using 1 ; ring\n",
+          "new_line": "      convert dvd_sub hLam hsub using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 565,
+          "following_text": "    exact PrimaryIdealUnitReindex.lambda_prime_actual.not_isUnit (isUnit_of_dvd_one hone)",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/ChineseRemainder/FrequencyLifts.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/ChineseRemainder/FrequencyLifts.lean (after)\n@@ -512,11 +512,11 @@\n     rw [if_pos hx,if_pos hy]\n     obtain ⟨u,hux⟩:=exists_supported_primary_unit x hx\n     have h36:(36:Eis)∣u.val*x-u.val*y:=by\n-      convert dvd_mul_of_dvd_right (Ideal.mem_span_singleton.mp hxy) u.val using 1 ; ring\n+      convert dvd_mul_of_dvd_right (Ideal.mem_span_singleton.mp hxy) u.val using 1 <;> first | rfl | ring\n     have hl:lambda^2∣u.val*x-u.val*y:=\n       lambda_sq_dvd_three.trans ((show (3:Eis)∣36 from ⟨12,by norm_num⟩).trans h36)\n     have huy:lambda^2∣u.val*y-1:=by\n-      convert dvd_sub hux hl using 1 ; ring\n+      convert dvd_sub hux hl using 1 <;> first | rfl | ring\n     have hsp (z:Eis) : Ideal.span {u.val*z}=Ideal.span {z}:=\n       Ideal.span_singleton_mul_left_unit u.isUnit z\n     have he:=idealRowHom_lambda_mod_thirty_six (u.val*x) (u.val*y) hux huy\n@@ -561,7 +561,7 @@\n     intro hLam\n     have hsub:lambda∣r-1:=(dvd_pow_self lambda (by decide : (2:ℕ)≠0)).trans hprimary\n     have hone:lambda∣(1:Eis):=by\n-      convert dvd_sub hLam hsub using 1 ; ring\n+      convert dvd_sub hLam hsub using 1 <;> first | rfl | ring\n     exact PrimaryIdealUnitReindex.lambda_prime_actual.not_isUnit (isUnit_of_dvd_one hone)\n   let v:Eisˣ:=u*(-1:Eisˣ)^b\n   refine ⟨v,a,b,r,(supported_span_iff r).mpr ⟨hnotlambda,hnot2⟩,hprimary,?_⟩\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/ChineseRemainder/PrimaryCompletions.lean",
+      "before_sha256": "7f110a463e288c602fac99699d938f3744bbe198cf282e8b4ff67b5343e794bc",
+      "after_sha256": "952b501bf953e52ebeef22c77b33627aff94bdf5bfd547ff45b9567ce3a63683",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 104,
+          "old_line": "  convert dvd_sub had (dvd_mul_of_dvd_left ha d) using 1 ; ring\n",
+          "new_line": "  convert dvd_sub had (dvd_mul_of_dvd_left ha d) using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 106,
+          "following_text": "lemma completion_negative_upper_right (a b c d:Eis)",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 111,
+          "old_line": "  convert dvd_sub hbc (dvd_mul_of_dvd_right hc b) using 1 ; ring\n",
+          "new_line": "  convert dvd_sub hbc (dvd_mul_of_dvd_right hc b) using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 113,
+          "following_text": "theorem exists_primary_numerator_completion (M c a:Eis)",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 125,
+          "old_line": "  convert dvd_mul_of_dvd_right (three_dvd_primary_sub_one r hprimary) c using 1 ; ring\n",
+          "new_line": "  convert dvd_mul_of_dvd_right (three_dvd_primary_sub_one r hprimary) c using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 127,
+          "following_text": "theorem exists_unramified_denominator_completion (M c a:Eis)",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 167,
+          "old_line": "  convert dvd_add hdiff hinv using 1 ; ring\n",
+          "new_line": "  convert dvd_add hdiff hinv using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 169,
+          "following_text": "theorem exists_fixed_matrix_completion_controlled",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 187,
+          "old_line": "  · convert dvd_add hbd hb0 using 1 ; ring\n",
+          "new_line": "  · convert dvd_add hbd hb0 using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 188,
+          "following_text": "  · convert dvd_add hdd hd0 using 1 ; ring",
+          "proof_scope_end": "sibling_or_eof"
+        },
+        {
+          "line": 188,
+          "old_line": "  · convert dvd_add hdd hd0 using 1 ; ring\n",
+          "new_line": "  · convert dvd_add hdd hd0 using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 190,
+          "following_text": "end",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 231,
+          "old_line": "  convert dvd_add hc hc0 using 1 ; ring\n",
+          "new_line": "  convert dvd_add hc hc0 using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 233,
+          "following_text": "lemma controlled_primary_ramified (g:SL(2,Eis)) (c u:Eis)",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 239,
+          "old_line": "  convert dvd_add hc hcu using 1 ; ring\n",
+          "new_line": "  convert dvd_add hc hcu using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 241,
+          "following_text": "lemma controlled_denominator_unramified (g:SL(2,Eis)) (u:Eis)",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/ChineseRemainder/PrimaryCompletions.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/ChineseRemainder/PrimaryCompletions.lean (after)\n@@ -101,14 +101,14 @@\n   have had:(3:Eis)∣a*d-1:=by\n     convert dvd_mul_of_dvd_left hb c using 1\n     linear_combination hdet\n-  convert dvd_sub had (dvd_mul_of_dvd_left ha d) using 1 ; ring\n+  convert dvd_sub had (dvd_mul_of_dvd_left ha d) using 1 <;> first | rfl | ring\n \n lemma completion_negative_upper_right (a b c d:Eis)\n     (hdet:a*d-b*c=1) (hc:(3:Eis)∣c-1) (hd:(3:Eis)∣d) : (3:Eis)∣b+1 := by\n   have hbc:(3:Eis)∣b*c+1:=by\n     convert dvd_mul_of_dvd_right hd a using 1\n     linear_combination -hdet\n-  convert dvd_sub hbc (dvd_mul_of_dvd_right hc b) using 1 ; ring\n+  convert dvd_sub hbc (dvd_mul_of_dvd_right hc b) using 1 <;> first | rfl | ring\n \n theorem exists_primary_numerator_completion (M c a:Eis)\n     (hc:c≠0) (h9M:(9:Eis)∣M) (ha:lambda^2∣a-1) (hac:IsCoprime a c) :\n@@ -122,7 +122,7 @@\n   obtain ⟨b,d,hdet,hd,hb⟩:=exists_fixed_completion_upper_right 9 M c r a d0 hc h9M hr har hd0\n   refine ⟨b,d,hdet,hd,hb,completion_primary_lower_right a b (c*r) d hdet\n     (three_dvd_primary_sub_one a ha) ((show (3:Eis)∣9 from ⟨3,by norm_num⟩).trans hb),?_⟩\n-  convert dvd_mul_of_dvd_right (three_dvd_primary_sub_one r hprimary) c using 1 ; ring\n+  convert dvd_mul_of_dvd_right (three_dvd_primary_sub_one r hprimary) c using 1 <;> first | rfl | ring\n \n theorem exists_unramified_denominator_completion (M c a:Eis)\n     (h9M:(9:Eis)∣M) (hc:¬lambda∣c) (hac:IsCoprime a c) :\n@@ -164,7 +164,7 @@\n lemma controlled_inverse_sector (B M c a a0 d0:R)\n     (hBM:B∣M) (ha:M*c∣a-a0) (hinv:B*c∣a0*d0-1) : B*c∣a*d0-1 := by\n   have hdiff:=dvd_mul_of_dvd_left ((mul_dvd_mul_right hBM c).trans ha) d0\n-  convert dvd_add hdiff hinv using 1 ; ring\n+  convert dvd_add hdiff hinv using 1 <;> first | rfl | ring\n \n theorem exists_fixed_matrix_completion_controlled\n     (B N M c a0 r0 b0 d0 bResidue dResidue:R)\n@@ -184,8 +184,8 @@\n     hr.of_mul_right_left.symm hdet hdet0 ha hd hrr)\n   have hdd:N∣d-d0:=(hNM.trans (dvd_mul_right M c)).trans hd\n   refine ⟨b,d,hdet,hd,?_,?_,hmat⟩\n-  · convert dvd_add hbd hb0 using 1 ; ring\n-  · convert dvd_add hdd hd0 using 1 ; ring\n+  · convert dvd_add hbd hb0 using 1 <;> first | rfl | ring\n+  · convert dvd_add hdd hd0 using 1 <;> first | rfl | ring\n \n end\n \n@@ -228,7 +228,7 @@\n     g∈levelThree := by\n   apply A3_principal_mem_levelThree g ha\n     ((show (3:Eis)∣9 from ⟨3,by norm_num⟩).trans hb) _ hd\n-  convert dvd_add hc hc0 using 1 ; ring\n+  convert dvd_add hc hc0 using 1 <;> first | rfl | ring\n \n lemma controlled_primary_ramified (g:SL(2,Eis)) (c u:Eis)\n     (ha:(3:Eis)∣g 0 0-1) (hb:(9:Eis)∣g 0 1)\n@@ -236,7 +236,7 @@\n     g*(lowerCuspMatrix u)⁻¹∈levelThree := by\n   apply A3_ramified_mem_levelThree g u ha\n     ((show (3:Eis)∣9 from ⟨3,by norm_num⟩).trans hb) _ hd\n-  convert dvd_add hc hcu using 1 ; ring\n+  convert dvd_add hc hcu using 1 <;> first | rfl | ring\n \n lemma controlled_denominator_unramified (g:SL(2,Eis)) (u:Eis)\n     (ha:(3:Eis)∣g 0 0-u) (hb:(3:Eis)∣g 0 1+1)\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/DensityBudgets.lean",
+      "before_sha256": "48a755cd21192079251f34a3c0680c14562e982da53d0bd4cddc6262c592c765",
+      "after_sha256": "2d04e2d727dd1b9e85b1bc6727c39dd80a34abb90b78db54c0240920e1d11b97",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 407,
+          "old_line": "  convert mul_le_mul_of_nonneg_left hm (by positivity : 0 ≤ (B^2*ell)⁻¹) using 1 ; ring\n",
+          "new_line": "  convert mul_le_mul_of_nonneg_left hm (by positivity : 0 ≤ (B^2*ell)⁻¹) using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 409,
+          "following_text": "end",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/CubicSieve/DensityBudgets.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/CubicSieve/DensityBudgets.lean (after)\n@@ -404,7 +404,7 @@\n     rw [norm_inv,Complex.norm_real,Real.norm_eq_abs,\n       abs_of_pos (mul_pos hB (Real.sqrt_pos.mpr hell)),inv_pow,mul_pow,Real.sq_sqrt hell.le]\n   rw [rowFamilyEnergy_const_mul labels _ K hK, hn]\n-  convert mul_le_mul_of_nonneg_left hm (by positivity : 0 ≤ (B^2*ell)⁻¹) using 1 ; ring\n+  convert mul_le_mul_of_nonneg_left hm (by positivity : 0 ≤ (B^2*ell)⁻¹) using 1 <;> first | rfl | ring\n \n end\n \n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/RankMargins.lean",
+      "before_sha256": "81836c5c38cfb704e1f9323e8365865d75325071a3f33420a93e866b7ad849d3",
+      "after_sha256": "3ce2a2702e41d22e5580c5b21278f1c2e8f86f68332610adf3b544cadfbf8e0f",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 508,
+          "old_line": "      convert hb using 1 ; ring\n",
+          "new_line": "      convert hb using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 510,
+          "following_text": "end CompletedHeight",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/CubicSieve/RankMargins.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/CubicSieve/RankMargins.lean (after)\n@@ -505,7 +505,7 @@\n       have hb := div_le_div_of_nonneg_right\n         (mul_le_mul_of_nonneg_right hCoeff (by positivity : 0≤(K*(U*B))^ε*(K+U*B)*(U*B)*lengthScale^2))\n         (by positivity : 0≤(1+R)^(2*A))\n-      convert hb using 1 ; ring\n+      convert hb using 1 <;> first | rfl | ring\n \n end CompletedHeight\n \n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/ReopeningBounds.lean",
+      "before_sha256": "b40e3be6c5e6f92c7021a4d097554ecc6045eb5f5ea3c83f0f47b80bf14bfabc",
+      "after_sha256": "ff84bfc7030011bd542b50afa64306821bb40debb8832b58bc5a5c357e8de499",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 341,
+          "old_line": "  convert hs using 1 ; ring\n",
+          "new_line": "  convert hs using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 343,
+          "following_text": "end",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/CubicSieve/ReopeningBounds.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/CubicSieve/ReopeningBounds.lean (after)\n@@ -338,7 +338,7 @@\n     ((Ksrc/Z^η)/Z^(η*(N:ℝ))) J hC hCd hCt hTmax hClo.le hChi.le hΓ hP hE\n     (by positivity) hBU hU hδ.le hε.le htail hterminal\n   apply hb.trans\n-  convert hs using 1 ; ring\n+  convert hs using 1 <;> first | rfl | ring\n \n end\n \n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Cusp/ResiduePhases.lean",
+      "before_sha256": "99bbaaf11415af01eedc50e78fb16a415f16173b54bc7ba3b4ec4a5d02f9df62",
+      "after_sha256": "18ef41e1a4773119b0d7cf630d7d3e599355f7d8e3142534812d6990644308a0",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 209,
+          "old_line": "  convert hd using 1 ; ring\n",
+          "new_line": "  convert hd using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 211,
+          "following_text": "lemma A4BadPhase_norm (c0:Eis) (hc0:c0≠0) (d U x:Eis) :",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 475,
+          "old_line": "  convert hn using 1 ; ring\n",
+          "new_line": "  convert hn using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 477,
+          "following_text": "def A4PhaseFromResidue (c0:Eis) (hc0:c0≠0)",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 602,
+          "old_line": "  convert dvd_sub (dvd_add h1 h2) h0 using 1 ; ring\n",
+          "new_line": "  convert dvd_sub (dvd_add h1 h2) h0 using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 604,
+          "following_text": "lemma finiteCrossNumerator_coprime (a c l:Eis) (p h:ι→Eis)",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Cusp/ResiduePhases.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Cusp/ResiduePhases.lean (after)\n@@ -206,7 +206,7 @@\n   apply Ideal.Quotient.eq.mpr\n   apply Ideal.mem_span_singleton.mpr\n   have hd:=dvd_mul_of_dvd_left hres (-x)\n-  convert hd using 1 ; ring\n+  convert hd using 1 <;> first | rfl | ring\n \n lemma A4BadPhase_norm (c0:Eis) (hc0:c0≠0) (d U x:Eis) :\n     ‖A4BadPhase c0 hc0 d U x‖=1 := by\n@@ -472,7 +472,7 @@\n   have he:=ShortDraftCRT.inverse_weight_residue_congr\n     (ramifiedTraceLambda^3*c0) r r0 U U0 d d0 hcop hrr hU hU0 hdd\n   have hn:=dvd_neg.mpr he\n-  convert hn using 1 ; ring\n+  convert hn using 1 <;> first | rfl | ring\n \n def A4PhaseFromResidue (c0:Eis) (hc0:c0≠0)\n     (v:Eis⧸Ideal.span {ramifiedTraceLambda^3*c0}) (x:Eis) : ℂ :=\n@@ -599,7 +599,7 @@\n   have h1:=finiteCrossNumerator_fixed (M^2) a c l p h hh\n   have h0:=finiteCrossNumerator_fixed (M^2) a c l p0 h0 hh0\n   have h2:=dvd_mul_of_dvd_right hr a\n-  convert dvd_sub (dvd_add h1 h2) h0 using 1 ; ring\n+  convert dvd_sub (dvd_add h1 h2) h0 using 1 <;> first | rfl | ring\n \n lemma finiteCrossNumerator_coprime (a c l:Eis) (p h:ι→Eis)\n     (hbase:IsCoprime a c) (hpair:Pairwise (Function.onFun IsCoprime p))\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Cusp/ResiduesModThree.lean",
+      "before_sha256": "5669337f308cd6c704bced622982a38b10d07829f6755418bcb2609fe4c2a4dc",
+      "after_sha256": "0424412c905f617d608a6b33e73c0b5ee6d70dd2a556295c1736fec0ad30c628",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 304,
+          "old_line": "  · convert dvd_add a.2 (dvd_mul_right (3:Eis) x.val) using 1 ;ring\n",
+          "new_line": "  · convert dvd_add a.2 (dvd_mul_right (3:Eis) x.val) using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 305,
+          "following_text": "  · apply (isCoprime_right_congr_of_dvd a.val (a.val+3*x.val) (3*x.val) ⟨1,by ring⟩).mpr",
+          "proof_scope_end": "sibling_or_eof"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Cusp/ResiduesModThree.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Cusp/ResiduesModThree.lean (after)\n@@ -301,7 +301,7 @@\n def primaryDenominatorFromCoprime (a : PrimaryLower) (x : CoprimeElement a.val) :\n     PrimaryCoprimeDenominator a := by\n   refine ⟨⟨a.val+3*x.val,?_⟩,?_⟩\n-  · convert dvd_add a.2 (dvd_mul_right (3:Eis) x.val) using 1 ;ring\n+  · convert dvd_add a.2 (dvd_mul_right (3:Eis) x.val) using 1 <;> first | rfl | ring\n   · apply (isCoprime_right_congr_of_dvd a.val (a.val+3*x.val) (3*x.val) ⟨1,by ring⟩).mpr\n     exact (primary_coprime_three a.val (primaryLower_primary a)).mul_right x.2\n \n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Cusp/StaticReflectionPhases.lean",
+      "before_sha256": "0cf6e362b173a959bf7e5f2e980e29149e29ce36032fdf92f317d91135850161",
+      "after_sha256": "32c833ebf063299a7deaf3a2ae19b5eee3e5256476accdeaaeabc908fe09a74a",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 361,
+          "old_line": "      convert dvd_mul_of_dvd_left (hD v) U using 1 ; ring\n",
+          "new_line": "      convert dvd_mul_of_dvd_left (hD v) U using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 362,
+          "following_text": "    have hlocal:=A3_A4_frequency_product p hp hcop hg (a v) (b v) c0 (d v)",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 492,
+          "old_line": "    convert dvd_add (hstdN.trans hfixed) hbas using 1 ; ring\n",
+          "new_line": "    convert dvd_add (hstdN.trans hfixed) hbas using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 493,
+          "following_text": "  have hpairs:Pairwise (Function.onFun IsCoprime p):=by",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 578,
+          "old_line": "  convert dvd_add (lambda_sq_dvd_three.trans (D.numerator_mod_three h3N hr v)) ha using 1 ; ring\n",
+          "new_line": "  convert dvd_add (lambda_sq_dvd_three.trans (D.numerator_mod_three h3N hr v)) ha using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 580,
+          "following_text": "lemma denominator_primary (D:ControlledStratumArithmetic p N a0 c0 mode)",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 597,
+          "old_line": "    convert dvd_add (dvd_mul_of_dvd_right hprod c0) hcu using 1 ; ring\n",
+          "new_line": "    convert dvd_add (dvd_mul_of_dvd_right hprod c0) hcu using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 598,
+          "following_text": "  · exact hcond.2",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 607,
+          "old_line": "  · convert dvd_add (D.numerator_mod_three h3N hr v) hau using 1 ; ring\n",
+          "new_line": "  · convert dvd_add (D.numerator_mod_three h3N hr v) hau using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 608,
+          "following_text": "  · exact hcond.1",
+          "proof_scope_end": "sibling_or_eof"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Cusp/StaticReflectionPhases.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Cusp/StaticReflectionPhases.lean (after)\n@@ -358,7 +358,7 @@\n         (quotientTrace (p i) (hp i)) (σ i) (ε i) (Ideal.Quotient.mk _ x) (v i) := by\n     have hbad:A4BadPhase c0 hc0 (d v) U x=A4BadPhase c0 hc0 d0 U x := by\n       apply A4BadPhase_eq_of_residue\n-      convert dvd_mul_of_dvd_left (hD v) U using 1 ; ring\n+      convert dvd_mul_of_dvd_left (hD v) U using 1 <;> first | rfl | ring\n     have hlocal:=A3_A4_frequency_product p hp hcop hg (a v) (b v) c0 (d v)\n       U w x hc0 (hdet v) hbez σ ε (fun i=>(v i:Eis⧸Ideal.span {p i})) (hfreq v) hε\n     rw [hκ,star_mul]\n@@ -489,7 +489,7 @@\n     have hfixed:N∣a v-a0*r:=finiteCrossNumerator_fixed N a0 c0 ramifiedTraceLambda p (lift v)\n       (fun i=>(dvd_pow_self N (by decide : (2:ℕ)≠0)).trans (hlift v i))\n     have hbas:=primary_mul a0 r ha0 hr\n-    convert dvd_add (hstdN.trans hfixed) hbas using 1 ; ring\n+    convert dvd_add (hstdN.trans hfixed) hbas using 1 <;> first | rfl | ring\n   have hpairs:Pairwise (Function.onFun IsCoprime p):=by\n     intro i k hik\n     exact (Ideal.isCoprime_span_singleton_iff _ _).mp (hcop hik)\n@@ -575,7 +575,7 @@\n lemma numerator_primary (D:ControlledStratumArithmetic p N a0 c0 mode)\n     (h3N:(3:Eis)∣N) (hr:lambda^2∣(∏i,p i)-1) (ha:lambda^2∣a0-1)\n     (v:∀i,(Eis⧸Ideal.span {p i})ˣ) : lambda^2∣D.matrix v 0 0-1 := by\n-  convert dvd_add (lambda_sq_dvd_three.trans (D.numerator_mod_three h3N hr v)) ha using 1 ; ring\n+  convert dvd_add (lambda_sq_dvd_three.trans (D.numerator_mod_three h3N hr v)) ha using 1 <;> first | rfl | ring\n \n lemma denominator_primary (D:ControlledStratumArithmetic p N a0 c0 mode)\n     (hr:lambda^2∣(∏i,p i)-1) (hc:lambda^2∣c0-1)\n@@ -594,7 +594,7 @@\n   · exact (show (3:Eis)∣9 from ⟨3,by norm_num⟩).trans hcond.1\n   · rw [D.denominator]\n     have hprod:=three_dvd_primary_sub_one (∏i,p i) hr\n-    convert dvd_add (dvd_mul_of_dvd_right hprod c0) hcu using 1 ; ring\n+    convert dvd_add (dvd_mul_of_dvd_right hprod c0) hcu using 1 <;> first | rfl | ring\n   · exact hcond.2\n \n lemma unramified_relative (D:ControlledStratumArithmetic p N a0 c0 false)\n@@ -604,7 +604,7 @@\n   have hcond := D.conditions v\n   simp only [Bool.false_eq_true, ↓reduceIte] at hcond\n   apply A3_unramified_mem_levelThree\n-  · convert dvd_add (D.numerator_mod_three h3N hr v) hau using 1 ; ring\n+  · convert dvd_add (D.numerator_mod_three h3N hr v) hau using 1 <;> first | rfl | ring\n   · exact hcond.1\n   · exact three_dvd_primary_sub_one _ (D.denominator_primary hr hc v)\n   · exact (show (3:Eis)∣9 from ⟨3,by norm_num⟩).trans hcond.2\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Cusp/WeylRepresentatives.lean",
+      "before_sha256": "5939e9a7950419b7102f294e2738c94bceb3ac955ed42780e060a04d7d539b80",
+      "after_sha256": "b3ff34ac96e3b3acf7944810a96c6652165bd761af965d98d22a1a89f7dd4d30",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 177,
+          "old_line": "    convert dvd_sub ha (dvd_mul_of_dvd_right hb u) using 1 ; ring\n",
+          "new_line": "    convert dvd_sub ha (dvd_mul_of_dvd_right hb u) using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 178,
+          "following_text": "  have hdet : M 0 0*M 1 1-M 0 1*(u*(c0*r))=1 := by",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 194,
+          "old_line": "    convert dvd_neg.mpr hb using 1 ; ring\n",
+          "new_line": "    convert dvd_neg.mpr hb using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 195,
+          "following_text": "  have hc' : lambda^2∣c0*r-1 := by",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 593,
+          "old_line": "    convert dvd_add hadd hinv using 1 ; ring\n",
+          "new_line": "    convert dvd_add hadd hinv using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 594,
+          "following_text": "  have hmul:B*c∣c*(b*r):=by",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 618,
+          "old_line": "    convert dvd_add hdd hzero using 1 ; ring\n",
+          "new_line": "    convert dvd_add hdd hzero using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 619,
+          "following_text": "  have hBad:B∣a*d:=dvd_mul_of_dvd_right hBd a",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 632,
+          "old_line": "  convert dvd_sub hd hd0 using 1 ; ring\n",
+          "new_line": "  convert dvd_sub hd hd0 using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 634,
+          "following_text": "end ShortDraftCRT",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Cusp/WeylRepresentatives.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Cusp/WeylRepresentatives.lean (after)\n@@ -174,7 +174,7 @@\n         eisEmbedding (symbol (M 0 0) r) := by\n   have hA : lambda^2∣(M 0 0-u*M 0 1)-1 := by\n     apply lambda_sq_dvd_three.trans\n-    convert dvd_sub ha (dvd_mul_of_dvd_right hb u) using 1 ; ring\n+    convert dvd_sub ha (dvd_mul_of_dvd_right hb u) using 1 <;> first | rfl | ring\n   have hdet : M 0 0*M 1 1-M 0 1*(u*(c0*r))=1 := by\n     rw [←hC]\n     simpa only [Matrix.det_fin_two] using M.property\n@@ -191,7 +191,7 @@\n       eisEmbedding (symbol (M 0 0) c0)*eisEmbedding (symbol (M 0 0) r) := by\n   have hb' : lambda^2∣(-M 0 1)-1 := by\n     apply lambda_sq_dvd_three.trans\n-    convert dvd_neg.mpr hb using 1 ; ring\n+    convert dvd_neg.mpr hb using 1 <;> first | rfl | ring\n   have hc' : lambda^2∣c0*r-1 := by\n     rw [←hC]\n     exact lambda_sq_dvd_three.trans hc\n@@ -590,7 +590,7 @@\n   have hBcM:B*c∣M*c:=mul_dvd_mul_right hBM c\n   have hadd:B*c∣a*(d-d0):=dvd_mul_of_dvd_right (hBcM.trans hd) a\n   have hfull:B*c∣a*d-1:=by\n-    convert dvd_add hadd hinv using 1 ; ring\n+    convert dvd_add hadd hinv using 1 <;> first | rfl | ring\n   have hmul:B*c∣c*(b*r):=by\n     convert hfull using 1\n     linear_combination -hdet\n@@ -615,7 +615,7 @@\n   obtain ⟨b,d,hdet,hd⟩:=exists_fixed_completion M c r a d0 hinv hr har\n   have hdd:B∣d-d0:=(hBM.trans (dvd_mul_right M c)).trans hd\n   have hBd:B∣d:=by\n-    convert dvd_add hdd hzero using 1 ; ring\n+    convert dvd_add hdd hzero using 1 <;> first | rfl | ring\n   have hBad:B∣a*d:=dvd_mul_of_dvd_right hBd a\n   refine ⟨b,d,hdet,hd,hBd,hBad,?_⟩\n   convert hBad using 1\n@@ -629,7 +629,7 @@\n     (!![a,b;c*r,d]:Matrix (Fin 2) (Fin 2) R).map (Ideal.Quotient.mk (Ideal.span {M}))=\n       (!![a0,b0;c*r0,d0]:Matrix (Fin 2) (Fin 2) R).map (Ideal.Quotient.mk (Ideal.span {M})) := by\n   apply fixed_completion_matrix_congr M c r r0 a a0 b b0 d d0 hc hr hdet hdet0 ha _ hrr\n-  convert dvd_sub hd hd0 using 1 ; ring\n+  convert dvd_sub hd hd0 using 1 <;> first | rfl | ring\n \n end ShortDraftCRT\n \n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/AffineCuspFourier.lean",
+      "before_sha256": "dce47f6d13b5602d4661b3b9ca20290905e1c7f758cb42697ed20142a65c7098",
+      "after_sha256": "6f8462e302cc78ded6b012d59353ae3787c1ff5894332e4cecc8b8b7845c752e",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 262,
+          "old_line": "    convert hh using 1 ;ring\n",
+          "new_line": "    convert hh using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 263,
+          "following_text": "  obtain ⟨k,hk⟩:=hd",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 578,
+          "old_line": "    convert ht using 1 ;ring\n",
+          "new_line": "    convert ht using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 579,
+          "following_text": "  obtain ⟨ell,hell⟩:=hdiv",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 590,
+          "old_line": "    convert hh using 1 ;ring\n",
+          "new_line": "    convert hh using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 591,
+          "following_text": "  let e:=(cubicResidueElementEquiv a.val (primaryLower_ne_zero a)).trans (primaryDenominatorEquiv a)",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Eisenstein/AffineCuspFourier.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Eisenstein/AffineCuspFourier.lean (after)\n@@ -259,7 +259,7 @@\n     ∃k:Eis,3*k=h1+ramifiedAffineParameter j n*a.val := by\n   have hh:=dvd_add hfreq (a.2.mul_left (ramifiedAffineParameter j n))\n   have hd:(3:Eis)∣h1+ramifiedAffineParameter j n*a.val:=by\n-    convert hh using 1 ;ring\n+    convert hh using 1 <;> first | rfl | ring\n   obtain ⟨k,hk⟩:=hd\n   exact ⟨k,hk.symm⟩\n \n@@ -575,7 +575,7 @@\n       affineLowerTerm q r z v s a.val d.val.val*ShortDraftTrace.breveE (-ninthCuspFrequency h*z))=0 := by\n   have hdiv:(3:Eis)∣h+ramifiedAffineParameter j n*q*a.val:=by\n     have ht:=dvd_add hbase (a.2.mul_left (ramifiedAffineParameter j n*q))\n-    convert ht using 1 ;ring\n+    convert ht using 1 <;> first | rfl | ring\n   obtain ⟨ell,hell⟩:=hdiv\n   have hell':3*ell=h+ramifiedAffineParameter j n*q*a.val:=hell.symm\n   have hne:¬q∣ell:=by\n@@ -587,7 +587,7 @@\n     have ht:(3:Eis)∣h1+ramifiedAffineParameter j n*a.val:=⟨b,hc.symm⟩\n     apply hfreq\n     have hh:=dvd_sub ht (a.2.mul_left (ramifiedAffineParameter j n))\n-    convert hh using 1 ;ring\n+    convert hh using 1 <;> first | rfl | ring\n   let e:=(cubicResidueElementEquiv a.val (primaryLower_ne_zero a)).trans (primaryDenominatorEquiv a)\n   have hpair:=e.summable_iff.mpr hsum\n   change Summable (fun p:CubicUnitResidue a.val×Eis=>∫z in periodDomain,\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/BesselMellinTransform.lean",
+      "before_sha256": "3cc7ba1b5e4ccadb9b2e5099c9e850d910d1ee5284096813019fe64753af1dd7",
+      "after_sha256": "d9cf7fb2d73962a6030701acad356b26aec6396b69636e800a19facb3c06938a",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 151,
+          "old_line": "    convert dvd_add hdiff hfixed using 1 ; ring\n",
+          "new_line": "    convert dvd_add hdiff hfixed using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 152,
+          "following_text": "  have hrd : r∣a*d-1 := by",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 157,
+          "old_line": "    convert dvd_add hdiff hx using 1 ; ring\n",
+          "new_line": "    convert dvd_add hdiff hx using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 158,
+          "following_text": "  obtain ⟨b,hb⟩ := hcr.mul_dvd hcd hrd",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 171,
+          "old_line": "    convert dvd_add h1 h2 using 1 ; ring\n",
+          "new_line": "    convert dvd_add h1 h2 using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 172,
+          "following_text": "  have hcancel : M*c∣c*(b*r-b0*r0) := by",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 180,
+          "old_line": "    convert dvd_sub hbr hsmall using 1 ; ring\n",
+          "new_line": "    convert dvd_sub hbr hsmall using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 181,
+          "following_text": "  exact hr.dvd_of_dvd_mul_right hsub",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 229,
+          "old_line": "    convert dvd_add hdiff hbase using 1 ; ring\n",
+          "new_line": "    convert dvd_add hdiff hbase using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 230,
+          "following_text": "  obtain ⟨b,d,hdet,hd⟩ := exists_fixed_completion M c r a d0 hfixed hr har",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Eisenstein/BesselMellinTransform.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Eisenstein/BesselMellinTransform.lean (after)\n@@ -148,13 +148,13 @@\n   have hcd : c∣a*d-1 := by\n     have hdiff : c∣a*(d-d0) := dvd_mul_of_dvd_right\n       ((dvd_mul_left c M).trans hd) a\n-    convert dvd_add hdiff hfixed using 1 ; ring\n+    convert dvd_add hdiff hfixed using 1 <;> first | rfl | ring\n   have hrd : r∣a*d-1 := by\n     have hx : r∣a*x-1 := by\n       refine ⟨-y,?_⟩\n       linear_combination hxy\n     have hdiff : r∣a*(d-x) := dvd_mul_of_dvd_right hdr a\n-    convert dvd_add hdiff hx using 1 ; ring\n+    convert dvd_add hdiff hx using 1 <;> first | rfl | ring\n   obtain ⟨b,hb⟩ := hcr.mul_dvd hcd hrd\n   refine ⟨b,d,?_,hd⟩\n   linear_combination hb\n@@ -168,7 +168,7 @@\n   have hprod : M*c∣a*d-a0*d0 := by\n     have h1 := dvd_mul_of_dvd_left ha d\n     have h2 := dvd_mul_of_dvd_right hd a0\n-    convert dvd_add h1 h2 using 1 ; ring\n+    convert dvd_add h1 h2 using 1 <;> first | rfl | ring\n   have hcancel : M*c∣c*(b*r-b0*r0) := by\n     convert hprod using 1\n     linear_combination -hdet+hdet0\n@@ -177,7 +177,7 @@\n     exact (mul_dvd_mul_iff_left hc).mp hcancel\n   have hsub : M∣(b-b0)*r := by\n     have hsmall := dvd_mul_of_dvd_right hrr b0\n-    convert dvd_sub hbr hsmall using 1 ; ring\n+    convert dvd_sub hbr hsmall using 1 <;> first | rfl | ring\n   exact hr.dvd_of_dvd_mul_right hsub\n \n end\n@@ -226,7 +226,7 @@\n     linear_combination hdet0\n   have hfixed : c ∣ a*d0-1 := by\n     have hdiff := dvd_mul_of_dvd_left ((dvd_mul_left c M).trans ha) d0\n-    convert dvd_add hdiff hbase using 1 ; ring\n+    convert dvd_add hdiff hbase using 1 <;> first | rfl | ring\n   obtain ⟨b,d,hdet,hd⟩ := exists_fixed_completion M c r a d0 hfixed hr har\n   exact ⟨b,d,hdet,hd,fixed_completion_matrix_congr M c r r0 a a0 b b0 d d0 hc\n     hr.of_mul_right_left.symm hdet hdet0 ha hd hrr⟩\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/CoordinateLaplacian.lean",
+      "before_sha256": "c2890bdef185a468f506b85e2c8abb4e0c276af30e01e66d49387e3c876c7787",
+      "after_sha256": "5f95f9b5e7620d4868490be4f1ccc951ef7adfacded76891c2f74424c5fcc69e",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 435,
+          "old_line": "  convert mul_le_mul_of_nonneg_left hs hX.le using 1 ; ring\n",
+          "new_line": "  convert mul_le_mul_of_nonneg_left hs hX.le using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 437,
+          "following_text": "end CanonicalRowCompletion",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Eisenstein/CoordinateLaplacian.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Eisenstein/CoordinateLaplacian.lean (after)\n@@ -432,7 +432,7 @@\n       mul_pow,inv_pow,Real.sq_sqrt hX.le]\n     field_simp\n   rw [hn]\n-  convert mul_le_mul_of_nonneg_left hs hX.le using 1 ; ring\n+  convert mul_le_mul_of_nonneg_left hs hX.le using 1 <;> first | rfl | ring\n \n end CanonicalRowCompletion\n \n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/CorrespondenceAdjoint.lean",
+      "before_sha256": "0c0d497ae1c4e965f94fa24741f211f6c15be7f66edaa1db584ded0434002f60",
+      "after_sha256": "bee808c4fa42ba14adf5fae5774436aadd1076a65a3d7897cfeb505c33ef470b",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 292,
+          "old_line": "  convert he using 1 ;ring\n",
+          "new_line": "  convert he using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 294,
+          "following_text": "end",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 568,
+          "old_line": "  convert hbound (v/3) (z/3) (by linarith) using 1 ;ring_nf\n",
+          "new_line": "  convert hbound (v/3) (z/3) (by linarith) using 1 <;> first | rfl | ring_nf\n",
+          "terminal_tactic": "ring_nf",
+          "following_line": 570,
+          "following_text": "end",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Eisenstein/CorrespondenceAdjoint.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Eisenstein/CorrespondenceAdjoint.lean (after)\n@@ -289,7 +289,7 @@\n   dsimp only [continuousCuspSlice,g,R] at he\n   simp only [cuspCoordinateLift_positive v _ hv,hp] at he\n   apply (div_left_inj' (pow_ne_zero 3 hvn)).mp\n-  convert he using 1 ;ring\n+  convert he using 1 <;> first | rfl | ring\n \n end\n \n@@ -565,7 +565,7 @@\n   refine ⟨C,hC,?_⟩\n   intro v hv z hav\n   rw [ramifiedSource_eq_series]\n-  convert hbound (v/3) (z/3) (by linarith) using 1 ;ring_nf\n+  convert hbound (v/3) (z/3) (by linarith) using 1 <;> first | rfl | ring_nf\n \n end\n \n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/CubeResidueStrata.lean",
+      "before_sha256": "0be58cd25a1498ed5a688e85b51454616c9746f0d01b0e62765149fa138afae9",
+      "after_sha256": "af70e3552c3e0ec438836364fcb69cae8daea01973733263e79bf41e74c7aca0",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 174,
+          "old_line": "    convert dvd_neg.mpr hh using 1 ;ring\n",
+          "new_line": "    convert dvd_neg.mpr hh using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 175,
+          "following_text": "  apply halfPrimary_lambda_not_dvd_one",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 176,
+          "old_line": "  convert dvd_sub halfPrimary_lambda_dvd_three h2 using 1 ;ring\n",
+          "new_line": "  convert dvd_sub halfPrimary_lambda_dvd_three h2 using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 178,
+          "following_text": "abbrev HalfPrimary := {b:Eis // ramLambda ∣ b-1}",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 188,
+          "old_line": "  convert dvd_sub h b.2 using 1 ;ring\n",
+          "new_line": "  convert dvd_sub h b.2 using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 190,
+          "following_text": "def halfPrimaryFromAssociate (p:Fin 3×PrimaryLower) : HalfPrimary :=",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 229,
+          "old_line": "    convert hh using 1 ;ring\n",
+          "new_line": "    convert hh using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 230,
+          "following_text": "  obtain ⟨j,hj|hj⟩:=unit_eq_sign_omega p.1",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 620,
+          "old_line": "  convert dvd_mul_of_dvd_left (dvd_neg.mpr hd) ((A2:SL(2,Eis)) 1 0) using 1 ; ring\n",
+          "new_line": "  convert dvd_mul_of_dvd_left (dvd_neg.mpr hd) ((A2:SL(2,Eis)) 1 0) using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 622,
+          "following_text": "end CubeCuspData",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Eisenstein/CubeResidueStrata.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Eisenstein/CubeResidueStrata.lean (after)\n@@ -171,9 +171,9 @@\n   intro h\n   have h2 : ramLambda ∣ (2:Eis) := by\n     have hh:=dvd_add h (halfPrimary_omega_pow j)\n-    convert dvd_neg.mpr hh using 1 ;ring\n+    convert dvd_neg.mpr hh using 1 <;> first | rfl | ring\n   apply halfPrimary_lambda_not_dvd_one\n-  convert dvd_sub halfPrimary_lambda_dvd_three h2 using 1 ;ring\n+  convert dvd_sub halfPrimary_lambda_dvd_three h2 using 1 <;> first | rfl | ring\n \n abbrev HalfPrimary := {b:Eis // ramLambda ∣ b-1}\n \n@@ -185,7 +185,7 @@\n lemma halfPrimary_not_dvd (b:HalfPrimary) : ¬ramLambda∣b.val := by\n   intro h\n   apply halfPrimary_lambda_not_dvd_one\n-  convert dvd_sub h b.2 using 1 ;ring\n+  convert dvd_sub h b.2 using 1 <;> first | rfl | ring\n \n def halfPrimaryFromAssociate (p:Fin 3×PrimaryLower) : HalfPrimary :=\n   ⟨omega^p.1.val*p.2.val,by\n@@ -226,7 +226,7 @@\n     have hpa:ramLambda∣a.val-1:=halfPrimary_lambda_dvd_three.trans a.2\n     have hh:=dvd_sub b.2 (hpa.mul_left (p.1:Eis))\n     rw [←hea] at hh\n-    convert hh using 1 ;ring\n+    convert hh using 1 <;> first | rfl | ring\n   obtain ⟨j,hj|hj⟩:=unit_eq_sign_omega p.1\n   · exact ⟨(j,a),Subtype.ext (by simpa only [halfPrimaryFromAssociate,hj] using hea)⟩\n   · exact (halfPrimary_not_negative j.val (by simpa only [hj] using hu)).elim\n@@ -617,7 +617,7 @@\n   change p^(3-d.exponent.val)∣d.matrix 0 0*((A2:SL(2,Eis)) 1 0)-\n     GaussianShiftedPartition.representative (p^(3-d.exponent.val))\n       (Ideal.Quotient.mk _ (d.matrix 0 0))*((A2:SL(2,Eis)) 1 0)\n-  convert dvd_mul_of_dvd_left (dvd_neg.mpr hd) ((A2:SL(2,Eis)) 1 0) using 1 ; ring\n+  convert dvd_mul_of_dvd_left (dvd_neg.mpr hd) ((A2:SL(2,Eis)) 1 0) using 1 <;> first | rfl | ring\n \n end CubeCuspData\n end CubicKubota\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/CuspDilation.lean",
+      "before_sha256": "d5e0ea6d1486278f3d2d75e7c50ba55977543ae117af5197a1b79455f8dc392e",
+      "after_sha256": "fccb363d83ecdcfc0400ee44be083d7b02ede491634ac26298b90b18e985cc4a",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 622,
+          "old_line": "      convert dvd_mul_of_dvd_left (hpow j) b using 1 ; ring\n",
+          "new_line": "      convert dvd_mul_of_dvd_left (hpow j) b using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 623,
+          "following_text": "    convert dvd_sub h1 h2 using 1 ; ring",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 623,
+          "old_line": "    convert dvd_sub h1 h2 using 1 ; ring\n",
+          "new_line": "    convert dvd_sub h1 h2 using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 624,
+          "following_text": "  have hyC:(3:Eis)∣p^(3-j)*A 1 0-A 1 0 := by",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 625,
+          "old_line": "    convert dvd_mul_of_dvd_left (hpow (3-j)) (A 1 0) using 1 ; ring\n",
+          "new_line": "    convert dvd_mul_of_dvd_left (hpow (3-j)) (A 1 0) using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 626,
+          "following_text": "  obtain ⟨N,hN0,hN1,hNA⟩:=exists_congruent_cusp_completion A b (p^(3-j)*A 1 0) hbY hbA hyC",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Eisenstein/CuspDilation.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Eisenstein/CuspDilation.lean (after)\n@@ -619,10 +619,10 @@\n       ring\n     have h2:(3:Eis)∣a-b:=by\n       rw [hab]\n-      convert dvd_mul_of_dvd_left (hpow j) b using 1 ; ring\n-    convert dvd_sub h1 h2 using 1 ; ring\n+      convert dvd_mul_of_dvd_left (hpow j) b using 1 <;> first | rfl | ring\n+    convert dvd_sub h1 h2 using 1 <;> first | rfl | ring\n   have hyC:(3:Eis)∣p^(3-j)*A 1 0-A 1 0 := by\n-    convert dvd_mul_of_dvd_left (hpow (3-j)) (A 1 0) using 1 ; ring\n+    convert dvd_mul_of_dvd_left (hpow (3-j)) (A 1 0) using 1 <;> first | rfl | ring\n   obtain ⟨N,hN0,hN1,hNA⟩:=exists_congruent_cusp_completion A b (p^(3-j)*A 1 0) hbY hbA hyC\n   have hA:a=p^j*N 0 0:=by rw [hN0];exact hab\n   have hC:p^3*A 1 0=p^j*N 1 0:=by\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/CuspResidues.lean",
+      "before_sha256": "d2fda4f589bb97b11e7215e3f8d159ca24739684eb448f60711b630fbe1d3590",
+      "after_sha256": "a5a709fb821a62ee533d20e193cac80a807f028a2ed8b6a4c2ae63c44feb95ff",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 545,
+          "old_line": "    convert tendsto_const_nhds.div (harg.sub_const 1) (by norm_num : (4/3:ℂ)-1≠0) using 1 ; ring_nf\n",
+          "new_line": "    convert tendsto_const_nhds.div (harg.sub_const 1) (by norm_num : (4/3:ℂ)-1≠0) using 1 <;> first | rfl | ring_nf\n",
+          "terminal_tactic": "ring_nf",
+          "following_line": 546,
+          "following_text": "  have hall := ((hlinear.mul hm).add",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Eisenstein/CuspResidues.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Eisenstein/CuspResidues.lean (after)\n@@ -542,7 +542,7 @@\n   have hh := (cuspScatterHeightFactor_differentiableAt (4/3:ℂ) (by norm_num)).continuousAt.tendsto.comp harg\n   have hpi : Tendsto (fun x : ℝ => (Real.pi:ℂ)/((x:ℂ)-1))\n       (𝓝[>] (4/3:ℝ)) (𝓝 (3*(Real.pi:ℂ))) := by\n-    convert tendsto_const_nhds.div (harg.sub_const 1) (by norm_num : (4/3:ℂ)-1≠0) using 1 ; ring_nf\n+    convert tendsto_const_nhds.div (harg.sub_const 1) (by norm_num : (4/3:ℂ)-1≠0) using 1 <;> first | rfl | ring_nf\n   have hall := ((hlinear.mul hm).add\n     ((hpi.mul scatteringCoefficient_zero_oneSidedResidue).mul hh)).const_mul\n       ((9*Real.sqrt 3/2:ℝ):ℂ)\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/FixedConductor.lean",
+      "before_sha256": "f35fb174b284672ed63f81a46fbf85a75ac9d33c3df0b27fabb5a94189c0125c",
+      "after_sha256": "dde3fea5b359f2c44580c5cf47a0d2df9c2942d936cbc707f32d610f97a7c4d2",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 203,
+          "old_line": "    convert dvd_add (hstdN.trans hfixed) hbase using 1 ; ring\n",
+          "new_line": "    convert dvd_add (hstdN.trans hfixed) hbase using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 204,
+          "following_text": "  have hpairs:Pairwise (Function.onFun IsCoprime p):=by",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Eisenstein/FixedConductor.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Eisenstein/FixedConductor.lean (after)\n@@ -200,7 +200,7 @@\n     have hfixed:N∣a v-a0*r:=finiteCrossNumerator_fixed N a0 c0 ramifiedTraceLambda p (lift v)\n       (fun i=>(dvd_pow_self N (by decide : (2:ℕ)≠0)).trans (hlift v i))\n     have hbase:=primary_mul a0 r ha0 hr\n-    convert dvd_add (hstdN.trans hfixed) hbase using 1 ; ring\n+    convert dvd_add (hstdN.trans hfixed) hbase using 1 <;> first | rfl | ring\n   have hpairs:Pairwise (Function.onFun IsCoprime p):=by\n     intro i k hik\n     exact (Ideal.isCoprime_span_singleton_iff _ _).mp (hcop hik)\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/FixedThetaTwists.lean",
+      "before_sha256": "b740fc0176c4e3e88ef8ff2e57e638ace1e1e4e1e78e27ef793328c516171ffd",
+      "after_sha256": "e6f7259e1ee4d33c263a7aaaf2d6a9a18a0cb9d49c94855661fd0405d1e13aae",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 246,
+          "old_line": "  convert h using 1 ; ring\n",
+          "new_line": "  convert h using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 248,
+          "following_text": "theorem completedBranchScale_raw_argument {ι:Type*} [Fintype ι]",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Eisenstein/FixedThetaTwists.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Eisenstein/FixedThetaTwists.lean (after)\n@@ -243,7 +243,7 @@\n   rw [rowResidualPart_norm I Q hI,completedResidualScale]\n   have h:=div_le_div_of_nonneg_right hlo\n     (show 0≤(Ideal.absNorm (rowPowerfulPart I):ℝ)*(Ideal.absNorm (rowMaskPart I Q):ℝ) by positivity)\n-  convert h using 1 ; ring\n+  convert h using 1 <;> first | rfl | ring\n \n theorem completedBranchScale_raw_argument {ι:Type*} [Fintype ι]\n     (K X c r:ℝ) (I F Q:Ideal Eis) (P:ι→Ideal Eis) [∀i,(P i).IsMaximal]\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/IntegralCover.lean",
+      "before_sha256": "e8e2813019516ed764bbd54066979f83b5908fad2836578afb28790dba7518d1",
+      "after_sha256": "8ec0c00c16b7bb4c01bcf0562d222ea17fb5ecc489eb6140709ae44b2eab3dc1",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 117,
+          "old_line": "    convert dvd_sub hfreq (onceCusp_q_congr_scale t l) using 1 ;ring\n",
+          "new_line": "    convert dvd_sub hfreq (onceCusp_q_congr_scale t l) using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 118,
+          "following_text": "  have hh:onceCuspScale t*omega^l.val∣h-onceCuspScale t*omega^l.val:=",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 126,
+          "old_line": "    convert dvd_sub hfreq (onceCusp_q_congr_scale t l) using 1 ;ring\n",
+          "new_line": "    convert dvd_sub hfreq (onceCusp_q_congr_scale t l) using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 127,
+          "following_text": "  have ht:=(onceCusp_q_trace_dvd t l).mul_left (j:Eis)",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Eisenstein/IntegralCover.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Eisenstein/IntegralCover.lean (after)\n@@ -114,7 +114,7 @@\n lemma onceCusp_q_dvd_frequency (t:Eisˣ) (l:Fin 3) (h:Eis)\n     (hfreq:(3:Eis)∣h-onceCuspScale t) : onceCuspScale t*omega^l.val∣h := by\n   have hd:(3:Eis)∣h-onceCuspScale t*omega^l.val:=by\n-    convert dvd_sub hfreq (onceCusp_q_congr_scale t l) using 1 ;ring\n+    convert dvd_sub hfreq (onceCusp_q_congr_scale t l) using 1 <;> first | rfl | ring\n   have hh:onceCuspScale t*omega^l.val∣h-onceCuspScale t*omega^l.val:=\n     (onceCusp_q_dvd_three t l).trans hd\n   simpa only [sub_add_cancel] using dvd_add hh (dvd_refl (onceCuspScale t*omega^l.val))\n@@ -123,7 +123,7 @@\n     (hfreq:(3:Eis)∣h-onceCuspScale t) :\n     (3:Eis)∣h+ramifiedAffineParameter j 1*(onceCuspScale t*omega^l.val) := by\n   have hd:(3:Eis)∣h-onceCuspScale t*omega^l.val:=by\n-    convert dvd_sub hfreq (onceCusp_q_congr_scale t l) using 1 ;ring\n+    convert dvd_sub hfreq (onceCusp_q_congr_scale t l) using 1 <;> first | rfl | ring\n   have ht:=(onceCusp_q_trace_dvd t l).mul_left (j:Eis)\n   convert dvd_add hd ht using 1 ; simp only [ramifiedAffineParameter,Nat.cast_one] ;ring\n \n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/InverseCorrespondence.lean",
+      "before_sha256": "65b7533164abeb7b08edcdcb3e366afe9f0d5954ae268505f98c7cbb4f165f5d",
+      "after_sha256": "b0040e1f500714c69608c6245378dd07387e92eb9bcab617196454b171a69d84",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 249,
+          "old_line": "    convert dvd_add hbase (a.2.mul_left (ramifiedAffineParameter j n*q)) using 1 ;ring\n",
+          "new_line": "    convert dvd_add hbase (a.2.mul_left (ramifiedAffineParameter j n*q)) using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 250,
+          "following_text": "  obtain ⟨ell,hell⟩:=hb",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 430,
+          "old_line": "    convert ramifiedCuspRoot_cube b using 1 ;ring\n",
+          "new_line": "    convert ramifiedCuspRoot_cube b using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 431,
+          "following_text": "  rw [hi]",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 499,
+          "old_line": "    convert dvd_add hh hc using 1 ;ring\n",
+          "new_line": "    convert dvd_add hh hc using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 500,
+          "following_text": "  · intro hh",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 501,
+          "old_line": "    convert dvd_sub hh hc using 1 ;ring\n",
+          "new_line": "    convert dvd_sub hh hc using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 503,
+          "following_text": "end",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 546,
+          "old_line": "  convert dvd_add hf (ramifiedCusp_direct_period_constant b) using 1 ;ring\n",
+          "new_line": "  convert dvd_add hf (ramifiedCusp_direct_period_constant b) using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 548,
+          "following_text": "lemma ramifiedCusp_opposite_base (b:Bool) (h:Eis)",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 551,
+          "old_line": "  convert dvd_add hf (ramifiedCusp_opposite_period_constant b) using 1 ;ring\n",
+          "new_line": "  convert dvd_add hf (ramifiedCusp_opposite_period_constant b) using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 553,
+          "following_text": "lemma ramifiedCusp_unit_base (b:Bool) (h:Eis)",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 556,
+          "old_line": "  convert dvd_add hf (ramifiedCusp_unit_period_constant b) using 1 ;ring\n",
+          "new_line": "  convert dvd_add hf (ramifiedCusp_unit_period_constant b) using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 558,
+          "following_text": "end CubicEisenstein",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Eisenstein/InverseCorrespondence.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Eisenstein/InverseCorrespondence.lean (after)\n@@ -246,7 +246,7 @@\n   obtain ⟨x,hx⟩:=hd\n   have hdx:d.val=a.val+3*x:=by linear_combination hx\n   have hb:(3:Eis)∣h+ramifiedAffineParameter j n*q*a.val:=by\n-    convert dvd_add hbase (a.2.mul_left (ramifiedAffineParameter j n*q)) using 1 ;ring\n+    convert dvd_add hbase (a.2.mul_left (ramifiedAffineParameter j n*q)) using 1 <;> first | rfl | ring\n   obtain ⟨ell,hell⟩:=hb\n   have he:=affineCusp_general_weighted_translate h q r a.val ell x (q*m) j n\n     (primaryLower_primary a) hq hr hell.symm z v s\n@@ -427,7 +427,7 @@\n   have hi:(↑(-(ramifiedCuspRoot b))⁻¹:Eis)=-(ramifiedCuspRoot b:Eis)^2:=by\n     apply (-(ramifiedCuspRoot b)).inv_eq_of_mul_eq_one_right\n     change -(ramifiedCuspRoot b:Eis)*(-(ramifiedCuspRoot b:Eis)^2)=1\n-    convert ramifiedCuspRoot_cube b using 1 ;ring\n+    convert ramifiedCuspRoot_cube b using 1 <;> first | rfl | ring\n   rw [hi]\n   linear_combination (ramifiedCuspRoot b:Eis)*ramifiedCuspRoot_cube b\n \n@@ -496,9 +496,9 @@\n       linear_combination (2*omega-1)*ramified_omega_relation\n   constructor\n   · intro hh\n-    convert dvd_add hh hc using 1 ;ring\n+    convert dvd_add hh hc using 1 <;> first | rfl | ring\n   · intro hh\n-    convert dvd_sub hh hc using 1 ;ring\n+    convert dvd_sub hh hc using 1 <;> first | rfl | ring\n \n end\n \n@@ -543,17 +543,17 @@\n lemma ramifiedCusp_direct_base (b:Bool) (h:Eis)\n     (hf:(3:Eis)∣h-onceCuspScale (ramifiedCuspScaleUnit b)) :\n     (3:Eis)∣h+ramifiedAffineParameter (ramifiedCuspDirectIndex b) 0*(ramifiedCuspRoot b:Eis) := by\n-  convert dvd_add hf (ramifiedCusp_direct_period_constant b) using 1 ;ring\n+  convert dvd_add hf (ramifiedCusp_direct_period_constant b) using 1 <;> first | rfl | ring\n \n lemma ramifiedCusp_opposite_base (b:Bool) (h:Eis)\n     (hf:(3:Eis)∣h-onceCuspScale (ramifiedCuspScaleUnit b)) :\n     (3:Eis)∣h+ramifiedAffineParameter (ramifiedCuspOppositeIndex b) 0*(-(ramifiedCuspRoot b:Eis)) := by\n-  convert dvd_add hf (ramifiedCusp_opposite_period_constant b) using 1 ;ring\n+  convert dvd_add hf (ramifiedCusp_opposite_period_constant b) using 1 <;> first | rfl | ring\n \n lemma ramifiedCusp_unit_base (b:Bool) (h:Eis)\n     (hf:(3:Eis)∣h-onceCuspScale (ramifiedCuspScaleUnit b)) :\n     (3:Eis)∣h+ramifiedAffineParameter (ramifiedCuspDirectIndex b) 0 := by\n-  convert dvd_add hf (ramifiedCusp_unit_period_constant b) using 1 ;ring\n+  convert dvd_add hf (ramifiedCusp_unit_period_constant b) using 1 <;> first | rfl | ring\n \n end CubicEisenstein\n \n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/PrimePowerGaussSums.lean",
+      "before_sha256": "3fafee09621e2d298d1e52094b322ac248719f19e323416f8738ff3567896085",
+      "after_sha256": "43ae2b9eb1209ab7be0b836e90ca72dcbcec366a75a61c55a1b2302a2be8b8a6",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 529,
+          "old_line": "  convert hh using 1 ; ring\n",
+          "new_line": "  convert hh using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 531,
+          "following_text": "theorem inverse_weight_residue_congr (D r r0 u u0 d d0 : R)",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 537,
+          "old_line": "  convert dvd_neg.mpr hh using 1 ; ring\n",
+          "new_line": "  convert dvd_neg.mpr hh using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 539,
+          "following_text": "theorem fixed_additive_sector {K : Type*} [Field K]",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Eisenstein/PrimePowerGaussSums.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Eisenstein/PrimePowerGaussSums.lean (after)\n@@ -526,7 +526,7 @@\n     (hr : D∣r-r0) (hu : D∣u*r-1) (hu0 : D∣u0*r0-1) : D∣u-u0 := by\n   apply hcop.dvd_of_dvd_mul_right\n   have hh := dvd_sub (dvd_sub hu hu0) (dvd_mul_of_dvd_right hr u0)\n-  convert hh using 1 ; ring\n+  convert hh using 1 <;> first | rfl | ring\n \n theorem inverse_weight_residue_congr (D r r0 u u0 d d0 : R)\n     (hcop : IsCoprime D r) (hr : D∣r-r0)\n@@ -534,7 +534,7 @@\n     D∣(-d*u)-(-d0*u0) := by\n   have hi := inverse_residue_congr D r r0 u u0 hcop hr hu hu0\n   have hh := dvd_add (dvd_mul_of_dvd_left hd u) (dvd_mul_of_dvd_right hi d0)\n-  convert dvd_neg.mpr hh using 1 ; ring\n+  convert dvd_neg.mpr hh using 1 <;> first | rfl | ring\n \n theorem fixed_additive_sector {K : Type*} [Field K]\n     (ι : R→+*K) (ψ : AddChar K ℂ) (lam D r r0 u u0 d d0 x : R)\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/RamifiedGaussSeries.lean",
+      "before_sha256": "8b3da65b1d45707c31d85413789e9e61d568ea183b71d23876fca955486b8852",
+      "after_sha256": "93e0ad453286851ab1d86fef2dd4afe9100893dad81fe1048c4dbcd75e5ae587",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 116,
+          "old_line": "  convert dvd_add hd (show (3:Eis)∣9*w from ⟨3*w,by ring⟩) using 1 ; ring\n",
+          "new_line": "  convert dvd_add hd (show (3:Eis)∣9*w from ⟨3*w,by ring⟩) using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 118,
+          "following_text": "def ramifiedResidueAdd (u : Eisˣ) (n : ℕ) (w : Eis)",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Eisenstein/RamifiedGaussSeries.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Eisenstein/RamifiedGaussSeries.lean (after)\n@@ -113,7 +113,7 @@\n \n lemma primary_add_nine (d w : Eis) (hd : (3:Eis)∣d-1) :\n     (3:Eis)∣d+9*w-1 := by\n-  convert dvd_add hd (show (3:Eis)∣9*w from ⟨3*w,by ring⟩) using 1 ; ring\n+  convert dvd_add hd (show (3:Eis)∣9*w from ⟨3*w,by ring⟩) using 1 <;> first | rfl | ring\n \n def ramifiedResidueAdd (u : Eisˣ) (n : ℕ) (w : Eis)\n     (r : AdmissibleResidue (u.val*lambda^n)) : AdmissibleResidue (u.val*lambda^n) :=\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/RamifiedSixBranches.lean",
+      "before_sha256": "0da590091cc234b6ff0c9314e78cedcad50b5d9e22fd2ecd54c5d1ecf66767e0",
+      "after_sha256": "c81812e4c9d047aeb68a8af5a9778cc298292d404a958fa6f83f6b552429abac",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 487,
+          "old_line": "    convert dvd_sub (ramifiedCuspShift_congr b) hh using 1 ; ring\n",
+          "new_line": "    convert dvd_sub (ramifiedCuspShift_congr b) hh using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 488,
+          "following_text": "  · intro hh",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 489,
+          "old_line": "    convert dvd_sub (ramifiedCuspShift_congr b) hh using 1 ; ring\n",
+          "new_line": "    convert dvd_sub (ramifiedCuspShift_congr b) hh using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 491,
+          "following_text": "lemma ramifiedSource_affine_shift (b : Bool) (x : Eis) (z : ℂ)",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Eisenstein/RamifiedSixBranches.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Eisenstein/RamifiedSixBranches.lean (after)\n@@ -484,9 +484,9 @@\n       (3:Eis)∣h-onceCuspScale (ramifiedCuspScaleUnit b) := by\n   constructor\n   · intro hh\n-    convert dvd_sub (ramifiedCuspShift_congr b) hh using 1 ; ring\n+    convert dvd_sub (ramifiedCuspShift_congr b) hh using 1 <;> first | rfl | ring\n   · intro hh\n-    convert dvd_sub (ramifiedCuspShift_congr b) hh using 1 ; ring\n+    convert dvd_sub (ramifiedCuspShift_congr b) hh using 1 <;> first | rfl | ring\n \n lemma ramifiedSource_affine_shift (b : Bool) (x : Eis) (z : ℂ)\n     (v : ℝ) (hv : 0<v) :\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/RamifiedValuation.lean",
+      "before_sha256": "da7dfd799ea0025771b90618702560606b35f7b9b618c5d8235d56ca36d8c363",
+      "after_sha256": "f9f3cce474cab065301a533c2196e42755c79bc1a074dc17c58e146031ced761",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 195,
+          "old_line": "      convert dvd_sub h3 hf using 1 ; ring\n",
+          "new_line": "      convert dvd_sub h3 hf using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 196,
+          "following_text": "    exact onceCuspScale_not_three_dvd _ hq",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Eisenstein/RamifiedValuation.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Eisenstein/RamifiedValuation.lean (after)\n@@ -192,7 +192,7 @@\n   · intro h2\n     have h3:(3:Eis)∣h:=three_dvd_lambda_sq.trans h2\n     have hq:(3:Eis)∣onceCuspScale (ramifiedCuspScaleUnit side):=by\n-      convert dvd_sub h3 hf using 1 ; ring\n+      convert dvd_sub h3 hf using 1 <;> first | rfl | ring\n     exact onceCuspScale_not_three_dvd _ hq\n \n theorem ramifiedBesselValue_once_squarefree_cube_support (side:Bool) (h:Eis)\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/ResidualCuspDecay.lean",
+      "before_sha256": "5c570fae040b4326e0f9cfe6a262d76f881e4bc4f5f4aa49c540dc88f47b118b",
+      "after_sha256": "39993e65879f79fe829884a3a2d808fb804363748db7628fece7c22395addf24",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 253,
+          "old_line": "  convert dvd_sub (dvd_add h1 h2) h0 using 1 ; ring\n",
+          "new_line": "  convert dvd_sub (dvd_add h1 h2) h0 using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 255,
+          "following_text": "variable [IsDomain R]",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 467,
+          "old_line": "    convert dvd_sub hma (dvd_mul_of_dvd_right hmb u) using 1 ; ring\n",
+          "new_line": "    convert dvd_sub hma (dvd_mul_of_dvd_right hmb u) using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 468,
+          "following_text": "  have hfirst : symbol (-u) (a-u*b)=symbol (-u) (a0-u*b0) := by",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Eisenstein/ResidualCuspDecay.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Eisenstein/ResidualCuspDecay.lean (after)\n@@ -250,7 +250,7 @@\n   have h0 := crossNum_congr_of_lift_dvd (M^2) a c rows0 hlift0\n   have h2 := dvd_mul_of_dvd_right hsector a\n   apply hmc.trans\n-  convert dvd_sub (dvd_add h1 h2) h0 using 1 ; ring\n+  convert dvd_sub (dvd_add h1 h2) h0 using 1 <;> first | rfl | ring\n \n variable [IsDomain R]\n \n@@ -464,7 +464,7 @@\n     symbol (-u) (a-u*b)*symbol c0 a=\n       symbol (-u) (a0-u*b0)*symbol c0 a0 := by\n   have hdiff : M∣(a-u*b)-(a0-u*b0) := by\n-    convert dvd_sub hma (dvd_mul_of_dvd_right hmb u) using 1 ; ring\n+    convert dvd_sub hma (dvd_mul_of_dvd_right hmb u) using 1 <;> first | rfl | ring\n   have hfirst : symbol (-u) (a-u*b)=symbol (-u) (a0-u*b0) := by\n     apply symbol_denominator_congr _ _ _ hA hA0 (h9M.trans hdiff)\n     exact neg_dvd.mpr (huM.trans hdiff)\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/ScatteringResidues.lean",
+      "before_sha256": "6b614cc372870ef3a68fe01981ff03718df2353ccec09a7a73dda34aa67f4f4f",
+      "after_sha256": "63318d1441df9f9e3ef097e1276bfcb9c390e2588c6a216e305028d39a45d902",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 504,
+          "old_line": "      convert hh using 1 ;ring_nf\n",
+          "new_line": "      convert hh using 1 <;> first | rfl | ring_nf\n",
+          "terminal_tactic": "ring_nf",
+          "following_line": 505,
+          "following_text": "    obtain ⟨v,hv⟩:=GeneralPrimitiveTrace.complex_exp_trace_integer hh'",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Eisenstein/ScatteringResidues.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Eisenstein/ScatteringResidues.lean (after)\n@@ -501,7 +501,7 @@\n   constructor\n   · intro hh\n     have hh':Complex.exp (2*Real.pi*Complex.I*((((t:ℤ)+b:ℤ):ℂ)/3))=1:=by\n-      convert hh using 1 ;ring_nf\n+      convert hh using 1 <;> first | rfl | ring_nf\n     obtain ⟨v,hv⟩:=GeneralPrimitiveTrace.complex_exp_trace_integer hh'\n     have hc:(((t:ℤ)+b:ℤ):ℂ)=3*(v:ℂ):=by linear_combination 3*hv\n     have hi:(t:ℤ)+b=3*v:=by exact_mod_cast hc\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/SquarefreeCoefficients.lean",
+      "before_sha256": "9ed813c7236c33fa7e7de9942346ab83caf029257ed773ac33e06ea8c2a910aa",
+      "after_sha256": "deb9ca0d9bfa414d6731baf601ab75ce6c34ccd6d3abe4159677d9f058fcc36d",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 514,
+          "old_line": "  convert he using 1 ; ring\n",
+          "new_line": "  convert he using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 516,
+          "following_text": "end",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Eisenstein/SquarefreeCoefficients.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Eisenstein/SquarefreeCoefficients.lean (after)\n@@ -511,7 +511,7 @@\n   refine (sourceArithmeticResidue_nine_family_bound _ (ramifiedElement_ne_zero u n)).trans ?_\n   have he:=mul_le_mul_of_nonneg_left (ramifiedResidueFamilyMass_unit_lambda_le u n)\n     ramifiedSourceFamilyConstant_nonneg\n-  convert he using 1 ; ring\n+  convert he using 1 <;> first | rfl | ring\n \n end\n \n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/GaussSum/ActiveReindexing.lean",
+      "before_sha256": "8a1d0cad5a9a076bc99333b7f1d0b2e48f6cdae8a402dc952a3a8ea8de15abde",
+      "after_sha256": "be3bc64b2ffe5e4e17e052561527f1292ced58f30ca1262e2c687fa08651d01f",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 162,
+          "old_line": "  convert ht using 1 ; ring\n",
+          "new_line": "  convert ht using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 164,
+          "following_text": "end CompletedGauss",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/GaussSum/ActiveReindexing.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/GaussSum/ActiveReindexing.lean (after)\n@@ -159,7 +159,7 @@\n   rw [hnbranch]\n   have ht:=residual_coefficient_eq_canonical_admissible k hk R hR jβ e ρ q (fun _=>1) η σ m n b\n   simp only [one_mul] at ht\n-  convert ht using 1 ; ring\n+  convert ht using 1 <;> first | rfl | ring\n \n end CompletedGauss\n \n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/GaussSum/BranchScaling.lean",
+      "before_sha256": "946cd449d2e95ac8a9abf01b7fd4af7cccab07e0305018b660270f78174a2ad7",
+      "after_sha256": "0920ea966dda444e82fa87506e0bb99bf678afd9046bd5d16e7bf5b49ca76abd",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 344,
+          "old_line": "      convert hb using 1 ; ring\n",
+          "new_line": "      convert hb using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 345,
+          "following_text": "    _ = _ := by ring",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/GaussSum/BranchScaling.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/GaussSum/BranchScaling.lean (after)\n@@ -341,7 +341,7 @@\n   calc\n     _ ≤ (C*E*firstLogDensity 0 q.1*firstLogDensity 0 q.2.1*firstLogDensity 0 q.2.2)/S := by\n       apply (le_div_iff₀ hS).mpr\n-      convert hb using 1 ; ring\n+      convert hb using 1 <;> first | rfl | ring\n     _ = _ := by ring\n \n theorem initialBinCost_of_child_bound {ι : Type*} [DecidableEq ι]\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/GaussSum/FiniteTranslations.lean",
+      "before_sha256": "4c0351ae658f374d7a1b8fedd095775c5496c273fe1f36b88cd5fa66e6d377d6",
+      "after_sha256": "a8371b1620cafb4f2ce906eca24ddfb348bb72b39f4b3cac6e70a56dc34082ac",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 490,
+          "old_line": "      convert dvd_sub hx hd using 1 ; ring\n",
+          "new_line": "      convert dvd_sub hx hd using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 491,
+          "following_text": "    · intro hy",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 492,
+          "old_line": "      convert dvd_add hd hy using 1 ; ring\n",
+          "new_line": "      convert dvd_add hd hy using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 493,
+          "following_text": "  by_cases hx : lambda^2∣x-1",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/GaussSum/FiniteTranslations.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/GaussSum/FiniteTranslations.lean (after)\n@@ -487,9 +487,9 @@\n   have hp : lambda^2∣x-1 ↔ lambda^2∣y-1 := by\n     constructor\n     · intro hx\n-      convert dvd_sub hx hd using 1 ; ring\n+      convert dvd_sub hx hd using 1 <;> first | rfl | ring\n     · intro hy\n-      convert dvd_add hd hy using 1 ; ring\n+      convert dvd_add hd hy using 1 <;> first | rfl | ring\n   by_cases hx : lambda^2∣x-1\n   · have hy := hp.mp hx\n     rw [fixedThetaTwist_primary Ψ x hx,fixedThetaTwist_primary Ψ y hy,\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/GaussSum/GlobalScales.lean",
+      "before_sha256": "5ca0ad1b8f40a4d7b6b1ea6f0955f8938c9c78ed90d890073fada642040f5ba7",
+      "after_sha256": "b16d1c6140967bf9a41aa340595fd2c991e83b3fa4d4dc3cf0b0859b0ba7b664",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 272,
+          "old_line": "  convert hh using 1 ; ring\n",
+          "new_line": "  convert hh using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 274,
+          "following_text": "end",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/GaussSum/GlobalScales.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/GaussSum/GlobalScales.lean (after)\n@@ -269,7 +269,7 @@\n     (fun x hx => hs x (ht x hx).1) (fun x hx => (ht x hx).2.1)\n     (fun x hx => Finset.mem_image.mpr ⟨x,hx,rfl⟩)\n     (fun a ha => (hbound a ha).1) (fun a ha => (hbound a ha).2.1) hw\n-  convert hh using 1 ; ring\n+  convert hh using 1 <;> first | rfl | ring\n \n end\n \n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/GaussSum/PowerfulParts.lean",
+      "before_sha256": "fa4d50a6ff56a2107f08108bb36e157555a795cdf16a15b7079835d18170ee23",
+      "after_sha256": "a15877f89a5ba18b47985f2c9c9b5a773ba52101fa1593ec04210a8b88c3c065",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 427,
+          "old_line": "  convert h using 1 ; ring\n",
+          "new_line": "  convert h using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 429,
+          "following_text": "def globalCubeFirstBlock (pool : Finset ι) (b : GlobalCubeBlock ι)",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/GaussSum/PowerfulParts.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/GaussSum/PowerfulParts.lean (after)\n@@ -424,7 +424,7 @@\n     ‖eisEmbedding (∏ i∈cubeActiveSupport b.cube.support\n       (fun i => b.cube.leftExponent i+b.cube.rightExponent i) b.cube.leftBit b.cube.rightBit,p i)‖) ≤ _ at h\n   change _ ≤ globalCubeCoefficient p K ell B F true b at h\n-  convert h using 1 ; ring\n+  convert h using 1 <;> first | rfl | ring\n \n def globalCubeFirstBlock (pool : Finset ι) (b : GlobalCubeBlock ι)\n     (s : Finset (Ideal O × O)) (a : Ideal O × O → ℂ)\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/GaussSum/ReflectionPool.lean",
+      "before_sha256": "f4dc18bc7d21c919db5377b852d521295b115f40dfea4b140a51b753d90e78ef",
+      "after_sha256": "ffd3732f4488b6c74c18da91eeb6c46abe08197899acfd1edcbdd5495e9d97ef",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 409,
+          "old_line": "      convert dvd_mul_of_dvd_left (hD v) U using 1 ; ring\n",
+          "new_line": "      convert dvd_mul_of_dvd_left (hD v) U using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 410,
+          "following_text": "    have hfixed:symbol c0 ((g v:SL(2,Eis)) 0 0)=symbol c0 a0 :=",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/GaussSum/ReflectionPool.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/GaussSum/ReflectionPool.lean (after)\n@@ -406,7 +406,7 @@\n         (quotientTrace (p i) (hp i)) (σ i) (ε i) (Ideal.Quotient.mk _ x) (v i) := by\n     have hbad:A4BadPhase c0 hc0 ((g v:SL(2,Eis)) 1 1) U x=A4BadPhase c0 hc0 d0 U x := by\n       apply A4BadPhase_eq_of_residue\n-      convert dvd_mul_of_dvd_left (hD v) U using 1 ; ring\n+      convert dvd_mul_of_dvd_left (hD v) U using 1 <;> first | rfl | ring\n     have hfixed:symbol c0 ((g v:SL(2,Eis)) 0 0)=symbol c0 a0 :=\n       A3_fixed_factor_congr 9 c0 _ _ (dvd_refl _) (levelThree_primary (g v))\n         (levelThree_primary (g (fun _=>1))) (hA v)\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Hecke/PrincipalStrip.lean",
+      "before_sha256": "4fe8823fa427f804e1b281e9bd7d8f5ab15183431db496f612d5c6a19f82454b",
+      "after_sha256": "c4e0b27a852184fc191ac3604781b547e9057596dea133e18b812d57f8c168e2",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 227,
+          "old_line": "  convert h using 1 ; ring\n",
+          "new_line": "  convert h using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 229,
+          "following_text": "end SevenEighths.HeckePrincipalStrip",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Hecke/PrincipalStrip.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Hecke/PrincipalStrip.lean (after)\n@@ -224,7 +224,7 @@\n         (η.modulus.absNorm : ℝ) ^ (3/5 : ℝ) * (3+|z.im|)^2 := by\n   apply (sourceNormalized_norm_le η z hz).trans\n   have h := mul_le_mul_of_nonneg_left (uniform_normalized_strip_bound η hp z hz) (by norm_num : (0 : ℝ) ≤ 3)\n-  convert h using 1 ; ring\n+  convert h using 1 <;> first | rfl | ring\n \n end SevenEighths.HeckePrincipalStrip\n \n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/MeanSquare/DiagonalDensity.lean",
+      "before_sha256": "fe5c40e52effbe06e56ca897b86b56ff3e69513df6259e1ce2f366bb3da0f045",
+      "after_sha256": "cc636a0b2d0fa0b1c50fad8c80bf0b8906bf4c1d51183c899ecbae722ca35130",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 649,
+          "old_line": "      convert hd using 1 ; ring\n",
+          "new_line": "      convert hd using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 650,
+          "following_text": "    exact mul_le_mul hb (sourceGeometricMean_le_ideal p hp hcop hg F Ψ₁ Ψ₂ m T V₁ V₂ X₁ X₂ q)",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/MeanSquare/DiagonalDensity.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/MeanSquare/DiagonalDensity.lean (after)\n@@ -646,7 +646,7 @@\n     have hb : B q ≤ (C/S)*tripleLogDensity J q := by\n       have hd : B q ≤ (C*tripleLogDensity J q)/S :=\n         (le_div_iff₀ hS).mpr (by simpa only [mul_comm] using hdec q)\n-      convert hd using 1 ; ring\n+      convert hd using 1 <;> first | rfl | ring\n     exact mul_le_mul hb (sourceGeometricMean_le_ideal p hp hcop hg F Ψ₁ Ψ₂ m T V₁ V₂ X₁ X₂ q)\n       (mul_nonneg (Real.sqrt_nonneg _) (Real.sqrt_nonneg _))\n       (mul_nonneg (div_nonneg hC hS.le) (tripleLogDensity_nonneg _ _))\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/MeanSquare/InputEnergy.lean",
+      "before_sha256": "f736af253f1c97071ce8b577d5abeb60026221086fb13e2f85e6caacaa791f16",
+      "after_sha256": "62602d68c25c4bb1a4f84cd21c753e28be3cacdd3a490e5c845bc8e768d71d6e",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 397,
+          "old_line": "  convert h' using 1 ; ring\n",
+          "new_line": "  convert h' using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 399,
+          "following_text": "end SecondPassArithmetic",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/MeanSquare/InputEnergy.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/MeanSquare/InputEnergy.lean (after)\n@@ -394,7 +394,7 @@\n   have h' := mul_le_mul_of_nonneg_left h\n     (show 0≤w b*globalFirstCoefficient p K ell B F side b*globalFirstPooledRow p K ell B F side b*\n       (primeProductNorm p b.firstCommon)⁻¹ by positivity)\n-  convert h' using 1 ; ring\n+  convert h' using 1 <;> first | rfl | ring\n \n end SecondPassArithmetic\n \n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/QuadraticSieve/ProductColumns.lean",
+      "before_sha256": "ab33086ad5a67cb355857caee9472df1368b3c5f5e001aa2663ccb6ef9eb9468",
+      "after_sha256": "5f08ace86a500a8536955bb6762a61b034fb04178a988014375453cbad3e185c",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 668,
+          "old_line": "        convert hw using 1 ; ring\n",
+          "new_line": "        convert hw using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 669,
+          "following_text": "      _ = F/(Ideal.absNorm A:ℝ) := by dsimp [F,Y]; field_simp [hn.ne'] ; ring",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/QuadraticSieve/ProductColumns.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/QuadraticSieve/ProductColumns.lean (after)\n@@ -665,7 +665,7 @@\n         have h4 := mul_le_mul_of_nonneg_left hb (by norm_num : (0:ℝ)≤4)\n         have hh := mul_le_mul h4 hea (by positivity) (by positivity)\n         have hw := mul_le_mul_of_nonneg_left hh (Nat.cast_nonneg (α:=ℝ) (Ideal.absNorm A))\n-        convert hw using 1 ; ring\n+        convert hw using 1 <;> first | rfl | ring\n       _ = F/(Ideal.absNorm A:ℝ) := by dsimp [F,Y]; field_simp [hn.ne'] ; ring\n   have hsplit (k : idealRange K) :\n       (∑I∈S,quadraticRow k.val (primaryGenerator I)*a I)=\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/QuadraticSieve/SelectedExponents.lean",
+      "before_sha256": "583b72b9f05ab3e90f3f86962eeebc227c1405f7a7bc333026837ce78e1a9139",
+      "after_sha256": "7b35eced2e21cddeca0a40c75528895b6a52ca1ad773143ce8f207e5af217c3a",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 367,
+          "old_line": "    convert (Real.rpow_two N).symm using 1 ; ring_nf\n",
+          "new_line": "    convert (Real.rpow_two N).symm using 1 <;> first | rfl | ring_nf\n",
+          "terminal_tactic": "ring_nf",
+          "following_line": 368,
+          "following_text": "  rw [he]",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/QuadraticSieve/SelectedExponents.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/QuadraticSieve/SelectedExponents.lean (after)\n@@ -364,7 +364,7 @@\n   apply (div_le_iff₀ hM0).mpr\n   have he : N^2=N^(2-1/α)*N^(1/α) := by\n     rw [←Real.rpow_add hN]\n-    convert (Real.rpow_two N).symm using 1 ; ring_nf\n+    convert (Real.rpow_two N).symm using 1 <;> first | rfl | ring_nf\n   rw [he]\n   simpa only [mul_comm] using mul_le_mul_of_nonneg_right hM (Real.rpow_nonneg hN.le (1/α))\n \n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Reciprocity/KubotaCharacter.lean",
+      "before_sha256": "781bfa2555e76db8b1a4ce22860d1bbd369cff740fb61ac2127362df552eb158",
+      "after_sha256": "1c57a8a46b8673a4a9f416d4e11ec961e500dbbc2de169e46e1898b50dde708c",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 149,
+          "old_line": "    convert dvd_add ha (lambda_sq_dvd_three.trans hc) using 1 ; ring\n",
+          "new_line": "    convert dvd_add ha (lambda_sq_dvd_three.trans hc) using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 150,
+          "following_text": "  calc",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 356,
+          "old_line": "    convert dvd_sub hLa hLa1 using 1 ; ring\n",
+          "new_line": "    convert dvd_sub hLa hLa1 using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 357,
+          "following_text": "  exact PrimaryIdealUnitReindex.lambda_prime_actual.not_isUnit (isUnit_of_dvd_one h1)",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Reciprocity/KubotaCharacter.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Reciprocity/KubotaCharacter.lean (after)\n@@ -146,7 +146,7 @@\n theorem symbol_shift_by_self (c a : ActualEisensteinCubic.O) (ha : lambda^2∣a-1) (hc : (3:ActualEisensteinCubic.O)∣c) :\n     symbol c (a+c)=symbol c a := by\n   have hA : lambda^2∣a+c-1 := by\n-    convert dvd_add ha (lambda_sq_dvd_three.trans hc) using 1 ; ring\n+    convert dvd_add ha (lambda_sq_dvd_three.trans hc) using 1 <;> first | rfl | ring\n   calc\n     symbol c (a+c)=symbol (-a) (a+c) := by\n       apply symbol_congr\n@@ -353,7 +353,7 @@\n   have hLa := (hL2.trans lambda_sq_dvd_three).trans hO\n   have hLa1 := hL2.trans ha\n   have h1 : lambda∣(1:ActualEisensteinCubic.O) := by\n-    convert dvd_sub hLa hLa1 using 1 ; ring\n+    convert dvd_sub hLa hLa1 using 1 <;> first | rfl | ring\n   exact PrimaryIdealUnitReindex.lambda_prime_actual.not_isUnit (isUnit_of_dvd_one h1)\n \n theorem integer_symbol_eq_one (c a : ℤ) (ha : lambda^2∣(a:ActualEisensteinCubic.O)-1)\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Reciprocity/PrimaryCongruences.lean",
+      "before_sha256": "46f58ae465bcd89da31df5400e2cbdf0d06ecd9b9c7ecfc40d0eb6a7f3f67103",
+      "after_sha256": "a61c514363383e2114a75bd9c3aa0a7ef71637a77f10b9ad42333102f710516e",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 99,
+          "old_line": "    convert dvd_neg.mpr (dvd_add h hn) using 1 ; ring\n",
+          "new_line": "    convert dvd_neg.mpr (dvd_add h hn) using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 101,
+          "following_text": "lemma symbol_three_shift_primary (c a t:Eis) (hc:lambda^2∣c-1) (ha:lambda^2∣a-1) :",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Reciprocity/PrimaryCongruences.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Reciprocity/PrimaryCongruences.lean (after)\n@@ -96,7 +96,7 @@\n     obtain ⟨t,ht⟩:=hr\n     have hn:(3:Eis)∣(r:Eis)+1:=⟨(t:Eis),by exact_mod_cast ht⟩\n     apply lambda_sq_dvd_three.trans\n-    convert dvd_neg.mpr (dvd_add h hn) using 1 ; ring\n+    convert dvd_neg.mpr (dvd_add h hn) using 1 <;> first | rfl | ring\n \n lemma symbol_three_shift_primary (c a t:Eis) (hc:lambda^2∣c-1) (ha:lambda^2∣a-1) :\n     symbol c (a+3*t*c)=symbol c a := by\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/RowCompletion/CubicReopening.lean",
+      "before_sha256": "a0edee74e5c0c290ec9a38cca896eadecc52eb4e5f56ee6ea13cded409763fe9",
+      "after_sha256": "6e7a23548d5d242e4efd4381a74611b8725558ae5c8a270107296ead7e1781e6",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 337,
+          "old_line": "      convert dvd_sub hx ha using 1 ; ring\n",
+          "new_line": "      convert dvd_sub hx ha using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 338,
+          "following_text": "    · intro hy",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 339,
+          "old_line": "      convert dvd_add ha hy using 1 ; ring\n",
+          "new_line": "      convert dvd_add ha hy using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 340,
+          "following_text": "  rw [supported_span_iff,supported_span_iff,he lambda (hlam.trans h36),he 2 (htwo.trans h36)]",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/RowCompletion/CubicReopening.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/RowCompletion/CubicReopening.lean (after)\n@@ -334,9 +334,9 @@\n   have he (a : ActualEisensteinCubic.O) (ha : a∣x-y) : a∣x↔a∣y := by\n     constructor\n     · intro hx\n-      convert dvd_sub hx ha using 1 ; ring\n+      convert dvd_sub hx ha using 1 <;> first | rfl | ring\n     · intro hy\n-      convert dvd_add ha hy using 1 ; ring\n+      convert dvd_add ha hy using 1 <;> first | rfl | ring\n   rw [supported_span_iff,supported_span_iff,he lambda (hlam.trans h36),he 2 (htwo.trans h36)]\n \n theorem unitSupplement_periodic (u : ActualEisensteinCubic.Oˣ) (x y : ActualEisensteinCubic.O)\n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/RowCompletion/PolynomialHeight.lean",
+      "before_sha256": "e225c890d9f8601b6358ca1158be947ff459a010480fd4f3fc13749c978bebdb",
+      "after_sha256": "deb92b7fe01481470b27be52713cf6ab467137f7de8c3261802a4d721978fede",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 111,
+          "old_line": "  convert hh using 1 ; ring\n",
+          "new_line": "  convert hh using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 113,
+          "following_text": "end CanonicalRowCompletion",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 611,
+          "old_line": "      convert hb using 1 ; ring\n",
+          "new_line": "      convert hb using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 613,
+          "following_text": "end CompletedHeight",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/RowCompletion/PolynomialHeight.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/RowCompletion/PolynomialHeight.lean (after)\n@@ -108,7 +108,7 @@\n     (fun u => reopenedCubeCoefficient H₀ (rowTwist Ψ (m*excludedGenerator S) f 1) (cubeIdeal F u))\n     (fun u => (Ideal.absNorm (cubeIdeal F u) : ℝ)) B ξ (C*(Real.exp 1*B)^ε)\n     hB (by positivity) v hn hn' hβ\n-  convert hh using 1 ; ring\n+  convert hh using 1 <;> first | rfl | ring\n \n end CanonicalRowCompletion\n \n@@ -608,7 +608,7 @@\n       have hb := div_le_div_of_nonneg_right\n         (mul_le_mul_of_nonneg_right hCoeff (by positivity : 0≤(K*(U*B))^ε*(K+U*B)*(U*B)*lengthScale^2))\n         (by positivity : 0≤(1+R)^(2*A))\n-      convert hb using 1 ; ring\n+      convert hb using 1 <;> first | rfl | ring\n \n end CompletedHeight\n \n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/RowCompletion/RowAmplitudes.lean",
+      "before_sha256": "760fcc20a29d5bc94bbf72e982e89bdd8255fe0bcb489685816152fc505528d8",
+      "after_sha256": "b3ed6733c646380a1a9b2d4c178734a0f9ae7fad22c1b4ed5885c293b6a7d7f1",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 322,
+          "old_line": "  convert ht using 1 ; ring\n",
+          "new_line": "  convert ht using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 324,
+          "following_text": "end CompletedGauss",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/RowCompletion/RowAmplitudes.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/RowCompletion/RowAmplitudes.lean (after)\n@@ -319,7 +319,7 @@\n   have ht:=residual_coefficient_eq_canonical_argument I F Q hFQ hbad R hR\n     (fun r=>completedLocalExponent I F (R r)) e ρ q (fun _=>1) η σ m n b\n   simp only [one_mul] at ht\n-  convert ht using 1 ; ring\n+  convert ht using 1 <;> first | rfl | ring\n \n end CompletedGauss\n \n"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/RowCompletion/SupportBounds.lean",
+      "before_sha256": "0ea0a85f1ecfb5093954fc6bfbb565175fab556a414a9c71549fac421523ed97",
+      "after_sha256": "4271b3bd15d515ccb90a5da3d40d74629c9cd25fffd8a8ba75b4d3ba3a191e3f",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 478,
+          "old_line": "  convert (div_le_iff₀ hXF).mp he' using 1 ; ring\n",
+          "new_line": "  convert (div_le_iff₀ hXF).mp he' using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 480,
+          "following_text": "end SecondPassIntegration",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/RowCompletion/SupportBounds.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/RowCompletion/SupportBounds.lean (after)\n@@ -475,7 +475,7 @@\n       _ ≤ globalTerminalConstant A M*F*X :=\n         mul_le_mul_of_nonneg_right (mul_le_mul_of_nonneg_left hKF hc0) hX.le\n       _ = globalTerminalConstant A M*(X*F) := by ring\n-  convert (div_le_iff₀ hXF).mp he' using 1 ; ring\n+  convert (div_le_iff₀ hXF).mp he' using 1 <;> first | rfl | ring\n \n end SecondPassIntegration\n \n"
+    },
+    {
+      "file": "vendor/PrimeNumberTheoremAnd/Erdos970/Wiener.lean",
+      "before_sha256": "f2fe424c422598a1ca2c63ac1035472115bfc749440c2a90d019ededf033c2fc",
+      "after_sha256": "02f30daaf5d1b4c86d07f35e831469d5852361559f9f74c2a996f7a353b31fc9",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 1501,
+          "old_line": "  convert _root_.add_le_add l1 l2 using 1 ; ring\n",
+          "new_line": "  convert _root_.add_le_add l1 l2 using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 1503,
+          "following_text": "lemma limiting_cor_W21 (ψ : W21) (hf : ∀ (σ' : ℝ), 1 < σ' → Summable (nterm f σ'))",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 1780,
+          "old_line": "      convert max_eq_left l4 using 1 ; ring_nf\n",
+          "new_line": "      convert max_eq_left l4 using 1 <;> first | rfl | ring_nf\n",
+          "terminal_tactic": "ring_nf",
+          "following_line": 1781,
+          "following_text": "    have l8 : IntegrableOn ψ (Ioi 0) volume :=",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 1811,
+          "old_line": "      convert max_eq_left l4 using 1 ; ring_nf\n",
+          "new_line": "      convert max_eq_left l4 using 1 <;> first | rfl | ring_nf\n",
+          "terminal_tactic": "ring_nf",
+          "following_line": 1812,
+          "following_text": "    have l8 : IntegrableOn ψ (Ioi 0) volume := (h1.continuous.integrable_of_hasCompactSupport h2).integrableOn",
+          "proof_scope_end": "dedented"
+        },
+        {
+          "line": 2037,
+          "old_line": "  convert (Nat.ceil_lt_add_one l5).trans_le (add_le_add l6 h2) using 1 ; ring\n",
+          "new_line": "  convert (Nat.ceil_lt_add_one l5).trans_le (add_le_add l6 h2) using 1 <;> first | rfl | ring\n",
+          "terminal_tactic": "ring",
+          "following_line": 2039,
+          "following_text": "noncomputable def S (f : ℕ → 𝕜) (ε : ℝ) (N : ℕ) : 𝕜 := (∑ n ∈ Finset.Ico ⌈ε * N⌉₊ N, f n) / N",
+          "proof_scope_end": "dedented"
+        }
+      ],
+      "unified_diff": "--- vendor/PrimeNumberTheoremAnd/Erdos970/Wiener.lean (before)\n+++ vendor/PrimeNumberTheoremAnd/Erdos970/Wiener.lean (after)\n@@ -1498,7 +1498,7 @@\n   have l1 := bound_I1' x hx ψ hcheby\n   have l2 := mul_le_mul (le_refl ‖A‖) (bound_I2 x ψ) (by positivity) (by positivity)\n   apply norm_sub_le _ _ |>.trans ; rw [norm_mul]\n-  convert _root_.add_le_add l1 l2 using 1 ; ring\n+  convert _root_.add_le_add l1 l2 using 1 <;> first | rfl | ring\n \n lemma limiting_cor_W21 (ψ : W21) (hf : ∀ (σ' : ℝ), 1 < σ' → Summable (nterm f σ'))\n     (hcheby : cheby f) (hG : ContinuousOn G {s | 1 ≤ s.re})\n@@ -1777,7 +1777,7 @@\n     have l7 : ∫ y in Ioi 0, indicator (Icc (a + ε / 2) (b - ε / 2)) 1 y = b - a - ε := by\n       simp only [measurableSet_Icc, integral_indicator_one, measureReal_restrict_apply, l6,\n         volume_real_Icc]\n-      convert max_eq_left l4 using 1 ; ring_nf\n+      convert max_eq_left l4 using 1 <;> first | rfl | ring_nf\n     have l8 : IntegrableOn ψ (Ioi 0) volume :=\n       (h1.continuous.integrable_of_hasCompactSupport h2).integrableOn\n     rw [← l7] ; apply setIntegral_mono ?_ l8 h3\n@@ -1808,7 +1808,7 @@\n     have l7 : ∫ y in Ioi 0, indicator (Ioo (a - ε / 2) (b + ε / 2)) 1 y = b - a + ε := by\n       simp only [measurableSet_Ioo, integral_indicator_one, measureReal_restrict_apply, l6,\n         volume_real_Ioo]\n-      convert max_eq_left l4 using 1 ; ring_nf\n+      convert max_eq_left l4 using 1 <;> first | rfl | ring_nf\n     have l8 : IntegrableOn ψ (Ioi 0) volume := (h1.continuous.integrable_of_hasCompactSupport h2).integrableOn\n     rw [← l7]\n     refine setIntegral_mono l8 ?_ h4\n@@ -2034,7 +2034,7 @@\n   have l5 : 0 ≤ ε * ↑N := by positivity\n   have l6 : ε * N ≤ δ / 2 * N := mul_le_mul h1.le le_rfl (by positivity) (by positivity)\n   simp only [dist_zero_right, norm_div, RCLike.norm_natCast, div_lt_iff₀ l3, gt_iff_lt]\n-  convert (Nat.ceil_lt_add_one l5).trans_le (add_le_add l6 h2) using 1 ; ring\n+  convert (Nat.ceil_lt_add_one l5).trans_le (add_le_add l6 h2) using 1 <;> first | rfl | ring\n \n noncomputable def S (f : ℕ → 𝕜) (ε : ℝ) (N : ℕ) : 𝕜 := (∑ n ∈ Finset.Ico ⌈ε * N⌉₊ N, f n) / N\n \n"
+    }
+  ],
+  "skipped": [
+    {
+      "file": "vendor/PrimeNumberTheoremAnd/Erdos970/Consequences.lean",
+      "line": 1830,
+      "reason": "excluded_nested_consequences"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Hecke/LocalEulerIdentities.lean",
+      "line": 682,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Mellin/LocalNonvanishing.lean",
+      "line": 585,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Mellin/ExponentialSmoothing.lean",
+      "line": 37,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Reciprocity/RamifiedCuspPhases.lean",
+      "line": 259,
+      "reason": "not_plain_balanced_terminal_line"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Reciprocity/CubicJacobi.lean",
+      "line": 282,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/UniformTransfer.lean",
+      "line": 393,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/UniformTransfer.lean",
+      "line": 483,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/UniformTransfer.lean",
+      "line": 648,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/UniformTransfer.lean",
+      "line": 738,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/ConjugateProfiles.lean",
+      "line": 691,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/RowMajorants.lean",
+      "line": 435,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/RowMajorants.lean",
+      "line": 439,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/RowMajorants.lean",
+      "line": 444,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/FirstPassage.lean",
+      "line": 417,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/ConjugateCuspProfiles.lean",
+      "line": 533,
+      "reason": "not_plain_balanced_terminal_line"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/QuadraticSieve/DyadicColumns.lean",
+      "line": 504,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/RayCoefficients.lean",
+      "line": 387,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/RayCoefficients.lean",
+      "line": 392,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/RayCoefficients.lean",
+      "line": 459,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/RayCoefficients.lean",
+      "line": 473,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/RayCoefficients.lean",
+      "line": 487,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/RayCoefficients.lean",
+      "line": 522,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/ArithmeticBins.lean",
+      "line": 238,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/FixedProfiles.lean",
+      "line": 488,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/ClosedRecursion.lean",
+      "line": 156,
+      "reason": "not_plain_balanced_terminal_line"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/ClosedRecursion.lean",
+      "line": 157,
+      "reason": "not_plain_balanced_terminal_line"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/CubeResidueStrata.lean",
+      "line": 193,
+      "reason": "not_plain_balanced_terminal_line"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/CuspDilation.lean",
+      "line": 109,
+      "reason": "not_plain_balanced_terminal_line"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/RamifiedNormWeights.lean",
+      "line": 183,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/GaussSum/ReflectionBrackets.lean",
+      "line": 490,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/QuotientTopology.lean",
+      "line": 349,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/InverseCorrespondence.lean",
+      "line": 228,
+      "reason": "not_plain_balanced_terminal_line"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/InverseCorrespondence.lean",
+      "line": 231,
+      "reason": "not_plain_balanced_terminal_line"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/GaussSum/GaussianDualLimit.lean",
+      "line": 409,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/GaussSum/RamifiedTracePhase.lean",
+      "line": 59,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/A1/Proofs/A1_WEIL/w_c/GaussianScaleMeasure.lean",
+      "line": 99,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/A1/Proofs/A1_WEIL/w_c/GaussianScaleMeasure.lean",
+      "line": 105,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/GaussSum/SquarePhaseFactorization.lean",
+      "line": 187,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/GaussSum/SquarePhaseFactorization.lean",
+      "line": 193,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/GaussSum/LocalProductAssembly.lean",
+      "line": 174,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Poisson/OscillatoryGaussian.lean",
+      "line": 285,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/GaloisCohomology/Cyclic/Herbrand/NormalBasisLattice.lean",
+      "line": 422,
+      "reason": "olean_exists"
+    },
+    {
+      "file": "vendor/GaloisCohomology/Cyclic/Herbrand/NormalBasisLattice.lean",
+      "line": 1900,
+      "reason": "olean_exists"
+    }
+  ],
+  "skipped_after_prepare": []
+}

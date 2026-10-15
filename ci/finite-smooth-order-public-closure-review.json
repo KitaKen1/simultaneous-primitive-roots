@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "scope": "Parent-authorized actual080 smoothing_uniform_eval_bound177 plus confirmed unbuilt public-closure finite natural smooth-order premises; only the same existing ENat witness replaces proof arguments. No infinity+one site modified. Includes actual080 EisensteinExtra312 old map-measure API: remove only the extra AEMeasurable proof argument.",
+  "file_count": 7,
+  "site_count": 12,
+  "source_status": "saved/frozen; whole-build integration pending; no direct Lean checks",
+  "proof_data_preservation": "Every convert/derivative/smooth function argument, public/private header, hypothesis and data value is retained; exact inverse restores each complete before file.",
+  "primary_type_evidence": "Actual177 uses param_deriv_integral_formula.1 : ContDiffOn order infinity (source326). ConjugateCuspProfiles providers RowCaps472/489 are both order infinity. Remaining of_le receivers and targets were inspected as natural j/n/2.",
+  "entries": [
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_SMOOTHING/smoothing_uniform_eval_bound.lean",
+      "before_sha256": "bfdb9cdbfd16ec5111e6f560fa0a432e010bbc749ec3c3b49d99f29192e71ca3",
+      "original_sha256": "bfdb9cdbfd16ec5111e6f560fa0a432e010bbc749ec3c3b49d99f29192e71ca3",
+      "after_sha256": "6c1b4eb8c42a6f6b3bd38e49edeca8f645f6ddbbe513d060dc7df46f63dd948a",
+      "source_freeze_sha256": "6c1b4eb8c42a6f6b3bd38e49edeca8f645f6ddbbe513d060dc7df46f63dd948a",
+      "original_source_matches_manifest": true,
+      "before_is_byte_identical_to_original": true,
+      "inverse_restores_all_before_bytes": true,
+      "edits": [
+        {
+          "line": 177,
+          "old_line": "      (hFormula u).1 hU (by simp)\n",
+          "new_line": "      (hFormula u).1 hU (ENat.natCast_le_of_coe_top_le_withTop le_rfl n)\n"
+        }
+      ],
+      "unified_diff": "--- vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_SMOOTHING/smoothing_uniform_eval_bound.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_SMOOTHING/smoothing_uniform_eval_bound.lean (after)\n@@ -174,7 +174,7 @@\n       LinearMap.mkContinuous_apply, smul_eq_mul, mul_comm]\n   have hcont (u : L2Space F D) : ContinuousOn (g u) U := by\n     have hderiv := ContinuousOn.continuousOn_iteratedFDeriv (k := n)\n-      (hFormula u).1 hU (by simp)\n+      (hFormula u).1 hU (ENat.natCast_le_of_coe_top_le_withTop le_rfl n)\n     have heval : Continuous\n         (fun D : ContinuousMultilinearMap ℝ (fun _ : Fin n => Coord F) ℂ => D v) := by\n       fun_prop\n",
+      "olean_absent_at_write": true
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Proofs/qs_p1_p/Analytic.lean",
+      "before_sha256": "2cf3c10e247b8ab81aa0109d41d273941b557174bdba365bf1fffde0cd515ef6",
+      "original_sha256": "d30bc5ed9442b3a054027a07644a300a9d47c6acb0a45070b22204c8eccd51f1",
+      "after_sha256": "5002251c604e072c0d8e195ebc4697701c2e58be757a06e79e1c3cfae1a31a16",
+      "source_freeze_sha256": "5002251c604e072c0d8e195ebc4697701c2e58be757a06e79e1c3cfae1a31a16",
+      "original_source_matches_manifest": true,
+      "before_is_byte_identical_to_original": false,
+      "inverse_restores_all_before_bytes": true,
+      "edits": [
+        {
+          "line": 1189,
+          "old_line": "      (hTdiff.contDiffAt (isOpen_Ioi.mem_nhds hx)).of_le (by simp)\n",
+          "new_line": "      (hTdiff.contDiffAt (isOpen_Ioi.mem_nhds hx)).of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl j)\n"
+        },
+        {
+          "line": 3544,
+          "old_line": "    have hgCont2 : ContDiff ℝ ((2 : ℕ∞) : WithTop ℕ∞) g := hgCont.of_le (by simp)\n",
+          "new_line": "    have hgCont2 : ContDiff ℝ ((2 : ℕ∞) : WithTop ℕ∞) g := hgCont.of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl 2)\n"
+        }
+      ],
+      "unified_diff": "--- vendor/ArtinPrimitiveRoots/Proofs/qs_p1_p/Analytic.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Proofs/qs_p1_p/Analytic.lean (after)\n@@ -1186,7 +1186,7 @@\n     intro x hx\n     symm\n     have hTjAt : ContDiffAt ℝ (j : ℕ∞) (qsTransform K h) x :=\n-      (hTdiff.contDiffAt (isOpen_Ioi.mem_nhds hx)).of_le (by simp)\n+      (hTdiff.contDiffAt (isOpen_Ioi.mem_nhds hx)).of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl j)\n     exact iteratedDerivWithin_eq_iteratedDeriv (uniqueDiffOn_Ioi 0)\n       hTjAt hx\n   have hargCont : Continuous (fun u : ℝ => Real.exp (-u)) := by fun_prop\n@@ -3541,7 +3541,7 @@\n       qs_p1_iteratedDeriv_logKernel_integrable h hh 2 (by norm_num) 2\n   have hgDiff : Differentiable ℝ g := hgCont.differentiable (by simp)\n   have hgDerivDiff : Differentiable ℝ (deriv g) := by\n-    have hgCont2 : ContDiff ℝ ((2 : ℕ∞) : WithTop ℕ∞) g := hgCont.of_le (by simp)\n+    have hgCont2 : ContDiff ℝ ((2 : ℕ∞) : WithTop ℕ∞) g := hgCont.of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl 2)\n     exact hgCont2.differentiable_deriv_two\n   have hFourier0 : 𝓕 (deriv g) = fun w : ℝ =>\n       (2 * Real.pi * Complex.I * w) • 𝓕 g w := by\n",
+      "olean_absent_at_write": true
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Spec/EisensteinExtra.lean",
+      "before_sha256": "1c32bbe4a82abc4498b04329a92e3ec06d58f661699d1a5735e0bd1879fa9bac",
+      "original_sha256": "e25e790872e60c8b0cfa8721dc1555762f9e616252c81570fc801a81f77a5990",
+      "after_sha256": "ee7420a3b7a369bde723f090f7755e5400a2d90eec7620000c192016f6b79f24",
+      "source_freeze_sha256": "ee7420a3b7a369bde723f090f7755e5400a2d90eec7620000c192016f6b79f24",
+      "original_source_matches_manifest": true,
+      "before_is_byte_identical_to_original": false,
+      "inverse_restores_all_before_bytes": true,
+      "edits": [
+        {
+          "line": 2397,
+          "old_line": "    have hf2 : ContDiffAt ℝ 2 (fun p' => f (ptX F p')) p := hfAt.of_le (by simp)\n",
+          "new_line": "    have hf2 : ContDiffAt ℝ 2 (fun p' => f (ptX F p')) p := hfAt.of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl 2)\n"
+        },
+        {
+          "line": 2398,
+          "old_line": "    have hg2 : ContDiffAt ℝ 2 (fun p' => g (ptX F p')) p := hgAt.of_le (by simp)\n",
+          "new_line": "    have hg2 : ContDiffAt ℝ 2 (fun p' => g (ptX F p')) p := hgAt.of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl 2)\n"
+        },
+        {
+          "line": 312,
+          "old_line": "      (hsmulMeas (γ : SL(2,𝓞 F))).aemeasurable hs.nullMeasurableSet⟩\n",
+          "new_line": "      hs.nullMeasurableSet⟩\n",
+          "justification": "Stock Measure/Map180 takes the same hmap plus hs.nullMeasurableSet and has no AEMeasurable positional argument; later Map189 adds that now-obsolete explicit proof argument. Same measure, map, set, hypotheses, and invariant-measure conclusion."
+        }
+      ],
+      "unified_diff": "--- vendor/ArtinPrimitiveRoots/Spec/EisensteinExtra.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Spec/EisensteinExtra.lean (after)\n@@ -309,7 +309,7 @@\n       change Measure.map (actAtPlaces F (toInf F (toSLF F γ))) (volX F) = volX F\n       exact (G3_volume (F := F)).1 (toInf F (toSLF F γ))\n     exact Measure.measure_preimage_of_map_eq_self hmap\n-      (hsmulMeas (γ : SL(2,𝓞 F))).aemeasurable hs.nullMeasurableSet⟩\n+      hs.nullMeasurableSet⟩\n   let Q := Quotient (QuotientGroup.rightRel H)\n   let q0 : Q := Quotient.mk _ (1 : Γ)\n   let rep : Q → Γ := fun q => if q = q0 then 1 else Quotient.out q\n@@ -2394,8 +2394,8 @@\n     have hgAt := hgOn.contDiffAt ((specIdentify_posSet_open (F := F)).mem_nhds hp)\n     have hfDiff := hfAt.differentiableAt (by norm_num)\n     have hgDiff := hgAt.differentiableAt (by norm_num)\n-    have hf2 : ContDiffAt ℝ 2 (fun p' => f (ptX F p')) p := hfAt.of_le (by simp)\n-    have hg2 : ContDiffAt ℝ 2 (fun p' => g (ptX F p')) p := hgAt.of_le (by simp)\n+    have hf2 : ContDiffAt ℝ 2 (fun p' => f (ptX F p')) p := hfAt.of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl 2)\n+    have hg2 : ContDiffAt ℝ 2 (fun p' => g (ptX F p')) p := hgAt.of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl 2)\n     have hFd : fderiv ℝ (fun p' => f (ptX F p') - g (ptX F p')) p =\n         fderiv ℝ (fun p' => f (ptX F p')) p - fderiv ℝ (fun p' => g (ptX F p')) p :=\n       fderiv_fun_sub hfDiff hgDiff\n",
+      "olean_absent_at_write": true,
+      "intermediate_finite_order_sha256": "ef02c3b658c5fe0b17ed05a3fb45b44a7317320953b2fc39a5a4a00429e9094a"
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_CONTINUE/Laurent.lean",
+      "before_sha256": "8559d617f3f9d818fbc98efcef2e3bd181b59a9b84863ddc76c3f875fd168104",
+      "original_sha256": "8559d617f3f9d818fbc98efcef2e3bd181b59a9b84863ddc76c3f875fd168104",
+      "after_sha256": "d1fdce60342463984174c9e0772c911d66238ebb9c3c3e01b1a31639f5623532",
+      "source_freeze_sha256": "d1fdce60342463984174c9e0772c911d66238ebb9c3c3e01b1a31639f5623532",
+      "original_source_matches_manifest": true,
+      "before_is_byte_identical_to_original": true,
+      "inverse_restores_all_before_bytes": true,
+      "edits": [
+        {
+          "line": 99,
+          "old_line": "      exact hc.of_le (by simp)\n",
+          "new_line": "      exact hc.of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl n)\n"
+        },
+        {
+          "line": 142,
+          "old_line": "      exact hc.of_le (by simp)\n",
+          "new_line": "      exact hc.of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl n)\n"
+        }
+      ],
+      "unified_diff": "--- vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_CONTINUE/Laurent.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_CONTINUE/Laurent.lean (after)\n@@ -96,7 +96,7 @@\n       have hc : ContDiffAt ℝ ∞\n           (fun q => smoothingOperator F k₀ (l2Lift F Γ D θ) (ptX F q)) p.1 :=\n         hresSmooth0.contDiffAt (laurent_posSet_open.mem_nhds (hKpos p.2))\n-      exact hc.of_le (by simp)\n+      exact hc.of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl n)\n     let c₁ : ℂ := (radialTransform F k₀ (1 + 2 * (s₁ : ℂ)))⁻¹\n     have hresfun : (fun q => r (ptX F q)) =\n         fun q => c₁ • smoothingOperator F k₀ (l2Lift F Γ D θ) (ptX F q) := by\n@@ -139,7 +139,7 @@\n           (fun q => smoothingOperator F k₀\n             (fun w => eisSeed F Γ σ τ s w + l2Lift F Γ D (u s) w) (ptX F q)) p.1 :=\n         hsmSmooth.contDiffAt (laurent_posSet_open.mem_nhds hpPos)\n-      exact hc.of_le (by simp)\n+      exact hc.of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl n)\n     have hEfun : (fun q => E s (ptX F q)) =\n         fun q => (radialTransform F k₀ (1 + 2 * s))⁻¹ •\n           smoothingOperator F k₀\n",
+      "olean_absent_at_write": true
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_CONTINUE/SeedProperties.lean",
+      "before_sha256": "f467856a674289fa344ea2308b02771a0eae3ee1636dcf568cf86da45ba024e7",
+      "original_sha256": "f467856a674289fa344ea2308b02771a0eae3ee1636dcf568cf86da45ba024e7",
+      "after_sha256": "a16462214099cd91f83c882ea427868d4fb3042bf1d1c6ba43b4cfd2674c700f",
+      "source_freeze_sha256": "a16462214099cd91f83c882ea427868d4fb3042bf1d1c6ba43b4cfd2674c700f",
+      "original_source_matches_manifest": true,
+      "before_is_byte_identical_to_original": true,
+      "inverse_restores_all_before_bytes": true,
+      "edits": [
+        {
+          "line": 315,
+          "old_line": "      exact hcont.of_le (by simp)\n",
+          "new_line": "      exact hcont.of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl n)\n"
+        }
+      ],
+      "unified_diff": "--- vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_CONTINUE/SeedProperties.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_CONTINUE/SeedProperties.lean (after)\n@@ -312,7 +312,7 @@\n       (hseed' s).1.contDiffAt (specSeed_posSet_open.mem_nhds hpos)\n     have hcontN : ContDiffAt ℝ n\n         (fun q => eisSeed F Γ σ' τ' s (ptX F q)) p.1 := by\n-      exact hcont.of_le (by simp)\n+      exact hcont.of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl n)\n     have hfun : (fun q => eisSeed F Γ σ τ s (ptX F q)) =\n         fun q => (c : ℂ) ^ (-(1 + 2 * s)) •\n           eisSeed F Γ σ' τ' s (ptX F q) := by\n",
+      "olean_absent_at_write": true
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_CONTINUE/SmoothingSeedAnalytic.lean",
+      "before_sha256": "c682aedc92ce02f70f59bdb3e05df5b0889687ed16330745702b2c4c0c5c6ab5",
+      "original_sha256": "ab52d53e4f3d0f0cb25503668bfd1cd21c9651b50a20ea1ef5230e2f86a42ae5",
+      "after_sha256": "e92438b0074f4f06a9bc997bee063af59fac4104adb19ce584e1b28895bd1aaf",
+      "source_freeze_sha256": "e92438b0074f4f06a9bc997bee063af59fac4104adb19ce584e1b28895bd1aaf",
+      "original_source_matches_manifest": true,
+      "before_is_byte_identical_to_original": false,
+      "inverse_restores_all_before_bytes": true,
+      "edits": [
+        {
+          "line": 623,
+          "old_line": "    exact hc.of_le (by simp)\n",
+          "new_line": "    exact hc.of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl n)\n"
+        }
+      ],
+      "unified_diff": "--- vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_CONTINUE/SmoothingSeedAnalytic.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_CONTINUE/SmoothingSeedAnalytic.lean (after)\n@@ -620,7 +620,7 @@\n         (fun q => smoothingOperator F k₀\n           (fun w => eisSeed F Γ σ τ s w + l2Lift F Γ D (u s) w) (ptX F q)) p.1 :=\n       hsmSmooth.contDiffAt (specSeed_posSet_open'.mem_nhds hpPos)\n-    exact hc.of_le (by simp)\n+    exact hc.of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl n)\n   have hfun : (fun q => pointwiseEisContinuation F Γ σ D k₀ τ u s (ptX F q)) =\n       fun q => (radialTransform F k₀ (1 + 2 * s))⁻¹ •\n         smoothingOperator F k₀\n",
+      "olean_absent_at_write": true
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/ConjugateCuspProfiles.lean",
+      "before_sha256": "cc8b659759b085d18016452940975092594c2c3663de57548ab403df7575a29b",
+      "original_sha256": "c935e1e023e9217bc4f2d5d0d4eea6537d5d9ad789f418566ce9e38a504fb3e3",
+      "after_sha256": "76de8fb64bb8152eb038686c39ceb4b92c90b310b9f444781e8259d038151e91",
+      "source_freeze_sha256": "76de8fb64bb8152eb038686c39ceb4b92c90b310b9f444781e8259d038151e91",
+      "original_source_matches_manifest": true,
+      "before_is_byte_identical_to_original": false,
+      "inverse_restores_all_before_bytes": true,
+      "edits": [
+        {
+          "line": 260,
+          "old_line": "  (contDiff_apply ℝ ℝ 2).prodMk (spatialHorizontal_contDiff.of_le (by simp))\n",
+          "new_line": "  (contDiff_apply ℝ ℝ 2).prodMk (spatialHorizontal_contDiff.of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl 1))\n"
+        },
+        {
+          "line": 306,
+          "old_line": "    ((mobiusSpatial_contDiffAt g (cuspSpatialInput p) hp).of_le (by simp)).comp p\n",
+          "new_line": "    ((mobiusSpatial_contDiffAt g (cuspSpatialInput p) hp).of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl 1)).comp p\n"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Eisenstein/ConjugateCuspProfiles.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Eisenstein/ConjugateCuspProfiles.lean (after)\n@@ -257,7 +257,7 @@\n     fun_prop\n \n lemma cuspSpatialOutput_contDiff : ContDiff ℝ 1 cuspSpatialOutput :=\n-  (contDiff_apply ℝ ℝ 2).prodMk (spatialHorizontal_contDiff.of_le (by simp))\n+  (contDiff_apply ℝ ℝ 2).prodMk (spatialHorizontal_contDiff.of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl 1))\n \n lemma cuspSpatialInput_horizontal (q : ℝ × ℂ) : spatialHorizontal (cuspSpatialInput q)=q.2 :=\n   Complex.re_add_im q.2\n@@ -303,7 +303,7 @@\n     (p : ℝ × ℂ) (hp : 0<p.1) :\n     ContDiffAt ℝ 1 (fun q : ℝ × ℂ=>coeff.fullFunction constant (g•cuspCoordinateLift q)) p := by\n   have hmid : ContDiffAt ℝ 1 (fun q=>mobiusSpatial g (cuspSpatialInput q)) p :=\n-    ((mobiusSpatial_contDiffAt g (cuspSpatialInput p) hp).of_le (by simp)).comp p\n+    ((mobiusSpatial_contDiffAt g (cuspSpatialInput p) hp).of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl 1)).comp p\n       cuspSpatialInput_contDiff.contDiffAt\n   have hact := cuspSpatialOutput_contDiff.contDiffAt.comp p hmid\n   have hpos : 0<(cuspSpatialOutput (mobiusSpatial g (cuspSpatialInput p))).1 :=\n",
+      "olean_absent_at_write": true
+    }
+  ],
+  "skipped": []
+}

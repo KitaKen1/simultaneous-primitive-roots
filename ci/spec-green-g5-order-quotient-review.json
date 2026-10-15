@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "file": "vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_GREEN/G5.lean",
+  "before_sha256": "00996761f270626ebfec5af86387ab420e494f5455ba7599f3f147140bbba5f6",
+  "after_sha256": "fa0c89d8a8f073ac3ca397a861c09a56e1b283333a73e6d65bcef1787c959834",
+  "sites": [
+    406,
+    643,
+    657
+  ],
+  "inverse_restores_all_bytes": true,
+  "edits": [
+    {
+      "old_proof_lines": "    ContinuousOn.continuousOn_iteratedFDeriv hu g5PosSet_isOpen (by norm_num)\n",
+      "new_proof_lines": "    ContinuousOn.continuousOn_iteratedFDeriv hu g5PosSet_isOpen\n      (ENat.natCast_le_of_coe_top_le_withTop le_rfl 2)\n",
+      "occurrences": 1
+    },
+    {
+      "old_proof_lines": "    Topology.IsOpenQuotientMap.secondCountableTopology hq\n",
+      "new_proof_lines": "    hq.isQuotientMap.secondCountableTopology hq.isOpenMap\n",
+      "occurrences": 2
+    }
+  ],
+  "scope": "Only three proof calls; public/private headers, hypotheses, all data/sets/maps, and other proofs unchanged.",
+  "justifications": [
+    "The remaining order goal is (2 : WithTop ENat) ≤ ((top : ENat) : WithTop ENat); existing ENat.natCast_le_of_coe_top_le_withTop le_rfl 2 proves it, without any premise on f or the field.",
+    "Both open quotient maps hq are unchanged; the old IsQuotientMap.secondCountableTopology takes their same isQuotientMap and isOpenMap proofs, exactly as in the passed LiteralSources repair."
+  ],
+  "status": "saved; whole068 integration validation pending; no direct Lean checks",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_GREEN/G5.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_GREEN/G5.lean (after)\n@@ -403,7 +403,8 @@\n   have hderiv : ContinuousOn (fderiv ℝ u) (posSet F) :=\n     hu.continuousOn_fderiv_of_isOpen g5PosSet_isOpen (by norm_num)\n   have hsecond : ContinuousOn (iteratedFDeriv ℝ 2 u) (posSet F) :=\n-    ContinuousOn.continuousOn_iteratedFDeriv hu g5PosSet_isOpen (by norm_num)\n+    ContinuousOn.continuousOn_iteratedFDeriv hu g5PosSet_isOpen\n+      (ENat.natCast_le_of_coe_top_le_withTop le_rfl 2)\n   have hy : ContinuousOn (fun p : Coord F => ((p w).2 : ℂ)) (posSet F) := by\n     have hr : ContinuousOn (fun p : Coord F => (p w).2) (posSet F) := by fun_prop\n     exact Complex.continuous_ofReal.comp_continuousOn hr\n@@ -640,7 +641,7 @@\n   have hq : IsOpenQuotientMap (fun x : X F => x w) :=\n     ⟨hsurj, continuous_apply w, isOpenMap_eval w⟩\n   letI : SecondCountableTopology H3 :=\n-    Topology.IsOpenQuotientMap.secondCountableTopology hq\n+    hq.isQuotientMap.secondCountableTopology hq.isOpenMap\n   letI : BorelSpace H3 := instBorelSpaceH3\n   letI : BorelSpace (X F) := inferInstance\n   infer_instance\n@@ -654,7 +655,7 @@\n   have hq : IsOpenQuotientMap (fun x : X F => x w) :=\n     ⟨hsurj, continuous_apply w, isOpenMap_eval w⟩\n   letI : SecondCountableTopology H3 :=\n-    Topology.IsOpenQuotientMap.secondCountableTopology hq\n+    hq.isQuotientMap.secondCountableTopology hq.isOpenMap\n   letI : BorelSpace H3 := instBorelSpaceH3\n   infer_instance\n \n"
+}

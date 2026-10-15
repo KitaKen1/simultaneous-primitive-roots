@@ -1,0 +1,26 @@
+{
+  "file": "vendor/ArtinPrimitiveRoots/Proofs/qs_nq0_sol/IntegralSymbols.lean",
+  "before_sha256": "bf1a15e6bb46090a0a0d708bf0d2a1f031e1a1a3da407737c7824fbae785c772",
+  "after_sha256": "2dc26cbad5f9dec6acffa0a54f8aad9ce308c7430104b1b2c0cdea6d60a583e6",
+  "edits": [
+    {
+      "before": "    by_cases hvT : v ∈ T <;> simp [hvT]\n  · intro hmem",
+      "after": "    by_cases hvT : v ∈ T <;> simp [hvT]\n    change WithZero.exp (-1 : ℤ) < WithZero.exp (0 : ℤ)\n    exact (WithZero.exp_lt_exp (a := (-1 : ℤ)) (b := (0 : ℤ))).mpr (by norm_num)\n  · intro hmem"
+    },
+    {
+      "before": "    by_cases hvT : v ∈ T <;> norm_num [hvT] at hle\n",
+      "after": "    by_cases hvT : v ∈ T <;> norm_num [hvT] at hle\n    · change WithZero.exp (-1 : ℤ) ≤ WithZero.exp (-2 : ℤ) at hle\n      have hleInt := (WithZero.exp_le_exp (a := (-1 : ℤ)) (b := (-2 : ℤ))).mp hle\n      omega\n    · change WithZero.exp (0 : ℤ) ≤ WithZero.exp (-2 : ℤ) at hle\n      have hleInt := (WithZero.exp_le_exp (a := (0 : ℤ)) (b := (-2 : ℤ))).mp hle\n      omega\n"
+    }
+  ],
+  "schema_version": 1,
+  "line": 154,
+  "original_sha256": "518e145866d1f97426e613e4dc7ca785062c69bc209d332894cdeb325923139a",
+  "source_freeze_sha256": "2dc26cbad5f9dec6acffa0a54f8aad9ce308c7430104b1b2c0cdea6d60a583e6",
+  "original_source_matches_manifest": true,
+  "inverse_recovers_all_before_bytes": true,
+  "inverse_recovers_all_original_bytes": false,
+  "scope": "Only the two local proof blocks in qs_nq0_integral_exterior_of_isGen, completing three existing exponent-order goals. Original hval, hvT branches, normalization, maps, valuation, products, ideal-membership result, declaration types/hypotheses/definition values/data and all other proofs are unchanged.",
+  "justification": "Stock WithZero.exp_neg is rfl (Algebra/GroupWithZero/WithZero.lean:454), exp0=1 definitionally, and exp_lt_exp/exp_le_exp transfer exactly the same order to ℤ (Algebra/Order/GroupWithZero/Canonical.lean:523–524). Thus the actual inverse(exp1)<1 goal is exp(-1)<exp0; the two actual contradictory hle inequalities are exp(-1)≤exp(-2) and exp0≤exp(-2), yielding -1≤-2 or 0≤-2 without an added premise.",
+  "status": "saved; next root whole-build integration pending; no direct Lean checks",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/Proofs/qs_nq0_sol/IntegralSymbols.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Proofs/qs_nq0_sol/IntegralSymbols.lean (after)\n@@ -153,10 +153,18 @@\n   constructor\n   · rw [← v.valuation_lt_one_iff_mem (K := K) c, hval]\n     by_cases hvT : v ∈ T <;> simp [hvT]\n+    change WithZero.exp (-1 : ℤ) < WithZero.exp (0 : ℤ)\n+    exact (WithZero.exp_lt_exp (a := (-1 : ℤ)) (b := (0 : ℤ))).mpr (by norm_num)\n   · intro hmem\n     have hle := (v.intValuation_le_pow_iff_mem c 2).mpr hmem\n     rw [← v.valuation_of_algebraMap (K := K), hval] at hle\n     by_cases hvT : v ∈ T <;> norm_num [hvT] at hle\n+    · change WithZero.exp (-1 : ℤ) ≤ WithZero.exp (-2 : ℤ) at hle\n+      have hleInt := (WithZero.exp_le_exp (a := (-1 : ℤ)) (b := (-2 : ℤ))).mp hle\n+      omega\n+    · change WithZero.exp (0 : ℤ) ≤ WithZero.exp (-2 : ℤ) at hle\n+      have hleInt := (WithZero.exp_le_exp (a := (0 : ℤ)) (b := (-2 : ℤ))).mp hle\n+      omega\n \n /-- An exterior generator becomes an integral exterior generator after an S-supported square. -/\n theorem qs_nq0_integral_corrected_generator\n"
+}

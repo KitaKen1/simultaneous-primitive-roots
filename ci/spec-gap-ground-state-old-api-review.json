@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "file": "vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_GAP/GroundState.lean",
+  "sites": [
+    44,
+    140,
+    343,
+    810
+  ],
+  "before_sha256": "c0294099009d3873ed98cda574e14c3cc50cacf4ece12a03d02e5c1ff3f21953",
+  "original_sha256": "c0294099009d3873ed98cda574e14c3cc50cacf4ece12a03d02e5c1ff3f21953",
+  "after_sha256": "125066f0d5e9cf2d9adf604e5874d24411fdc8b39b3daea4a6512c00a5be011d",
+  "source_freeze_sha256": "125066f0d5e9cf2d9adf604e5874d24411fdc8b39b3daea4a6512c00a5be011d",
+  "inverse_recovers_all_original_bytes": true,
+  "edits": [
+    {
+      "old_proof_lines": "    Topology.IsOpenQuotientMap.secondCountableTopology hq\n",
+      "new_proof_lines": "    hq.isQuotientMap.secondCountableTopology hq.isOpenMap\n",
+      "occurrences": 1
+    },
+    {
+      "old_proof_lines": "    ContinuousOn.continuousOn_iteratedFDeriv hu sgPosSetOpen (by norm_num)\n",
+      "new_proof_lines": "    ContinuousOn.continuousOn_iteratedFDeriv hu sgPosSetOpen\n      (ENat.natCast_le_of_coe_top_le_withTop le_rfl 2)\n",
+      "occurrences": 2
+    },
+    {
+      "old_proof_lines": "(f := u) (x := p) hu.contDiffAt (by norm_num : 2 ≤ (∞ : ℕ∞ω))",
+      "new_proof_lines": "(f := u) (x := p) hu.contDiffAt (ENat.natCast_le_of_coe_top_le_withTop le_rfl 2)",
+      "occurrences": 1
+    }
+  ],
+  "scope": "Only four original proof calls; every public/private declaration header, hypothesis, field/map/data definition and other proof is byte-identical to original.",
+  "justifications": [
+    "Same open-quotient hq supplies isQuotientMap and isOpenMap to the stock secondCountableTopology theorem, as in passed LiteralSources/G5.",
+    "All three remaining 2 ≤ infinity smooth-order goals use stock ENat.natCast_le_of_coe_top_le_withTop le_rfl 2, with the same original smoothness and derivative arguments. No new premise, class instance, axiom, or limit."
+  ],
+  "status": "saved; next whole-build integration pending; no direct Lean checks",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_GAP/GroundState.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_GAP/GroundState.lean (after)\n@@ -41,7 +41,7 @@\n   have hq : IsOpenQuotientMap (fun x : X F => x w) :=\n     ⟨hsurj, continuous_apply w, isOpenMap_eval w⟩\n   letI : SecondCountableTopology H3 :=\n-    Topology.IsOpenQuotientMap.secondCountableTopology hq\n+    hq.isQuotientMap.secondCountableTopology hq.isOpenMap\n   letI : BorelSpace H3 := instBorelSpaceH3\n   letI : BorelSpace (X F) := inferInstance\n   infer_instance\n@@ -137,7 +137,8 @@\n   have hderiv : ContinuousOn (fderiv ℝ u) (posSet F) :=\n     hu.continuousOn_fderiv_of_isOpen sgPosSetOpen (by norm_num)\n   have hsecond : ContinuousOn (iteratedFDeriv ℝ 2 u) (posSet F) :=\n-    ContinuousOn.continuousOn_iteratedFDeriv hu sgPosSetOpen (by norm_num)\n+    ContinuousOn.continuousOn_iteratedFDeriv hu sgPosSetOpen\n+      (ENat.natCast_le_of_coe_top_le_withTop le_rfl 2)\n   have hy : ContinuousOn (fun p : Coord F => ((p w).2 : ℂ)) (posSet F) := by\n     have hr : ContinuousOn (fun p : Coord F => (p w).2) (posSet F) := by fun_prop\n     exact Complex.continuous_ofReal.comp_continuousOn hr\n@@ -340,7 +341,7 @@\n     iteratedFDeriv ℝ 2 (fun q => (u q : ℂ)) p ![v, w] =\n       (iteratedFDeriv ℝ 2 u p ![v, w] : ℂ) := by\n   have h := (Complex.ofRealCLM).iteratedFDeriv_comp_left\n-    (f := u) (x := p) hu.contDiffAt (by norm_num : 2 ≤ (∞ : ℕ∞ω))\n+    (f := u) (x := p) hu.contDiffAt (ENat.natCast_le_of_coe_top_le_withTop le_rfl 2)\n   have happ := congrArg (fun D => D ![v, w]) h\n   simp only [ContinuousLinearMap.compContinuousMultilinearMap_coe, Function.comp_apply] at happ\n   have hfun : (fun q => (u q : ℂ)) = Complex.ofRealCLM ∘ u := rfl\n@@ -807,7 +808,8 @@\n   have hderiv : ContinuousOn (fderiv ℝ u) (posSet F) :=\n     hu.continuousOn_fderiv_of_isOpen sgPosSetOpen (by norm_num)\n   have hsecond : ContinuousOn (iteratedFDeriv ℝ 2 u) (posSet F) :=\n-    ContinuousOn.continuousOn_iteratedFDeriv hu sgPosSetOpen (by norm_num)\n+    ContinuousOn.continuousOn_iteratedFDeriv hu sgPosSetOpen\n+      (ENat.natCast_le_of_coe_top_le_withTop le_rfl 2)\n   have hgrad (w : InfinitePlace F) (j : Fin 3) :\n       ContinuousOn (fun p => fderiv ℝ u p (placeDirection F w j)) (posSet F) := by\n     have heval : Continuous (fun L : Coord F →L[ℝ] ℂ => L (placeDirection F w j)) := by\n"
+}

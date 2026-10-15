@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "file": "vendor/OAI/NumberTheory/DirichletL/Mellin/VerticalContourShift.lean",
+  "line": 349,
+  "original_sha256": "58bf5cc6eea4e4cbb530518eab4067c296833000fbd13ef3cc603a4faa727a7f",
+  "before_sha256": "463e6ed6c06d9e01ed57e21605ab538e3002435883b36f35c42630c5a6b8bc26",
+  "after_sha256": "1a1039ee089ba3a32b73d2cf118f9d56dc394a94c0c4e1af28a8ec2532789c2d",
+  "source_freeze_sha256": "1a1039ee089ba3a32b73d2cf118f9d56dc394a94c0c4e1af28a8ec2532789c2d",
+  "old_proof_lines": "    simp [abs_mul]\n",
+  "new_proof_lines": "    simp [abs_mul]\n    exact Or.inl Real.pi_pos.le\n",
+  "inverse_restores_all_before_bytes": true,
+  "scope": "Only the existing absolute-imaginary-part identity proof in inverse_Gamma_norm_of_left gains the already proved nonnegativity of pi; public declaration type, hypotheses, formula, and all other proofs/data unchanged.",
+  "justification": "Actual081 remaining goal is 0 ≤ Real.pi ∨ z.im = 0. Or.inl Real.pi_pos.le proves its left alternative unconditionally, so the same absolute-value identity and inverse-Gamma bound follow without an added hypothesis. The earlier one_le_prod API repair is retained unchanged.",
+  "status": "saved; next whole-build integration pending; no direct Lean checks",
+  "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Mellin/VerticalContourShift.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Mellin/VerticalContourShift.lean (after)\n@@ -348,6 +348,7 @@\n   simp only [Complex.sub_re,Complex.one_re] at hgamma\n   have him : |((Real.pi:ℂ)*z).im|=Real.pi*|z.im| := by\n     simp [abs_mul]\n+    exact Or.inl Real.pi_pos.le\n   rw [him] at hsin\n   calc\n     _ ≤ (Real.Gamma (1-z.re)*Real.exp (Real.pi*|z.im|))/Real.pi :=\n"
+}

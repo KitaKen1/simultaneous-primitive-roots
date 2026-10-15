@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "status": "source frozen; static proof-only and exact byte inverse audit; next whole-build integration pending",
+  "scope": "Only unbuilt vendor modules in the local transitive import closure of public Challenge and Solution; only direct have ... : AnalyticOnNhd ... := by fun_prop, single or multiline. No global tactic attributes, imports, definitions, hypotheses or limits changed. All .olean files absent at mutation.",
+  "source_file_count": 8,
+  "proof_site_count": 14,
+  "skipped_generated": [],
+  "inverse_original_byte_equal_file_count": 6,
+  "justification": "AnalyticOnNhd is the pointwise predicate ∀ x ∈ s, AnalyticAt 𝕜 f x. Introducing the original arbitrary point and membership reduces exactly the same function/set goal to AnalyticAt, which stock 4.33.1 fun_prop supports. All fourteen original functions are constants, negation or affine functions (one ψ := fun z => 6*z); no additional premises are used or added.",
+  "sources": [
+    {
+      "file": "vendor/ArtinPrimitiveRoots/A2/Poisson/Missing.lean",
+      "module": "ArtinPrimitiveRoots.A2.Poisson.Missing",
+      "before_sha256": "9b4628fa05de18ef3ba5cd62aaf54d0feb53c02bf455b66d0e67f0f89f5f8ce8",
+      "after_sha256": "bcebb419c3466228a79d81ae87eb94dde28ad5e43283eb79d097c1d206a18f69",
+      "source_freeze_sha256": "bcebb419c3466228a79d81ae87eb94dde28ad5e43283eb79d097c1d206a18f69",
+      "edits": [
+        {
+          "line_before": 12134,
+          "before": "    have hψ : AnalyticOnNhd ℂ ψ {z : ℂ | eulerNeighborhood ![ξ, w, z]} := by\n      fun_prop",
+          "after": "    have hψ : AnalyticOnNhd ℂ ψ {z : ℂ | eulerNeighborhood ![ξ, w, z]} := by\n      intro sprPoint sprMember\n      fun_prop"
+        }
+      ],
+      "inverse_recovers_all_before_bytes": true,
+      "olean_absent_at_mutation": true,
+      "original_sha256": "11455c54f92d852801db96a7b41b2c57a9ee82c0bfc9439abaff66d360e61882",
+      "original_source_matches_manifest": true,
+      "inverse_recovers_all_original_bytes": false,
+      "unified_diff": "--- vendor/ArtinPrimitiveRoots/A2/Poisson/Missing.lean (before)\n+++ vendor/ArtinPrimitiveRoots/A2/Poisson/Missing.lean (after)\n@@ -12132,6 +12132,7 @@\n       intro i\n       fin_cases i <;> simp [φ]\n     have hψ : AnalyticOnNhd ℂ ψ {z : ℂ | eulerNeighborhood ![ξ, w, z]} := by\n+      intro sprPoint sprMember\n       fun_prop\n     have hMap : Set.MapsTo ψ {z : ℂ | eulerNeighborhood ![ξ, w, z]} Set.univ :=\n       fun _ _ => Set.mem_univ _\n",
+      "public_declaration_types_hypotheses_definition_values_and_data": "unchanged; only the original direct AnalyticOnNhd proof body introduces the point and membership witness, then runs exactly the original fun_prop",
+      "formal_validation": "root next whole-build integration pending; no direct Lean checks"
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Proofs/th_res_whit_b/SectionMatch.lean",
+      "module": "ArtinPrimitiveRoots.Proofs.th_res_whit_b.SectionMatch",
+      "before_sha256": "25629cfe053680aee70fb638b64b77acd781b4d1214bbc569aa8fb0052faa4b1",
+      "after_sha256": "0d81d495da452cffa627e748191f89526515f3f3212ad8d450ad09f3d1c1f6a8",
+      "source_freeze_sha256": "0d81d495da452cffa627e748191f89526515f3f3212ad8d450ad09f3d1c1f6a8",
+      "edits": [
+        {
+          "line_before": 366,
+          "before": "  have hB : AnalyticOnNhd ℂ (fun _ : ℂ => (0 : ℂ)) {s | 0 < s.re} := by fun_prop",
+          "after": "  have hB : AnalyticOnNhd ℂ (fun _ : ℂ => (0 : ℂ)) {s | 0 < s.re} := by\n    intro sprPoint sprMember\n    fun_prop"
+        }
+      ],
+      "inverse_recovers_all_before_bytes": true,
+      "olean_absent_at_mutation": true,
+      "original_sha256": "25629cfe053680aee70fb638b64b77acd781b4d1214bbc569aa8fb0052faa4b1",
+      "original_source_matches_manifest": true,
+      "inverse_recovers_all_original_bytes": true,
+      "unified_diff": "--- vendor/ArtinPrimitiveRoots/Proofs/th_res_whit_b/SectionMatch.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Proofs/th_res_whit_b/SectionMatch.lean (after)\n@@ -363,7 +363,9 @@\n       (fun s => coeff₁ s * complexArchFactor xStar s -\n         coeff₂ s * complexArchFactor x s) _\n     exact (hcont₁.mul (hArch₁.mono hDomainPos)).sub (hcont₂.mul (hArch₂.mono hDomainPos))\n-  have hB : AnalyticOnNhd ℂ (fun _ : ℂ => (0 : ℂ)) {s | 0 < s.re} := by fun_prop\n+  have hB : AnalyticOnNhd ℂ (fun _ : ℂ => (0 : ℂ)) {s | 0 < s.re} := by\n+    intro sprPoint sprMember\n+    fun_prop\n   have hr : ∃ Ψ' : ℂ → ℂ,\n       AnalyticOnNhd ℂ Ψ' (Metric.ball (1 / 6 : ℂ) η) ∧ Ψ' (1 / 6) = r ∧\n         ∀ s ∈ Metric.ball (1 / 6 : ℂ) η, s ≠ 1 / 6 → Ψ' s = (s - 1 / 6) * f s := by\n",
+      "public_declaration_types_hypotheses_definition_values_and_data": "unchanged; only the original direct AnalyticOnNhd proof body introduces the point and membership witness, then runs exactly the original fun_prop",
+      "formal_validation": "root next whole-build integration pending; no direct Lean checks"
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_RES_FOURIER/constantCell_finite_analytic.lean",
+      "module": "ArtinPrimitiveRoots.Theta.Proofs.TH_RES_FOURIER.constantCell_finite_analytic",
+      "before_sha256": "c0a41935fa73d335a8ad773c26a8c651185269326f7ca3a5dbfd7defa16490ea",
+      "after_sha256": "05d6ad102b962b780e2ff5fcdf51e63aa1df193545cda789bef6919d90a03b25",
+      "source_freeze_sha256": "05d6ad102b962b780e2ff5fcdf51e63aa1df193545cda789bef6919d90a03b25",
+      "edits": [
+        {
+          "line_before": 400,
+          "before": "    have hminus : AnalyticOnNhd ℂ (fun s : ℂ => -s) Dpos := by fun_prop",
+          "after": "    have hminus : AnalyticOnNhd ℂ (fun s : ℂ => -s) Dpos := by\n      intro sprPoint sprMember\n      fun_prop"
+        }
+      ],
+      "inverse_recovers_all_before_bytes": true,
+      "olean_absent_at_mutation": true,
+      "original_sha256": "c0a41935fa73d335a8ad773c26a8c651185269326f7ca3a5dbfd7defa16490ea",
+      "original_source_matches_manifest": true,
+      "inverse_recovers_all_original_bytes": true,
+      "unified_diff": "--- vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_RES_FOURIER/constantCell_finite_analytic.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_RES_FOURIER/constantCell_finite_analytic.lean (after)\n@@ -397,7 +397,9 @@\n     fun_prop\n   have hnegSph (w : InfinitePlace F) :\n       AnalyticOnNhd ℂ (fun s => sphC (-s) (P.compC w x)) Dpos := by\n-    have hminus : AnalyticOnNhd ℂ (fun s : ℂ => -s) Dpos := by fun_prop\n+    have hminus : AnalyticOnNhd ℂ (fun s : ℂ => -s) Dpos := by\n+      intro sprPoint sprMember\n+      fun_prop\n     have hcomp := (sphC_eval_analytic (P.compC w x)).comp hminus\n       (by intro s hs; trivial)\n     simpa [Function.comp_def] using hcomp\n",
+      "public_declaration_types_hypotheses_definition_values_and_data": "unchanged; only the original direct AnalyticOnNhd proof body introduces the point and membership witness, then runs exactly the original fun_prop",
+      "formal_validation": "root next whole-build integration pending; no direct Lean checks"
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_RES_FOURIER/regularized_cprod_continuation.lean",
+      "module": "ArtinPrimitiveRoots.Theta.Proofs.TH_RES_FOURIER.regularized_cprod_continuation",
+      "before_sha256": "e14bfe4cc85560a7b8e5ba1d0137d9e433067410447c69f3aabeee343ce9c70e",
+      "after_sha256": "be0d16e254e6c1013b5f17ad561d15ecf8f1137ff5f3327905cf5bcdd7653846",
+      "source_freeze_sha256": "be0d16e254e6c1013b5f17ad561d15ecf8f1137ff5f3327905cf5bcdd7653846",
+      "edits": [
+        {
+          "line_before": 34,
+          "before": "    have hinner : AnalyticOnNhd ℂ (fun s : ℂ => 6 * s) U := by fun_prop",
+          "after": "    have hinner : AnalyticOnNhd ℂ (fun s : ℂ => 6 * s) U := by\n      intro sprPoint sprMember\n      fun_prop"
+        },
+        {
+          "line_before": 37,
+          "before": "    have hinner : AnalyticOnNhd ℂ (fun s : ℂ => 6 * s + 1) U := by fun_prop",
+          "after": "    have hinner : AnalyticOnNhd ℂ (fun s : ℂ => 6 * s + 1) U := by\n      intro sprPoint sprMember\n      fun_prop"
+        },
+        {
+          "line_before": 40,
+          "before": "    have hconst : AnalyticOnNhd ℂ (fun _ : ℂ => (1 / 6 : ℂ)) U := by fun_prop",
+          "after": "    have hconst : AnalyticOnNhd ℂ (fun _ : ℂ => (1 / 6 : ℂ)) U := by\n      intro sprPoint sprMember\n      fun_prop"
+        }
+      ],
+      "inverse_recovers_all_before_bytes": true,
+      "olean_absent_at_mutation": true,
+      "original_sha256": "e14bfe4cc85560a7b8e5ba1d0137d9e433067410447c69f3aabeee343ce9c70e",
+      "original_source_matches_manifest": true,
+      "inverse_recovers_all_original_bytes": true,
+      "unified_diff": "--- vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_RES_FOURIER/regularized_cprod_continuation.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_RES_FOURIER/regularized_cprod_continuation.lean (after)\n@@ -31,13 +31,19 @@\n     dsimp [U] at hs\n     nlinarith\n   have hNcomp : AnalyticOnNhd ℂ (fun s : ℂ => N (6 * s)) U := by\n-    have hinner : AnalyticOnNhd ℂ (fun s : ℂ => 6 * s) U := by fun_prop\n+    have hinner : AnalyticOnNhd ℂ (fun s : ℂ => 6 * s) U := by\n+      intro sprPoint sprMember\n+      fun_prop\n     exact hNanalytic.comp hinner (by intro s hs; simp)\n   have hLcomp : AnalyticOnNhd ℂ (fun s : ℂ => L (6 * s + 1)) U := by\n-    have hinner : AnalyticOnNhd ℂ (fun s : ℂ => 6 * s + 1) U := by fun_prop\n+    have hinner : AnalyticOnNhd ℂ (fun s : ℂ => 6 * s + 1) U := by\n+      intro sprPoint sprMember\n+      fun_prop\n     exact hLanalytic.comp hinner hmap1\n   have hnum : AnalyticOnNhd ℂ (fun s : ℂ => (1 / 6 : ℂ) * N (6 * s)) U := by\n-    have hconst : AnalyticOnNhd ℂ (fun _ : ℂ => (1 / 6 : ℂ)) U := by fun_prop\n+    have hconst : AnalyticOnNhd ℂ (fun _ : ℂ => (1 / 6 : ℂ)) U := by\n+      intro sprPoint sprMember\n+      fun_prop\n     exact hconst.mul hNcomp\n   have hBanalytic : AnalyticOnNhd ℂ B U := by\n     have hden : ∀ s ∈ U, L (6 * s + 1) ≠ 0 := by\n",
+      "public_declaration_types_hypotheses_definition_values_and_data": "unchanged; only the original direct AnalyticOnNhd proof body introduces the point and membership witness, then runs exactly the original fun_prop",
+      "formal_validation": "root next whole-build integration pending; no direct Lean checks"
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_RES_FOURIER/regularized_residue_eval.lean",
+      "module": "ArtinPrimitiveRoots.Theta.Proofs.TH_RES_FOURIER.regularized_residue_eval",
+      "before_sha256": "f74ec86031de999ffd5ece192e46a6a624001398d2559b44ee0d363d4ce367ee",
+      "after_sha256": "bd582a94e3f55b8bc9906bf7c5a664c567268077599e3480efb6b671eb051b82",
+      "source_freeze_sha256": "bd582a94e3f55b8bc9906bf7c5a664c567268077599e3480efb6b671eb051b82",
+      "edits": [
+        {
+          "line_before": 59,
+          "before": "    have hd : AnalyticOnNhd ℂ (fun s : ℂ => s - 1 / 6) U := by fun_prop",
+          "after": "    have hd : AnalyticOnNhd ℂ (fun s : ℂ => s - 1 / 6) U := by\n      intro sprPoint sprMember\n      fun_prop"
+        }
+      ],
+      "inverse_recovers_all_before_bytes": true,
+      "olean_absent_at_mutation": true,
+      "original_sha256": "f74ec86031de999ffd5ece192e46a6a624001398d2559b44ee0d363d4ce367ee",
+      "original_source_matches_manifest": true,
+      "inverse_recovers_all_original_bytes": true,
+      "unified_diff": "--- vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_RES_FOURIER/regularized_residue_eval.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_RES_FOURIER/regularized_residue_eval.lean (after)\n@@ -56,7 +56,9 @@\n     · exact hz.2 (by simp)\n   let f' : ℂ → ℂ := fun s => B s / (s - 1 / 6)\n   have hf' : AnalyticOnNhd ℂ f' U := by\n-    have hd : AnalyticOnNhd ℂ (fun s : ℂ => s - 1 / 6) U := by fun_prop\n+    have hd : AnalyticOnNhd ℂ (fun s : ℂ => s - 1 / 6) U := by\n+      intro sprPoint sprMember\n+      fun_prop\n     exact (hB.mono hpos).div hd hne\n   have hr' : ∃ Ψ : ℂ → ℂ, AnalyticOnNhd ℂ Ψ (Metric.ball (1 / 6 : ℂ) η) ∧\n       Ψ (1 / 6) = B (1 / 6) ∧ ∀ s ∈ Metric.ball (1 / 6 : ℂ) η, s ≠ 1 / 6 →\n",
+      "public_declaration_types_hypotheses_definition_values_and_data": "unchanged; only the original direct AnalyticOnNhd proof body introduces the point and membership witness, then runs exactly the original fun_prop",
+      "formal_validation": "root next whole-build integration pending; no direct Lean checks"
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_RES_FOURIER/theta_constantTerm.lean",
+      "module": "ArtinPrimitiveRoots.Theta.Proofs.TH_RES_FOURIER.theta_constantTerm",
+      "before_sha256": "4638dc2571793f46c15f1f66bb4d2c28bbf5473661d2dc6a9a74b56e74240d6c",
+      "after_sha256": "4a8bbf9d3e74179695d3bf664b0aa8a653c869ec5d0985679d35f6f56c068ba8",
+      "source_freeze_sha256": "4a8bbf9d3e74179695d3bf664b0aa8a653c869ec5d0985679d35f6f56c068ba8",
+      "edits": [
+        {
+          "line_before": 53,
+          "before": "    have hd : AnalyticOnNhd ℂ (fun s : ℂ => s - 1 / 6) {s | 0 < s.re} := by\n      fun_prop",
+          "after": "    have hd : AnalyticOnNhd ℂ (fun s : ℂ => s - 1 / 6) {s | 0 < s.re} := by\n      intro sprPoint sprMember\n      fun_prop"
+        },
+        {
+          "line_before": 55,
+          "before": "    have hk : AnalyticOnNhd ℂ (fun _ : ℂ => (((κF F)⁻¹ : ℝ) : ℂ)) {s | 0 < s.re} := by\n      fun_prop",
+          "after": "    have hk : AnalyticOnNhd ℂ (fun _ : ℂ => (((κF F)⁻¹ : ℝ) : ℂ)) {s | 0 < s.re} := by\n      intro sprPoint sprMember\n      fun_prop"
+        }
+      ],
+      "inverse_recovers_all_before_bytes": true,
+      "olean_absent_at_mutation": true,
+      "original_sha256": "4638dc2571793f46c15f1f66bb4d2c28bbf5473661d2dc6a9a74b56e74240d6c",
+      "original_source_matches_manifest": true,
+      "inverse_recovers_all_original_bytes": true,
+      "unified_diff": "--- vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_RES_FOURIER/theta_constantTerm.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_RES_FOURIER/theta_constantTerm.lean (after)\n@@ -51,8 +51,10 @@\n     have hb' : AnalyticOnNhd ℂ (fun s => ∑ δ ∈ T, b s δ) {s | 0 < s.re} :=\n       Finset.analyticOnNhd_fun_sum T hlarge\n     have hd : AnalyticOnNhd ℂ (fun s : ℂ => s - 1 / 6) {s | 0 < s.re} := by\n+      intro sprPoint sprMember\n       fun_prop\n     have hk : AnalyticOnNhd ℂ (fun _ : ℂ => (((κF F)⁻¹ : ℝ) : ℂ)) {s | 0 < s.re} := by\n+      intro sprPoint sprMember\n       fun_prop\n     exact (hd.mul ha).add ((hk.mul hB).mul hb')\n   have hscalar (s : ℂ) (δ : Fˣ ⧸ G.Δ) :\n",
+      "public_declaration_types_hypotheses_definition_values_and_data": "unchanged; only the original direct AnalyticOnNhd proof body introduces the point and membership witness, then runs exactly the original fun_prop",
+      "formal_validation": "root next whole-build integration pending; no direct Lean checks"
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_RES_FOURIER/torusCoeff_analytic.lean",
+      "module": "ArtinPrimitiveRoots.Theta.Proofs.TH_RES_FOURIER.torusCoeff_analytic",
+      "before_sha256": "103054aa0b17948ea49465240f6f43ed7d9f8096207422357fb5c39e77aa226e",
+      "after_sha256": "a6f7cf7a809bbb30a82522298545a68a3a9efa4671fde362fb2cb8dd97d0d2a8",
+      "source_freeze_sha256": "a6f7cf7a809bbb30a82522298545a68a3a9efa4671fde362fb2cb8dd97d0d2a8",
+      "edits": [
+        {
+          "line_before": 154,
+          "before": "      have hconsta : AnalyticOnNhd ℂ (fun _ : ℂ => a)\n          (ArtinPrimitiveRoots.A1.Spec.contDomain (1 / 6) η) := by fun_prop",
+          "after": "      have hconsta : AnalyticOnNhd ℂ (fun _ : ℂ => a)\n          (ArtinPrimitiveRoots.A1.Spec.contDomain (1 / 6) η) := by\n        intro sprPoint sprMember\n        fun_prop"
+        },
+        {
+          "line_before": 227,
+          "before": "    have hconst : AnalyticOnNhd ℂ (fun _ : ℂ => normFactor)\n        (ArtinPrimitiveRoots.A1.Spec.contDomain (1 / 6) η) := by fun_prop",
+          "after": "    have hconst : AnalyticOnNhd ℂ (fun _ : ℂ => normFactor)\n        (ArtinPrimitiveRoots.A1.Spec.contDomain (1 / 6) η) := by\n      intro sprPoint sprMember\n      fun_prop"
+        }
+      ],
+      "inverse_recovers_all_before_bytes": true,
+      "olean_absent_at_mutation": true,
+      "original_sha256": "103054aa0b17948ea49465240f6f43ed7d9f8096207422357fb5c39e77aa226e",
+      "original_source_matches_manifest": true,
+      "inverse_recovers_all_original_bytes": true,
+      "unified_diff": "--- vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_RES_FOURIER/torusCoeff_analytic.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_RES_FOURIER/torusCoeff_analytic.lean (after)\n@@ -152,7 +152,9 @@\n         (ArtinPrimitiveRoots.A1.Spec.contDomain (1 / 6) η) := by\n       have hc0 := (C.c_analytic j i).mono hηposDomain\n       have hconsta : AnalyticOnNhd ℂ (fun _ : ℂ => a)\n-          (ArtinPrimitiveRoots.A1.Spec.contDomain (1 / 6) η) := by fun_prop\n+          (ArtinPrimitiveRoots.A1.Spec.contDomain (1 / 6) η) := by\n+        intro sprPoint sprMember\n+        fun_prop\n       exact hconsta.mul hc0\n     have hφana : AnalyticOnNhd ℂ (φ i)\n         (ArtinPrimitiveRoots.A1.Spec.contDomain (1 / 6) η) := by\n@@ -225,7 +227,9 @@\n       (fun s => torusCoeff P (R'.E s) g Q (ν))\n       (ArtinPrimitiveRoots.A1.Spec.contDomain (1 / 6) η) := by\n     have hconst : AnalyticOnNhd ℂ (fun _ : ℂ => normFactor)\n-        (ArtinPrimitiveRoots.A1.Spec.contDomain (1 / 6) η) := by fun_prop\n+        (ArtinPrimitiveRoots.A1.Spec.contDomain (1 / 6) η) := by\n+      intro sprPoint sprMember\n+      fun_prop\n     have hprod := hconst.mul hbase\n     have hEqOn : Set.EqOn (fun s => normFactor * base s)\n         (fun s => torusCoeff P (R'.E s) g Q ν)\n",
+      "public_declaration_types_hypotheses_definition_values_and_data": "unchanged; only the original direct AnalyticOnNhd proof body introduces the point and membership witness, then runs exactly the original fun_prop",
+      "formal_validation": "root next whole-build integration pending; no direct Lean checks"
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Theta/Res.lean",
+      "module": "ArtinPrimitiveRoots.Theta.Res",
+      "before_sha256": "93681a90203065b7d3e9b4dcd1db247a6170349ac6ec6a2868a5e1fd70c997df",
+      "after_sha256": "34a9b81ead8974e32e282a652a5e2a1e0ed54f5c82b77e68f2dd179ef513f522",
+      "source_freeze_sha256": "34a9b81ead8974e32e282a652a5e2a1e0ed54f5c82b77e68f2dd179ef513f522",
+      "edits": [
+        {
+          "line_before": 356,
+          "before": "    have haff : AnalyticOnNhd ℂ (fun s : ℂ => 6 * s) (Metric.ball (1 / 6 : ℂ) ε) := by\n      fun_prop",
+          "after": "    have haff : AnalyticOnNhd ℂ (fun s : ℂ => 6 * s) (Metric.ball (1 / 6 : ℂ) ε) := by\n      intro sprPoint sprMember\n      fun_prop"
+        },
+        {
+          "line_before": 361,
+          "before": "    have haff : AnalyticOnNhd ℂ (fun s : ℂ => 6 * s + 1)\n        (Metric.ball (1 / 6 : ℂ) ε) := by fun_prop",
+          "after": "    have haff : AnalyticOnNhd ℂ (fun s : ℂ => 6 * s + 1)\n        (Metric.ball (1 / 6 : ℂ) ε) := by\n      intro sprPoint sprMember\n      fun_prop"
+        },
+        {
+          "line_before": 364,
+          "before": "  have hconst : AnalyticOnNhd ℂ (fun _ : ℂ => (1 / 6 : ℂ))\n      (Metric.ball (1 / 6 : ℂ) ε) := by fun_prop",
+          "after": "  have hconst : AnalyticOnNhd ℂ (fun _ : ℂ => (1 / 6 : ℂ))\n      (Metric.ball (1 / 6 : ℂ) ε) := by\n    intro sprPoint sprMember\n    fun_prop"
+        }
+      ],
+      "inverse_recovers_all_before_bytes": true,
+      "olean_absent_at_mutation": true,
+      "original_sha256": "1ddefb45e6b34cae21598b257f5e32fca8cfa4cb67c4593a9f59892e2cb9536e",
+      "original_source_matches_manifest": true,
+      "inverse_recovers_all_original_bytes": false,
+      "unified_diff": "--- vendor/ArtinPrimitiveRoots/Theta/Res.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Theta/Res.lean (after)\n@@ -354,15 +354,20 @@\n   have hGcomp : AnalyticOnNhd ℂ (fun s : ℂ => G (6 * s))\n       (Metric.ball (1 / 6 : ℂ) ε) := by\n     have haff : AnalyticOnNhd ℂ (fun s : ℂ => 6 * s) (Metric.ball (1 / 6 : ℂ) ε) := by\n+      intro sprPoint sprMember\n       fun_prop\n     exact hGanalytic.comp haff (by intro s hs; simp)\n   have hLcomp : AnalyticOnNhd ℂ (fun s : ℂ => L (6 * s + 1))\n       (Metric.ball (1 / 6 : ℂ) ε) := by\n     have haff : AnalyticOnNhd ℂ (fun s : ℂ => 6 * s + 1)\n-        (Metric.ball (1 / 6 : ℂ) ε) := by fun_prop\n+        (Metric.ball (1 / 6 : ℂ) ε) := by\n+      intro sprPoint sprMember\n+      fun_prop\n     exact hLanalytic.comp haff hmap\n   have hconst : AnalyticOnNhd ℂ (fun _ : ℂ => (1 / 6 : ℂ))\n-      (Metric.ball (1 / 6 : ℂ) ε) := by fun_prop\n+      (Metric.ball (1 / 6 : ℂ) ε) := by\n+    intro sprPoint sprMember\n+    fun_prop\n   have hnum : AnalyticOnNhd ℂ (fun s : ℂ => (1 / 6 : ℂ) * G (6 * s))\n       (Metric.ball (1 / 6 : ℂ) ε) := hconst.mul hGcomp\n   have hΨ : AnalyticOnNhd ℂ Ψ (Metric.ball (1 / 6 : ℂ) ε) := by\n",
+      "public_declaration_types_hypotheses_definition_values_and_data": "unchanged; only the original direct AnalyticOnNhd proof body introduces the point and membership witness, then runs exactly the original fun_prop",
+      "formal_validation": "root next whole-build integration pending; no direct Lean checks"
+    }
+  ]
+}

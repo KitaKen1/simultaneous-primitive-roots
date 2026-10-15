@@ -1,0 +1,157 @@
+{
+  "verified_at_utc": "2026-10-15T08:51:41.077616+00:00",
+  "scope": "Replace the split input modules and TauCeti dependency with one Mathlib-only Lean file containing all four input definitions, their supporting definitions, three API examples, main and variants. Remove the OpenAIPrimitiveRoots namespace.",
+  "statement": "FClikelean/SimultaneousPrimitiveRoots.lean",
+  "statement_sha256": "b50cc5c806f5ed3cf4b7b42d29300ec5bbef04981854e0b2c92a2bcfc79ee42e",
+  "lean_version": "4.33.1",
+  "statement_placeholders": 3,
+  "definition_placeholders": 0,
+  "source_audit": {
+    "passed": true,
+    "lean_files": 4464,
+    "source_sha256": "5c4ece81c20e7aa34ea65651d8e4eac2814e91ce61b7ecb382c12a6d727e0296",
+    "intentional_statement_placeholders": 2,
+    "fclikelean": {
+      "lean_files": 1,
+      "source_sha256": "005dda6c90f9310ff143bc316988bbf32a732ad29d9696975430a02b0e6a0a61",
+      "intentional_statement_placeholders": 3,
+      "input_definition_placeholders": 0,
+      "single_file": true,
+      "imports_only_mathlib": true
+    },
+    "port_record": {
+      "passed": true,
+      "changed_existing_files": 1251,
+      "new_proof_backports": 22
+    }
+  },
+  "isolated_compile": {
+    "passed": true,
+    "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+    "single_file": true,
+    "imports_only_mathlib": true,
+    "publication_build_path_removed": true,
+    "exit_code": 0,
+    "compiler_output": "/Users/kenta/Dropbox/Intellectual Moonshine/?AI数学/同時原始根/forgithubpublication/FClikelean/SimultaneousPrimitiveRoots.lean:266:8: warning: declaration uses `sorry`\n/Users/kenta/Dropbox/Intellectual Moonshine/?AI数学/同時原始根/forgithubpublication/FClikelean/SimultaneousPrimitiveRoots.lean:278:8: warning: declaration uses `sorry`\n/Users/kenta/Dropbox/Intellectual Moonshine/?AI数学/同時原始根/forgithubpublication/FClikelean/SimultaneousPrimitiveRoots.lean:288:8: warning: declaration uses `sorry`\n"
+  },
+  "build": {
+    "command": "lake build Challenge Solution FClikelean.SimultaneousPrimitiveRoots",
+    "cwd": "lean",
+    "exit_code": 0,
+    "lake_jobs": 12710,
+    "log": "ci/results/fclike-single-file-build.log"
+  },
+  "input_axiom_check": {
+    "command": "lake env lean ../ci/openai-input-definition-checks.lean",
+    "exit_code": 0,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "log": "ci/results/fclike-single-file-input-axioms.log"
+  },
+  "inline_definition_checks": [
+    "The principal character at unit modulus satisfies IsHeckeCharacter",
+    "Nonprincipal characters require nonvanishing at s=1",
+    "The empty designated set retains the sieve remainder at 1"
+  ],
+  "input31_representation": {
+    "description": "Finite-image multiplicative functions on nonzero integral ideals, zero exactly away from the ideals coprime to the modulus and trivial on totally positive principal generators congruent to 1. The absolute-norm grouped ideal series is defined using Mathlib LSeries.",
+    "classical_reference": "https://www.jmilne.org/math/CourseNotes/CFT.pdf",
+    "reference_section": "Chapter VI, section 1(c)(d)",
+    "idealic_idele_correspondence_newly_proved_in_lean": false,
+    "primitive_imprimitive_euler_factor_equivalence_newly_proved_in_lean": false
+  },
+  "source_and_scope": {
+    "openai_pdf_commit": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+    "source": "Theorem 1.1 and Inputs 3.1, 4.1(i)(ii), 5.1, 5.2",
+    "four_analytic_inputs_proved": false,
+    "main_proof_or_variant_to_main_bridge_added": false,
+    "variant_proof_source_digest_unchanged": true,
+    "comparator_targets_unchanged": true,
+    "new_comparator_run": false,
+    "private_or_public_ci_run": false,
+    "fc_pr_created": false
+  },
+  "human_html": {
+    "main_variant_and_auxiliary_code_blocks_match_source": true,
+    "qa": {
+      "results": [
+        {
+          "name": "desktop",
+          "viewport": 1200,
+          "documentWidth": 1200,
+          "theorems": [
+            "openai",
+            "repo"
+          ],
+          "overflows": [],
+          "expanded": {
+            "viewport": 1200,
+            "documentWidth": 1200,
+            "leanBlocks": [
+              true,
+              true,
+              true,
+              true
+            ]
+          }
+        },
+        {
+          "name": "medium",
+          "viewport": 900,
+          "documentWidth": 900,
+          "theorems": [
+            "openai",
+            "repo"
+          ],
+          "overflows": [],
+          "expanded": {
+            "viewport": 900,
+            "documentWidth": 900,
+            "leanBlocks": [
+              true,
+              true,
+              true,
+              true
+            ]
+          }
+        },
+        {
+          "name": "mobile",
+          "viewport": 390,
+          "documentWidth": 390,
+          "theorems": [
+            "openai",
+            "repo"
+          ],
+          "overflows": [],
+          "expanded": {
+            "viewport": 390,
+            "documentWidth": 390,
+            "leanBlocks": [
+              true,
+              true,
+              true,
+              true
+            ]
+          }
+        }
+      ],
+      "pageErrors": []
+    }
+  },
+  "files_sha256": {
+    "FClikelean/SimultaneousPrimitiveRoots.lean": "b50cc5c806f5ed3cf4b7b42d29300ec5bbef04981854e0b2c92a2bcfc79ee42e",
+    "FClikelean/README.md": "b4b9405fee3f9b9d68d206f780c3b2fc62a7b18fe9e73d04ce3f91c9d63bb2d4",
+    "README.md": "df1454ff244940b98f1bacf924a4e0f7cd293f34c0e835f15973a7f34f9b988a",
+    "scripts/check_sources.py": "67f05719b0c575da129eaafbd79f3a6f8958eaa8da7beab024c1977a62c6e2cf",
+    "scripts/check_fclike_standalone.py": "ce63c5e8e25d2e9a5102bd3f5ff293520252a7e56f8cfcd811f71f09637e7e30",
+    "ci/openai-input-definition-checks.lean": "49a80301d405fbb054fd24d814adb1f43ed855ed8af2656ab79e1fef0aeb8b23",
+    ".github/workflows/lean.yml": "b88a4725cae47d5ecdb828abbbd76fb98f6f5eefb794ad691584a4ea3ae809af"
+  },
+  "review_status": "Single-file and Mathlib-only requirements verified. User review of source correspondence remains pending; no claim of FC acceptance or of newly proved classical representation bridges.",
+  "superseded_by": "fclike-style-review.json",
+  "superseded_reason": "FC style simplification; all four hypotheses were checked definitionally equal with rfl."
+}

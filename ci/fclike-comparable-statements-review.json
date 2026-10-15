@@ -1,0 +1,166 @@
+{
+  "verified_at_utc": "2026-10-15T09:44:07.234628+00:00",
+  "scope": "Reduce fourteen global definitions to the four explicit analytic hypotheses and their shared rough density. Place all theorem parameters and conditions after the theorem colon. Align main and variant in order and notation, and add a row-by-row Lean comparison to the HTML.",
+  "statement": "FClikelean/SimultaneousPrimitiveRoots.lean",
+  "before_statement_sha256": "2e0f739366ce6aa3f4bbf6bf8418682584be121a5eee6154f08305af5ec7aaa9",
+  "after_statement_sha256": "32fe504c177f3acf110a14e7735dac4f0185f63f959952e7aca2b1e12bfc4ba6",
+  "before_global_definitions": 14,
+  "after_global_definitions": 5,
+  "remaining_definitions": [
+    "HeckeZeroFreeHypothesis",
+    "roughDensity",
+    "MarkedTypeIIHypothesis",
+    "BlockSieveHypothesis",
+    "RoughDensityHypothesis"
+  ],
+  "local_math_notation": "The V, W, roughness, bands, mark, scales, coefficients and character bound used only by the Type II hypothesis are local let bindings. The Hecke-character conditions are written directly in the Hecke hypothesis.",
+  "main_statement_layout": "forall A, A.Nonempty -> prime bases -> conjunction of four analytic hypotheses -> lower bound",
+  "variant_statement_layout": "forall A, A.Nonempty -> integer bases >=2 -> odd-product square condition -> lower bound",
+  "validation": {
+    "lean_version": "4.33.1",
+    "build": {
+      "command": "lake build Challenge Solution FClikelean.SimultaneousPrimitiveRoots",
+      "cwd": "lean",
+      "exit_code": 0,
+      "lake_jobs": 12710,
+      "log": "ci/results/fclike-five-defs-build.log"
+    },
+    "source_audit": {
+      "passed": true,
+      "lean_files": 4464,
+      "source_sha256": "053ab44f97520ed50d1b41ce4c2b970d1326c26736cae0404d2e04fe2c4aa18e",
+      "intentional_statement_placeholders": 2,
+      "fclikelean": {
+        "lean_files": 1,
+        "source_sha256": "84f28b202e489e4472a3b5016d3c83b4745967094522a46a6b373e7e0b681ec8",
+        "intentional_statement_placeholders": 3,
+        "input_definition_placeholders": 0,
+        "single_file": true,
+        "imports_only_mathlib": true
+      },
+      "port_record": {
+        "passed": true,
+        "changed_existing_files": 1251,
+        "new_proof_backports": 22
+      }
+    },
+    "before_after_checks": {
+      "command": "Lean 4.33.1 -j1 ci/results/fclike-five-defs-fast-check.lean, with ci/results added to LEAN_PATH for the compiled baseline",
+      "exit_code": 0,
+      "proofs": [
+        "hecke_unchanged",
+        "marked_unchanged",
+        "sieve_unchanged",
+        "density_unchanged",
+        "positive_type_unchanged",
+        "necessary_type_unchanged",
+        "main_statement_equivalent"
+      ],
+      "four_hypotheses_equal": true,
+      "variant_and_auxiliary_types_definitionally_equal": true,
+      "main_statement_iff": true,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "log": "ci/results/fclike-five-defs-fast-check.log",
+      "baseline_source_sha256": "1aa959aaf469070ea1ff781572374faf58a515e9adf1265d99a13c2a5f5405b1",
+      "comparison_source_sha256": "62a832a654a45672fd8e3acd31863bbef7d64a5572c866a4d1aa28103d33ef5e",
+      "typeII_note": "The Type II equality uses explicit unfolding and congruence; moving the roughness predicate into a local let changes decidability-instance elaboration, so a bare rfl was insufficient. Kernel-checked proof uses no sorryAx."
+    },
+    "input_axioms": {
+      "exit_code": 0,
+      "log": "ci/results/fclike-five-defs-input-checks.log",
+      "all_four_use_only_standard_three_axioms": true
+    },
+    "html_theorem_extracts_match_source": true,
+    "html_row_comparison_present": true,
+    "html_qa": {
+      "results": [
+        {
+          "name": "desktop",
+          "viewport": 1200,
+          "documentWidth": 1200,
+          "theorems": [
+            "openai",
+            "repo"
+          ],
+          "overflows": [],
+          "expanded": {
+            "viewport": 1200,
+            "documentWidth": 1200,
+            "leanBlocks": [
+              true,
+              true,
+              true,
+              true
+            ]
+          }
+        },
+        {
+          "name": "medium",
+          "viewport": 900,
+          "documentWidth": 900,
+          "theorems": [
+            "openai",
+            "repo"
+          ],
+          "overflows": [],
+          "expanded": {
+            "viewport": 900,
+            "documentWidth": 900,
+            "leanBlocks": [
+              true,
+              true,
+              true,
+              true
+            ]
+          }
+        },
+        {
+          "name": "mobile",
+          "viewport": 390,
+          "documentWidth": 390,
+          "theorems": [
+            "openai",
+            "repo"
+          ],
+          "overflows": [],
+          "expanded": {
+            "viewport": 390,
+            "documentWidth": 390,
+            "leanBlocks": [
+              true,
+              true,
+              true,
+              true
+            ]
+          }
+        }
+      ],
+      "pageErrors": []
+    }
+  },
+  "proof_scope": {
+    "solution_and_proof_library_modified": false,
+    "challenge_reformatted_to_match_variant": true,
+    "before_challenge_sha256": "7232f72f9242ee30f453f530f8fdd92a1a4cb7112c05132ab9f10038203ec4ec",
+    "after_challenge_sha256": "af418973d7e47f95c849f07093e91a655ada3d25f5f98ee1c07217ffc8ab7aae",
+    "two_public_target_types_definitionally_unchanged": true,
+    "full_comparator_rerun": "An optional repeat was stopped during solution export after the unchanged public target types had been kernel checked. The earlier completed full proof/Comparator result is preserved in local-verification.json; no new full replay success is claimed.",
+    "optional_rerun_exit_code": 143,
+    "optional_rerun_log": "ci/results/fclike-forall-comparator.log",
+    "analytic_inputs_newly_proved": false,
+    "new_main_or_variant_to_main_proof": false,
+    "private_or_public_ci_run": false
+  },
+  "files_sha256": {
+    "FClikelean/SimultaneousPrimitiveRoots.lean": "32fe504c177f3acf110a14e7735dac4f0185f63f959952e7aca2b1e12bfc4ba6",
+    "lean/Challenge.lean": "af418973d7e47f95c849f07093e91a655ada3d25f5f98ee1c07217ffc8ab7aae",
+    "lean/Solution.lean": "96ee847ea0d6998757b7d72cda58cd0df7c2a94911564e73a6262d67a5a54916",
+    "FClikelean/README.md": "d0a4546380309462acf46e4691ba2e479e2962e9613feb3189e70052a7768206",
+    "README.md": "bedd35629ec6eca6b24b984cc252b9cf19390e8593209bdfe1199b567c38578a",
+    "ci/openai-input-definition-checks.lean": "1e564e48935fc6276115f7357c3d69638b5c7113361805df6bc598fdfb03cc9c"
+  }
+}

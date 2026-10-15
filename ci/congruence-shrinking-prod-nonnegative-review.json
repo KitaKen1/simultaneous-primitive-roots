@@ -1,0 +1,18 @@
+{
+  "file": "vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_DECOMPOSE/CongruenceShrinking.lean",
+  "before_sha256": "97cb9710cdefb8274a67a7ff8ddce89f04e531bc1029077201a73e673cba52b0",
+  "after_sha256": "1b8241317266f12b6669d365c6de324c649ae3e63829ad95bd5e112aee0cd546",
+  "old_proof_lines": "          (Finset.subset_univ ({w} : Finset T))\n          (fun i _ _ => by exact_mod_cast hnorm v (b i ^ n i)))",
+  "new_proof_lines": "          (Finset.subset_univ ({w} : Finset T))\n          (fun _ _ => bot_le)\n          (fun i _ _ => by exact_mod_cast hnorm v (b i ^ n i)))",
+  "schema_version": 1,
+  "line": 44,
+  "original_sha256": "97cb9710cdefb8274a67a7ff8ddce89f04e531bc1029077201a73e673cba52b0",
+  "source_freeze_sha256": "1b8241317266f12b6669d365c6de324c649ae3e63829ad95bd5e112aee0cd546",
+  "original_source_matches_manifest": true,
+  "inverse_recovers_all_before_bytes": true,
+  "inverse_recovers_all_original_bytes": true,
+  "scope": "One additional proof argument to the same subset-product comparison, with original factor function, subset, products, pointwise bound lambda, all declaration types/hypotheses/definition values/data and other proofs unchanged.",
+  "justification": "Stock GroupWithZero/Finset.lean:109 prod_le_prod_of_subset_of_le_one requires hf0 : ∀ i ∈ t, 0 ≤ f i before its existing hf : ∀ i ∈ t, i ∉ s → f i ≤ 1. Here each factor is the original NNReal nnnorm ‖E v (b i ^ n i)‖₊, whose zero is bottom, so bot_le proves hf0 for all original univ factors without a new hypothesis. The original three-argument hnorm proof of hf is retained byte-for-byte. The original newer Group/Finset.lean:183 lemma needs only hf because NNReal multiplication/order already supplies universal nonnegativity.",
+  "status": "saved; next root whole-build integration pending; no direct Lean checks",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_DECOMPOSE/CongruenceShrinking.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_DECOMPOSE/CongruenceShrinking.lean (after)\n@@ -41,6 +41,7 @@\n         (Finset.prod_le_prod_of_subset_of_le_one\n           (f := fun i : T => ‖E v (b i ^ n i)‖₊)\n           (Finset.subset_univ ({w} : Finset T))\n+          (fun _ _ => bot_le)\n           (fun i _ _ => by exact_mod_cast hnorm v (b i ^ n i)))\n     calc\n       ‖E v M‖ ≤ ‖E v (b w ^ n w)‖ := by exact_mod_cast hp\n"
+}

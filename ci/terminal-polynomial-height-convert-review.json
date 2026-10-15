@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "scope": "Two previously confirmed terminal inner-hper proofs after whole069 natural termination; unchanged hb, dsimp [A,s,C], and ring, with rfl-first and optional dsimp. No public/private declaration type, hypothesis, or data-definition change.",
+  "file_count": 2,
+  "site_count": 2,
+  "status": "saved; whole070 integration validation pending; no direct Lean checks",
+  "entries": [
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/MeanSquare/PolynomialHeight.lean",
+      "line": 328,
+      "before_sha256": "6a2a9872f8a071e495291b5fc16ed5d9402c0e76728bb231c72f9e354e07c312",
+      "after_sha256": "7f7d1dadee6cf88c62a605e699aabff44fc950bf8799419ed01b54edb7141728",
+      "old_proof_lines": "    convert hb using 1\n    dsimp [A,s,C]\n    ring\n",
+      "new_proof_lines": "    convert hb using 1 <;> first | rfl | (try dsimp [A,s,C]; ring)\n",
+      "inverse_restores_all_bytes": true,
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/MeanSquare/PolynomialHeight.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/MeanSquare/PolynomialHeight.lean (after)\n@@ -325,9 +325,7 @@\n       (fun I hI => ⟨(completedRowDyad_bounds rows j (fun I hI => (hrows I hI).1) I hI).1,\n         (completedRowDyad_bounds rows j (fun I hI => (hrows I hI).1) I hI).2.2⟩)\n       Ψ lengthScale (hmodels j hj)\n-    convert hb using 1\n-    dsimp [A,s,C]\n-    ring\n+    convert hb using 1 <;> first | rfl | (try dsimp [A,s,C]; ring)\n   calc\n     _ ≤ ∑j∈Finset.range (completedRowDyadicLength K+1),\n       A*(((2:ℝ)^j*(Ideal.absNorm Q:ℝ))^s*\n",
+      "olean_absent_at_write": true
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/MeanSquare/UniformPolynomialHeight.lean",
+      "line": 347,
+      "before_sha256": "90ec96cdf742e2b3e3b0f01038fcaa88d5345a60a17137fcf1b0338642509820",
+      "after_sha256": "98610abf84aa60b4e03aff32a2145718aacc599566d20361d5e5b066e88138d2",
+      "old_proof_lines": "    convert hb using 1\n    dsimp [A,s,C]\n    ring\n",
+      "new_proof_lines": "    convert hb using 1 <;> first | rfl | (try dsimp [A,s,C]; ring)\n",
+      "inverse_restores_all_bytes": true,
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/MeanSquare/UniformPolynomialHeight.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/MeanSquare/UniformPolynomialHeight.lean (after)\n@@ -344,9 +344,7 @@\n       (fun I hI => ⟨(completedRowDyad_bounds rows j (fun I hI => (hrows I hI).1) I hI).1,\n         (completedRowDyad_bounds rows j (fun I hI => (hrows I hI).1) I hI).2.2⟩)\n       Ψ lengthScale (hmodels j hj)\n-    convert hb using 1\n-    dsimp [A,s,C]\n-    ring\n+    convert hb using 1 <;> first | rfl | (try dsimp [A,s,C]; ring)\n   calc\n     _ ≤ ∑j∈Finset.range (completedRowDyadicLength K+1),\n       A*(((2:ℝ)^j*(Ideal.absNorm Q:ℝ))^s*\n",
+      "olean_absent_at_write": true
+    }
+  ],
+  "skipped": []
+}

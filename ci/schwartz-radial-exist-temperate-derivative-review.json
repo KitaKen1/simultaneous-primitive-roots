@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "status": "two sources frozen; static original/proof/capture and full-byte inverse audit; next whole-source integration pending",
+  "source_file_count": 2,
+  "proof_block_count": 10,
+  "scope": "Only four SchwartzRadial and six Exist proof blocks. Same coefficient functions, HasDerivAt terms, functions, complex/real exponential formulas, SchwartzMap definitions/data, arbitrary derivative orders, all theorem headers/hypotheses/imports and limits preserved.",
+  "justification": "Stock composed continuous linear maps ofRealCLM.comp reCLM/imCLM prove temperate growth of exactly the original z.re/im complex coefficients, matching the already passed Complex source. Existing HasDerivAt.id.div_const, Real.exp chain, pEulerChain.symm and hasDerivAt_exp_smul_const arguments remain identical. rfl first handles additional stock record/reflexive convert goals and original simp/funext/ring or Complex.exp_eq_exp_ℂ rewrite proofs handle the same mathematical goals.",
+  "sources": [
+    {
+      "file": "vendor/ArtinPrimitiveRoots/A2/Proofs/A2_PROBE/SchwartzRadial.lean",
+      "before_sha256": "a627d45673d5b014f5a7599b7147c348f409b96354ebd757af6c0335a7884ad0",
+      "after_sha256": "5909463485e8d1c0e36d512ae8666a389930f3168ecf9acd44db70f7615bb652",
+      "edits": [
+        {
+          "before": "  have hre : (fun z : ℂ => (z.re : ℂ)).HasTemperateGrowth := by fun_prop",
+          "after": "  have hre : (fun z : ℂ => (z.re : ℂ)).HasTemperateGrowth := by\n    exact (Complex.ofRealCLM.comp Complex.reCLM).hasTemperateGrowth"
+        },
+        {
+          "before": "  have him : (fun z : ℂ => (z.im : ℂ)).HasTemperateGrowth := by fun_prop",
+          "after": "  have him : (fun z : ℂ => (z.im : ℂ)).HasTemperateGrowth := by\n    exact (Complex.ofRealCLM.comp Complex.imCLM).hasTemperateGrowth"
+        },
+        {
+          "before": "      convert (hasDerivAt_id t).div_const 2 using 1 <;> simp",
+          "after": "      convert (hasDerivAt_id t).div_const 2 using 1 <;> first | rfl | simp"
+        },
+        {
+          "before": "      convert (Real.hasDerivAt_exp (t / 2)).comp t hdiv using 1\n      · funext u\n        simp only [Function.comp_apply]\n      · ring",
+          "after": "      convert (Real.hasDerivAt_exp (t / 2)).comp t hdiv using 1 <;>\n        first\n        | rfl\n        | (funext u; simp only [Function.comp_apply])\n        | ring"
+        }
+      ],
+      "original_sha256": "a627d45673d5b014f5a7599b7147c348f409b96354ebd757af6c0335a7884ad0",
+      "source_freeze_sha256": "5909463485e8d1c0e36d512ae8666a389930f3168ecf9acd44db70f7615bb652",
+      "original_source_matches_manifest": true,
+      "inverse_recovers_all_original_bytes": true,
+      "all_public_private_headers_byte_identical": true,
+      "public_private_declaration_header_count": 3,
+      "unified_diff": "--- vendor/ArtinPrimitiveRoots/A2/Proofs/A2_PROBE/SchwartzRadial.lean (original)\n+++ vendor/ArtinPrimitiveRoots/A2/Proofs/A2_PROBE/SchwartzRadial.lean (ported)\n@@ -21,8 +21,10 @@\n /-- Every logarithmic radial derivative of a complex Schwartz function is Schwartz. -/\n theorem normDeriv_schwartz (f : SchwartzMap ℂ ℂ) (j : ℕ) :\n     ∃ g : SchwartzMap ℂ ℂ, ∀ z : ℂ, A1.normDeriv j f z = g z := by\n-  have hre : (fun z : ℂ => (z.re : ℂ)).HasTemperateGrowth := by fun_prop\n-  have him : (fun z : ℂ => (z.im : ℂ)).HasTemperateGrowth := by fun_prop\n+  have hre : (fun z : ℂ => (z.re : ℂ)).HasTemperateGrowth := by\n+    exact (Complex.ofRealCLM.comp Complex.reCLM).hasTemperateGrowth\n+  have him : (fun z : ℂ => (z.im : ℂ)).HasTemperateGrowth := by\n+    exact (Complex.ofRealCLM.comp Complex.imCLM).hasTemperateGrowth\n   have heuler (g : SchwartzMap ℂ ℂ) (z : ℂ) :\n       schwartzEuler g z = (1 / 2 : ℂ) * fderiv ℝ g z z := by\n     have hz : (z.re : ℝ) • (1 : ℂ) + z.im • Complex.I = z := by\n@@ -48,13 +50,14 @@\n       HasDerivAt (fun u : ℝ => (Real.exp (u / 2) : ℂ))\n         ((Real.exp (t / 2) / 2 : ℝ) : ℂ) t := by\n     have hdiv : HasDerivAt (fun u : ℝ => u / 2) (1 / 2) t := by\n-      convert (hasDerivAt_id t).div_const 2 using 1 <;> simp\n+      convert (hasDerivAt_id t).div_const 2 using 1 <;> first | rfl | simp\n     have hreal : HasDerivAt (fun u : ℝ => Real.exp (u / 2))\n         (Real.exp (t / 2) / 2) t := by\n-      convert (Real.hasDerivAt_exp (t / 2)).comp t hdiv using 1\n-      · funext u\n-        simp only [Function.comp_apply]\n-      · ring\n+      convert (Real.hasDerivAt_exp (t / 2)).comp t hdiv using 1 <;>\n+        first\n+        | rfl\n+        | (funext u; simp only [Function.comp_apply])\n+        | ring\n     exact hreal.ofReal_comp\n   have hchain (g : SchwartzMap ℂ ℂ) (z : ℂ) (t : ℝ) :\n       deriv (fun u : ℝ => g ((Real.exp (u / 2) : ℂ) * z)) t =\n",
+      "validation": "static original/proof/capture audit; next root whole-source integration pending; no direct Lean checks",
+      "public_private_declaration_header_capture_count": 2
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/A2/Proofs/A2_WEIGHTS/Exist.lean",
+      "before_sha256": "630259c35c491fef827a0138f9354f92e7f1eef1d4161c93238aeb713a2c31c3",
+      "after_sha256": "5a55f322c2fb94a6696228ba804e6667d59d4ab4afc54f915c44a3341021db48",
+      "edits": [
+        {
+          "before": "    (fun z : ℂ => (z.re : ℂ)).HasTemperateGrowth := by\n  fun_prop",
+          "after": "    (fun z : ℂ => (z.re : ℂ)).HasTemperateGrowth := by\n  exact (Complex.ofRealCLM.comp Complex.reCLM).hasTemperateGrowth"
+        },
+        {
+          "before": "    (fun z : ℂ => (z.im : ℂ)).HasTemperateGrowth := by\n  fun_prop",
+          "after": "    (fun z : ℂ => (z.im : ℂ)).HasTemperateGrowth := by\n  exact (Complex.ofRealCLM.comp Complex.imCLM).hasTemperateGrowth"
+        },
+        {
+          "before": "    convert (hasDerivAt_id t).div_const 2 using 1 <;> simp",
+          "after": "    convert (hasDerivAt_id t).div_const 2 using 1 <;> first | rfl | simp"
+        },
+        {
+          "before": "    convert (Real.hasDerivAt_exp (t / 2)).comp t hdiv using 1\n    · funext u\n      simp only [Function.comp_apply]\n    · ring",
+          "after": "    convert (Real.hasDerivAt_exp (t / 2)).comp t hdiv using 1 <;>\n      first\n      | rfl\n      | (funext u; simp only [Function.comp_apply])\n      | ring"
+        },
+        {
+          "before": "      convert hdiffAt.hasDerivAt using 1\n      exact (pEulerChain g z t).symm",
+          "after": "      convert hdiffAt.hasDerivAt using 1 <;>\n        first | rfl | exact (pEulerChain g z t).symm"
+        },
+        {
+          "before": "    convert hasDerivAt_exp_smul_const (𝕂 := ℝ) (-s) (0 : ℝ) using 1\n    · ext t\n      rw [← Complex.exp_eq_exp_ℂ]\n      congr 1\n      change -((t : ℂ) * s) = (t : ℂ) * (-s)\n      ring\n    · simp",
+          "after": "    convert hasDerivAt_exp_smul_const (𝕂 := ℝ) (-s) (0 : ℝ) using 1 <;>\n      first\n      | rfl\n      | (ext t\n         rw [← Complex.exp_eq_exp_ℂ]\n         congr 1\n         change -((t : ℂ) * s) = (t : ℂ) * (-s)\n         ring)\n      | simp"
+        }
+      ],
+      "original_sha256": "630259c35c491fef827a0138f9354f92e7f1eef1d4161c93238aeb713a2c31c3",
+      "source_freeze_sha256": "5a55f322c2fb94a6696228ba804e6667d59d4ab4afc54f915c44a3341021db48",
+      "original_source_matches_manifest": true,
+      "inverse_recovers_all_original_bytes": true,
+      "all_public_private_headers_byte_identical": true,
+      "public_private_declaration_header_count": 60,
+      "unified_diff": "--- vendor/ArtinPrimitiveRoots/A2/Proofs/A2_WEIGHTS/Exist.lean (original)\n+++ vendor/ArtinPrimitiveRoots/A2/Proofs/A2_WEIGHTS/Exist.lean (ported)\n@@ -883,11 +883,11 @@\n \n private theorem pReCoeff_temperate :\n     (fun z : ℂ => (z.re : ℂ)).HasTemperateGrowth := by\n-  fun_prop\n+  exact (Complex.ofRealCLM.comp Complex.reCLM).hasTemperateGrowth\n \n private theorem pImCoeff_temperate :\n     (fun z : ℂ => (z.im : ℂ)).HasTemperateGrowth := by\n-  fun_prop\n+  exact (Complex.ofRealCLM.comp Complex.imCLM).hasTemperateGrowth\n \n private def pEulerSchwartz (f : SchwartzMap ℂ ℂ) : SchwartzMap ℂ ℂ :=\n   (1 / 2 : ℂ) •\n@@ -924,13 +924,14 @@\n     HasDerivAt (fun u : ℝ => (Real.exp (u / 2) : ℂ))\n       ((Real.exp (t / 2) / 2 : ℝ) : ℂ) t := by\n   have hdiv : HasDerivAt (fun u : ℝ => u / 2) (1 / 2) t := by\n-    convert (hasDerivAt_id t).div_const 2 using 1 <;> simp\n+    convert (hasDerivAt_id t).div_const 2 using 1 <;> first | rfl | simp\n   have hexp : HasDerivAt (fun u : ℝ => Real.exp (u / 2))\n       (Real.exp (t / 2) / 2) t := by\n-    convert (Real.hasDerivAt_exp (t / 2)).comp t hdiv using 1\n-    · funext u\n-      simp only [Function.comp_apply]\n-    · ring\n+    convert (Real.hasDerivAt_exp (t / 2)).comp t hdiv using 1 <;>\n+      first\n+      | rfl\n+      | (funext u; simp only [Function.comp_apply])\n+      | ring\n   exact hexp.ofReal_comp\n \n private theorem pEulerChain (f : SchwartzMap ℂ ℂ) (z : ℂ) (t : ℝ) :\n@@ -1682,8 +1683,8 @@\n     have hchain : HasDerivAt\n         (fun u : ℝ => g ((Real.exp (u / 2) : ℂ) * z))\n         (pEulerSchwartz g ((Real.exp (t / 2) : ℂ) * z)) t := by\n-      convert hdiffAt.hasDerivAt using 1\n-      exact (pEulerChain g z t).symm\n+      convert hdiffAt.hasDerivAt using 1 <;>\n+        first | rfl | exact (pEulerChain g z t).symm\n     simpa [F, F'] using hchain.mul_const ((q z : ℂ) ^ s)\n   have hUnder := hasDerivAt_integral_of_dominated_loc_of_deriv_le\n     (Metric.ball_mem_nhds (0 : ℝ) one_pos)\n@@ -1746,13 +1747,15 @@\n       fun t : ℝ => Complex.exp (-((t : ℂ) * s)) *\n         ∫ z, g z * (q z : ℂ) ^ s ∂μ := funext hF_scalar\n   have hexp : HasDerivAt (fun t : ℝ => Complex.exp (-((t : ℂ) * s))) (-s) 0 := by\n-    convert hasDerivAt_exp_smul_const (𝕂 := ℝ) (-s) (0 : ℝ) using 1\n-    · ext t\n-      rw [← Complex.exp_eq_exp_ℂ]\n-      congr 1\n-      change -((t : ℂ) * s) = (t : ℂ) * (-s)\n-      ring\n-    · simp\n+    convert hasDerivAt_exp_smul_const (𝕂 := ℝ) (-s) (0 : ℝ) using 1 <;>\n+      first\n+      | rfl\n+      | (ext t\n+         rw [← Complex.exp_eq_exp_ℂ]\n+         congr 1\n+         change -((t : ℂ) * s) = (t : ℂ) * (-s)\n+         ring)\n+      | simp\n   have hscalar := hexp.mul_const (∫ z, g z * (q z : ℂ) ^ s ∂μ)\n   rw [hFfun] at hUnder\n   have hderivEq := hUnder.2.unique hscalar\n",
+      "validation": "static original/proof/capture audit; next root whole-source integration pending; no direct Lean checks",
+      "public_private_declaration_header_capture_count": 59
+    }
+  ]
+}

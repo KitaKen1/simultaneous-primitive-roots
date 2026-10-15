@@ -1,0 +1,21 @@
+name = "simultaneous_primitive_roots_fc"
+version = "0.1.0"
+defaultTargets = ["FClikelean.SimultaneousPrimitiveRoots", "FClikelean.SquareConditionNecessary"]
+
+[leanOptions]
+autoImplicit = false
+relaxedAutoImplicit = false
+warn.sorry = false
+weak.linter.style.ams_attribute = true
+weak.linter.style.category_attribute = true
+weak.linter.style.conditional_formal_proof = true
+weak.linter.privateModule = true
+
+[[require]]
+name = "formal_conjectures"
+git = "https://github.com/google-deepmind/formal-conjectures"
+rev = "79eac378a26b46d30974cdb33962e0752591b79d"
+
+[[lean_lib]]
+name = "FClikelean"
+srcDir = "../.."

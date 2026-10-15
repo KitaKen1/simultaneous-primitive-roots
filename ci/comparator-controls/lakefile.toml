@@ -1,0 +1,11 @@
+name = "comparator_controls"
+version = "0.1.0"
+
+[[lean_lib]]
+name = "ControlChallenge"
+[[lean_lib]]
+name = "ControlSolution"
+[[lean_lib]]
+name = "ControlWrongType"
+[[lean_lib]]
+name = "ControlExtraAxiom"

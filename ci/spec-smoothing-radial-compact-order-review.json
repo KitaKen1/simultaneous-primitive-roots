@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "file": "vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_SMOOTHING/radialKernel_compact_control.lean",
+  "sites": [
+    51,
+    76,
+    78,
+    189,
+    230
+  ],
+  "before_sha256": "3bc80488d1340a8a078c4363ed6ee0de61ce038637b27177a39e6a9735e405a0",
+  "original_sha256": "3bc80488d1340a8a078c4363ed6ee0de61ce038637b27177a39e6a9735e405a0",
+  "after_sha256": "559bb9828979075e3069d05fc9358a0781a3940a9b869854083cf87e888b7c35",
+  "source_freeze_sha256": "559bb9828979075e3069d05fc9358a0781a3940a9b869854083cf87e888b7c35",
+  "inverse_recovers_all_original_bytes": true,
+  "edits": [
+    {
+      "before": "hpreUnique hxT (i := n) (by simp)",
+      "after": "hpreUnique hxT (i := n) (ENat.natCast_le_of_coe_top_le_withTop le_rfl n)"
+    },
+    {
+      "before": "(hsecAt.of_le (by simp))",
+      "after": "(hsecAt.of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl n))"
+    },
+    {
+      "before": "(hjointAt.of_le (by simp))",
+      "after": "(hjointAt.of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl n))"
+    },
+    {
+      "before": "ContinuousOn.continuousOn_iteratedFDeriv hjoint hSopen (by simp)",
+      "after": "ContinuousOn.continuousOn_iteratedFDeriv hjoint hSopen\n        (ENat.natCast_le_of_coe_top_le_withTop le_rfl n)"
+    },
+    {
+      "before": "(hAt.of_le (by simp))",
+      "after": "(hAt.of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl n))"
+    }
+  ],
+  "scope": "Only five finite smooth-order proof arguments; all public/private declaration headers, hypotheses, function/kernel/set/data values, and remaining proofs are byte-identical to original.",
+  "justification": "Each old simp call supplies the premise (n : WithTop ENat) ≤ infinity from an existing ContDiff order infinity. The stock ENat.natCast_le_of_coe_top_le_withTop le_rfl n proves this for the same arbitrary original natural derivative order n; no restriction on n, kernel, smoothness, or support is added.",
+  "primary_sources": [
+    "Mathlib/Analysis/Calculus/ContDiff/Basic.lean:426 ContinuousLinearMap.iteratedFDerivWithin_comp_right requires i ≤ n",
+    "Mathlib/Analysis/Calculus/ContDiff/Defs.lean:1040 iteratedFDerivWithin_eq_iteratedFDeriv requires the same finite derivative-order ContDiffAt",
+    "Mathlib/Analysis/Calculus/ContDiff/Comp.lean:834 continuousOn_iteratedFDeriv requires k ≤ n",
+    "Mathlib/Data/ENat/Basic.lean:557 natCast_le_of_coe_top_le_withTop"
+  ],
+  "status": "saved; next whole-build integration pending; no direct Lean checks",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_SMOOTHING/radialKernel_compact_control.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_SMOOTHING/radialKernel_compact_control.lean (after)\n@@ -48,7 +48,7 @@\n     have hp' : p ∈ L ⁻¹' T := by rw [hpre]; exact hp\n     exact Set.mem_preimage.mp hp'\n   have hchain := L.iteratedFDerivWithin_comp_right hshift hTopen.uniqueDiffOn\n-    hpreUnique hxT (i := n) (by simp)\n+    hpreUnique hxT (i := n) (ENat.natCast_le_of_coe_top_le_withTop le_rfl n)\n   have hshiftEq : iteratedFDerivWithin ℝ n (fun x => f (x + R q)) T (L p) =\n       iteratedFDerivWithin ℝ n f (R q +ᵥ T) (L p + R q) := by\n     exact iteratedFDerivWithin_comp_add_right n (R q) (L p)\n@@ -73,9 +73,9 @@\n   have hjointAt : ContDiffAt ℝ ∞ f (p, q) :=\n     hf.contDiffAt (hSopen.mem_nhds ⟨hp, hq⟩)\n   have hsecWithin := iteratedFDerivWithin_eq_iteratedFDeriv (n := n)\n-    hposOpen.uniqueDiffOn (hsecAt.of_le (by simp)) hp\n+    hposOpen.uniqueDiffOn (hsecAt.of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl n)) hp\n   have hjointWithin := iteratedFDerivWithin_eq_iteratedFDeriv (n := n)\n-    hSopen.uniqueDiffOn (hjointAt.of_le (by simp)) (show (p, q) ∈ S from ⟨hp, hq⟩)\n+    hSopen.uniqueDiffOn (hjointAt.of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl n)) (show (p, q) ∈ S from ⟨hp, hq⟩)\n   calc\n     iteratedFDeriv ℝ n (fun x => f (x, q)) p =\n         iteratedFDerivWithin ℝ n (fun x => f (x, q)) (posSet F) p := hsecWithin.symm\n@@ -186,7 +186,8 @@\n       exact ⟨hUclosurePos hp, hcoordsPos w⟩\n     have hderivJointContinuous (n : ℕ) :\n         ContinuousOn (fun pq => iteratedFDeriv ℝ n joint pq) S :=\n-      ContinuousOn.continuousOn_iteratedFDeriv hjoint hSopen (by simp)\n+      ContinuousOn.continuousOn_iteratedFDeriv hjoint hSopen\n+        (ENat.natCast_le_of_coe_top_le_withTop le_rfl n)\n     have hsectionDerivContinuous (n : ℕ) (p : Coord F) (hp : p ∈ posSet F) :\n         ContinuousOn\n           (fun q => (iteratedFDeriv ℝ n joint (p, q)).compContinuousLinearMap\n@@ -227,7 +228,7 @@\n           (fun q => radialKernel F k₀ (ptX F q) w) p :=\n         hsectionSmooth w |>.contDiffAt (hUopen.mem_nhds hp)\n       have hwithinAt := iteratedFDerivWithin_eq_iteratedFDeriv (n := n)\n-        hUopen.uniqueDiffOn (hAt.of_le (by simp)) hp\n+        hUopen.uniqueDiffOn (hAt.of_le (ENat.natCast_le_of_coe_top_le_withTop le_rfl n)) hp\n       calc\n         iteratedFDeriv ℝ n (fun q => radialKernel F k₀ (ptX F q) w) p =\n             iteratedFDerivWithin ℝ n (fun q => radialKernel F k₀ (ptX F q) w) U p :=\n"
+}

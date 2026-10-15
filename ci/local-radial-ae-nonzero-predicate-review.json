@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "file": "vendor/ArtinPrimitiveRoots/Proofs/a2_bridges_impl2/LocalRadial.lean",
+  "line": 207,
+  "original_sha256": "9103c6b11afb135c0b7521ad38e0487309ddcbf7071a586ce45bd18e408ecf73",
+  "before_sha256": "9103c6b11afb135c0b7521ad38e0487309ddcbf7071a586ce45bd18e408ecf73",
+  "after_sha256": "5cfee80bc6ad5ba0b738325449646f5f2d91569029ffed4670942361ee7edb58",
+  "source_freeze_sha256": "5cfee80bc6ad5ba0b738325449646f5f2d91569029ffed4670942361ee7edb58",
+  "old_proof_lines": "    filter_upwards [volume.ae_ne (0 : ℂ)] with z hz\n    simp [s, hz]",
+  "new_proof_lines": "    filter_upwards [volume.ae_ne (0 : ℂ)] with z hz\n    change (z ≠ 0) = True\n    simp [hz]",
+  "inverse_restores_all_before_bytes": true,
+  "scope": "Only the local hs_ae proof in bridgeComplexMajorant_integrable exposes the same pointwise membership proposition. All declaration types, hypotheses, original s/univ sets, volume, functions, definition values and other proofs remain unchanged.",
+  "justification": "The filter_upwards goal for s =ᵐ[volume] univ is a pointwise equality of propositions. With s := {z | z ≠ 0}, change (z ≠ 0) = True exposes exactly this definitional equality. Existing hz : z ≠ 0 proves it by simp; no new premise is introduced. The original simp had retained opaque raw Set applications in stock 4.33.1.",
+  "status": "saved; next root whole-build integration pending; no direct Lean checks",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/Proofs/a2_bridges_impl2/LocalRadial.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Proofs/a2_bridges_impl2/LocalRadial.lean (after)\n@@ -205,7 +205,8 @@\n   have hg_aemeas_s : AEMeasurable g (volume.restrict s) := hg_cont.aemeasurable hs\n   have hs_ae : s =ᵐ[volume] univ := by\n     filter_upwards [volume.ae_ne (0 : ℂ)] with z hz\n-    simp [s, hz]\n+    change (z ≠ 0) = True\n+    simp [hz]\n   have hrestrict : volume.restrict s = volume := by\n     rw [Measure.restrict_congr_set hs_ae]\n     simp\n",
+  "inverse_restores_all_original_bytes": true
+}

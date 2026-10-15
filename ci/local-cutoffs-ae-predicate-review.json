@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/LocalCutoffs.lean",
+  "line": 215,
+  "before_sha256": "ae392c58b575659343a5f99546c8a362c451d11d5fde517dc507e9148255e6a1",
+  "after_sha256": "40d348a5dad8b506586f9a66703cedc605987487f7c481528635e57612fda11f",
+  "old_proof_lines": "    simp only [Set.mem_preimage,hyperbolicEuclideanCoordinates_toHyperbolic p hp]\n",
+  "new_proof_lines": "    change (hyperbolicEuclideanCoordinates (euclideanToHyperbolic p) ∈ S) = (p ∈ S)\n    rw [hyperbolicEuclideanCoordinates_toHyperbolic p hp]\n",
+  "inverse_restores_all_bytes": true,
+  "scope": "Only hset proof after filter_upwards; make the nested preimage membership predicate explicit as equality of propositions and apply the same coordinate inverse identity. Public declaration type, assumptions, sets, data definitions unchanged.",
+  "primary_source": "Filter.EventuallyEq is defined as eventual pointwise equality (Order/Filter/Defs.lean:297); =ᵐ notation is EventuallyEq at ae measure (MeasureTheory/OuterMeasure/AE.lean:69). The resulting set-predicate goal is Prop equality, not iff.",
+  "status": "saved; whole065 integration validation pending; no direct Lean checks",
+  "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Eisenstein/LocalCutoffs.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Eisenstein/LocalCutoffs.lean (after)\n@@ -212,7 +212,8 @@\n     hyperbolicEuclideanCoordinates_continuous.measurable hS\n   have hset : euclideanToHyperbolic ⁻¹' (hyperbolicEuclideanCoordinates ⁻¹' S)=ᵐ[hyperbolicEuclideanVolume]S := by\n     filter_upwards [hyperbolicEuclideanVolume_ae_positive] with p hp\n-    simp only [Set.mem_preimage,hyperbolicEuclideanCoordinates_toHyperbolic p hp]\n+    change (hyperbolicEuclideanCoordinates (euclideanToHyperbolic p) ∈ S) = (p ∈ S)\n+    rw [hyperbolicEuclideanCoordinates_toHyperbolic p hp]\n   refine ⟨euclideanToHyperbolic_measurable,?_⟩\n   rw [hyperbolicVolume,Measure.restrict_map euclideanToHyperbolic_measurable hU,\n     Measure.restrict_congr_set hset]\n"
+}

@@ -1,0 +1,27 @@
+{
+  "file": "vendor/ArtinPrimitiveRoots/Proofs/th_family_lead_p/SpecResidueBounds.lean",
+  "before_sha256": "ec57f17c0af58df6983ef858131d2d913782a9425ea1fd1d6221d3c9906669b9",
+  "after_sha256": "5ce1f0807d1592137d2ba43dd672c34c773e6c0ec08164f6cda47ac3a0ed6a5d",
+  "edits": [
+    {
+      "before": "    ContinuousOn.continuousOn_iteratedFDeriv d.res_smooth specPosSet_isOpen (by simp)",
+      "after": "    ContinuousOn.continuousOn_iteratedFDeriv d.res_smooth specPosSet_isOpen\n      (ENat.natCast_le_of_coe_top_le_withTop le_rfl n)"
+    },
+    {
+      "before": "    ContinuousOn.continuousOn_iteratedFDeriv hsmooth specPosSet_isOpen (by simp)",
+      "after": "    ContinuousOn.continuousOn_iteratedFDeriv hsmooth specPosSet_isOpen\n      (ENat.natCast_le_of_coe_top_le_withTop le_rfl n)"
+    }
+  ],
+  "schema_version": 1,
+  "original_sha256": "ec57f17c0af58df6983ef858131d2d913782a9425ea1fd1d6221d3c9906669b9",
+  "source_freeze_sha256": "5ce1f0807d1592137d2ba43dd672c34c773e6c0ec08164f6cda47ac3a0ed6a5d",
+  "original_source_matches_manifest": true,
+  "inverse_recovers_all_before_bytes": true,
+  "inverse_recovers_all_original_bytes": true,
+  "public_private_theorem_header_count": 3,
+  "all_public_private_headers_byte_identical": true,
+  "scope": "Only the two order-witness proof arguments to the existing continuousOn_iteratedFDeriv calls. Original arbitrary n, functions, posSet, compact sets, hypotheses, three public/private theorem headers and definition/data values unchanged.",
+  "justification": "Stock ContinuousOn.continuousOn_iteratedFDeriv requires n ≤ the ContDiffOn order. Existing d.res_smooth is ContDiffOn ℝ infinity (Spec/Interface.lean:352), and existing hsmooth is explicitly ((top : ENat) : WithTop ENat). ENat.natCast_le_of_coe_top_le_withTop le_rfl n proves exactly the same arbitrary finite-n comparison to this infinity; no assumption or finite-order restriction is added.",
+  "status": "source frozen; static original/proof/capture audit; next root whole-build integration pending; no direct Lean checks",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/Proofs/th_family_lead_p/SpecResidueBounds.lean (original)\n+++ vendor/ArtinPrimitiveRoots/Proofs/th_family_lead_p/SpecResidueBounds.lean (ported)\n@@ -34,7 +34,8 @@\n     fun p => d.res (ArtinPrimitiveRoots.A1.Spec.ptX F p)\n   have hcont : ContinuousOn (iteratedFDeriv ℝ n f)\n       (ArtinPrimitiveRoots.A1.Spec.posSet F) :=\n-    ContinuousOn.continuousOn_iteratedFDeriv d.res_smooth specPosSet_isOpen (by simp)\n+    ContinuousOn.continuousOn_iteratedFDeriv d.res_smooth specPosSet_isOpen\n+      (ENat.natCast_le_of_coe_top_le_withTop le_rfl n)\n   have himage : IsCompact (iteratedFDeriv ℝ n f '' K) :=\n     hK.image_of_continuousOn (hcont.mono hKpos)\n   obtain ⟨C, hC⟩ := himage.isBounded.subset_closedBall (0 : _)\n@@ -63,7 +64,8 @@\n       (C.d j i).res_smooth.const_smul (C.c j i (1 / 6))\n   have hcont : ContinuousOn (iteratedFDeriv ℝ n f)\n       (ArtinPrimitiveRoots.A1.Spec.posSet F) :=\n-    ContinuousOn.continuousOn_iteratedFDeriv hsmooth specPosSet_isOpen (by simp)\n+    ContinuousOn.continuousOn_iteratedFDeriv hsmooth specPosSet_isOpen\n+      (ENat.natCast_le_of_coe_top_le_withTop le_rfl n)\n   have himage : IsCompact (iteratedFDeriv ℝ n f '' K) :=\n     hK.image_of_continuousOn (hcont.mono hKpos)\n   obtain ⟨Cbound, hCbound⟩ := himage.isBounded.subset_closedBall (0 : _)\n"
+}

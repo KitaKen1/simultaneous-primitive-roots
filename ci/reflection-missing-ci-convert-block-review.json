@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "file": "vendor/ArtinPrimitiveRoots/A2/Reflection/Missing.lean",
+  "owner": "review_ci",
+  "status": "three assigned proof blocks saved; shared source combined SHA/audit intentionally deferred until every editor completes",
+  "source_edit_mechanism": "one apply_patch call, exactly three exact-context hunks; no full-file write",
+  "edits": [
+    {
+      "reported_line_round096": 9945,
+      "before": "    convert h1.add h2 using 1 <;> ext T <;> dsimp [boundAt, momentFun] <;> ring",
+      "after": "    convert h1.add h2 using 1 <;>\n      first | rfl | (ext T <;> dsimp [boundAt, momentFun] <;> ring)",
+      "proof_anchor": "hBoundAtInt"
+    },
+    {
+      "reported_line_round096": 10013,
+      "before": "      convert h1.add h2 using 1 <;> ext T <;> dsimp [localBound, momentFun] <;> ring",
+      "after": "      convert h1.add h2 using 1 <;>\n        first | rfl | (ext T <;> dsimp [localBound, momentFun] <;> ring)",
+      "proof_anchor": "hLocalBoundInt"
+    },
+    {
+      "reported_line_round096": 14113,
+      "before": "    convert hi.const_mul (a i) using 1\n    funext T\n    dsimp only [f]\n    rw [div_div]\n    ring",
+      "after": "    convert hi.const_mul (a i) using 1 <;>\n      first | rfl | (funext T; dsimp only [f]; rw [div_div]; ring)",
+      "proof_anchor": "rf_profile_absolute_series.hf"
+    }
+  ],
+  "each_local_inverse_recovery_verified": true,
+  "scope": "Only assigned round096 sites9945/10013/14113; all original convert terms, bounds/functions/measures, ext/funext mathematics and local declarations preserved. No declaration header/hypothesis/definition/data changes and no new limits.",
+  "justification": "The first two actual convert goals include ContinuousENorm ℝ record equality, so rfl precedes the exact original ext T/dsimp same list/ring proof. The third actual record equality is Real.measureSpace.toMeasurableSpace = Real.measurableSpace; rfl precedes exactly the original funext T/dsimp only [f]/rw [div_div]/ring proof. All generated mathematical goals retain their original proof.",
+  "full_file_sha_and_arithmetic_ledger_not_updated": true,
+  "validation": "No direct Lean build or heavy checks; next root whole-source integration pending; analysis owns combined final audit."
+}

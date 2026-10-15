@@ -1,0 +1,10 @@
+{
+  "file": "vendor/ClassFieldTheory/GlobalClassFieldTheory/Reciprocity/IdeleClassDirectLimitExtensionNorm.lean",
+  "lean": "4.33.1",
+  "ported_sha256": "15069866094cfc6b9e53707397b8149211269163d7719157a7a2e024da3d5da9",
+  "original_sha256": "9fce89b7a6c035b6269e6aa5f64fae070e54ea15bd95ec2f935fd9b0e3c9c465",
+  "header_check": "Public fixedFieldInclusion theorem and private rationalFixedFieldInclusionComparison headers byte-identical to original.",
+  "prefix_validation": {"log": "/private/tmp/spr-extensionnorm-heq-bridge4331-round10.log", "exit_code": 0, "artifacts_generated": false},
+  "whole_file_validation": {"log": "lean/.lake/port-round-036.log", "status": "Built", "seconds": 155, "diagnostics": "warnings only; relativeNorm suffix included"},
+  "proof_change": "Two private algebra-record transport lemmas; no new axioms or public assumptions. Later suffix unchanged."
+}

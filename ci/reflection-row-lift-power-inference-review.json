@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "file": "vendor/ArtinPrimitiveRoots/A2/Proofs/A2_PROBE/ReflectionRowLift.lean",
+  "original_sha256": "85e9e51f25df47b2384a496d766d922953f4ce87ab6b9c5f2e249072fd934f81",
+  "before_sha256": "031dc551171d3bc7ed90812e55bb7b80ffaa2cc2a83e3dbf52cb2b3d315e7f37",
+  "after_sha256": "65e8aba6a87f0945cce9fcd8c9c7e487940566804d49b01b78949e0d3fd2eb8a",
+  "source_freeze_sha256": "65e8aba6a87f0945cce9fcd8c9c7e487940566804d49b01b78949e0d3fd2eb8a",
+  "original_source_matches_manifest": true,
+  "edits": [
+    {
+      "before": "      exact Left.pow_le_one_of_le FractionalIdeal.coeIdeal_le_one _\n",
+      "after": "      exact Left.pow_le_one_of_le\n        (M := FractionalIdeal (nonZeroDivisors (𝓞 F)) F)\n        (a := (v.asIdeal : FractionalIdeal (nonZeroDivisors (𝓞 F)) F))\n        FractionalIdeal.coeIdeal_le_one n\n",
+      "count": 1
+    }
+  ],
+  "inverse_recovers_all_before_bytes": true,
+  "inverse_full_port_edits_recovers_all_original_bytes": true,
+  "all_public_private_headers_byte_identical": true,
+  "public_private_declaration_header_count": 1,
+  "prior_port_change": "One ite_eq_left hvS → if_pos hvS equivalent positive branch simp name; reversing it after the new proof argument block restores the full original bytes.",
+  "scope": "Same existing Left.pow_le_one_of_le bound with only the original FractionalIdeal M, ideal coercion a and existing natural exponent n made explicit; all theorem types/hypotheses/imports/functions/definitions/data and other proofs retained.",
+  "justification": "Stock Left.pow_le_one_of_le (Algebra/Order/Monoid/Unbundled/Pow.lean:43) takes ha : a ≤ 1 and n : Nat with implicit M/a. The original goal after hn and zpow_natCast already has M = FractionalIdeal (nonZeroDivisors (𝓞 F)) F, a = coerced v.asIdeal and exponent n; the repaired invocation names exactly these and reuses unchanged FractionalIdeal.coeIdeal_le_one. It resolves old One/Monoid inference while preserving the same arbitrary-natural-power bound.",
+  "status": "static original/proof/capture audit; source frozen; root095 integration pending; no direct Lean checks",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/A2/Proofs/A2_PROBE/ReflectionRowLift.lean (before)\n+++ vendor/ArtinPrimitiveRoots/A2/Proofs/A2_PROBE/ReflectionRowLift.lean (after)\n@@ -56,7 +56,10 @@\n       intro v hv\n       obtain ⟨n, hn⟩ := Int.eq_ofNat_of_zero_le (hexponent_nonneg v)\n       rw [hn, zpow_natCast]\n-      exact Left.pow_le_one_of_le FractionalIdeal.coeIdeal_le_one _\n+      exact Left.pow_le_one_of_le\n+        (M := FractionalIdeal (nonZeroDivisors (𝓞 F)) F)\n+        (a := (v.asIdeal : FractionalIdeal (nonZeroDivisors (𝓞 F)) F))\n+        FractionalIdeal.coeIdeal_le_one n\n     have hJne : Jfrac ≠ 0 := by\n       dsimp [Jfrac]\n       rw [Finsupp.prod]\n",
+  "full_original_diff": "--- vendor/ArtinPrimitiveRoots/A2/Proofs/A2_PROBE/ReflectionRowLift.lean (original)\n+++ vendor/ArtinPrimitiveRoots/A2/Proofs/A2_PROBE/ReflectionRowLift.lean (ported)\n@@ -43,7 +43,7 @@\n           apply (WithZero.log_le_iff_le_exp ((v.valuation F).ne_zero_iff.mpr hmF)).2\n           simpa using m.property v hvS\n         change 0 ≤ exponentFun v\n-        simp only [exponentFun, ite_eq_left hvS]\n+        simp only [exponentFun, if_pos hvS]\n         dsimp [counts, principal]\n         rw [qs_nq0_count_spanSingleton_eq_neg_log_valuation v (m : F) hmF]\n         linarith\n@@ -56,7 +56,10 @@\n       intro v hv\n       obtain ⟨n, hn⟩ := Int.eq_ofNat_of_zero_le (hexponent_nonneg v)\n       rw [hn, zpow_natCast]\n-      exact Left.pow_le_one_of_le FractionalIdeal.coeIdeal_le_one _\n+      exact Left.pow_le_one_of_le\n+        (M := FractionalIdeal (nonZeroDivisors (𝓞 F)) F)\n+        (a := (v.asIdeal : FractionalIdeal (nonZeroDivisors (𝓞 F)) F))\n+        FractionalIdeal.coeIdeal_le_one n\n     have hJne : Jfrac ≠ 0 := by\n       dsimp [Jfrac]\n       rw [Finsupp.prod]\n"
+}

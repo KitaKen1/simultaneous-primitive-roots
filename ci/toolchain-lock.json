@@ -1,0 +1,28 @@
+{
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "mathlib": {
+    "repository": "https://github.com/leanprover-community/mathlib4",
+    "commit": "0df444a360eaa60ab8c11dca51a86af692955474"
+  },
+  "comparator": {
+    "repository": "https://github.com/leanprover/comparator",
+    "commit": "3927ad383f208ae977c340a91c48ac9b497d2097",
+    "upstream_toolchain": "leanprover/lean4:v4.33.0",
+    "adaptations": [
+      "lean-toolchain pinned to v4.33.1",
+      "lean4export dependency resolved from the vendored sibling; checking algorithms unchanged"
+    ]
+  },
+  "lean4export": {
+    "repository": "https://github.com/leanprover/lean4export",
+    "commit": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "upstream_toolchain": "leanprover/lean4:v4.33.0",
+    "adaptations": [
+      "lean-toolchain pinned to v4.33.1; exporter implementation unchanged"
+    ]
+  },
+  "landrun": {
+    "repository": "https://github.com/Zouuup/landrun",
+    "commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4"
+  }
+}

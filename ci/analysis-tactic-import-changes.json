@@ -1,0 +1,602 @@
+{
+  "target_toolchain": "leanprover/lean4:v4.33.1",
+  "target_mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "method": "Replace parent-authorized Mathlib.Tactic headers with Common and individually used tactic modules. Preserve every mathematical-owner import and explicitly supply concrete norm/measure instances where needed. Source bodies are byte-for-byte preserved. Compiler validation is performed by the root-owned whole Lake build.",
+  "changes": [
+    {
+      "file": "vendor/OAI/NumberTheory/PrimeGaps/Indices.lean",
+      "before_sha256": "6f2005392053af98d9eefd055f8034a768dd2965ea7947e00e865a8f973820e7",
+      "after_sha256": "71ca53844e8d7d1583b3648b822a8d7e7833cd1b60286907984231f8e15426c5",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.ByContra",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.SplitIfs"
+      ],
+      "used_tactic_tokens": [
+        "ring",
+        "linarith",
+        "nlinarith",
+        "norm_num",
+        "positivity",
+        "field_simp",
+        "exact_mod_cast",
+        "omega",
+        "split_ifs",
+        "by_contra!"
+      ],
+      "body_unchanged": true,
+      "applied": true,
+      "compiler_validated": true,
+      "validation_log": "lean/.lake/port-round-012.log",
+      "validation_result": "Whole Lake build succeeded for OAI.NumberTheory.PrimeGaps.Indices (430s)."
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/A1/Proofs/A1_WEIL/NormCoset.lean",
+      "before_sha256": "272dc37c14ffaab618de9cbb2903c347fdf2647e473fc397a5a27620771283c0",
+      "after_sha256": "ff6a7ea8d7c0df51649a15633cd5577fc7e0881954e987dd94692eff5079d318",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Ring"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Source body manually inspected; preserve explicit mathematical-owner imports and add required implicit-instance imports.",
+      "notes": [],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd6b/GroupedCounting.lean",
+      "before_sha256": "dd2d24516326ebf79bff2dc8b30ac919c9a7d18b2d2446df713f1d752fadda86",
+      "after_sha256": "43a54bd2275e509dafc7c277a2330c56ecdc9425c4bb395f207ba9c6508b3c92",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Mathlib.Tactic.Common"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Source body manually inspected; preserve explicit mathematical-owner imports and add required implicit-instance imports.",
+      "notes": [],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd4c/FiniteTensor.lean",
+      "before_sha256": "b3ba3a6ea0fbe7b00cd1409038891994f4ad6215897878e0e64e83b58c96e889",
+      "after_sha256": "6b936d82184ae0718a2ca779261dc5a2cae8dd9740d3c97c3f9bf73fcb946c59",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Mathlib.Analysis.Complex.Norm",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Ring"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Source body manually inspected; preserve explicit mathematical-owner imports and add required implicit-instance imports.",
+      "notes": [
+        "Complex.instNorm and instNormedAddCommGroup are declared in old Analysis.Complex.Norm; no NormedField operation is used by this theorem."
+      ],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/R_TYPEII/FamilyUniformization.lean",
+      "before_sha256": "f56220d2501c00f834f1e29c02221950cf2f06255036d0814ca754aa8f5e1652",
+      "after_sha256": "78fa7925bd5aa4fbb2f780dbf397d632339821da3b2199a0822f7e5d7cea618a",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Source body manually inspected; preserve explicit mathematical-owner imports and add required implicit-instance imports.",
+      "notes": [],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd4c/PacketBound.lean",
+      "before_sha256": "3e2c23adf739f89577691cf4f8ef52127235724d4f8bc1170c79453995551316",
+      "after_sha256": "7a00d9d1321d559f7fa3663709e3cb67bb8412dead8ee8b6ed5d7c2ca5da41f3",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Source body manually inspected; preserve explicit mathematical-owner imports and add required implicit-instance imports.",
+      "notes": [],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/EgyptianFractions/VaughanBilinear.lean",
+      "before_sha256": "12539ff9a99a9f8056eb64095fe04c443cffcf3b878944f13ab487f68b228f7a",
+      "after_sha256": "1514c0a1ed0bc9e037bf63a62e57d0a6f6c6bd7ac1ddc988f79de3314691ed0f",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.SplitIfs"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Manually reviewed proof command usages and concrete norm/measure instance requirements; all existing mathematical-owner imports preserved.",
+      "notes": [],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd4c/MinorPacket.lean",
+      "before_sha256": "82427e6587ea8d3b144d2ecf898f198aa5741feeb73a48e2785c207c536bafb1",
+      "after_sha256": "24f62df0a4566bd53813ea9568d99da016e8690e91f55f568c2cb1546e46e0d4",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Manually reviewed proof command usages and concrete norm/measure instance requirements; all existing mathematical-owner imports preserved.",
+      "notes": [],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/R_TYPEII/FrequencyGrowth.lean",
+      "before_sha256": "5d3bc53f4fa7175c594b7e12089f6591fd1ffb593bf0c84c64fa4626ae8f0bdb",
+      "after_sha256": "51bd08b0af82d1c2e1fa8a36f2d01a5e44609e0790cff805f862c7607fc956dc",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Manually reviewed proof command usages and concrete norm/measure instance requirements; all existing mathematical-owner imports preserved.",
+      "notes": [],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd4c/CutoffIntegral.lean",
+      "before_sha256": "792c88cfb0e98471d843767e9734738764ed62dabf1bd7b40da433649d61d588",
+      "after_sha256": "bd49ac2787e2b6a752b5e3e51ca30728779de47e5a51a443e0ff160756c4f4e8",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Ring"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Manually reviewed proof command usages and concrete norm/measure instance requirements; all existing mathematical-owner imports preserved.",
+      "notes": [
+        "Make the concrete complex NormedField/NormedSpace instances explicit rather than inheriting them through Mathlib.Tactic.",
+        "The theorem uses default volume on the real line; import its concrete MeasureSpace instance explicitly."
+      ],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/TypeII/Proofs/pd6b/CoverVolume.lean",
+      "before_sha256": "5b6453d58899450fc6ef0c424dac135dab624a92ca9647bc0c62f78fd5a1cc1a",
+      "after_sha256": "5cc8c4355da795e820f8fd63f978a1ce359e00db5b01704404e956f91a87c0f3",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Manually reviewed proof command usages and concrete norm/measure instance requirements; all existing mathematical-owner imports preserved.",
+      "notes": [],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/A2/Proofs/A2_ZERO_DETECT/Sobolev.lean",
+      "before_sha256": "ae1a674b187bc78c5710d4135c0a79fbed9e4c51663432f524add3c2bdcf081c",
+      "after_sha256": "7685b1b4a1957ec191fbc345858a93f4d61a1892f5e2409a0bc59e344b993edb",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.GCongr",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Manually reviewed proof command usages and concrete norm/measure instance requirements; all existing mathematical-owner imports preserved.",
+      "notes": [],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/A2/Proofs/A2-QS-POISSON/P2/Contour.lean",
+      "before_sha256": "577fc6ebf8fa12624ad330e2d23eab7eb1709755ae66bdb6607666be6d895a30",
+      "after_sha256": "0d1bcd12be3cb34846c8ef95bbd07c4c593ddfa0bd6b15177f0adc0ea526e9cf",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.LinearCombination",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Manually reviewed proof command usages and concrete norm/measure instance requirements; all existing mathematical-owner imports preserved.",
+      "notes": [],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Splitting/Proofs/S7_EXT_GAMMA/Helpers.lean",
+      "before_sha256": "772ce2c3dd0a409c996a279bdaf87513ba1bddbdf5452dbb391f40b27d79a0a3",
+      "after_sha256": "abf78c506b1ffff63c2796fc2d72f69a2df501bf33ef2efee7019761eb941840",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.GCongr",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.LinearCombination",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Manually reviewed proof command usages and concrete norm/measure instance requirements; all existing mathematical-owner imports preserved.",
+      "notes": [],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/EgyptianFractions/RationalPhaseSpacing.lean",
+      "before_sha256": "36dd9d866dc18a114d3fdbe6c3539c87cd64e745b9987a3cd5ce25bd1d03da5c",
+      "after_sha256": "8a29db4eafd1007c0fa8c3fc72a528d511be015e4ac7b30cd7f8497379495d98",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Lean.Elab.Tactic.Ext",
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.LinearCombination",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring",
+        "Mathlib.Tactic.SplitIfs"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Manually reviewed proof command usages and concrete norm/measure instance requirements; all existing mathematical-owner imports preserved.",
+      "notes": [],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/A2/Proofs/A2-QS-POISSON/P2/PL.lean",
+      "before_sha256": "12fa6e671917efc5772b36ff9bd7ac8f40e9972fa2d25e11ac461f9003ac8fb7",
+      "after_sha256": "3f7f95522b7bd96509018c265c895f28cdd211ff9747077b57bfcfd71c423f00",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.GCongr",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Push",
+        "Mathlib.Tactic.Ring"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Manually reviewed proof command usages and concrete norm/measure instance requirements; all existing mathematical-owner imports preserved.",
+      "notes": [],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/StrongPNT/Erdos970/PNT1_ComplexAnalysis.lean",
+      "before_sha256": "0b08fdb5b9650d981d4de8324dd408e1728a273d7e7658c5fbd88bf1fccf5beb",
+      "after_sha256": "bb7a4e20bfdd93a061e3ec8026021fdfe7224e8eda1dc908da51dc51ce2edf2d",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Aesop",
+        "Lean.Elab.Tactic.Ext",
+        "Mathlib.Tactic.Cases",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Convert",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Push",
+        "Mathlib.Tactic.Ring"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Manually reviewed proof command usages and concrete norm/measure instance requirements; all existing mathematical-owner imports preserved.",
+      "notes": [
+        "The proof uses cases', defined in old Mathlib.Tactic.Cases and absent from Common."
+      ],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Hecke/Theta/DualLattice.lean",
+      "before_sha256": "6b16ef8d3221fb19a08ba300586a5d33c45ffa73f3d279a313d39c3ef6b9a42c",
+      "after_sha256": "da72aa47e9cd644810b949c9abb854b68034a849fe8561878b691dab0a77b3be",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Lean.Elab.Tactic.Ext",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Manually reviewed proof command usages and concrete norm/measure instance requirements; all existing mathematical-owner imports preserved.",
+      "notes": [
+        "The module keyword occurs in the header, not as a proof tactic."
+      ],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_EIS_CONVERGE/CubeClasses.lean",
+      "before_sha256": "9227b4bbd775f37863d8a1242802986422ca53fea2c2f258748245e101e3db46",
+      "after_sha256": "7cf74bfe67118ff7df97e37c857a110f26879397f8c26239c09c85c4d5c8862b",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.SplitIfs"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Manually reviewed proof command usages and concrete norm/measure instance requirements; all existing mathematical-owner imports preserved.",
+      "notes": [],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Hecke/Theta/PoissonSummation.lean",
+      "before_sha256": "bc28a358b74b7132bc0dbc2f0172330deab23f47ef8776debec7818f17ca1426",
+      "after_sha256": "49383f8d25aa702ac414596278592eade6fd23f7f364df8d2fd42b78c25f59e9",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Lean.Elab.Tactic.Ext",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Measurability",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Manually reviewed proof command usages and concrete norm/measure instance requirements; all existing mathematical-owner imports preserved.",
+      "notes": [
+        "The module keyword occurs in the header, not as a proof tactic."
+      ],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Spec/Interface.lean",
+      "before_sha256": "9eb602e4960889e031790585b9d2e53048e3dfed457fb113661e02e8758639f9",
+      "after_sha256": "0bc958db80a0fb0fc3630a7174dad1f67b2b4918d68fa1ea967909bee5f5c249",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Aesop",
+        "Lean.Elab.Tactic.Ext",
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Manually reviewed proof command usages and concrete norm/measure instance requirements; all existing mathematical-owner imports preserved.",
+      "notes": [
+        "Make the concrete complex NormedField/NormedSpace instances explicit rather than inheriting them through Mathlib.Tactic."
+      ],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/Arith/DavenportHasse/Polynomial.lean",
+      "before_sha256": "5488216435ea92a5f688bd10daa6335e464fb91c7e2181a4e496dbc80d070a67",
+      "after_sha256": "65c09ffb80ab60b223bad629058249bbbfe930d770d72759f60c2a6d8005e527",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Lean.Elab.Tactic.Ext",
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Ring"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Manually reviewed proof command usages and concrete norm/measure instance requirements; all existing mathematical-owner imports preserved.",
+      "notes": [],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/A1/Proofs/A1_GAUSS/FiniteField.lean",
+      "before_sha256": "bb5319326cc0bd5a881e393c7357370e13f36b261cd3886ca7a9cf5bf873b309",
+      "after_sha256": "26c5fba21b1df415a82ae7e2f03f1f0d91b22c4479193bbb90fc57239839c62a",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Convert",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.LinearCombination",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Manually reviewed proof command usages and concrete norm/measure instance requirements; all existing mathematical-owner imports preserved.",
+      "notes": [],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/A1/Field.lean",
+      "before_sha256": "13c199fad46a2ba834ccff58001f5f20c3dac447495b489fc6187d63a4d751b2",
+      "after_sha256": "6ff588339a378bf59eeb8ec50cb29496400e31eebc9aebb9dd1a0d8e61885f25",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Lean.Elab.Tactic.Ext",
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Manually reviewed proof command usages and concrete norm/measure instance requirements; all existing mathematical-owner imports preserved.",
+      "notes": [
+        "Make the concrete complex NormedField/NormedSpace instances explicit rather than inheriting them through Mathlib.Tactic."
+      ],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/EgyptianFractions/GeometricCharacterBound.lean",
+      "before_sha256": "523eecb3fd0e2c6c60049c2366398635286d027450e2ec96f66092b86802bf8a",
+      "after_sha256": "30e0347c0a87522fea8c7b47901d0f3fcd49430abbfc94e4b10ee8dd64fb0d53",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Convert",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Manually reviewed proof command usages and concrete norm/measure instance requirements; all existing mathematical-owner imports preserved.",
+      "notes": [],
+      "applied": true,
+      "compiler_validated": false
+    },
+    {
+      "file": "vendor/ArtinPrimitiveRoots/A1/Proofs/A1_WEIL/w_g/OddGaussSign.lean",
+      "before_sha256": "eb498691ce0e1c05944ee705adf1c70ea6747ab8e246a8219348e8c988fe3f01",
+      "after_sha256": "ed44654d0e7648fa8f004a47755d4f657b37ce840ce1ba6e27985f17c710e4cf",
+      "removed_imports": [
+        "Mathlib.Tactic"
+      ],
+      "added_imports": [
+        "Lean.Elab.Tactic.Ext",
+        "Lean.Elab.Tactic.Omega",
+        "Mathlib.Tactic.Common",
+        "Mathlib.Tactic.Convert",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.FunProp",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "body_unchanged": true,
+      "old_import_paths_exist": true,
+      "selection": "Manually reviewed proof command usages and concrete norm/measure instance requirements; all existing mathematical-owner imports preserved.",
+      "notes": [],
+      "applied": true,
+      "compiler_validated": false
+    }
+  ],
+  "source_footprint_report": "ci/analysis-tactic-footprint.json"
+}

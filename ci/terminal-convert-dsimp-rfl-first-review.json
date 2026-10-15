@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "scope": "Only the 8 files/11 terminal sites authorized by parent after whole063 ended; original convert term and dsimp/only list preserved; rfl first, then try original dsimp followed by original ring.",
+  "file_count": 8,
+  "site_count": 11,
+  "status": "saved; whole064 integration validation pending; no direct Lean checks",
+  "entries": [
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/ClosedRecursion.lean",
+      "before_sha256": "caa7fc4fd36c3e1b3031ca71705320aff9c7c31a02d88538eeb029a680f37e72",
+      "after_sha256": "048d77a237927e85bbd6b5d0abd77da8919cdd4c5175352d6540ff8c85e4c164",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 314,
+          "old_line": "  convert hx using 1 <;> dsimp [Cbase,Cpow,D₁,D₂,Cs] <;> ring\n",
+          "new_line": "  convert hx using 1 <;> first | rfl | (try dsimp [Cbase,Cpow,D₁,D₂,Cs]; ring)\n",
+          "unchanged_convert_prefix": "  convert hx using 1",
+          "unchanged_dsimp": "dsimp [Cbase,Cpow,D₁,D₂,Cs]"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/CubicSieve/ClosedRecursion.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/CubicSieve/ClosedRecursion.lean (after)\n@@ -311,7 +311,7 @@\n     (show 0≤Cbase*Γ^2*(X*F)^2*E*(1+‖t‖)^(2*J) by positivity)\n   apply hb.trans\n   apply add_le_add le_rfl\n-  convert hx using 1 <;> dsimp [Cbase,Cpow,D₁,D₂,Cs] <;> ring\n+  convert hx using 1 <;> first | rfl | (try dsimp [Cbase,Cpow,D₁,D₂,Cs]; ring)\n \n end\n \n",
+      "olean_absent_at_write": true
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Cusp/ResiduesModThree.lean",
+      "before_sha256": "0424412c905f617d608a6b33e73c0b5ee6d70dd2a556295c1736fec0ad30c628",
+      "after_sha256": "50e9351c1753981e58460858e20625fe356499d7b1a9d88e4f84d1519ecea10d",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 606,
+          "old_line": "      convert hh using 1 ; dsimp [N] ; ring\n",
+          "new_line": "      convert hh using 1 <;> first | rfl | (try dsimp [N]; ring)\n",
+          "unchanged_convert_prefix": "      convert hh using 1",
+          "unchanged_dsimp": "dsimp [N]"
+        },
+        {
+          "line": 608,
+          "old_line": "      convert hh using 1 ; dsimp [N] ; ring\n",
+          "new_line": "      convert hh using 1 <;> first | rfl | (try dsimp [N]; ring)\n",
+          "unchanged_convert_prefix": "      convert hh using 1",
+          "unchanged_dsimp": "dsimp [N]"
+        },
+        {
+          "line": 611,
+          "old_line": "      convert hh using 1 ; dsimp [N] ; ring\n",
+          "new_line": "      convert hh using 1 <;> first | rfl | (try dsimp [N]; ring)\n",
+          "unchanged_convert_prefix": "      convert hh using 1",
+          "unchanged_dsimp": "dsimp [N]"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Cusp/ResiduesModThree.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Cusp/ResiduesModThree.lean (after)\n@@ -603,12 +603,12 @@\n     fin_cases i <;> fin_cases j\n     · exact hA\n     · have hh:=dvd_sub hB (dvd_mul_of_dvd_right hA (b:Eis))\n-      convert hh using 1 ; dsimp [N] ; ring\n+      convert hh using 1 <;> first | rfl | (try dsimp [N]; ring)\n     · have hh:=dvd_sub hC (dvd_mul_of_dvd_right hA (c:Eis))\n-      convert hh using 1 ; dsimp [N] ; ring\n+      convert hh using 1 <;> first | rfl | (try dsimp [N]; ring)\n     · have hh:=dvd_add (dvd_sub (dvd_sub hD (dvd_mul_of_dvd_right hB (c:Eis)))\n         (dvd_mul_of_dvd_right hC (b:Eis))) (dvd_mul_of_dvd_right hA ((b:Eis)*(c:Eis)))\n-      convert hh using 1 ; dsimp [N] ; ring\n+      convert hh using 1 <;> first | rfl | (try dsimp [N]; ring)\n   let lengthScale : levelTwo := ⟨rationalEmbedding (integerLower c),rational_mem_levelTwo _⟩\n   let U : levelTwo := ⟨rationalEmbedding (integerUpper b),rational_mem_levelTwo _⟩\n   let n : levelThree := ⟨N,hN⟩\n",
+      "olean_absent_at_write": true
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/ResidualFourierBounds.lean",
+      "before_sha256": "284f8fceb850ed9cb2a65ae052e7c3b1636eb9134423111ef57b56d09a77e6e1",
+      "after_sha256": "df24fa477169340a1e9e1110dce18002c12501875f73ced3127affa67910dd40",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 678,
+          "old_line": "  convert hfinal using 1 ; dsimp [lower] ; ring\n",
+          "new_line": "  convert hfinal using 1 <;> first | rfl | (try dsimp [lower]; ring)\n",
+          "unchanged_convert_prefix": "  convert hfinal using 1",
+          "unchanged_dsimp": "dsimp [lower]"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Eisenstein/ResidualFourierBounds.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Eisenstein/ResidualFourierBounds.lean (after)\n@@ -675,7 +675,7 @@\n     integral_re hi\n   rw [hreal] at hmono\n   have hfinal := hmono.trans (Complex.re_le_norm _)\n-  convert hfinal using 1 ; dsimp [lower] ; ring\n+  convert hfinal using 1 <;> first | rfl | (try dsimp [lower]; ring)\n \n lemma cubicResidualFourierCoefficient_subexponential (ε : ℝ) (hε : 0<ε) :\n     ∃C : ℝ,0≤C ∧ ∀h : ActualEisensteinCubic.O,h≠0 →\n",
+      "olean_absent_at_write": true
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/GaussSum/BranchScaling.lean",
+      "before_sha256": "0920ea966dda444e82fa87506e0bb99bf678afd9046bd5d16e7bf5b49ca76abd",
+      "after_sha256": "02ef4b7894c3950a8904ee41ed839d63226f04240eeb0f6b649b2216f0a7f122",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 317,
+          "old_line": "  convert h using 1 ; dsimp [I] ; ring\n",
+          "new_line": "  convert h using 1 <;> first | rfl | (try dsimp [I]; ring)\n",
+          "unchanged_convert_prefix": "  convert h using 1",
+          "unchanged_dsimp": "dsimp [I]"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/GaussSum/BranchScaling.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/GaussSum/BranchScaling.lean (after)\n@@ -314,7 +314,7 @@\n     ((((firstLogDensity_integrable 0).const_mul C).mul_const I).mul_const I)\n     (Filter.Eventually.of_forall hy)\n   simp only [integral_mul_const,integral_const_mul] at h\n-  convert h using 1 ; dsimp [I] ; ring\n+  convert h using 1 <;> first | rfl | (try dsimp [I]; ring)\n \n theorem polynomial_density_cost (B G : Frequency → ℝ) (J : ℕ) (S C E : ℝ)\n     (hS : 0 < S) (hC : 0 ≤ C) (_hE : 0 ≤ E)\n",
+      "olean_absent_at_write": true
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/MeanSquare/CanonicalTailBounds.lean",
+      "before_sha256": "4a7fe863e5abd113e7c98a36506f20bb80f89253e9b01aba0c31d6bd71b1173d",
+      "after_sha256": "252109d33ff1e115a90508e5c40e80c79f4e2341c8b9360c0d70bebf4454a2bf",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 148,
+          "old_line": "  convert hfinal using 1 ; dsimp only [H] ; ring\n",
+          "new_line": "  convert hfinal using 1 <;> first | rfl | (try dsimp only [H]; ring)\n",
+          "unchanged_convert_prefix": "  convert hfinal using 1",
+          "unchanged_dsimp": "dsimp only [H]"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/MeanSquare/CanonicalTailBounds.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/MeanSquare/CanonicalTailBounds.lean (after)\n@@ -145,7 +145,7 @@\n     intro z hz\n     rw [outside_row_cutoff_stable S hbad hDDb χ W b Z hZp (fun t ht => (hs ht).2) hD z]\n   rw [hMS]\n-  convert hfinal using 1 ; dsimp only [H] ; ring\n+  convert hfinal using 1 <;> first | rfl | (try dsimp only [H]; ring)\n \n end InitialMeanSquare\n \n",
+      "olean_absent_at_write": true
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/MeanSquare/DiagonalDensity.lean",
+      "before_sha256": "cc636a0b2d0fa0b1c50fad8c80bf0b8906bf4c1d51183c899ecbae722ca35130",
+      "after_sha256": "bea6ffabc834517dca10483319f4729f9d6adf2e10747d375eb66cb6595fc672",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 493,
+          "old_line": "  convert (hB ray R j).2.2 using 1 ; dsimp only [initialSquarefreeBinCost, B] ; ring\n",
+          "new_line": "  convert (hB ray R j).2.2 using 1 <;> first | rfl | (try dsimp only [initialSquarefreeBinCost, B]; ring)\n",
+          "unchanged_convert_prefix": "  convert (hB ray R j).2.2 using 1",
+          "unchanged_dsimp": "dsimp only [initialSquarefreeBinCost, B]"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/MeanSquare/DiagonalDensity.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/MeanSquare/DiagonalDensity.lean (after)\n@@ -490,7 +490,7 @@\n   intro R hR\n   apply Finset.sum_le_sum\n   intro j hj\n-  convert (hB ray R j).2.2 using 1 ; dsimp only [initialSquarefreeBinCost, B] ; ring\n+  convert (hB ray R j).2.2 using 1 <;> first | rfl | (try dsimp only [initialSquarefreeBinCost, B]; ring)\n \n end\n \n",
+      "olean_absent_at_write": true
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/MeanSquare/ThetaDensity.lean",
+      "before_sha256": "7943deae92bae10725701d58975872ad474fa70b93a931e7f0dbdec4cdffb96f",
+      "after_sha256": "c3d59acd8ba3c5881230fc04bdc0ba44207bb542668ea613578e297d6c73b68d",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 259,
+          "old_line": "  convert hfinal using 1 ; dsimp only [H] ; ring\n",
+          "new_line": "  convert hfinal using 1 <;> first | rfl | (try dsimp only [H]; ring)\n",
+          "unchanged_convert_prefix": "  convert hfinal using 1",
+          "unchanged_dsimp": "dsimp only [H]"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/MeanSquare/ThetaDensity.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/MeanSquare/ThetaDensity.lean (after)\n@@ -256,7 +256,7 @@\n     intro z hz\n     rw [outside_row_cutoff_stable S hbad hDDb χ W b Z hZp (fun t ht => (hs ht).2) hD z]\n   rw [hMS]\n-  convert hfinal using 1 ; dsimp only [H] ; ring\n+  convert hfinal using 1 <;> first | rfl | (try dsimp only [H]; ring)\n \n end\n \n",
+      "olean_absent_at_write": true
+    },
+    {
+      "file": "vendor/OAI/NumberTheory/DirichletL/RowCompletion/InitialDensity.lean",
+      "before_sha256": "78d0b56e675d445e1c62a0d2647b6f69d5aa659d004318669ad1ef3e299ab82f",
+      "after_sha256": "dc598c8312a92e51a7a8b2841e625e667bb6e78fba1647436a1cec9f225240e4",
+      "inverse_restores_all_bytes": true,
+      "edits": [
+        {
+          "line": 187,
+          "old_line": "      convert hd using 1 ; dsimp only [Ccan,I₀] ; ring\n",
+          "new_line": "      convert hd using 1 <;> first | rfl | (try dsimp only [Ccan,I₀]; ring)\n",
+          "unchanged_convert_prefix": "      convert hd using 1",
+          "unchanged_dsimp": "dsimp only [Ccan,I₀]"
+        },
+        {
+          "line": 289,
+          "old_line": "    convert hh using 1 ; dsimp [D,B,R,T] ; ring\n",
+          "new_line": "    convert hh using 1 <;> first | rfl | (try dsimp [D,B,R,T]; ring)\n",
+          "unchanged_convert_prefix": "    convert hh using 1",
+          "unchanged_dsimp": "dsimp [D,B,R,T]"
+        }
+      ],
+      "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/RowCompletion/InitialDensity.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/RowCompletion/InitialDensity.lean (after)\n@@ -184,7 +184,7 @@\n       hlabels hrows hzero hleft hright\n     change outsideCanonicalDensity χ S hbad D ray R T V₁ V₂ X d≤_ at hd\n     have hcan : outsideCanonicalDensity χ S hbad D ray R T V₁ V₂ X d≤Ccan*Z^deltaLoss*(X*lengthScale)^2 := by\n-      convert hd using 1 ; dsimp only [Ccan,I₀] ; ring\n+      convert hd using 1 <;> first | rfl | (try dsimp only [Ccan,I₀]; ring)\n     exact hcan.trans (mul_le_mul_of_nonneg_right\n       (mul_le_mul_of_nonneg_right hcanC (Real.rpow_nonneg (by linarith) _)) (sq_nonneg _))\n   · have hKcap : K≤Z₀^3:=hstate₁.row_le_global.trans\n@@ -286,7 +286,7 @@\n       (sourceLogZ p Z X) (fun _ => 0) (sourceLogE p E) (sourceLogV p V) (sourceLogK p K) X X\n       (mul_nonneg hD hCw) (by positivity) hs (fun x hx => Finset.mem_image.mpr ⟨x,hx,rfl⟩) hT0 hTK hweights\n     rw [hid p hp hcop hg hinj hpr F Ψ m r ray s Z H E V X K hZ hE hV hX hK hs hk hz he hv hkap]\n-    convert hh using 1 ; dsimp [D,B,R,T] ; ring\n+    convert hh using 1 <;> first | rfl | (try dsimp [D,B,R,T]; ring)\n \n end\n section\n",
+      "olean_absent_at_write": true
+    }
+  ],
+  "skipped": []
+}

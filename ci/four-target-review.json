@@ -1,0 +1,165 @@
+{
+  "date_jst": "2026-10-15",
+  "scope": "Independently compare OpenAI conditional main, unconditional prime-base corollary, stronger variant and square obstruction.",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "comparator_configuration": {
+    "challenge_module": "Challenge",
+    "solution_module": "SimultaneousPrimitiveRootsFinal.OpenAIMain",
+    "theorem_names": [
+      "SimultaneousPrimitiveRootsChallenge.simultaneous_primitive_roots",
+      "SimultaneousPrimitiveRootsChallenge.simultaneous_primitive_roots_unconditional",
+      "SimultaneousPrimitiveRootsChallenge.positive_lower_density",
+      "SimultaneousPrimitiveRootsChallenge.square_condition_necessary"
+    ],
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "enable_nanoda": false
+  },
+  "challenge": {
+    "file": "lean/Challenge.lean",
+    "import": "Mathlib",
+    "contains_all_five_definitions": true,
+    "all_four_statement_types_match_fc_files": true,
+    "all_five_definition_bodies_match_fc_and_proof": true,
+    "proof_library_imported": false,
+    "intentional_statement_placeholders": 4,
+    "build": "passed",
+    "build_log": "results/four-target-challenge-build.log",
+    "build_exit_code": 0
+  },
+  "proofs": {
+    "solution_module": "SimultaneousPrimitiveRootsFinal.OpenAIMain",
+    "public_axioms": {
+      "SimultaneousPrimitiveRootsChallenge.simultaneous_primitive_roots_unconditional": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "SimultaneousPrimitiveRootsChallenge.positive_lower_density": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "SimultaneousPrimitiveRootsChallenge.square_condition_necessary": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "SimultaneousPrimitiveRootsChallenge.simultaneous_primitive_roots": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "scope": "Proof sources unchanged from the successful local Solution and OpenAIMain builds.",
+    "logs": [
+      "results/three-theorem-build.log",
+      "results/three-theorem-main-proof-build.log"
+    ]
+  },
+  "source_audit": {
+    "passed": true,
+    "lean_files": 4465,
+    "source_sha256": "3ff249e663939b73de9a49882c9c34bc95259a8f20f5532b1b85d7bd51203ee0",
+    "intentional_statement_placeholders": 4,
+    "fclikelean": {
+      "lean_files": 2,
+      "source_sha256": "f48d02bf8cc14b3ff5c15faf7a441890c810b0ba7cf55f98cc2e41812f1bf0c7",
+      "intentional_statement_placeholders": 4,
+      "input_definition_placeholders": 0,
+      "main_self_contained": true,
+      "auxiliary_separate": true,
+      "standard_import": "FormalConjecturesUtil",
+      "all_theorems_category": "research solved",
+      "AMS": [
+        11
+      ]
+    },
+    "port_record": {
+      "passed": true,
+      "changed_existing_files": 1251,
+      "new_proof_backports": 22,
+      "added_publication_proofs": [
+        "SimultaneousPrimitiveRootsFinal/OpenAIMain.lean"
+      ]
+    }
+  },
+  "private_ci": {
+    "repository": "KitaKen1/ci-test-sandbox",
+    "branch": "ci/simultaneous-primitive-roots-lean4331",
+    "status": "in_progress",
+    "workflow": ".github/workflows/lean.yml",
+    "linux_kernel_replay_swap_gib": "8\u201316, reserving 16 GiB of disk after removing unused runner SDKs",
+    "first_attempt": {
+      "commit": "f4ba815a386b19ddf848bbbcdb74aea079fb37dd",
+      "run": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38736732676",
+      "failure": "Proof runner exhausted disk during the original fixed-size swap allocation, before Lean ran."
+    },
+    "second_attempt": {
+      "commit": "e4a71a2eb49a3ed6e5a125ebde1f95813e8b3abf",
+      "run": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38737079016",
+      "real_landrun_controls": "all three passed",
+      "failure": "systemd-run could not resolve lake; the next revision uses the absolute native launcher path.",
+      "runner_resources": {
+        "ram_gib": 7.8,
+        "swap_gib_after_setup": 18,
+        "disk_gib_remaining": 17
+      }
+    },
+    "commit": "8cfd6967c633f56a488fe3224d45722f295f4e14",
+    "run_url": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38738032026",
+    "independent_statements": "success",
+    "complete_proof_and_comparator": "in_progress"
+  },
+  "public_ci": {
+    "repository": "KitaKen1/simultaneous-primitive-roots",
+    "ref": "main",
+    "status": "awaiting private success and explicit public-push approval",
+    "results_url": "https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml"
+  },
+  "previous_checks": {
+    "original_two_targets": "local-verification.json",
+    "three_targets_without_main": "three-theorem-review.json",
+    "note": "These historical runs do not establish the new four-target comparison."
+  },
+  "files_sha256": {
+    "lean/Challenge.lean": "d562fd86aeb8f7129f6230f55c39b93a2cba1f05dc48cb070dc60b6590aa2d8e",
+    "lean/Solution.lean": "0b7e7952c6febee0dcd49beea8937f3e23fbc75770ae16b7b5d755f963e6465e",
+    "lean/SimultaneousPrimitiveRootsFinal/OpenAIMain.lean": "253e4882393eb3453569b50aa39da29fd8fd3bad64a47c91605a79e7a7aeb163",
+    "lean/comparator.json": "04720bc41330531a526514caeb6bbdb8ec5e7d4679b5d6256b0012b12b678970",
+    "FClikelean/SimultaneousPrimitiveRoots.lean": "619082bc6954b3f98ca6bd0f485a11d5bd96bec9b1731b37203c3a1715600bf4",
+    "FClikelean/SquareConditionNecessary.lean": "c09f1de2eb99334c947302f7d20cbc6f2b1e2067560b17a94748e64777ee3a9b",
+    "scripts/check_sources.py": "d5f36fa51886665dbf3aba1066c41f359a9d0aaeb0a08b507245920be7946d91",
+    "scripts/build.sh": "965a967463a7bad69f79e182cb9a8fb47db730477376b6f3ef0723256d9770e0",
+    "scripts/prepare-linux-memory.sh": "753c9680123d93e9182902043c263e66f91bfcd8f42ab55bad5bb183d2e25403",
+    ".github/workflows/lean.yml": "4c10a1a1dad90147ba324207eca7dfdfbdadbf1e05bd4d3a10c21797ecdbc4f3",
+    "scripts/compare.sh": "21a063e418deb29ee2c7bb831a71684c1f64afb13bc1a3673af38e4731930d4d",
+    "lean/lakefile.toml": "4da804ec12a96af7f1c41a1ef0d7731f01b4dec1266b6b519f190e340595f1eb"
+  },
+  "html_checks": {
+    "passed": true,
+    "checks": 21,
+    "source_excerpts_and_local_links_checked": true,
+    "log": "results/four-target-html-qa.json"
+  },
+  "compiled_definition_comparison": {
+    "passed": true,
+    "all_three_environments": [
+      "FC file",
+      "Challenge",
+      "proof module"
+    ],
+    "record": "five-definition-comparison.json"
+  },
+  "publication_candidate_config_change": "The default lake build also selects the conditional-main proof module. Explicit four-target Comparator configuration and proof sources are unchanged.",
+  "default_build": {
+    "passed": true,
+    "scope": "All four proof targets are up-to-date under the default target configuration. Existing checked artifacts were reused.",
+    "command": "lake --no-build build",
+    "jobs": 12710,
+    "log": "results/four-target-default-build.log"
+  }
+}

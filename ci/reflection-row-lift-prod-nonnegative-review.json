@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "file": "vendor/ArtinPrimitiveRoots/A2/Proofs/A2_PROBE/ReflectionRowLift.lean",
+  "original_sha256": "85e9e51f25df47b2384a496d766d922953f4ce87ab6b9c5f2e249072fd934f81",
+  "before_sha256": "65e8aba6a87f0945cce9fcd8c9c7e487940566804d49b01b78949e0d3fd2eb8a",
+  "after_sha256": "bc8a2a60688a912be58762b34378ed0b9baed3392c066be32ec5fa2d2ca4faf7",
+  "source_freeze_sha256": "bc8a2a60688a912be58762b34378ed0b9baed3392c066be32ec5fa2d2ca4faf7",
+  "original_source_matches_manifest": true,
+  "edits": [
+    {
+      "before": "      apply Finset.prod_le_one\n",
+      "after": "      apply Finset.prod_le_one (fun _ _ => FractionalIdeal.zero_le _)\n",
+      "count": 1
+    }
+  ],
+  "inverse_recovers_all_before_bytes": true,
+  "inverse_full_port_edits_recovers_all_original_bytes": true,
+  "prior_receipt": "ci/reflection-row-lift-power-inference-review.json",
+  "all_public_private_headers_byte_identical": true,
+  "scope": "One hf0 proof argument added to the existing outer Finset.prod_le_one, retaining the previously typed pow≤1 proof and every original factor/exponent/subset/map/type/hypothesis/data value.",
+  "justification": "Stock GroupWithZero/Finset.lean:78 prod_le_one requires h0 : ∀ i∈s, 0≤f i before h1 : ∀ i∈s, f i≤1. The same FractionalIdeal factors are unconditionally nonnegative by FractionalIdeal.zero_le (Basic.lean:422). The original positive-integer reconstruction and typed Left.pow_le_one_of_le proof remain exactly unchanged and now prove h1. The previous source failed095 because that ≤1 proof was being checked against h0; it is not marked passed.",
+  "status": "source frozen; previous65e8 source failed095; latestbc8a source pending096 integration; no direct Lean checks",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/A2/Proofs/A2_PROBE/ReflectionRowLift.lean (before)\n+++ vendor/ArtinPrimitiveRoots/A2/Proofs/A2_PROBE/ReflectionRowLift.lean (after)\n@@ -52,7 +52,7 @@\n     have hJle : Jfrac ≤ 1 := by\n       dsimp [Jfrac]\n       rw [Finsupp.prod]\n-      apply Finset.prod_le_one\n+      apply Finset.prod_le_one (fun _ _ => FractionalIdeal.zero_le _)\n       intro v hv\n       obtain ⟨n, hn⟩ := Int.eq_ofNat_of_zero_le (hexponent_nonneg v)\n       rw [hn, zpow_natCast]\n"
+}

@@ -1,0 +1,89 @@
+name: Lean 4.33.1 verification
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lean-${{ github.repository }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  statements:
+    name: Independent statements
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Prepare disk for Lean
+        run: bash scripts/prepare-linux-memory.sh --no-swap
+      - name: Install the pinned Lean toolchain
+        run: bash scripts/install-lean-linux.sh
+      - name: Check source contract
+        run: python3 scripts/check_sources.py --check-port-record
+      - name: Compile the independently reviewed problem
+        working-directory: lean
+        env:
+          LEAN_NUM_THREADS: '2'
+          MATHLIB_CACHE_DIR: ${{ runner.temp }}/mathlib-cache
+        run: |
+          lake exe cache get
+          lake build Challenge
+          cd ../tools/fc-style
+          lake exe cache get
+          lake build
+          lake env lean ../../ci/openai-input-definition-checks.lean
+          python3 ../../scripts/check_fclike_standalone.py
+
+  proof:
+    name: Complete proof and comparator
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Prepare memory for the complete kernel replay
+        run: bash scripts/prepare-linux-memory.sh
+      - name: Install the pinned Lean toolchain
+        run: bash scripts/install-lean-linux.sh
+      - name: Restore trusted checking-tool build cache
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: |
+            tools/comparator/.lake
+            tools/lean4export/.lake
+          key: checking-tools-lean4331-${{ runner.os }}-${{ hashFiles('ci/checking-tool-sha256.json', 'ci/toolchain-lock.json', 'tools/**/*.lean', 'tools/**/lakefile.toml', 'tools/**/lake-manifest.json', 'tools/**/lean-toolchain') }}
+      - name: Prepare official Mathlib cache and checking tools
+        env:
+          LEAN_NUM_THREADS: '2'
+          MATHLIB_CACHE_DIR: ${{ runner.temp }}/mathlib-cache
+        run: |
+          mkdir -p ci/results
+          python3 scripts/check_sources.py --check-port-record | tee ci/results/source-check.json
+          cd lean
+          lake exe cache get 2>&1 | tee ../ci/results/cache.log
+          cd ../tools/comparator
+          lake build comparator lean4export
+      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5
+        with:
+          go-version: '1.24.13'
+          cache: false
+      - name: Build the pinned Linux sandbox
+        run: bash scripts/install-landrun-linux.sh
+      - name: Check comparator acceptance and rejection controls
+        run: python3 scripts/check_comparator_controls.py
+      - name: Compare statements, check axioms and replay the proof
+        env:
+          LEAN_NUM_THREADS: '2'
+        run: bash scripts/compare.sh linux
+      - name: Save logs for this commit
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: lean4331-${{ github.sha }}
+          path: ci/results/
+          if-no-files-found: warn
+          retention-days: 30

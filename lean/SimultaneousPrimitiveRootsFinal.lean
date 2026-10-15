@@ -1,0 +1,38 @@
+import SimultaneousPrimitiveRootsFinal.CFTArtin
+import SimultaneousPrimitiveRootsFinal.Assembly
+import SimultaneousPrimitiveRootsFinal.HilbertPowerClasses
+import SimultaneousPrimitiveRootsFinal.LocalHilbertProducts
+import SimultaneousPrimitiveRootsFinal.HilbertGivenProducts
+import SimultaneousPrimitiveRootsFinal.HilbertUnitSymbols
+import SimultaneousPrimitiveRootsFinal.SUnitPowerClasses
+import SimultaneousPrimitiveRootsFinal.SUnitHilbertIsotropy
+import SimultaneousPrimitiveRootsFinal.SUnitHilbertComplement
+import SimultaneousPrimitiveRootsFinal.SUnitHilbertPreparation
+import SimultaneousPrimitiveRootsFinal.SUnitCommonSupport
+import SimultaneousPrimitiveRootsFinal.SUnitSexticPreparation
+import SimultaneousPrimitiveRootsFinal.SUnitBalancedRepresentatives
+import SimultaneousPrimitiveRootsFinal.SUnitAllowedBalancedGenerators
+import SimultaneousPrimitiveRootsFinal.SexticReciprocity
+import SimultaneousPrimitiveRootsFinal.SexticResidueSymbol
+import SimultaneousPrimitiveRootsFinal.Classical.SiegelWalfiszPrimes
+import SimultaneousPrimitiveRootsFinal.Classical.MertensBridge
+import SimultaneousPrimitiveRootsFinal.Classical.BlockSieveBridge
+import SimultaneousPrimitiveRootsFinal.Classical.RoughCountsBridge
+import SimultaneousPrimitiveRootsFinal.Classical.ModeratePhaseBridge
+import SimultaneousPrimitiveRootsFinal.Classical.PrimePhaseBridge
+import SimultaneousPrimitiveRootsFinal.CyclotomicEulerBridge
+import SimultaneousPrimitiveRootsFinal.ExternalHecke
+import SimultaneousPrimitiveRootsFinal.TypeII.MarkedTransferReduction
+import SimultaneousPrimitiveRootsFinal.TypeII.LongCoefficientReduction
+import SimultaneousPrimitiveRootsFinal.TypeII.MarkedTransferBridge
+import SimultaneousPrimitiveRootsFinal.TypeII.LongCoefficientBridge
+import SimultaneousPrimitiveRootsFinal.Remaining
+import SimultaneousPrimitiveRootsFinal.MainClaim
+
+/-!
+# The final, non-module layer of the unconditional route
+
+Step Z3 uses ClassFieldTheory's finite abelian reciprocity, whose files are not modules; a module
+cannot import them, so the bridge (`CFTArtin`) and the assembly (`Assembly`) live in this separate
+library rather than under the module root `SimultaneousPrimitiveRoots`.
+-/

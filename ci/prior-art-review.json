@@ -1,0 +1,162 @@
+{
+  "review_date_jst": "2026-10-15",
+  "status": "bounded_literature_review_priority_not_established",
+  "scope": "Compare theorem statements, assumptions, historical scope, and source provenance; not an independent audit of every cited proof.",
+  "queries": [
+    "Artin primitive root conjecture unconditional positive proportion fixed base 2026",
+    "simultaneous primitive roots positive density nonsquare odd subsets unconditional",
+    "primitive roots positive lower density 2026",
+    "simultaneous primitive roots positive density Matthews Schinzel",
+    "Carella density fixed primitive root",
+    "Artin primitive roots 2026 unconditional positive-density"
+  ],
+  "sources": [
+    {
+      "id": "hooley-1967",
+      "title": "On Artin’s conjecture",
+      "url": "https://doi.org/10.1515/crll.1967.225.209",
+      "checked": "Bibliographic record; mathematical content checked via Fan–Pollack 2025 introduction and Moree–Stevenhagen introduction. Original proof not independently audited.",
+      "assumptions": "GRH for relevant number fields",
+      "result": "Single-base Artin density asymptotic.",
+      "classification": "conditional_prior_result"
+    },
+    {
+      "id": "matthews-1976",
+      "title": "A generalisation of Artin’s conjecture for primitive roots",
+      "url": "https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/29/2/100983/a-generalisation-of-artin-s-conjecture-for-primitive-roots",
+      "checked": "Publisher bibliography; precise obstruction criterion checked in Anwar–Pappalardi 2017 p.35 and Moree–Stevenhagen Sections 5–6. Original full text was not retrieved.",
+      "assumptions": "GRH for relevant number fields",
+      "result": "Simultaneous primitive-root densities for general integer bases, with vanishing obstructions.",
+      "classification": "conditional_prior_result"
+    },
+    {
+      "id": "moree-stevenhagen-2014",
+      "title": "Computing higher rank primitive root densities",
+      "url": "https://arxiv.org/html/1203.4313v2",
+      "version": "v2, 29 December 2013; Acta Arithmetica 163 (2014), 15–32",
+      "checked": "Introduction; Section 5 equation (5.2), Theorem 5.6; Section 6 Theorem 6.2.",
+      "assumptions": "GRH to identify algebraic densities with prime densities",
+      "result": "General rational simultaneous bases; odd-subset square obstruction and entanglement correction.",
+      "classification": "conditional_prior_result"
+    },
+    {
+      "id": "anwar-pappalardi-2017",
+      "title": "On simultaneous primitive roots",
+      "url": "https://www.impan.pl/shop/publication/transaction/download/product/92279",
+      "checked": "PDF p.35, introduction and obstruction conditions alpha and beta; publisher abstract.",
+      "assumptions": "Schinzel Hypothesis H for their infinitude result; introduction states Matthews’s GRH density result",
+      "result": "Necessary and sufficient conditions for simultaneous infinitude for finite nonzero rational bases excluding ±1.",
+      "classification": "conditional_prior_result"
+    },
+    {
+      "id": "fan-pollack-2025",
+      "title": "Counting primes with a given primitive root, uniformly",
+      "url": "https://arxiv.org/html/2505.05601v2",
+      "version": "v2, 14 September 2025",
+      "checked": "Abstract; Section 1, Artin–Hooley formula and Theorem 1.1.",
+      "assumptions": "GRH for the density theorem",
+      "result": "Uniform single-base density asymptotic.",
+      "classification": "conditional_prior_result"
+    },
+    {
+      "id": "murty-naik-2026",
+      "title": "A non-abelian large sieve and Artin’s primitive root conjecture",
+      "url": "https://arxiv.org/html/2608.21573v1",
+      "version": "v1, 21 August 2026",
+      "checked": "Abstract; Section 1, Theorem 1 and Remark 1.1.",
+      "assumptions": "Conjectural non-abelian large-sieve inequality",
+      "result": "Infinitude and cumulative X/(log X)^2 lower bound for base 2, with general-base extension discussed. Unconditional results concern progress toward the sieve inequality.",
+      "classification": "conditional_prior_result"
+    },
+    {
+      "id": "carella-2016-2020",
+      "title": "Densities of Primes and Primitive Roots; Addendum and Corrigendum",
+      "url": "https://future-in-tech.net/15.2/R-Carella-AC.pdf",
+      "earlier_url": "https://future-in-tech.net/11.2/R-Carella-PrimesAndPrimitiveRoot.pdf",
+      "checked": "2020 journal PDF p.717 abstract, p.718 introduction; 2016 publisher abstract record.",
+      "assumptions": "Presented as unconditional for fixed admissible integer base",
+      "result": "Claims cumulative count of primes p ≤ X bounded below by a positive multiple of X/log X.",
+      "classification": "earlier_unconditional_claim_not_validated_here",
+      "limits": "Proof validity not established or refuted by this review; cumulative lower bound alone is not the same as a bound in every sufficiently large dyadic interval."
+    },
+    {
+      "id": "carella-2022",
+      "title": "Simultaneous Primitive Root Values Of Polynomials",
+      "url": "https://arxiv.org/pdf/2204.02245v1",
+      "version": "arXiv v1 submitted 4 April 2022; PDF title page dated 6 April 2022",
+      "checked": "PDF p.2, Definition 1.1 and Theorem 1.1; abstract.",
+      "assumptions": "Presented as unconditional for fixed polynomial values, with admissibility discussed in Definition 1.1",
+      "result": "Claims simultaneous positive-density asymptotic for fixed values z and f(z), and discusses larger admissible tuples.",
+      "classification": "earlier_unconditional_claim_not_validated_here",
+      "limits": "Proof validity and equivalence to arbitrary finite positive integer sets satisfying only SQ were not established by this review."
+    },
+    {
+      "id": "openai-single-2026",
+      "title": "Primitive roots for every admissible integer base",
+      "url": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026/primitive-roots-all-integer-bases.pdf",
+      "checked": "PDF p.2, Theorem 1.1 and paragraph immediately following; full-text keyword search for density-strengthening conclusions.",
+      "assumptions": "No external analytic hypotheses in Theorem 1.1",
+      "result": "Every integer other than −1 and squares: c_a x/(log x)^2 primes in each sufficiently large (x,2x).",
+      "classification": "comparison_statement"
+    },
+    {
+      "id": "openai-simultaneous-2026",
+      "title": "Simultaneous primitive roots: a conditional lower bound for prime bases",
+      "url": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Simultaneous-primitive-roots-a-conditional-lower-bound-for-prime-bases-October-4-2026/simultaneous-primitive-roots-conditional-lower-bound-prime-bases.pdf",
+      "checked": "PDF p.1, introduction and Theorem 1.1; full-text keyword search for general-base or density-strengthening conclusions.",
+      "assumptions": "Inputs 3.1, 4.1, 5.1, 5.2",
+      "result": "Any fixed nonempty finite set of distinct positive prime bases: c x/(log x)^2 primes in each sufficiently large (x,2x).",
+      "classification": "comparison_statement"
+    },
+    {
+      "id": "upstream-lean",
+      "title": "cadamcat/artin-primitive-roots-lean4 README",
+      "url": "https://github.com/cadamcat/artin-primitive-roots-lean4/blob/5a36d8670f4b56bf2bb15a3fb65ff4774f6caf27/README.md",
+      "checked": "Main result, The proof, and dependency records; local vendoring provenance.",
+      "result": "Records formalization of all-admissible-integer infinitude and OpenAI’s x/(log x)^2 lower bound; used as an input library in this repository.",
+      "classification": "existing_formalization"
+    }
+  ],
+  "inferences": [
+    "For positive bases, the negative-square obstruction beta in Anwar–Pappalardi p.35 is impossible. The remaining odd-subset square obstruction is exactly SQ. Thus positive density under GRH in this domain is prior art.",
+    "A positive density asymptotic gives a positive x/log x lower bound in every sufficiently large dyadic interval by subtraction at 2x and x.",
+    "A cumulative lower bound alone does not supply the same dyadic conclusion without further information."
+  ],
+  "conclusions": {
+    "difference_from_pinned_openai_statements_confirmed": [
+      "For nonsquare positive a ≥ 2, singleton specialization strengthens the stated x/(log x)^2 lower-bound scale to x/log x.",
+      "The simultaneous target allows arbitrary nonempty finite positive integer sets satisfying SQ, including composite bases, with x/log x lower bound and no external analytic hypotheses in the public Lean theorem."
+    ],
+    "not_new_as_standalone_ideas": [
+      "Positive density under GRH",
+      "General simultaneous bases under conditional results",
+      "Odd-subset square obstruction",
+      "All-admissible-base infinitude as already claimed by OpenAI",
+      "Single-base infinitude formalization as already recorded by the upstream Lean project"
+    ],
+    "priority": "Not established. Earlier related unconditional claims were located; this review neither validates nor refutes their complete proofs and does not certify the first unconditional result.",
+    "not_claimed": [
+      "Full Artin density asymptotic",
+      "Negative-base coverage by the current sufficient Lean target",
+      "First-ever formalization of Artin infinitude"
+    ]
+  },
+  "current_target": {
+    "path": "FClikelean/SimultaneousPrimitiveRoots.lean",
+    "sha256": "4c14e70b0ec55def661f31a40e99839b97629d3ddddfe29df64bda8345559ca7",
+    "verification_record": "ci/local-verification.json",
+    "human_correspondence_review": "pending"
+  },
+  "limits": [
+    "No exhaustive all-language/all-medium search.",
+    "Publication or an arXiv record is not treated as independent proof validation.",
+    "Hooley and Matthews content was checked using later primary research papers as specified in each entry.",
+    "No claim is made about community acceptance of the 2026 manuscripts."
+  ],
+  "later_statement_documentation_update": {
+    "record": "statement-docstring-review.json",
+    "current_statement_sha256": "7232f72f9242ee30f453f530f8fdd92a1a4cb7112c05132ab9f10038203ec4ec",
+    "comment_stripped_code_unchanged": true,
+    "note": "Earlier verification hashes and executed results are preserved above; this later update changes comments only."
+  }
+}

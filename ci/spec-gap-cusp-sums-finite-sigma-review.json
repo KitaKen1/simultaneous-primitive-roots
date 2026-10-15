@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "file": "vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_GAP/CuspSums.lean",
+  "line": 256,
+  "before_sha256": "06005d333eda7885b0206e934586d054e5706fb2f5858aae64fd878f7d6d041d",
+  "original_sha256": "06005d333eda7885b0206e934586d054e5706fb2f5858aae64fd878f7d6d041d",
+  "after_sha256": "12fd59a82dd9b2a020916ae635a44c91c204deac791bed76ab20fe2662973686",
+  "source_freeze_sha256": "12fd59a82dd9b2a020916ae635a44c91c204deac791bed76ab20fe2662973686",
+  "old_proof_lines": "  apply Set.Finite.sigma Set.finite_univ\n  intro i hi\n  exact hR10 (d.σ i) K hK A hA\n",
+  "new_proof_lines": "  rw [Set.sigma_eq_biUnion]\n  apply Set.Finite.biUnion Set.finite_univ\n  intro i hi\n  exact (hR10 (d.σ i) K hK A hA).image (Sigma.mk i)\n",
+  "inverse_recovers_all_original_bytes": true,
+  "scope": "Only specGapActiveCuspSet_finite proof; every public/private header, hypothesis, data/set/sum definition, and other proof remains byte-identical to original.",
+  "justification": "Rewrite the same Set.sigma as its sigma_eq_biUnion of Sigma.mk images. The original finite_univ and unchanged R10 fiber finiteness imply finite image and finite biUnion using stock Set.Finite.image and Set.Finite.biUnion; no new assumption or axiom.",
+  "primary_sources": [
+    "Mathlib/Data/Set/Sigma.lean:217 sigma_eq_biUnion",
+    "Mathlib/Data/Set/Finite/Lattice.lean:150 Finite.biUnion",
+    "Mathlib/Data/Set/Finite/Basic.lean:569 Finite.image"
+  ],
+  "status": "saved; next whole-build integration validation pending; no direct Lean checks",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_GAP/CuspSums.lean (before)\n+++ vendor/ArtinPrimitiveRoots/Spec/Proofs/SPEC_GAP/CuspSums.lean (after)\n@@ -253,9 +253,10 @@\n   letI : Fintype d.ι := d.fintype\n   obtain ⟨_, _, hR10⟩ := R10_cusp_separation Γ\n   unfold specGapActiveCuspSet\n-  apply Set.Finite.sigma Set.finite_univ\n+  rw [Set.sigma_eq_biUnion]\n+  apply Set.Finite.biUnion Set.finite_univ\n   intro i hi\n-  exact hR10 (d.σ i) K hK A hA\n+  exact (hR10 (d.σ i) K hK A hA).image (Sigma.mk i)\n \n private theorem specGapAllCuspWeight_summable (Γ : Subgroup SL(2,𝓞 F)) [Γ.FiniteIndex]\n     (d : SiegelData F Γ) (A : ℝ) (hA : 0 < A) (ψ : ℝ → ℝ)\n"
+}

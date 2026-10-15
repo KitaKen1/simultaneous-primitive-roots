@@ -1,0 +1,10 @@
+{
+  "tools/comparator/Comparator.lean": "6c73ecd5bd429cf85e0aaa75b7c6f874ec0598d5afca60dcf5711d44e6bdef23",
+  "tools/comparator/Main.lean": "0dfdb5139d097518619f5ea4bf9e01f063273497409e84c25fc69616bb98a458",
+  "tools/comparator/Comparator/Axioms.lean": "863c5e1329811be0427880e08c171de733343491c5a3619b5dbf2e12b34c6125",
+  "tools/comparator/Comparator/Compare.lean": "9bc34cb7de5a069a6fef7f3b13b20fea22f1d52603f74320a93d519b735ad3dd",
+  "tools/comparator/Comparator/Util.lean": "693d845330dd7122565aeb19314a3e3de4b49f9a8a7ac6e1fadbc9ab374b9f88",
+  "tools/lean4export/Export.lean": "1c60d571dc24bfb99e7cbb218d8d489919bbc871238f6db9c76248521fbea998",
+  "tools/lean4export/Export/Parse.lean": "1f943b5cc776eece6d528937b976509c8bd57d10bc69a39b1c119bfb6d664286",
+  "tools/lean4export/Main.lean": "bd8e350903f1382b25fe767f9086dd9882000f01085f7046ea06545e7848842a"
+}

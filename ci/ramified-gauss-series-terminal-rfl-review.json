@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "file": "vendor/OAI/NumberTheory/DirichletL/Eisenstein/RamifiedGaussSeries.lean",
+  "line": 245,
+  "before_sha256": "93e0ad453286851ab1d86fef2dd4afe9100893dad81fe1048c4dbcd75e5ae587",
+  "after_sha256": "afa4c9f5ce556460ea77edef47edc3e440774229b1fd42d8949356ea7c39e789",
+  "old_line": "  norm_num [ShortDraftLatticeCount.q]\n",
+  "new_line": "  norm_num [ShortDraftLatticeCount.q] <;> rfl\n",
+  "inverse_restores_all_bytes": true,
+  "olean_absent_at_write": true,
+  "scope": "Single terminal proof tactic only; public/private declaration types, assumptions, and definition values unchanged.",
+  "status": "saved; whole-build integration validation pending; no direct Lean checks",
+  "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/Eisenstein/RamifiedGaussSeries.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/Eisenstein/RamifiedGaussSeries.lean (after)\n@@ -242,7 +242,7 @@\n   have he:(3:Eis)=ActualEisensteinCoordinates.eval 3 0:=by\n     simp [ActualEisensteinCoordinates.eval]\n   rw [he,ShortDraftLatticeCount.qNat,ShortDraftLatticeCount.coords_eval]\n-  norm_num [ShortDraftLatticeCount.q]\n+  norm_num [ShortDraftLatticeCount.q] <;> rfl\n \n theorem ramified_arithmetic_norm_bound (h : Eis) (hh : h≠0) (u : Eisˣ)\n     (n : ℕ) (hn : 2≤n) (hA : arithmeticResidueSum h (u.val*lambda^n)≠0) :\n"
+}

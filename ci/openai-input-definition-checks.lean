@@ -1,0 +1,6 @@
+import FClikelean.SimultaneousPrimitiveRoots
+
+#print axioms SimultaneousPrimitiveRootsChallenge.HeckeZeroFreeHypothesis
+#print axioms SimultaneousPrimitiveRootsChallenge.MarkedTypeIIHypothesis
+#print axioms SimultaneousPrimitiveRootsChallenge.BlockSieveHypothesis
+#print axioms SimultaneousPrimitiveRootsChallenge.RoughDensityHypothesis

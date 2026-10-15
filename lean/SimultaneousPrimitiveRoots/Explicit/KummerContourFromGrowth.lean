@@ -1,0 +1,117 @@
+module
+
+public import SimultaneousPrimitiveRoots.KummerContourFromGrowth
+public import SimultaneousPrimitiveRoots.Explicit.EntireZeroData
+public import SimultaneousPrimitiveRoots.Explicit.ZetaQuotientMultiplicity
+public import SimultaneousPrimitiveRoots.Explicit.ZetaQuotientCenter
+public import SimultaneousPrimitiveRoots.Explicit.QuotientDiskLogDerivative
+public import SimultaneousPrimitiveRoots.Explicit.KummerUniformDeletionBridge
+public import SimultaneousPrimitiveRoots.Explicit.KummerQuotientZeroInputs
+public import SimultaneousPrimitiveRoots.Explicit.KummerQuotientCenter
+public import SimultaneousPrimitiveRoots.Explicit.ZetaQuotientZeroCount
+public import SimultaneousPrimitiveRoots.Explicit.GaussianZeroCounting
+public import SimultaneousPrimitiveRoots.Explicit.KummerQuotientZeroCounting
+public import SimultaneousPrimitiveRoots.Explicit.KummerQuotientLogResidue
+public import SimultaneousPrimitiveRoots.Explicit.KummerQuotientContourChoice
+public import SimultaneousPrimitiveRoots.Explicit.FiniteZeroSeparation
+public import SimultaneousPrimitiveRoots.Explicit.QuotientHorizontalLogDerivative
+public import SimultaneousPrimitiveRoots.Explicit.HorizontalQuotientGrowth
+public import SimultaneousPrimitiveRoots.Explicit.QuotientSpatialAverage
+public import SimultaneousPrimitiveRoots.Explicit.QuotientLeftHeightBands
+public import SimultaneousPrimitiveRoots.Explicit.KummerQuotientRectangle
+public import SimultaneousPrimitiveRoots.Explicit.GaussianHorizontalIntegral
+public import SimultaneousPrimitiveRoots.Explicit.ZetaQuotientLeftZeroCount
+public import SimultaneousPrimitiveRoots.Explicit.GaussianLeftSpatialIntegral
+public import SimultaneousPrimitiveRoots.Explicit.GaussianHorizontalDecay
+public import SimultaneousPrimitiveRoots.Explicit.KummerQuotientFiniteFormula
+public import SimultaneousPrimitiveRoots.Explicit.KummerQuotientRightTails
+public import SimultaneousPrimitiveRoots.Explicit.KummerQuotientLeftZeroCounting
+public import SimultaneousPrimitiveRoots.Explicit.KummerQuotientLeftRectangle
+public import SimultaneousPrimitiveRoots.Explicit.KummerQuotientFiniteUpper
+public import SimultaneousPrimitiveRoots.Explicit.KummerFiniteContourBound
+public import SimultaneousPrimitiveRoots.Explicit.KummerFiniteContourMain
+public import SimultaneousPrimitiveRoots.Explicit.KummerLeftEdgeContour
+public import SimultaneousPrimitiveRoots.Explicit.KummerGaussianLeftAverage
+
+/-! Generalization of `SimultaneousPrimitiveRoots.KummerContourFromGrowth` from the entire zeta quotient
+to abstract `EntireZeroData` (machine-copied; only declarations depending on the quotient
+hypothesis are restated). -/
+
+@[expose] public section
+set_option backward.isDefEq.respectTransparency false
+
+namespace SimultaneousPrimitiveRoots.Explicit
+
+open Metric Filter
+open scoped Topology
+noncomputable section
+
+
+/-- The remaining actual analytic data have no contour-remainder input. -/
+def KummerEntireGrowthGapInputs (a q : ℕ)
+    [Fact (2 ≤ a)] [Fact q.Prime] [Fact (a < q)] (δ C : ℝ) : Prop :=
+  ∃ H : ℂ → ℂ,
+    EntireZeroData (PrimeKummerField a q) (CyclotomicField q ℚ) H ∧
+    (∀ U : ℝ, 0 ≤ U → ∀ z ∈ sphere (2 : ℂ) (2 * (U + 2)),
+      ‖H z‖ ≤ Real.exp
+        (C * (q : ℝ) * ((q : ℝ) - 1) * Real.log (2 * (q : ℝ)) * (U + 3) ^ 2)) ∧
+    (∀ i : fullQuotientZeroIndex H, (fullQuotientIndexedZero H i).im ≠ 0 →
+      |(fullQuotientIndexedZero H i).im| ≤ 2 * (q : ℝ) ^ 2 →
+        (fullQuotientIndexedZero H i).re ≤ 1 - δ)
+
+def UniformKummerEntireGrowthGapInputs (A : Finset ℕ) (δ η C : ℝ) (B : Set ℕ) : Prop :=
+  ∀ᶠ x : ℝ in atTop, ∀ a ∈ A, ∀ q : ℕ, ∀ ha : 2 ≤ a, ∀ hq : q.Prime,
+    ∀ haq : a < q, q ∉ B → q ≤ Nat.floor (2 * x ^ η) →
+    letI : Fact (2 ≤ a) := ⟨ha⟩
+    letI : Fact q.Prime := ⟨hq⟩
+    letI : Fact (a < q) := ⟨haq⟩
+    KummerEntireGrowthGapInputs a q δ C
+
+theorem kummerFiniteContourUpperInputs_of_boundary_growth {a q : ℕ}
+    [Fact (2 ≤ a)] [Fact q.Prime] [Fact (a < q)] {x δ C : ℝ}
+    (hx : 1 ≤ x) (hC : 0 ≤ C) (hi : KummerEntireGrowthGapInputs a q δ C) :
+    KummerFiniteContourUpperInputs a q x δ C (kummerGaussianLeftAverageConstant C + 1) := by
+  obtain ⟨H, hH, hb, hg⟩ := hi
+  exact kummerFiniteContourUpperInputs_of_left_edge hx hC
+    ⟨H, hH, hb, hg, kummerGaussianLeftEdgeUpperInput_of_boundary_growth hH hC hx hb⟩
+
+theorem uniformKummerFiniteContourUpperInputs_of_boundary_growth
+    {A : Finset ℕ} {δ η C : ℝ} {B : Set ℕ} (hC : 0 ≤ C)
+    (hi : UniformKummerEntireGrowthGapInputs A δ η C B) :
+    UniformKummerFiniteContourUpperInputs A δ η C (kummerGaussianLeftAverageConstant C + 1) B := by
+  filter_upwards [hi, eventually_ge_atTop (1 : ℝ)] with x hix hx
+  intro a ha q ha2 hq haq hgood hcut
+  let : Fact (2 ≤ a) := ⟨ha2⟩
+  let : Fact q.Prime := ⟨hq⟩
+  let : Fact (a < q) := ⟨haq⟩
+  exact kummerFiniteContourUpperInputs_of_boundary_growth hx hC
+    (hix a ha q ha2 hq haq hgood hcut)
+
+theorem exists_gaussianFullLargeGoodTraceBound_of_entire_growth_gap
+    (A : Finset ℕ) {δ η C : ℝ} {B : Set ℕ}
+    (hη : η < 1 / 5) (hδ : δ ≤ 1) (hC : 0 ≤ C)
+    (hi : UniformKummerEntireGrowthGapInputs A δ η C B) :
+    ∃ D : ℝ, 0 ≤ D ∧ GaussianFullLargeGoodTraceBound A δ η D B (fun _ => 0) := by
+  have hR : 0 ≤ kummerGaussianLeftAverageConstant C + 1 := by
+    linarith [kummerGaussianLeftAverageConstant_nonneg hC]
+  exact exists_gaussianFullLargeGoodTraceBound_of_finite_contours A hη hδ hC hR
+    (uniformKummerFiniteContourUpperInputs_of_boundary_growth hC hi)
+
+/-- Conditional main closure with the whole contour remainder derived. Actual
+entire/growth/gap data, KR and candidate supply still need construction. -/
+theorem mainClaim_of_entire_growth_gap {δ η : ℝ}
+    (hη : 0 ≤ η) (hηδ : η < δ) (hηfifth : η < 1 / 5) (hδ : δ ≤ 1)
+    (hsupply : ∀ A : Finset ℕ, Admissible A →
+      ∃ θ : ℝ, 0 < θ ∧ CandidateSupplyBound A η θ)
+    (hi : ∀ A : Finset ℕ, Admissible A → ∃ C : ℝ, ∃ B : Set ℕ,
+      0 ≤ C ∧ Summable (badReciprocalWeight B) ∧
+        UniformKummerEntireGrowthGapInputs A δ η C B) : MainClaim := by
+  apply mainClaim_of_finite_contour_inputs hη hηδ hηfifth hδ hsupply
+  intro A hA
+  obtain ⟨C, B, hC, hB, hdata⟩ := hi A hA
+  refine ⟨C, kummerGaussianLeftAverageConstant C + 1, B, hC, ?_, hB,
+    uniformKummerFiniteContourUpperInputs_of_boundary_growth hC hdata⟩
+  linarith [kummerGaussianLeftAverageConstant_nonneg hC]
+
+end
+end SimultaneousPrimitiveRoots.Explicit

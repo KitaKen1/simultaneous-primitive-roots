@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "file": "vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_FAMILY_FIELDS/theta_complex_derivative_tensor.lean",
+  "original_sha256": "7b4aae230d9d916c02f351c1f6bcf651ae48e7916a0bbdfab0dab2a9d34cebaf",
+  "before_sha256": "7b4aae230d9d916c02f351c1f6bcf651ae48e7916a0bbdfab0dab2a9d34cebaf",
+  "after_sha256": "a1ca4d43229303a219376ce75afad6955e54c277ead739f3e1a572e9f7c79dd9",
+  "source_freeze_sha256": "a1ca4d43229303a219376ce75afad6955e54c277ead739f3e1a572e9f7c79dd9",
+  "original_source_matches_manifest": true,
+  "edits": [
+    {
+      "before": "      convert (hasDerivAt_const u δ).div (hasDerivAt_id u) hu'.ne' using 1\n      · funext t\n        rfl\n      · field_simp [hu'.ne']\n        simp\n        ring\n",
+      "after": "      convert (hasDerivAt_const u δ).div (hasDerivAt_id u) hu'.ne' using 1 <;>\n        first\n        | rfl\n        | (funext t; rfl)\n        | (field_simp [hu'.ne'] <;> simp <;> ring)\n",
+      "count": 2
+    }
+  ],
+  "inverse_recovers_all_before_bytes": true,
+  "inverse_recovers_all_original_bytes": true,
+  "public_private_declaration_header_count": 27,
+  "all_public_private_headers_byte_identical": true,
+  "scope": "Only the two local hdiv proof blocks of private thetaRealPower_lipschitz. All public/private declaration types, hypotheses, section variables, functions, derivative formulas and all definition/data values remain original.",
+  "justification": "The same HasDerivAt.const/div call and hu positive-derived nonzero condition are retained. Each convert-generated goal first permits rfl for the additional stock Real class-record equality; the original function equality uses exactly funext t;rfl and the original algebra equality uses the same field_simp [hu'.ne'], simp, ring on its generated goals. No statement, assumption, definition value or limit is changed.",
+  "status": "static original/proof/capture audit; source frozen; root093 integration pending; no direct Lean checks",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_FAMILY_FIELDS/theta_complex_derivative_tensor.lean (original)\n+++ vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_FAMILY_FIELDS/theta_complex_derivative_tensor.lean (ported)\n@@ -494,12 +494,11 @@\n       deriv p u = -((δ / u ^ 2) * (4 / 3 : ℝ) * (δ / u) ^ (1 / 3 : ℝ)) := by\n     have hu' : 0 < u := lt_of_lt_of_le hu₀ hu\n     have hdiv : HasDerivAt (fun t : ℝ => δ / t) (-δ / u ^ 2) u := by\n-      convert (hasDerivAt_const u δ).div (hasDerivAt_id u) hu'.ne' using 1\n-      · funext t\n-        rfl\n-      · field_simp [hu'.ne']\n-        simp\n-        ring\n+      convert (hasDerivAt_const u δ).div (hasDerivAt_id u) hu'.ne' using 1 <;>\n+        first\n+        | rfl\n+        | (funext t; rfl)\n+        | (field_simp [hu'.ne'] <;> simp <;> ring)\n     have hpow := hdiv.rpow_const (Or.inr (by norm_num : (1 : ℝ) ≤ (4 / 3 : ℝ)))\n     simpa [p, show (4 / 3 : ℝ) - 1 = 1 / 3 by norm_num, neg_div] using hpow.deriv\n   have hbound (u : ℝ) (hu : u ∈ Set.Ici u₀) : ‖deriv p u‖₊ ≤ Real.toNNReal K := by\n@@ -527,12 +526,11 @@\n   have hdiff (u : ℝ) (hu : u ∈ Set.Ici u₀) : DifferentiableAt ℝ p u := by\n     have hu' : 0 < u := lt_of_lt_of_le hu₀ hu\n     have hdiv : HasDerivAt (fun t : ℝ => δ / t) (-δ / u ^ 2) u := by\n-      convert (hasDerivAt_const u δ).div (hasDerivAt_id u) hu'.ne' using 1\n-      · funext t\n-        rfl\n-      · field_simp [hu'.ne']\n-        simp\n-        ring\n+      convert (hasDerivAt_const u δ).div (hasDerivAt_id u) hu'.ne' using 1 <;>\n+        first\n+        | rfl\n+        | (funext t; rfl)\n+        | (field_simp [hu'.ne'] <;> simp <;> ring)\n     exact (hdiv.rpow_const (Or.inr (by norm_num : (1 : ℝ) ≤ (4 / 3 : ℝ)))).differentiableAt\n   exact Convex.lipschitzOnWith_of_nnnorm_deriv_le\n     (fun u hu => hdiff u hu) (fun u hu => hbound u hu) (convex_Ici u₀)\n"
+}

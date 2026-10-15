@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "file": "vendor/OAI/NumberTheory/DirichletL/CubicSieve/DyadicKernel.lean",
+  "line": 500,
+  "before_sha256": "45b9b0b6603f0ab1e5e0c88a7feaeecefb836c0eeb786007a4502b1eb5f79cf6",
+  "after_sha256": "807beff62aecdc51c62976d35cc8d0f8b589bd6302aa1f3e870722e057f6131b",
+  "old_line": "    exact Pi.tsum_apply hfp\n",
+  "new_line": "    exact _root_.tsum_apply hfp\n",
+  "inverse_restores_all_bytes": true,
+  "scope": "Old global tsum_apply instead of later Pi.tsum_apply; the existing hfp : Summable f is passed unchanged. Public declaration types, assumptions, and data definitions unchanged.",
+  "primary_source": "Mathlib/Topology/Algebra/InfiniteSum/Constructions.lean:284, @[to_additive] theorem tprod_apply; compared with later Pi.tprod_apply at same source location.",
+  "status": "saved; whole-build integration validation pending; no direct Lean checks",
+  "unified_diff": "--- vendor/OAI/NumberTheory/DirichletL/CubicSieve/DyadicKernel.lean (before)\n+++ vendor/OAI/NumberTheory/DirichletL/CubicSieve/DyadicKernel.lean (after)\n@@ -497,7 +497,7 @@\n     rw [show (fun i => F i)=(fun i => e.symm (f i)) from rfl,←e.symm.map_tsum]\n     congr 1\n     funext k\n-    exact Pi.tsum_apply hfp\n+    exact _root_.tsum_apply hfp\n   have hn : ‖e.symm (fun k => ∑'i,f i k)‖≤∑'i,g i := by\n     rw [←he]\n     exact tsum_of_norm_bounded hg.hasSum hF\n"
+}

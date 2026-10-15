@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "file": "vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_RES_WHIT/analyticFamily_bigCell_rtr.lean",
+  "original_sha256": "5f9e2f0050a68ebadbc932262672ce7afa7067d9ba5427824793c8ce8e5a9a83",
+  "before_sha256": "4c4a16222893cc03c29937f6f907f100cc4072b89d550b8e66345e636ba738e7",
+  "after_sha256": "636f9484df8720ba2b02c2f0f9c3c538a55f8ebb3b1922fb0c112a17e7adb4e2",
+  "source_freeze_sha256": "636f9484df8720ba2b02c2f0f9c3c538a55f8ebb3b1922fb0c112a17e7adb4e2",
+  "original_source_matches_manifest": true,
+  "edits": [
+    {
+      "before": "    rw [hformula]\n    fun_prop\n  · dsimp [bigCell]\n    split_ifs with h\n    · exact (hd h).elim\n    · exact analyticOnNhd_const",
+      "after": "    rw [hformula]\n    intro sprPoint sprMember\n    exact ((hpow sprPoint sprMember).smul analyticAt_const).const_smul\n      (c := ((ζ : ℂˣ) : ℂ))\n  · simpa only [bigCell, dif_neg hd] using\n      (analyticOnNhd_const : AnalyticOnNhd ℂ (fun _ : ℂ => (0 : T.V)) {s | 0 < s.re})"
+    },
+    {
+      "before": "    intro s\n    dsimp [bigCell]\n    split_ifs with h\n    · exact (hd h).elim\n    · simp",
+      "after": "    intro s\n    simp only [bigCell, dif_neg hd, smul_zero]"
+    }
+  ],
+  "inverse_recovers_all_original_bytes": false,
+  "public_private_declaration_header_count": 8,
+  "all_public_private_declaration_headers_byte_identical": true,
+  "section_variables_unchanged": true,
+  "scope": "This wave changes only two private proof blocks. The explicit Complex.Analytic provider import was already present in the previously audited source. All eight public/private theorem headers, section variables/hypotheses, functions, sets, scalars, decomposition choices and definition/data values remain original.",
+  "justification": "Stock AnalyticOnNhd is pointwise AnalyticAt (Basic:118). The positive bigCell_analytic branch uses original hpow at the same point and membership, AnalyticAt.smul with a constant T.V value, then AnalyticAt.const_smul with the same ζ scalar. The existing negative hd is exactly the original dependent-if condition in bigCell (TorusInd definition); dif_neg hd simplifies the same branch to zero in both analytic and scaling proofs. No premises are added. The added Complex.Analytic import supplies the same proved complex-power analyticity provider.",
+  "status": "static original declaration/proof/capture audit; source frozen; next root whole-build integration pending; no direct Lean checks",
+  "unified_diff": "--- vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_RES_WHIT/analyticFamily_bigCell_rtr.lean (original)\n+++ vendor/ArtinPrimitiveRoots/Theta/Proofs/TH_RES_WHIT/analyticFamily_bigCell_rtr.lean (ported)\n@@ -1,3 +1,4 @@\n+import Mathlib.Analysis.SpecialFunctions.Complex.Analytic\n import ArtinPrimitiveRoots.Theta.Proofs.TH_RES_WHIT.Defs\n import Mathlib.Analysis.Analytic.Uniqueness\n import Mathlib.Topology.Baire.LocallyCompactRegular\n@@ -46,11 +47,11 @@\n       rw [hdecomp]\n       exact bigCell_apply L T s φ x ζ y t\n     rw [hformula]\n-    fun_prop\n-  · dsimp [bigCell]\n-    split_ifs with h\n-    · exact (hd h).elim\n-    · exact analyticOnNhd_const\n+    intro sprPoint sprMember\n+    exact ((hpow sprPoint sprMember).smul analyticAt_const).const_smul\n+      (c := ((ζ : ℂˣ) : ℂ))\n+  · simpa only [bigCell, dif_neg hd] using\n+      (analyticOnNhd_const : AnalyticOnNhd ℂ (fun _ : ℂ => (0 : T.V)) {s | 0 < s.re})\n \n private theorem bigCell_scale {v : FinPlace F} (L : FinLocalCover D H v)\n     (T : TorusRep D H v) (φ : v.adicCompletion F → T.V)\n@@ -85,10 +86,7 @@\n     ring\n   · refine ⟨1, one_pos, ?_⟩\n     intro s\n-    dsimp [bigCell]\n-    split_ifs with h\n-    · exact (hd h).elim\n-    · simp\n+    simp only [bigCell, dif_neg hd, smul_zero]\n \n private theorem bigCell_uniform_level {v : FinPlace F} (L : FinLocalCover D H v)\n     (T : TorusRep D H v) (φ : v.adicCompletion F → T.V)\n",
+  "original_to_ported_edits": [
+    {
+      "before": "",
+      "after": "import Mathlib.Analysis.SpecialFunctions.Complex.Analytic\n"
+    },
+    {
+      "before": "    rw [hformula]\n    fun_prop\n  · dsimp [bigCell]\n    split_ifs with h\n    · exact (hd h).elim\n    · exact analyticOnNhd_const",
+      "after": "    rw [hformula]\n    intro sprPoint sprMember\n    exact ((hpow sprPoint sprMember).smul analyticAt_const).const_smul\n      (c := ((ζ : ℂˣ) : ℂ))\n  · simpa only [bigCell, dif_neg hd] using\n      (analyticOnNhd_const : AnalyticOnNhd ℂ (fun _ : ℂ => (0 : T.V)) {s | 0 < s.re})"
+    },
+    {
+      "before": "    intro s\n    dsimp [bigCell]\n    split_ifs with h\n    · exact (hd h).elim\n    · simp",
+      "after": "    intro s\n    simp only [bigCell, dif_neg hd, smul_zero]"
+    }
+  ],
+  "prior_existing_port_change": {
+    "before": "",
+    "after": "import Mathlib.Analysis.SpecialFunctions.Complex.Analytic\n"
+  },
+  "inverse_recovers_all_before_bytes": true,
+  "inverse_current_edits_plus_prior_provider_import_removal_recovers_original_bytes": true
+}
