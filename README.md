@@ -201,7 +201,7 @@ The earlier three-target run is recorded [separately](ci/three-theorem-review.js
 It does not check main. The current four-target configuration and private CI are
 tracked in [four-target-review.json](ci/four-target-review.json).
 The macOS development check used the upstream sandbox shim. Real Linux sandboxing
-is tested in [private CI](https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38768651954), followed by [public CI](https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml).
+is tested in [private CI](https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38818388877), followed by [public CI](https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml).
 
 ## Appendix: comparison with earlier work
 
@@ -331,14 +331,17 @@ Comparator checks statements and dependent definitions against the reference,
 audits permitted axioms and replays the solution in the builtin Lean kernel.
 The prepared [Linux workflow](.github/workflows/lean.yml) runs the complete comparison
 with the pinned Landrun sandbox and uploads logs for the tested commit.
+Compilation is staged across jobs for the same commit; the final independent
+Challenge comparison, axiom audit and fresh kernel replay remain complete.
 
 ### Certification Within 30 days: CI results
 
-The workflow retains logs and artifacts for 30 days.
+The workflow retains verification logs for 30 days and temporary compilation
+artifacts for one day.
 Private Linux CI in [`KitaKen1/ci-test-sandbox`](https://github.com/KitaKen1/ci-test-sandbox)
 and public Linux CI in
 [`KitaKen1/simultaneous-primitive-roots`](https://github.com/KitaKen1/simultaneous-primitive-roots)
-are tracked in [private Actions](https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38768651954) and [public Actions](https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml).
+are tracked in [private Actions](https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38818388877) and [public Actions](https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml).
 The intended order is human review, private CI, then public CI on the reviewed sources.
 
 ### Certification After 30 days: archive

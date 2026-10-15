@@ -1,6 +1,6 @@
 # Verification status
 
-Snapshot prepared on 15 October 2026 (Asia/Tokyo), stock Lean 4.33.1.
+Snapshot prepared on 16 October 2026 (Asia/Tokyo), stock Lean 4.33.1.
 
 | Check | Status at snapshot time |
 |---|---|
@@ -11,7 +11,7 @@ Snapshot prepared on 15 October 2026 (Asia/Tokyo), stock Lean 4.33.1.
 | Proof builds and four public axiom reports | Passed; exactly `propext`, `Classical.choice`, `Quot.sound` |
 | FC format and standalone statements | Passed using real FC utilities on Lean 4.33.1; reference keys and proof URLs included |
 | Source and migration audit | Passed; 4,465 proof files, 1,251 ported sources, 22 backports and the main bridge accounted for |
-| Private Linux CI | [Disk-capacity fix: retry running](https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38768651954); previous statement build passed, previous full job exhausted disk |
+| Private Linux CI | [Staged compilation running](https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38818388877); previous full job hit the six-hour compilation limit |
 | Public Linux CI | Candidate prepared locally; publication requires explicit approval |
 
 The four current targets are:

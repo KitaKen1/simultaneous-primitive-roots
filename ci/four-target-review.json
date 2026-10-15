@@ -109,10 +109,10 @@
         "disk_gib_remaining": 17
       }
     },
-    "commit": "70a05dcc93415b4c574f8c4a3a65c75a04c65842",
-    "run_url": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38768651954",
-    "independent_statements": "pending result for the retry",
-    "complete_proof_and_comparator": "in_progress",
+    "commit": "f9f7db3168f8afe1b25d7e9db20dd36b814e4414",
+    "run_url": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38818388877",
+    "independent_statements": "in_progress",
+    "complete_proof_and_comparator": "pending staged compilation",
     "third_attempt": {
       "commit": "8cfd6967c633f56a488fe3224d45722f295f4e14",
       "run": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38738032026",
@@ -123,7 +123,7 @@
       "job_duration_seconds": 11694
     },
     "resource_fix": {
-      "status": "private CI retry in progress",
+      "status": "resource controls passed; disk space remained at timeout",
       "post_cache_free_disk_min_gib": 20,
       "low_disk_abort_gib": 4,
       "monitor_interval_seconds": 30,
@@ -142,9 +142,68 @@
       },
       "hosted_runner_cleanup_and_swap_preparation": "success",
       "free_disk_20gib_preflight": "success",
-      "actual_low_disk_unit_stop_control": "success"
+      "actual_low_disk_unit_stop_control": "success",
+      "observed_statement_job_cleanup": {
+        "root_free_before_rounded_gib": 14,
+        "root_free_after_rounded_gib": 49,
+        "scope": "Completed independent-statement job; proof-job preflight and resource control passed separately."
+      },
+      "validated_in_run": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38768651954"
     },
-    "real_landrun_controls_current_retry": "all three passed"
+    "fourth_attempt": {
+      "commit": "70a05dcc93415b4c574f8c4a3a65c75a04c65842",
+      "run": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38768651954",
+      "conclusion": "cancelled",
+      "independent_statements": "success",
+      "failure": "The six-hour hosted-runner limit stopped cold proof compilation before solution export or kernel replay.",
+      "last_resource_sample": {
+        "disk_free_gib": 14.75,
+        "mem_available_kib": 5697344,
+        "swap_free_kib": 14279016
+      },
+      "log": "results/private-ci-fourth-proof.log",
+      "annotations": "results/private-ci-fourth-annotations.json",
+      "artifact_id": 12010409734,
+      "artifact_sha256": "15884a672637eb6cf131d0c6524098fa3490b1c6c541250e9ec384d3daccf1ab",
+      "real_landrun_controls": "all three passed",
+      "independent_statement_checks": {
+        "challenge_jobs": 8707,
+        "fc_jobs": 8953,
+        "all_four_hypothesis_definition_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "standalone_check": "passed"
+      },
+      "independent_statements_log": "results/private-ci-fourth-statements.log"
+    },
+    "staged_compilation": {
+      "status": "private CI in progress",
+      "source_proofs_unchanged": true,
+      "comparator_algorithms_unchanged": true,
+      "fresh_challenge_and_full_four_target_kernel_replay_required": true,
+      "shared_resource_wrapper_fixtures": {
+        "passed": true,
+        "record": "results/shared-resource-wrapper-tests.json",
+        "scope": "Contained process/systemd fixtures only"
+      },
+      "local_checks": "passed",
+      "record": "results/staged-compilation-local-checks.json",
+      "component_plan": "component-targets.json",
+      "module_coverage": {
+        "owned": 3997,
+        "full": 4002,
+        "final_assembly": 5
+      },
+      "stages": [
+        "five independent foundations",
+        "Hecke boundary after foundation restore",
+        "fresh Challenge plus unchanged complete four-target Comparator"
+      ],
+      "commit": "f9f7db3168f8afe1b25d7e9db20dd36b814e4414",
+      "run_url": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38818388877"
+    }
   },
   "public_ci": {
     "repository": "KitaKen1/simultaneous-primitive-roots",
@@ -172,10 +231,15 @@
     "scripts/check_sources.py": "d5f36fa51886665dbf3aba1066c41f359a9d0aaeb0a08b507245920be7946d91",
     "scripts/build.sh": "965a967463a7bad69f79e182cb9a8fb47db730477376b6f3ef0723256d9770e0",
     "scripts/prepare-linux-memory.sh": "68c54b3db4223fe17624e1282c7275823f2a671c3be437742c67d9f7ea9933b4",
-    ".github/workflows/lean.yml": "7d9a44310fcec4df2fab75008d64196181d5608d681b5e581309859f6757cbe4",
-    "scripts/compare.sh": "2a77c35cc7be7e39dfd380156440d611210070e1c791defed3d85fe118c7c91b",
+    ".github/workflows/lean.yml": "9cd2bf327a2f9d3370db5f82e7891e8ccfe09e1e7dce539eef58cef64fe38aa3",
+    "scripts/compare.sh": "f3f0fcf2fb7e4cd2f0dbf566131dd2d4a74a34c7c420cc97e0e7c3dd10a02352",
     "lean/lakefile.toml": "4da804ec12a96af7f1c41a1ef0d7731f01b4dec1266b6b519f190e340595f1eb",
-    "scripts/monitor-linux-resources.py": "e5da518181bd23fd4ae0e4e892edd20070e37c3ebcbb5bc2de9bcb3a0f5f75e0"
+    "scripts/monitor-linux-resources.py": "e5da518181bd23fd4ae0e4e892edd20070e37c3ebcbb5bc2de9bcb3a0f5f75e0",
+    "scripts/run-linux-guarded.sh": "d5bdd577e413c6e6fc1d3e775cec7edf07e135d096bc0f35b3f0022ae4a50e19",
+    "scripts/build-component.sh": "27391d8a48cf7e6867857d6a6f422f7d11b847e9c04d75d4bb88e4bff90bfbf9",
+    "ci/component-targets.json": "538e70aeb5df7932c1600e14a4065a5add0d3b743ca11507a8cd692cfda9f7ef",
+    "ci/build-component.lean": "284a4d96790f225ac7275579a3db4a784bc39b73416a1421f9d0c4656c3d59e5",
+    "scripts/ci-build-artifacts.py": "9b52bc45f51cf3d1bcdacadc0a9a211e6c2a2d06ad7f0479bcfff0681979f22c"
   },
   "html_checks": {
     "passed": true,

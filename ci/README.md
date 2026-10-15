@@ -39,23 +39,33 @@ Linux command, set `COMPARATOR_LANDRUN` to the pinned Landrun binary and run:
 bash scripts/compare.sh linux
 ```
 
-The workflow has a quick independent-statement job and a complete-proof job.
-The complete-proof job removes unused SDKs only on a GitHub-hosted ephemeral runner and provisions 8–16 GiB of swap while reserving 36 GiB of build disk. It requires 20 GiB free before the full comparison, records disk and memory every 30 seconds, and aborts below 4 GiB free so runner logs can still be saved. A separate control tests that this guard stops its own systemd unit. Only compressed Mathlib download archives are pruned after successful extraction; compiled dependencies and proof artifacts are preserved.
-The latter obtains the trusted Mathlib cache and builds the checking tools;
-the solution itself is built by the comparator within Landrun. The workflow
-builds Landrun from its fixed commit, then runs the comparator as an
-unprivileged user inside a transient systemd unit with AF_UNIX restricted.
-Logs are uploaded under an artifact name containing the tested Git commit.
-A small native Lake launcher outside the candidate's writable directory limits
-sandboxed builds to two workers. It is compiled with the system C compiler;
-the pinned Comparator source remains unchanged. Native code avoids requiring
-shell-interpreter execution permissions inside Landrun.
-Only the checking tools' build directories are cached between workflow runs.
-The candidate's writable `.lake` directory starts fresh, and Mathlib artifacts
-are downloaded from the official pinned cache before comparison. This prevents
-a previous candidate build from changing the independent statement's next
-checking environment. The comparator performs the full target/axiom/kernel
-checks on each run.
+The workflow compiles the independent statements separately. Cold proof compilation
+is divided into foundation jobs, a downstream Hecke-boundary job, and final proof
+assembly. Each component uses the unchanged `Comparator.safeLakeBuild` and real
+Landrun. Build files are shared only within the same workflow run and commit;
+[component targets](component-targets.json) define deterministic ownership of
+shared modules. Archives include companion artifacts and per-file SHA256 hashes.
+The restore step verifies commit, source, toolchain and configuration identities,
+module coverage and safe paths before restoring anything.
+
+The final job rebuilds the canonical Challenge from source, then runs the unchanged
+four-target Comparator, dependent-definition comparison, axiom audit and fresh
+kernel replay. Compilation artifacts cannot replace those checks. Only the
+checking tools' build directories are cached across workflow runs; Mathlib comes
+from its official pinned cache.
+
+Every proof runner removes unused SDKs only on a disposable GitHub-hosted runner,
+provisions 8–16 GiB of swap while reserving 36 GiB of build disk, and tests a
+20 GiB preflight before restoring proof components. The guarded build or comparison
+records disk and memory every 30 seconds and aborts below 4 GiB free to preserve
+logs. A separate control exercises an actual systemd-unit stop. Compressed Mathlib
+download archives are pruned only after successful extraction.
+
+Builds and full comparison run as an unprivileged user in a transient systemd unit
+with AF_UNIX restricted. A native Lake launcher outside the candidate's writable
+directory limits sandboxed builds to two workers. The pinned Comparator source
+and all checking algorithms remain unchanged. Diagnostic logs are retained for
+30 days; temporary same-run compilation archives are retained for one day.
 
 ## Intended rollout
 
@@ -66,7 +76,7 @@ checks on each run.
    tree in `KitaKen1/simultaneous-primitive-roots` and run the same workflow.
 4. Link the public run for the tested commit when documenting CI success.
 
-Private testing is on `ci/simultaneous-primitive-roots-lean4331` in [ci-test-sandbox](https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38768651954). Public results are listed in [the public workflow](https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml).
+Private testing is on `ci/simultaneous-primitive-roots-lean4331` in [ci-test-sandbox](https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38818388877). Public results are listed in [the public workflow](https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml).
 The existing v4.35.0-rc3 evidence is historical evidence for the original
 workspace, not evidence that the v4.33.1 publication build or CI passed.
 

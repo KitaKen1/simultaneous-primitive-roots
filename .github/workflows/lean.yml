@@ -39,13 +39,43 @@ jobs:
           lake env lean ../../ci/openai-input-definition-checks.lean
           python3 ../../scripts/check_fclike_standalone.py
 
-  proof:
-    name: Complete proof and comparator
+  plan:
+    name: Plan proof compilation
     runs-on: ubuntu-24.04
-    timeout-minutes: 360
+    timeout-minutes: 10
+    outputs:
+      foundations: ${{ steps.plan.outputs.foundations }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-      - name: Prepare memory for the complete kernel replay
+      - name: Validate the component graph
+        id: plan
+        run: |
+          set -euo pipefail
+          python3 scripts/ci-build-artifacts.py plan > "$RUNNER_TEMP/component-plan.json"
+          python3 - <<'PYPLAN'
+          import json, os
+          from pathlib import Path
+          plan = json.loads(Path(os.environ['RUNNER_TEMP'], 'component-plan.json').read_text())
+          config = json.loads(Path('ci/component-targets.json').read_text())
+          names = [c['name'] for c in config['components'] if not c['dependencies']]
+          assert set(names) | {'hecke'} == set(plan['component_names'])
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
+              print('foundations=' + json.dumps(names, separators=(',', ':')), file=out)
+          PYPLAN
+
+  components:
+    name: Compile ${{ matrix.component }}
+    needs: plan
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        component: ${{ fromJSON(needs.plan.outputs.foundations) }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Prepare disk and memory
         run: bash scripts/prepare-linux-memory.sh
       - name: Install the pinned Lean toolchain
         run: bash scripts/install-lean-linux.sh
@@ -66,7 +96,6 @@ jobs:
           python3 scripts/check_sources.py --check-port-record | tee ci/results/source-check.json
           cd lean
           lake exe cache get 2>&1 | tee ../ci/results/cache.log
-          # The extracted official artifacts remain; only download archives go.
           find "$MATHLIB_CACHE_DIR" -type f -name '*.ltar' -delete
           cd ../tools/comparator
           lake build comparator lean4export
@@ -80,9 +109,172 @@ jobs:
         run: |
           python3 scripts/monitor-linux-resources.py preflight --min-free-gib 20
           python3 scripts/monitor-linux-resources.py control
+      - name: Compile this component with Comparator's sandbox
+        run: bash scripts/build-component.sh '${{ matrix.component }}'
+      - name: Package this component's owned build files
+        run: python3 scripts/ci-build-artifacts.py pack --component '${{ matrix.component }}' --output "$RUNNER_TEMP/build-component-${{ matrix.component }}.tar.gz"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: proof-component-${{ matrix.component }}-${{ github.sha }}
+          path: ${{ runner.temp }}/build-component-${{ matrix.component }}.tar.gz
+          compression-level: 0
+          overwrite: true
+          retention-days: 1
+      - name: Save component diagnostics
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: diagnostics-${{ matrix.component }}-${{ github.sha }}-${{ github.run_attempt }}
+          path: ci/results/
+          if-no-files-found: warn
+          retention-days: 30
+
+  hecke:
+    name: Assemble Hecke boundary
+    needs: components
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Prepare disk and memory
+        run: bash scripts/prepare-linux-memory.sh
+      - name: Install the pinned Lean toolchain
+        run: bash scripts/install-lean-linux.sh
+      - name: Restore trusted checking-tool build cache
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: |
+            tools/comparator/.lake
+            tools/lean4export/.lake
+          key: checking-tools-lean4331-${{ runner.os }}-${{ hashFiles('ci/checking-tool-sha256.json', 'ci/toolchain-lock.json', 'tools/**/*.lean', 'tools/**/lakefile.toml', 'tools/**/lake-manifest.json', 'tools/**/lean-toolchain') }}
+      - name: Prepare official Mathlib cache and checking tools
+        env:
+          LEAN_NUM_THREADS: '2'
+          MATHLIB_CACHE_DIR: ${{ runner.temp }}/mathlib-cache
+        run: |
+          set -euo pipefail
+          mkdir -p ci/results
+          python3 scripts/check_sources.py --check-port-record | tee ci/results/source-check.json
+          cd lean
+          lake exe cache get 2>&1 | tee ../ci/results/cache.log
+          find "$MATHLIB_CACHE_DIR" -type f -name '*.ltar' -delete
+          cd ../tools/comparator
+          lake build comparator lean4export
+      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5
+        with:
+          go-version: '1.24.13'
+          cache: false
+      - name: Build the pinned Linux sandbox
+        run: bash scripts/install-landrun-linux.sh
+      - name: Check disk headroom and low-disk abort
+        run: |
+          python3 scripts/monitor-linux-resources.py preflight --min-free-gib 20
+          python3 scripts/monitor-linux-resources.py control
+      - name: Download same-commit component builds
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          pattern: proof-component-*-${{ github.sha }}
+          path: ${{ runner.temp }}/proof-components
+          merge-multiple: true
+      - name: Verify and restore foundation build files
+        run: |
+          set -euo pipefail
+          python3 - <<'PYMERGE'
+          import json, os, subprocess
+          from pathlib import Path
+          cfg = json.loads(Path('ci/component-targets.json').read_text())
+          names = [c['name'] for c in cfg['components'] if not c['dependencies']]
+          args = ['python3', 'scripts/ci-build-artifacts.py', 'merge']
+          for name in names:
+              args += ['--component', name, '--archive', str(Path(os.environ['RUNNER_TEMP'], 'proof-components', 'build-component-' + name + '.tar.gz'))]
+          subprocess.run(args, check=True)
+          PYMERGE
+          rm -rf -- "$RUNNER_TEMP/proof-components"
+      - name: Compile the remaining Hecke boundary with Comparator's sandbox
+        run: bash scripts/build-component.sh hecke
+      - name: Package the Hecke remainder
+        run: python3 scripts/ci-build-artifacts.py pack --component hecke --output "$RUNNER_TEMP/build-component-hecke.tar.gz"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: proof-component-hecke-${{ github.sha }}
+          path: ${{ runner.temp }}/build-component-hecke.tar.gz
+          compression-level: 0
+          overwrite: true
+          retention-days: 1
+      - name: Save Hecke diagnostics
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: diagnostics-hecke-${{ github.sha }}-${{ github.run_attempt }}
+          path: ci/results/
+          if-no-files-found: warn
+          retention-days: 30
+
+  proof:
+    name: Complete proof and comparator
+    needs: [components, hecke]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Prepare disk and memory
+        run: bash scripts/prepare-linux-memory.sh
+      - name: Install the pinned Lean toolchain
+        run: bash scripts/install-lean-linux.sh
+      - name: Restore trusted checking-tool build cache
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: |
+            tools/comparator/.lake
+            tools/lean4export/.lake
+          key: checking-tools-lean4331-${{ runner.os }}-${{ hashFiles('ci/checking-tool-sha256.json', 'ci/toolchain-lock.json', 'tools/**/*.lean', 'tools/**/lakefile.toml', 'tools/**/lake-manifest.json', 'tools/**/lean-toolchain') }}
+      - name: Prepare official Mathlib cache and checking tools
+        env:
+          LEAN_NUM_THREADS: '2'
+          MATHLIB_CACHE_DIR: ${{ runner.temp }}/mathlib-cache
+        run: |
+          set -euo pipefail
+          mkdir -p ci/results
+          python3 scripts/check_sources.py --check-port-record | tee ci/results/source-check.json
+          cd lean
+          lake exe cache get 2>&1 | tee ../ci/results/cache.log
+          find "$MATHLIB_CACHE_DIR" -type f -name '*.ltar' -delete
+          cd ../tools/comparator
+          lake build comparator lean4export
+      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5
+        with:
+          go-version: '1.24.13'
+          cache: false
+      - name: Build the pinned Linux sandbox
+        run: bash scripts/install-landrun-linux.sh
+      - name: Check disk headroom and low-disk abort
+        run: |
+          python3 scripts/monitor-linux-resources.py preflight --min-free-gib 20
+          python3 scripts/monitor-linux-resources.py control
+      - name: Download same-commit component builds
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          pattern: proof-component-*-${{ github.sha }}
+          path: ${{ runner.temp }}/proof-components
+          merge-multiple: true
+      - name: Verify and restore all same-commit proof components
+        run: |
+          set -euo pipefail
+          python3 - <<'PYMERGE'
+          import json, os, subprocess
+          from pathlib import Path
+          cfg = json.loads(Path('ci/component-targets.json').read_text())
+          args = ['python3', 'scripts/ci-build-artifacts.py', 'merge']
+          for c in cfg['components']:
+              args += ['--archive', str(Path(os.environ['RUNNER_TEMP'], 'proof-components', 'build-component-' + c['name'] + '.tar.gz'))]
+          subprocess.run(args, check=True)
+          PYMERGE
+          rm -rf -- "$RUNNER_TEMP/proof-components"
+          # Challenge is always rebuilt from its independent canonical source.
+          rm -f -- lean/.lake/build/lib/lean/Challenge.* lean/.lake/build/ir/Challenge.*
       - name: Check comparator acceptance and rejection controls
         run: python3 scripts/check_comparator_controls.py
-      - name: Compare statements, check axioms and replay the proof
+      - name: Compare all four statements, check axioms and replay the proof
         env:
           LEAN_NUM_THREADS: '2'
         run: bash scripts/compare.sh linux
@@ -90,7 +282,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: lean4331-${{ github.sha }}
+          name: lean4331-${{ github.sha }}-${{ github.run_attempt }}
           path: ci/results/
           if-no-files-found: warn
           retention-days: 30

@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "final_module": "SimultaneousPrimitiveRootsFinal.OpenAIMain",
+  "final_assembly_modules": [
+    "SimultaneousPrimitiveRootsFinal.ExternalHecke",
+    "SimultaneousPrimitiveRootsFinal.Remaining",
+    "SimultaneousPrimitiveRootsFinal.MainClaim",
+    "Solution",
+    "SimultaneousPrimitiveRootsFinal.OpenAIMain"
+  ],
+  "components": [
+    {
+      "name": "theta-eis",
+      "targets": ["ArtinPrimitiveRoots.Theta.Eis"],
+      "dependencies": []
+    },
+    {
+      "name": "a2-zero-free",
+      "targets": ["ArtinPrimitiveRoots.A2.ZeroFree.Results"],
+      "dependencies": []
+    },
+    {
+      "name": "euler",
+      "targets": ["SimultaneousPrimitiveRootsFinal.CyclotomicEulerBridge"],
+      "dependencies": []
+    },
+    {
+      "name": "typeii",
+      "targets": [
+        "SimultaneousPrimitiveRootsFinal.TypeII.MarkedTransferBridge",
+        "SimultaneousPrimitiveRootsFinal.TypeII.LongCoefficientBridge"
+      ],
+      "dependencies": []
+    },
+    {
+      "name": "internal",
+      "targets": [
+        "SimultaneousPrimitiveRoots.Unconditional.RemainingInputs",
+        "SimultaneousPrimitiveRoots.Unconditional.Supply.EndpointProof.Complete",
+        "SimultaneousPrimitiveRoots.Unconditional.Supply.TwoSidedProof.Complete",
+        "SimultaneousPrimitiveRoots.Unconditional.Supply.Extraction.Complete",
+        "SimultaneousPrimitiveRoots.Unconditional.Transference.Proof35.Complete",
+        "SimultaneousPrimitiveRootsFinal.Classical.SiegelWalfiszPrimes",
+        "SimultaneousPrimitiveRootsFinal.Classical.MertensBridge",
+        "SimultaneousPrimitiveRootsFinal.Classical.BlockSieveBridge",
+        "SimultaneousPrimitiveRootsFinal.Classical.RoughCountsBridge",
+        "SimultaneousPrimitiveRootsFinal.Classical.ModeratePhaseBridge",
+        "SimultaneousPrimitiveRootsFinal.Classical.PrimePhaseBridge"
+      ],
+      "dependencies": []
+    },
+    {
+      "name": "hecke",
+      "targets": ["ArtinPrimitiveRoots.Hecke.Boundary"],
+      "dependencies": ["theta-eis", "a2-zero-free", "euler", "typeii", "internal"]
+    }
+  ]
+}
