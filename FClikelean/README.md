@@ -149,7 +149,7 @@ FC 自体の標準 import は `FormalConjecturesUtil` で、その中から Math
 本repoも `module`、`public import FormalConjecturesUtil`、`@[expose] public section` を使い、全3定理と補助結果に `@[category research solved, AMS 11]` を付けています。
 ①は既知の条件付き定理、②・③は証明済みの結果なので、`research open` にはしません。
 標準属性は、`tools/fc-style/` の固定版FC（Lean 4.33.1）で実際にコンパイルして確認します。
-全定理に `formal_proof using lean4 at "…"` を付けています。①は `lean/SimultaneousPrimitiveRootsFinal/OpenAIMain.lean`、②・③・補助結果は `lean/Solution.lean` のGitHub URLを指します。現在は公開予定の `main` ブランチのURLです。まだpushしていません。公開後に、その版のcommitへ固定できます。
+全定理に `formal_proof using lean4 at "…"` を付けています。①は `lean/SimultaneousPrimitiveRootsFinal/OpenAIMain.lean`、②・③・補助結果は `lean/Solution.lean` のGitHub URLを指します。URLは証明スナップショットの固定commit `c4775966844ff78f0488492ee2aef7bd1437c51d` を指します。
 
 参考文献は `[OAI26]` と `[Ki26]` にそろえています。`[Ki26]` は Kenta Kitamura, *Positive Lower Density of Simultaneous Primitive Roots*（2026）に付随する本repoのLean形式化を指します。無条件版の証明を参照する先はLean repoです。
 

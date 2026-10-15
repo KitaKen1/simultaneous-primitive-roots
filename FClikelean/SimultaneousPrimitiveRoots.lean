@@ -137,7 +137,7 @@ def RoughDensityHypothesis : Prop :=
 
 /-- OpenAI [OAI26, Theorem 1.1]: a conditional lower bound for prime bases. -/
 @[category research solved, AMS 11,
-    formal_proof using lean4 at "https://github.com/KitaKen1/simultaneous-primitive-roots/blob/main/lean/SimultaneousPrimitiveRootsFinal/OpenAIMain.lean"]
+    formal_proof using lean4 at "https://github.com/KitaKen1/simultaneous-primitive-roots/blob/c4775966844ff78f0488492ee2aef7bd1437c51d/lean/SimultaneousPrimitiveRootsFinal/OpenAIMain.lean"]
 theorem simultaneous_primitive_roots :
     ∀ A : Finset ℕ, A.Nonempty →
       (∀ a ∈ A, a.Prime) →
@@ -151,7 +151,7 @@ theorem simultaneous_primitive_roots :
 
 /-- The prime-base corollary of [Ki26], with the conclusion of [OAI26, Theorem 1.1]. -/
 @[category research solved, AMS 11,
-    formal_proof using lean4 at "https://github.com/KitaKen1/simultaneous-primitive-roots/blob/main/lean/Solution.lean"]
+    formal_proof using lean4 at "https://github.com/KitaKen1/simultaneous-primitive-roots/blob/c4775966844ff78f0488492ee2aef7bd1437c51d/lean/Solution.lean"]
 theorem simultaneous_primitive_roots_unconditional :
     ∀ A : Finset ℕ, A.Nonempty →
       (∀ a ∈ A, a.Prime) →
@@ -164,7 +164,7 @@ theorem simultaneous_primitive_roots_unconditional :
 /-- The stronger Lean variant of [Ki26]: positive integer bases satisfying the square
 condition, with no external analytic hypotheses and a $c x/\log x$ lower bound. -/
 @[category research solved, AMS 11,
-    formal_proof using lean4 at "https://github.com/KitaKen1/simultaneous-primitive-roots/blob/main/lean/Solution.lean"]
+    formal_proof using lean4 at "https://github.com/KitaKen1/simultaneous-primitive-roots/blob/c4775966844ff78f0488492ee2aef7bd1437c51d/lean/Solution.lean"]
 theorem positive_lower_density :
     ∀ A : Finset ℕ, A.Nonempty →
       (∀ a ∈ A, 2 ≤ a) →

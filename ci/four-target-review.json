@@ -67,7 +67,7 @@
     "intentional_statement_placeholders": 4,
     "fclikelean": {
       "lean_files": 2,
-      "source_sha256": "f48d02bf8cc14b3ff5c15faf7a441890c810b0ba7cf55f98cc2e41812f1bf0c7",
+      "source_sha256": "c76c927797926a040dcda8fc1baa5706579d4ddf264d3170bd7e96111f9a06e3",
       "intentional_statement_placeholders": 4,
       "input_definition_placeholders": 0,
       "main_self_contained": true,
@@ -118,7 +118,12 @@
     "repository": "KitaKen1/simultaneous-primitive-roots",
     "ref": "main",
     "status": "awaiting private success and explicit public-push approval",
-    "results_url": "https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml"
+    "results_url": "https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml",
+    "proof_snapshot_commit": "c4775966844ff78f0488492ee2aef7bd1437c51d",
+    "formal_proof_urls": {
+      "main": "https://github.com/KitaKen1/simultaneous-primitive-roots/blob/c4775966844ff78f0488492ee2aef7bd1437c51d/lean/SimultaneousPrimitiveRootsFinal/OpenAIMain.lean",
+      "variants_and_supplement": "https://github.com/KitaKen1/simultaneous-primitive-roots/blob/c4775966844ff78f0488492ee2aef7bd1437c51d/lean/Solution.lean"
+    }
   },
   "previous_checks": {
     "original_two_targets": "local-verification.json",
@@ -130,8 +135,8 @@
     "lean/Solution.lean": "0b7e7952c6febee0dcd49beea8937f3e23fbc75770ae16b7b5d755f963e6465e",
     "lean/SimultaneousPrimitiveRootsFinal/OpenAIMain.lean": "253e4882393eb3453569b50aa39da29fd8fd3bad64a47c91605a79e7a7aeb163",
     "lean/comparator.json": "04720bc41330531a526514caeb6bbdb8ec5e7d4679b5d6256b0012b12b678970",
-    "FClikelean/SimultaneousPrimitiveRoots.lean": "619082bc6954b3f98ca6bd0f485a11d5bd96bec9b1731b37203c3a1715600bf4",
-    "FClikelean/SquareConditionNecessary.lean": "c09f1de2eb99334c947302f7d20cbc6f2b1e2067560b17a94748e64777ee3a9b",
+    "FClikelean/SimultaneousPrimitiveRoots.lean": "58d72cef500f410d37bcccc1ddcf4bd9d01b3816d82c6138c189021ef5c19f64",
+    "FClikelean/SquareConditionNecessary.lean": "76ffd4d018b52e5ec6f384a89d7c936e9784f74595fb81bc14353da542886905",
     "scripts/check_sources.py": "d5f36fa51886665dbf3aba1066c41f359a9d0aaeb0a08b507245920be7946d91",
     "scripts/build.sh": "965a967463a7bad69f79e182cb9a8fb47db730477376b6f3ef0723256d9770e0",
     "scripts/prepare-linux-memory.sh": "753c9680123d93e9182902043c263e66f91bfcd8f42ab55bad5bb183d2e25403",
@@ -143,7 +148,7 @@
     "passed": true,
     "checks": 21,
     "source_excerpts_and_local_links_checked": true,
-    "log": "results/four-target-html-qa.json"
+    "log": "results/public-candidate-html-qa.json"
   },
   "compiled_definition_comparison": {
     "passed": true,
@@ -152,7 +157,8 @@
       "Challenge",
       "proof module"
     ],
-    "record": "five-definition-comparison.json"
+    "record": "five-definition-comparison.json",
+    "definition_bodies_unchanged_after_proof_url_pinning": true
   },
   "publication_candidate_config_change": "The default lake build also selects the conditional-main proof module. Explicit four-target Comparator configuration and proof sources are unchanged.",
   "default_build": {
@@ -161,5 +167,12 @@
     "command": "lake --no-build build",
     "jobs": 12710,
     "log": "results/four-target-default-build.log"
+  },
+  "fc_statement_build": {
+    "passed": true,
+    "lean_toolchain": "leanprover/lean4:v4.33.1",
+    "jobs": 8953,
+    "log": "results/public-candidate-fc-build.log",
+    "proof_urls": "fixed to local proof-snapshot commit; publication awaits approval"
   }
 }

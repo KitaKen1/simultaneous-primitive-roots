@@ -18,7 +18,7 @@ namespace SimultaneousPrimitiveRootsChallenge
 
 /-- The square-condition obstruction of [Ki26]: no odd prime works when it fails. -/
 @[category research solved, AMS 11,
-    formal_proof using lean4 at "https://github.com/KitaKen1/simultaneous-primitive-roots/blob/main/lean/Solution.lean"]
+    formal_proof using lean4 at "https://github.com/KitaKen1/simultaneous-primitive-roots/blob/c4775966844ff78f0488492ee2aef7bd1437c51d/lean/Solution.lean"]
 theorem square_condition_necessary :
     ∀ A : Finset ℕ,
       ¬ (∀ B : Finset ℕ, B ⊆ A → Odd B.card → ¬ IsSquare (∏ a ∈ B, a)) →
