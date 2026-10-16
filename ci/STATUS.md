@@ -11,7 +11,7 @@ Snapshot prepared on 16 October 2026 (Asia/Tokyo), stock Lean 4.33.1.
 | Proof builds and four public axiom reports | Passed; exactly `propext`, `Classical.choice`, `Quot.sound` |
 | FC format and standalone statements | Passed using real FC utilities on Lean 4.33.1; reference keys and proof URLs included |
 | Source and migration audit | Passed; 4,465 proof files, 1,251 ported sources, 22 backports and the main bridge accounted for |
-| Private Linux CI | [Staged compilation running](https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38818388877); previous full job hit the six-hour compilation limit |
+| Private Linux CI | [Statements and all five foundation builds passed](https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38818388877). A GitHub account restriction prevented Hecke assembly from starting; full comparison and replay remain unrun. |
 | Public Linux CI | Candidate prepared locally; publication requires explicit approval |
 
 The four current targets are:
@@ -39,3 +39,8 @@ The private CI workflow provisions swap on its ephemeral Linux runner and uses
 real Landrun. The FC files are built in the separate pinned `tools/fc-style/`
 project. Their proof URLs name the fixed proof-snapshot commit; the links become
 available when the prepared candidate is published.
+
+The latest run stopped before executing any Hecke-job step because GitHub did not
+permit the job to start. Local diagnostic details and successful component archives
+are retained under the ignored `ci/results/` directory. Complete four-target
+comparison and fresh kernel replay still need to run.

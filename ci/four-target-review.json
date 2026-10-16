@@ -90,7 +90,7 @@
   "private_ci": {
     "repository": "KitaKen1/ci-test-sandbox",
     "branch": "ci/simultaneous-primitive-roots-lean4331",
-    "status": "in_progress",
+    "status": "blocked by GitHub account restriction",
     "workflow": ".github/workflows/lean.yml",
     "linux_kernel_replay_swap_gib": "8–16, reserving 36 GiB for Lean after removing unused hosted-runner SDKs",
     "first_attempt": {
@@ -111,8 +111,8 @@
     },
     "commit": "f9f7db3168f8afe1b25d7e9db20dd36b814e4414",
     "run_url": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38818388877",
-    "independent_statements": "in_progress",
-    "complete_proof_and_comparator": "pending staged compilation",
+    "independent_statements": "success",
+    "complete_proof_and_comparator": "skipped: account restriction prevented the preceding Hecke job from starting",
     "third_attempt": {
       "commit": "8cfd6967c633f56a488fe3224d45722f295f4e14",
       "run": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38738032026",
@@ -179,7 +179,7 @@
       "independent_statements_log": "results/private-ci-fourth-statements.log"
     },
     "staged_compilation": {
-      "status": "private CI in progress",
+      "status": "all five foundations succeeded; downstream Hecke job was not started by GitHub",
       "source_proofs_unchanged": true,
       "comparator_algorithms_unchanged": true,
       "fresh_challenge_and_full_four_target_kernel_replay_required": true,
@@ -202,13 +202,80 @@
         "fresh Challenge plus unchanged complete four-target Comparator"
       ],
       "commit": "f9f7db3168f8afe1b25d7e9db20dd36b814e4414",
-      "run_url": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38818388877"
+      "run_url": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38818388877",
+      "early_resource_controls": "all five foundation jobs passed",
+      "completed_components": {
+        "internal": {
+          "status": "success",
+          "job_id": 116708822727,
+          "owned_modules": 388,
+          "files": 6136,
+          "payload_bytes": 1057829839,
+          "archive_sha256": "d133ebe66db6d8139f171251e7ca9c19f32ffa0203c47a8d552b56df918b0e7b",
+          "artifact_id": 12013879417,
+          "artifact_zip_bytes": 113485719,
+          "log": "results/private-ci-fifth-internal.log"
+        },
+        "typeii": {
+          "status": "success",
+          "job_id": 116708822672,
+          "owned_modules": 648,
+          "files": 5224,
+          "payload_bytes": 2327807443,
+          "archive_sha256": "6ea7f58439e38b06a1215ad1f34aa2bb775f4a0e2b0a6769c4c13e04e0faf8f9",
+          "artifact_id": 12015819577,
+          "artifact_zip_bytes": 220816640,
+          "log": "results/private-ci-fifth-typeii.log"
+        },
+        "a2-zero-free": {
+          "status": "success",
+          "job_id": 116708822679,
+          "owned_modules": 114,
+          "files": 920,
+          "payload_bytes": 458144923,
+          "archive_sha256": "53644dfb41e79301b92101016db6a493fd31f374aeeb9a368987e42063bd4264",
+          "artifact_id": 12016958525,
+          "artifact_zip_bytes": 51138763,
+          "log": "results/private-ci-fifth-a2-zero-free.log"
+        },
+        "euler": {
+          "status": "success",
+          "job_id": 116708822828,
+          "owned_modules": 632,
+          "files": 9392,
+          "payload_bytes": 1614401048,
+          "archive_sha256": "0aa6350e217844c65487271537bbfcd7ab9661d5cc161539937b7be4eb5c138e",
+          "artifact_id": 12018529487,
+          "artifact_zip_bytes": 148532622,
+          "log": "results/private-ci-fifth-euler.log"
+        },
+        "theta-eis": {
+          "status": "success",
+          "job_id": 116708822781,
+          "owned_modules": 1585,
+          "files": 13352,
+          "payload_bytes": 5659799750,
+          "archive_sha256": "992032a015f42133e7d7d55b5eb27e870faf79e198610ebb2cfe33bb99b3558a",
+          "artifact_id": 12021401906,
+          "artifact_zip_bytes": 598979590,
+          "log": "results/private-ci-fifth-theta-eis.log"
+        }
+      }
+    },
+    "independent_statements_log": "results/private-ci-fifth-statements.log",
+    "independent_statements_log_sha256": "dc8dc51f11f9455c5d821b927eff100e8f2f460c2582fe0c195c3e5726d5ab69",
+    "infrastructure_block": {
+      "job_id": 116780825626,
+      "started_steps": 0,
+      "reason": "GitHub account restriction prevented the job from starting.",
+      "local_diagnostic": "results/private-ci-fifth-hecke-annotations.json",
+      "full_four_target_kernel_replay_completed": false
     }
   },
   "public_ci": {
     "repository": "KitaKen1/simultaneous-primitive-roots",
     "ref": "main",
-    "status": "awaiting private success and explicit public-push approval",
+    "status": "prepared locally; explicit public-push approval required; private full replay blocked by GitHub account restriction",
     "results_url": "https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml",
     "proof_snapshot_commit": "c4775966844ff78f0488492ee2aef7bd1437c51d",
     "formal_proof_urls": {
