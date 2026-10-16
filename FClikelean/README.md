@@ -77,10 +77,19 @@ variant 1では、素数集合の平方条件を示してvariant 2を適用し�
 別に置いた4仮定付き参考定理にvariant 1を適用します。4仮定そのものの証明ではありません。
 
 [Challenge.lean](../lean/Challenge.lean) と [Comparator設定](../lean/comparator.json) は、
-従来どおり4仮定付き参考定理、2つのvariant、平方条件の補足の**4対象を維持**します。
-参考定理の5定義もChallengeと証明側に残します。
-Comparatorが照合するのはこれらのLean表現の一致であり、原文の自然言語との同値性ではありません。
-この検証範囲は、今回のFC提出範囲より広いものです。
+**FC提出用と同じ2つのvariantだけ**を照合します。
+Challengeは `import Mathlib` と2定理だけで、問題固有の `def` はありません。
+Comparatorの証明モジュールは `Solution` です。
+
+| Comparator対象 | 証明 |
+|---|---|
+| `simultaneous_primitive_roots_unconditional` | `Solution.lean` |
+| `positive_lower_density` | `Solution.lean` |
+
+4仮定付き参考定理・5定義・平方条件の補足は今回のChallengeとComparator対象から外します。
+参考資料と補足はrepo内の別ファイルに残します。
+Comparatorが検査するのは、提出2定理のLean表現・依存定義・許可公理・カーネルでの証明であり、
+原文の自然言語との同値性ではありません。
 
 ## FCの形式と出典
 
@@ -105,5 +114,11 @@ lake build
 python3 ../../scripts/check_fclike_standalone.py
 ```
 
-既存の証明・公理・Comparator確認の範囲は
-[four-target-review.json](../ci/four-target-review.json) に記録しています。
+現在の提出2variantの検証範囲とCIの進行状況は
+[two-variant-review.json](../ci/two-variant-review.json) に記録します。
+この構成でのCI全体の成功は、まだ記録されていません。
+過去の2対象（強いvariant＋平方条件の補足）、3対象、4対象の検証は、それぞれ
+[当初の記録](../ci/local-verification.json)、
+[3対象の記録](../ci/three-theorem-review.json)、
+[4対象の記録](../ci/four-target-review.json) に保存しています。
+現在の2variantと同じ対象一覧ではありません。

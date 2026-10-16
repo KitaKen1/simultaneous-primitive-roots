@@ -83,5 +83,7 @@
     "tools/fc-style/lakefile.toml": "a16507d42d0f671a2060002527291a986e5c18a211e2422761f899374dab40e4",
     "ci/openai-input-definition-checks.lean": "e34507f4f3f65fc3e55ebb73cf46cc406eb80721b440f1f28a9cf0a3da8e510f"
   },
-  "public_pushed": false
+  "public_pushed": false,
+  "historical": true,
+  "superseded_by": "two-variant-review.json"
 }

@@ -1,12 +1,11 @@
 {
   "schema_version": 1,
-  "final_module": "SimultaneousPrimitiveRootsFinal.OpenAIMain",
+  "final_module": "Solution",
   "final_assembly_modules": [
     "SimultaneousPrimitiveRootsFinal.ExternalHecke",
     "SimultaneousPrimitiveRootsFinal.Remaining",
     "SimultaneousPrimitiveRootsFinal.MainClaim",
-    "Solution",
-    "SimultaneousPrimitiveRootsFinal.OpenAIMain"
+    "Solution"
   ],
   "components": [
     {

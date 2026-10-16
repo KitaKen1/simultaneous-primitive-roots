@@ -1,6 +1,6 @@
 name = "simultaneous_primitive_roots"
 version = "0.1.0"
-defaultTargets = ["Challenge", "Solution", "SimultaneousPrimitiveRootsFinal.OpenAIMain"]
+defaultTargets = ["Challenge", "Solution"]
 weakLeanArgs = ["-j1"]
 
 [leanOptions]

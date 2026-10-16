@@ -378,5 +378,7 @@
     ],
     "conditional_reference_separate": true,
     "paper_correspondence": "under review"
-  }
+  },
+  "historical": true,
+  "superseded_by": "two-variant-review.json"
 }

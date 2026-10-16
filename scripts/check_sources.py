@@ -133,27 +133,27 @@ def main():
     fc_statement = ROOT / 'FClikelean/SimultaneousPrimitiveRoots.lean'
     fc_reference = ROOT / 'FClikelean/OpenAIConditional.lean'
     fc_auxiliary = ROOT / 'FClikelean/SquareConditionNecessary.lean'
-    # The submission has two variants; the conditional reference and supplement
-    # remain separate independent comparison targets.
+    # Challenge and Comparator cover exactly the two submitted variants.
+    # The conditional reference and supplement have separate FC source checks.
     def declaration(path, name):
         code = lean_code(path.read_text())
         return re.sub(r'\s+', '', re.search(
             rf'\btheorem {name}\b.*?\bby\s+sorry\b', code, re.S).group())
-    for name, path in [('simultaneous_primitive_roots', fc_reference),
-                       ('simultaneous_primitive_roots_unconditional', fc_statement),
-                       ('positive_lower_density', fc_statement),
-                       ('square_condition_necessary', fc_auxiliary)]:
-        assert declaration(challenge, name) == declaration(path, name), \
+    submitted_names = ['simultaneous_primitive_roots_unconditional', 'positive_lower_density']
+    for name in submitted_names:
+        assert declaration(challenge, name) == declaration(fc_statement, name), \
             f'{name} differs from the independently reviewed statement'
+    expected_challenge = ('importMathlibnamespaceSimultaneousPrimitiveRootsChallenge' +
+                          ''.join(declaration(fc_statement, name) for name in submitted_names) +
+                          'endSimultaneousPrimitiveRootsChallenge')
+    assert re.sub(r'\s+', '', lean_code(challenge.read_text())) == expected_challenge, \
+        'Challenge must contain only Mathlib, the namespace and the two submitted statements'
     config = json.loads((ROOT / 'lean/comparator.json').read_text())
     assert config == {
         'challenge_module': 'Challenge',
-        'solution_module': 'SimultaneousPrimitiveRootsFinal.OpenAIMain',
-        'theorem_names': [
-            'SimultaneousPrimitiveRootsChallenge.simultaneous_primitive_roots',
-            'SimultaneousPrimitiveRootsChallenge.simultaneous_primitive_roots_unconditional',
-            'SimultaneousPrimitiveRootsChallenge.positive_lower_density',
-            'SimultaneousPrimitiveRootsChallenge.square_condition_necessary'],
+        'solution_module': 'Solution',
+        'theorem_names': ['SimultaneousPrimitiveRootsChallenge.' + name
+                          for name in submitted_names],
         'permitted_axioms': ['propext', 'Quot.sound', 'Classical.choice'],
         'enable_nanoda': False}, 'Unexpected public comparator configuration'
     fc_manifest = json.loads((ROOT / 'tools/fc-style/lake-manifest.json').read_text())
@@ -175,7 +175,7 @@ def main():
         source = path.read_bytes()
         code = lean_code(source.decode('utf-8'))
         if path == challenge:
-            assert len(re.findall(r'\bsorry\b', code)) == 4
+            assert len(re.findall(r'\bsorry\b', code)) == 2
             code = re.sub(r'\bsorry\b', '', code)
         match = forbidden.search(code)
         assert not match, f'{path.relative_to(ROOT)}:{code[:match.start()].count(chr(10)) + 1}: {match[0]}'
@@ -183,7 +183,8 @@ def main():
         current_hashes[str(path.relative_to(ROOT / 'lean'))] = hashlib.sha256(source).hexdigest()
         files += 1
     result = {'passed': True, 'lean_files': files, 'source_sha256': digest.hexdigest(),
-              'intentional_statement_placeholders': 4}
+              'intentional_statement_placeholders': 2,
+              'comparator_theorems': config['theorem_names']}
     fc_digest, fc_files = hashlib.sha256(), 0
     fc_sources = sorted((ROOT / 'FClikelean').rglob('*.lean'))
     expected_theorems = {
@@ -218,7 +219,6 @@ def main():
                  'BlockSieveHypothesis', 'RoughDensityHypothesis']:
         pattern = rf'(?:noncomputable )?def {name}\b.*?(?=\n/--)'
         assert re.sub(r'\s+', '', re.search(pattern, main_proof.read_text(), re.S).group()) == re.sub(r'\s+', '', re.search(pattern, fc_reference.read_text(), re.S).group()), name
-        assert re.sub(r'\s+', '', re.search(pattern, challenge.read_text(), re.S).group()) == re.sub(r'\s+', '', re.search(pattern, fc_reference.read_text(), re.S).group()), name
         assert not re.search(rf'\b{name}\b', submission_code), \
             f'The FC submission depends on a reference definition: {name}'
     for name in ['HeckeZeroFreeHypothesis', 'MarkedTypeIIHypothesis',

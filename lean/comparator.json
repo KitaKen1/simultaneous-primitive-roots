@@ -1,11 +1,9 @@
 {
   "challenge_module": "Challenge",
-  "solution_module": "SimultaneousPrimitiveRootsFinal.OpenAIMain",
+  "solution_module": "Solution",
   "theorem_names": [
-    "SimultaneousPrimitiveRootsChallenge.simultaneous_primitive_roots",
     "SimultaneousPrimitiveRootsChallenge.simultaneous_primitive_roots_unconditional",
-    "SimultaneousPrimitiveRootsChallenge.positive_lower_density",
-    "SimultaneousPrimitiveRootsChallenge.square_condition_necessary"
+    "SimultaneousPrimitiveRootsChallenge.positive_lower_density"
   ],
   "permitted_axioms": [
     "propext",

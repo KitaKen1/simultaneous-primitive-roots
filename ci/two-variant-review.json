@@ -1,0 +1,148 @@
+{
+  "checked_at_utc": "2026-10-16T06:14:13.068437+00:00",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "scope": "Independent comparison of the two FC submission variants only.",
+  "fc_submission_file": "FClikelean/SimultaneousPrimitiveRoots.lean",
+  "comparator_configuration": {
+    "challenge_module": "Challenge",
+    "solution_module": "Solution",
+    "theorem_names": [
+      "SimultaneousPrimitiveRootsChallenge.simultaneous_primitive_roots_unconditional",
+      "SimultaneousPrimitiveRootsChallenge.positive_lower_density"
+    ],
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "enable_nanoda": false
+  },
+  "challenge": {
+    "imports": [
+      "Mathlib"
+    ],
+    "theorem_count": 2,
+    "definition_count": 0,
+    "intentional_statement_placeholders": 2,
+    "statement_types_match_fc_submission": true,
+    "proof_library_imported": false,
+    "local_build": "passed",
+    "log": "results/two-variant-local-build.log"
+  },
+  "proofs": {
+    "module": "Solution",
+    "both_submitted_axiom_reports": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "proof_bodies_unchanged_from_private_commit": "f9f7db3168f8afe1b25d7e9db20dd36b814e4414",
+    "supplement": "Solution also contains the separately reported square obstruction; it is not a Comparator target."
+  },
+  "source_audit": {
+    "passed": true,
+    "lean_files": 4465,
+    "source_sha256": "7d9ddcee17fd7fc19653b30733bed8d143b153126b6559404bc8b0da602c03ac",
+    "intentional_statement_placeholders": 2,
+    "comparator_theorems": [
+      "SimultaneousPrimitiveRootsChallenge.simultaneous_primitive_roots_unconditional",
+      "SimultaneousPrimitiveRootsChallenge.positive_lower_density"
+    ],
+    "fclikelean": {
+      "lean_files": 3,
+      "source_sha256": "44c634e54ab8b4b9840c07a5d10c678970fae489cde9596743e984655fcf0097",
+      "intentional_statement_placeholders": 4,
+      "input_definition_placeholders": 0,
+      "main_self_contained": true,
+      "auxiliary_separate": true,
+      "submission_theorems": [
+        "simultaneous_primitive_roots_unconditional",
+        "positive_lower_density"
+      ],
+      "submission_definition_count": 0,
+      "conditional_reference": "FClikelean/OpenAIConditional.lean",
+      "conditional_reference_is_submission": false,
+      "standard_import": "FormalConjecturesUtil",
+      "all_theorems_category": "research solved",
+      "AMS": [
+        11
+      ]
+    },
+    "port_record": {
+      "passed": true,
+      "changed_existing_files": 1251,
+      "new_proof_backports": 22,
+      "added_publication_proofs": [
+        "SimultaneousPrimitiveRootsFinal/OpenAIMain.lean"
+      ]
+    }
+  },
+  "staged_compilation": {
+    "full_modules": 4001,
+    "owned_component_modules": 3997,
+    "final_assembly_modules": [
+      "SimultaneousPrimitiveRootsFinal.ExternalHecke",
+      "SimultaneousPrimitiveRootsFinal.MainClaim",
+      "SimultaneousPrimitiveRootsFinal.Remaining",
+      "Solution"
+    ],
+    "plan": "results/two-variant-component-plan.json",
+    "source_sha256": "7d9ddcee17fd7fc19653b30733bed8d143b153126b6559404bc8b0da602c03ac"
+  },
+  "local_fc_build": {
+    "passed": true,
+    "log": "results/two-variant-fc-build.log"
+  },
+  "standalone_fc_check": {
+    "passed": true,
+    "files": 3,
+    "record": "results/two-variant-standalone.json"
+  },
+  "excluded_from_comparator": [
+    "SimultaneousPrimitiveRootsChallenge.simultaneous_primitive_roots",
+    "SimultaneousPrimitiveRootsChallenge.square_condition_necessary"
+  ],
+  "private_ci": {
+    "repository": "KitaKen1/ci-test-sandbox",
+    "branch": "ci/simultaneous-primitive-roots-lean4331",
+    "status": "new workflow run registered; awaiting startup",
+    "results_url": "https://github.com/KitaKen1/ci-test-sandbox/actions/workflows/lean.yml",
+    "commit": "0d217c8afc2e57979288ba1faeee1319c897371d",
+    "run_id": 38860344650,
+    "run_url": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38860344650",
+    "run_attempt": 1,
+    "previous_run_superseded": 38818388877
+  },
+  "full_two_target_kernel_replay_completed": false,
+  "historical_checks": [
+    "local-verification.json",
+    "three-theorem-review.json",
+    "four-target-review.json",
+    "fc-submission-layout.json"
+  ],
+  "public_ci": "not pushed",
+  "files_sha256": {
+    "lean/Challenge.lean": "11b3859c8eddbc5b1067d0fa11db56f2bb5c3d21b1f8fdd39763a36510c04b5a",
+    "lean/Solution.lean": "0b7e7952c6febee0dcd49beea8937f3e23fbc75770ae16b7b5d755f963e6465e",
+    "lean/comparator.json": "eb7c2ccc783bc06d1a336a6834031a3528052a96da0f97f8e07a3ad1342f5a62",
+    "lean/lakefile.toml": "3be95fbd8e47609460c0238e4cf03a5bc87c5a04a7e4f8f55c614b3ada5f3976",
+    "FClikelean/SimultaneousPrimitiveRoots.lean": "114ae85b8bc3374027f30614a12e0f745aece592d5b7296f94fa55396a01ec86",
+    "FClikelean/OpenAIConditional.lean": "f3fea686adb3e96470ab4004f792adef0d12565c82f1a26e8cb9f7634839d990",
+    "FClikelean/SquareConditionNecessary.lean": "76ffd4d018b52e5ec6f384a89d7c936e9784f74595fb81bc14353da542886905",
+    "scripts/check_sources.py": "67726e7faa2dfb45fa8d01860e4d288b0cc640563e63837a11fe5fa6f9aae3d4",
+    "scripts/build.sh": "132703b0a5c8fc52e7048b3a64b7f145b95ec78726a51a49f309ea6cae9209c8",
+    "ci/component-targets.json": "cd6d446e55fa0726b3a2dfe32aacc89f0e39b924218d449b6b907fc79b058ec4",
+    ".github/workflows/lean.yml": "4eea7e0a9f07c84bd615c2a4a55085515b4c79dbf7a41fb6c089232de21c332e"
+  },
+  "independent_review": {
+    "passed": true,
+    "checker_source_and_guards_unchanged": true,
+    "comparison_controls_and_fresh_kernel_replay_retained": true
+  },
+  "html_checks": {
+    "passed": true,
+    "viewport_checks": 21,
+    "source_blocks": 47,
+    "record": "results/two-variant-html-qa.json"
+  }
+}

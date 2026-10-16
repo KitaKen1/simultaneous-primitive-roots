@@ -274,7 +274,7 @@ jobs:
           rm -f -- lean/.lake/build/lib/lean/Challenge.* lean/.lake/build/ir/Challenge.*
       - name: Check comparator acceptance and rejection controls
         run: python3 scripts/check_comparator_controls.py
-      - name: Compare all four statements, check axioms and replay the proof
+      - name: Compare both FC statements, check axioms and replay the proof
         env:
           LEAN_NUM_THREADS: '2'
         run: bash scripts/compare.sh linux

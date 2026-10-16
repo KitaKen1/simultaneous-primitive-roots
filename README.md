@@ -1,9 +1,22 @@
 # Lean proof of positive lower density of simultaneous primitive roots
 
-This repository proves the following two variants of
-[OpenAI's conditional simultaneous primitive-root theorem][openai-simultaneous]
-in Lean 4.33.1, using pinned Mathlib v4.33.1. These two statements are the proposed
-Formal Conjectures submission. Variant 1 is a corollary of the stronger Variant 2.
+OpenAI's conditional simultaneous primitive-root theorem states the following
+(see [OpenAI (2026), Theorem 1.1][openai-simultaneous]).
+
+> **Main: simultaneous primitive roots for prime bases.**
+> Let $`A`$ be a nonempty finite set of positive primes. Assume the four analytic
+> inputs in Sections 3–5 of the paper: Inputs 3.1, 4.1, 5.1 and 5.2.
+> For all sufficiently large real $`x`$, the number of primes $`x<p<2x`$ for which
+> every $`a\in A`$ is a primitive root modulo $`p`$ is at least
+>
+> $$c_A\frac{x}{(\log x)^2}$$
+>
+> for some constant $`c_A>0`$ depending on $`A`$.
+
+This repository presents the following two natural extensions of this result
+and provides Lean proofs of both. Variant 1 removes the four analytic hypotheses.
+Variant 2 further allows integer bases at least $`2`$ satisfying the square condition
+and strengthens the lower bound to $`c_A x/\log x`$.
 
 > **Variant 1: OpenAI's conclusion without the four analytic hypotheses.**
 > Let $`A`$ be a nonempty finite set of positive primes. There are constants
@@ -21,10 +34,6 @@ Formal Conjectures submission. Variant 1 is a corollary of the stronger Variant 
 > such that, for every real $`x\ge x_A`$,
 >
 > $$N_A(x)\ge c_A\frac{x}{\log x}.$$
-
-For comparison, OpenAI's Theorem 1.1 assumes four analytic inputs
-(Inputs 3.1, 4.1, 5.1 and 5.2) and gives the prime-base bound
-$`c_A x/(\log x)^2`$ in $`(x,2x)`$.
 
 **Variant 2 ⇒ Variant 1** is proved in Lean. If Variant 1's conclusion matches
 the paper's statement, it also gives OpenAI's conditional conclusion, without
@@ -90,28 +99,25 @@ See the
 
 ### Comparator target
 
-[Challenge.lean](lean/Challenge.lean) supplies the reference statements, and
-[Solution.lean](lean/Solution.lean) and
-[OpenAIMain.lean](lean/SimultaneousPrimitiveRootsFinal/OpenAIMain.lean) prove them.
-The four targets are
-`SimultaneousPrimitiveRootsChallenge.simultaneous_primitive_roots`,
-`SimultaneousPrimitiveRootsChallenge.simultaneous_primitive_roots_unconditional`,
-`SimultaneousPrimitiveRootsChallenge.positive_lower_density`, and
-`SimultaneousPrimitiveRootsChallenge.square_condition_necessary`.
-They match the separate conditional reference, both submitted variants and the
-square-condition supplement after removing comments and whitespace.
-Challenge also contains all five definitions used by main, with the same bodies as
-`OpenAIConditional.lean` and the proof. The [Comparator configuration](lean/comparator.json)
-checks all four, including main's four hypotheses and their dependent definitions.
+[Challenge.lean](lean/Challenge.lean) contains only the two submitted statements,
+with `import Mathlib` and no problem-specific definitions. The
+[Comparator configuration](lean/comparator.json) uses `Solution` as its solution
+module and checks exactly these targets:
 
-The solution module also compiles the conditional reference in
-[OpenAIMain.lean](lean/SimultaneousPrimitiveRootsFinal/OpenAIMain.lean).
-Its four input definitions and statement match `OpenAIConditional.lean`; its proof applies Variant 1.
-Variant 1 has the same
-prime-base conclusion with its four analytic hypotheses removed. Its proof uses
-Variant 2, including the change to the open interval. This does not prove the four inputs themselves
-or establish their equivalence with the paper's wording. The four-target Comparator
-configuration remains broader than the proposed FC submission.
+- `SimultaneousPrimitiveRootsChallenge.simultaneous_primitive_roots_unconditional`
+- `SimultaneousPrimitiveRootsChallenge.positive_lower_density`
+
+Both types match the two-theorem FC submission after removing comments and
+whitespace. Comparator compares their dependent definitions, checks permitted
+axioms and replays the proof in the builtin Lean kernel.
+
+[OpenAIConditional.lean](FClikelean/OpenAIConditional.lean), its bridge in
+[OpenAIMain.lean](lean/SimultaneousPrimitiveRootsFinal/OpenAIMain.lean), and
+[SquareConditionNecessary.lean](FClikelean/SquareConditionNecessary.lean) remain
+separate reference or supplementary material. They are outside the current
+Comparator target list. Variant 1 follows from Variant 2, including the change to
+the open interval. This does not prove the four analytic inputs or establish
+their equivalence with the paper's wording.
 
 ## Mathematical explanation (AI generated)
 
@@ -180,12 +186,16 @@ The proof uses OpenAI's libraries and the existing ArtinPrimitiveRoots formaliza
 
 ### Lean execution results
 
-`Challenge`, `Solution` and the conditional-main bridge built locally on
-15 October 2026 (Asia/Tokyo), using stock Lean 4.33.1 and pinned Mathlib.
-All four public proofs use exactly `[propext, Classical.choice, Quot.sound]`.
-The source audit and independent FC-statement checks also passed.
-See the [current verification record](ci/four-target-review.json).
-The earlier two-target results remain in the [original record](ci/local-verification.json).
+The current verification scope is the two submitted variants. Its local checks
+and private Linux CI progress are recorded in
+[two-variant-review.json](ci/two-variant-review.json). A successful complete CI
+run for this configuration is not yet recorded.
+
+Historical local builds used stock Lean 4.33.1 and pinned Mathlib. The previous
+four-proof axiom audit reported exactly `[propext, Classical.choice, Quot.sound]`;
+its scope is preserved in the
+[previous four-target record](ci/four-target-review.json). These results do not
+replace verification of the current two-variant configuration.
 
 ### Lean Comparator check
 
@@ -195,13 +205,19 @@ package configuration adapted to this publication. Their checking algorithms are
 unchanged. The [toolchain lock](ci/toolchain-lock.json) and
 [implementation digests](ci/checking-tool-sha256.json) fix these inputs.
 
-The earlier two-target local Comparator run passed theorem and dependent-definition comparison,
-permitted-axiom checks and builtin Lean-kernel replay, ending with `Your solution is okay!`.
-The earlier three-target run is recorded [separately](ci/three-theorem-review.json).
-It does not check main. The current four-target configuration and private CI are
-tracked in [four-target-review.json](ci/four-target-review.json).
-The macOS development check used the upstream sandbox shim. Real Linux sandboxing
-is tested in [private CI](https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38818388877), followed by [public CI](https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml).
+The [original local Comparator run](ci/local-verification.json) passed for the
+stronger variant and the square-condition obstruction, with permitted-axiom
+checks and builtin Lean-kernel replay. It ended with `Your solution is okay!`.
+The [later three-target record](ci/three-theorem-review.json) adds the prime-base
+corollary; the [previous four-target record](ci/four-target-review.json) also
+tracks the conditional reference. These are historical scopes, distinct from the
+current pair of submitted variants.
+
+The current two-target comparison is tracked in
+[two-variant-review.json](ci/two-variant-review.json). The macOS development check
+uses the upstream sandbox shim. Real Linux sandboxing is tested in
+[private CI](https://github.com/KitaKen1/ci-test-sandbox/actions/workflows/lean.yml),
+followed by [public CI](https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml).
 
 ## Appendix: comparison with earlier work
 
@@ -330,10 +346,12 @@ to it; this repo does not prove Artin's predicted exact density.
 
 Comparator checks statements and dependent definitions against the reference,
 audits permitted axioms and replays the solution in the builtin Lean kernel.
-The prepared [Linux workflow](.github/workflows/lean.yml) runs the complete comparison
-with the pinned Landrun sandbox and uploads logs for the tested commit.
-Compilation is staged across jobs for the same commit; the final independent
-Challenge comparison, axiom audit and fresh kernel replay remain complete.
+The prepared [Linux workflow](.github/workflows/lean.yml) checks the two submitted
+variants with the pinned Landrun sandbox and uploads logs for the tested commit.
+Compilation is staged across jobs for the same commit; the final comparison uses
+the independent two-statement Challenge, the permitted-axiom audit and fresh
+kernel replay. The reference and supplementary statements are not Comparator
+targets in this configuration.
 
 ### Certification Within 30 days: CI results
 
@@ -342,7 +360,10 @@ artifacts for one day.
 Private Linux CI in [`KitaKen1/ci-test-sandbox`](https://github.com/KitaKen1/ci-test-sandbox)
 and public Linux CI in
 [`KitaKen1/simultaneous-primitive-roots`](https://github.com/KitaKen1/simultaneous-primitive-roots)
-are tracked in [private Actions](https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38818388877) and [public Actions](https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml).
+are tracked in [private Actions](https://github.com/KitaKen1/ci-test-sandbox/actions/workflows/lean.yml) and [public Actions](https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml).
+The current two-variant run is tracked in
+[two-variant-review.json](ci/two-variant-review.json); earlier runs used different
+target lists and do not certify this configuration.
 The intended order is human review, private CI, then public CI on the reviewed sources.
 
 ### Certification After 30 days: archive
