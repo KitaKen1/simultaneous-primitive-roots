@@ -66,12 +66,19 @@
     "source_sha256": "3ff249e663939b73de9a49882c9c34bc95259a8f20f5532b1b85d7bd51203ee0",
     "intentional_statement_placeholders": 4,
     "fclikelean": {
-      "lean_files": 2,
-      "source_sha256": "c76c927797926a040dcda8fc1baa5706579d4ddf264d3170bd7e96111f9a06e3",
+      "lean_files": 3,
+      "source_sha256": "53113b4bd7ff3c87b2e4524cf3e3213e992cd924f16d77e9fbc45ece2ade580b",
       "intentional_statement_placeholders": 4,
       "input_definition_placeholders": 0,
       "main_self_contained": true,
       "auxiliary_separate": true,
+      "submission_theorems": [
+        "simultaneous_primitive_roots_unconditional",
+        "positive_lower_density"
+      ],
+      "submission_definition_count": 0,
+      "conditional_reference": "FClikelean/OpenAIConditional.lean",
+      "conditional_reference_is_submission": false,
       "standard_import": "FormalConjecturesUtil",
       "all_theorems_category": "research solved",
       "AMS": [
@@ -90,9 +97,9 @@
   "private_ci": {
     "repository": "KitaKen1/ci-test-sandbox",
     "branch": "ci/simultaneous-primitive-roots-lean4331",
-    "status": "blocked by GitHub account restriction",
+    "status": "in progress: failed jobs resumed in attempt 2",
     "workflow": ".github/workflows/lean.yml",
-    "linux_kernel_replay_swap_gib": "8–16, reserving 36 GiB for Lean after removing unused hosted-runner SDKs",
+    "linux_kernel_replay_swap_gib": "8\u201316, reserving 36 GiB for Lean after removing unused hosted-runner SDKs",
     "first_attempt": {
       "commit": "f4ba815a386b19ddf848bbbcdb74aea079fb37dd",
       "run": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38736732676",
@@ -112,7 +119,7 @@
     "commit": "f9f7db3168f8afe1b25d7e9db20dd36b814e4414",
     "run_url": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38818388877",
     "independent_statements": "success",
-    "complete_proof_and_comparator": "skipped: account restriction prevented the preceding Hecke job from starting",
+    "complete_proof_and_comparator": "pending after Hecke assembly",
     "third_attempt": {
       "commit": "8cfd6967c633f56a488fe3224d45722f295f4e14",
       "run": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38738032026",
@@ -179,7 +186,7 @@
       "independent_statements_log": "results/private-ci-fourth-statements.log"
     },
     "staged_compilation": {
-      "status": "all five foundations succeeded; downstream Hecke job was not started by GitHub",
+      "status": "all five foundations succeeded and are reused; Hecke assembly is running in attempt 2",
       "source_proofs_unchanged": true,
       "comparator_algorithms_unchanged": true,
       "fresh_challenge_and_full_four_target_kernel_replay_required": true,
@@ -269,13 +276,30 @@
       "started_steps": 0,
       "reason": "GitHub account restriction prevented the job from starting.",
       "local_diagnostic": "results/private-ci-fifth-hecke-annotations.json",
-      "full_four_target_kernel_replay_completed": false
+      "full_four_target_kernel_replay_completed": false,
+      "resolved_at_retry": 2
+    },
+    "run_attempt": 2,
+    "retry": {
+      "checked_at_utc": "2026-10-16T04:42:53.600995+00:00",
+      "run_id": 38818388877,
+      "run_attempt": 2,
+      "commit": "f9f7db3168f8afe1b25d7e9db20dd36b814e4414",
+      "status": "in_progress",
+      "conclusion": null,
+      "rerun": "failed jobs only",
+      "foundations_reused": true,
+      "hecke_job_id": 116814903719,
+      "hecke_started_at": "2026-10-16T04:42:00Z",
+      "hecke_status": "in_progress",
+      "full_four_target_replay_completed": false,
+      "public_pushed": false
     }
   },
   "public_ci": {
     "repository": "KitaKen1/simultaneous-primitive-roots",
     "ref": "main",
-    "status": "prepared locally; explicit public-push approval required; private full replay blocked by GitHub account restriction",
+    "status": "prepared locally; explicit public-push approval required; private full replay is pending",
     "results_url": "https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml",
     "proof_snapshot_commit": "c4775966844ff78f0488492ee2aef7bd1437c51d",
     "formal_proof_urls": {
@@ -293,9 +317,9 @@
     "lean/Solution.lean": "0b7e7952c6febee0dcd49beea8937f3e23fbc75770ae16b7b5d755f963e6465e",
     "lean/SimultaneousPrimitiveRootsFinal/OpenAIMain.lean": "253e4882393eb3453569b50aa39da29fd8fd3bad64a47c91605a79e7a7aeb163",
     "lean/comparator.json": "04720bc41330531a526514caeb6bbdb8ec5e7d4679b5d6256b0012b12b678970",
-    "FClikelean/SimultaneousPrimitiveRoots.lean": "58d72cef500f410d37bcccc1ddcf4bd9d01b3816d82c6138c189021ef5c19f64",
+    "FClikelean/SimultaneousPrimitiveRoots.lean": "62192e4f711b1ef231eb0853b5ecedcbfd7547c195efe92fbfcc33b46a164559",
     "FClikelean/SquareConditionNecessary.lean": "76ffd4d018b52e5ec6f384a89d7c936e9784f74595fb81bc14353da542886905",
-    "scripts/check_sources.py": "d5f36fa51886665dbf3aba1066c41f359a9d0aaeb0a08b507245920be7946d91",
+    "scripts/check_sources.py": "f842d4de1c1fb1b7768a4cddbc15cb2247c3964be955ae6e83c87dea0fa66ea5",
     "scripts/build.sh": "965a967463a7bad69f79e182cb9a8fb47db730477376b6f3ef0723256d9770e0",
     "scripts/prepare-linux-memory.sh": "68c54b3db4223fe17624e1282c7275823f2a671c3be437742c67d9f7ea9933b4",
     ".github/workflows/lean.yml": "9cd2bf327a2f9d3370db5f82e7891e8ccfe09e1e7dce539eef58cef64fe38aa3",
@@ -306,13 +330,17 @@
     "scripts/build-component.sh": "27391d8a48cf7e6867857d6a6f422f7d11b847e9c04d75d4bb88e4bff90bfbf9",
     "ci/component-targets.json": "538e70aeb5df7932c1600e14a4065a5add0d3b743ca11507a8cd692cfda9f7ef",
     "ci/build-component.lean": "284a4d96790f225ac7275579a3db4a784bc39b73416a1421f9d0c4656c3d59e5",
-    "scripts/ci-build-artifacts.py": "9b52bc45f51cf3d1bcdacadc0a9a211e6c2a2d06ad7f0479bcfff0681979f22c"
+    "scripts/ci-build-artifacts.py": "9b52bc45f51cf3d1bcdacadc0a9a211e6c2a2d06ad7f0479bcfff0681979f22c",
+    "FClikelean/OpenAIConditional.lean": "f3fea686adb3e96470ab4004f792adef0d12565c82f1a26e8cb9f7634839d990",
+    "scripts/check_fclike_standalone.py": "bd4c72675952a4913121ef0154dcc450272f3a387d7e2d379eb93ffb2793a038",
+    "tools/fc-style/lakefile.toml": "a16507d42d0f671a2060002527291a986e5c18a211e2422761f899374dab40e4",
+    "ci/openai-input-definition-checks.lean": "e34507f4f3f65fc3e55ebb73cf46cc406eb80721b440f1f28a9cf0a3da8e510f"
   },
   "html_checks": {
     "passed": true,
     "checks": 21,
     "source_excerpts_and_local_links_checked": true,
-    "log": "results/public-candidate-html-qa.json"
+    "log": "results/fc-submission-layout-html-qa.json"
   },
   "compiled_definition_comparison": {
     "passed": true,
@@ -322,7 +350,8 @@
       "proof module"
     ],
     "record": "five-definition-comparison.json",
-    "definition_bodies_unchanged_after_proof_url_pinning": true
+    "definition_bodies_unchanged_after_proof_url_pinning": true,
+    "historical_scope_note": "The cited compiled comparison predates the split; its five definition bodies are unchanged and now live in FClikelean/OpenAIConditional.lean."
   },
   "publication_candidate_config_change": "The default lake build also selects the conditional-main proof module. Explicit four-target Comparator configuration and proof sources are unchanged.",
   "default_build": {
@@ -335,8 +364,19 @@
   "fc_statement_build": {
     "passed": true,
     "lean_toolchain": "leanprover/lean4:v4.33.1",
-    "jobs": 8953,
-    "log": "results/public-candidate-fc-build.log",
-    "proof_urls": "fixed to local proof-snapshot commit; publication awaits approval"
+    "jobs": 8954,
+    "log": "results/fc-submission-split-build.log",
+    "proof_urls": "fixed to local proof-snapshot commit; publication awaits approval",
+    "standalone_log": "results/fc-submission-split-standalone.json",
+    "scope": "Two submitted variants, separate conditional reference and separate square obstruction."
+  },
+  "fc_submission_layout": {
+    "record": "fc-submission-layout.json",
+    "theorems": [
+      "simultaneous_primitive_roots_unconditional",
+      "positive_lower_density"
+    ],
+    "conditional_reference_separate": true,
+    "paper_correspondence": "under review"
   }
 }

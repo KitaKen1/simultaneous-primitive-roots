@@ -131,13 +131,15 @@ def main():
     challenge = ROOT / 'lean/Challenge.lean'
     assert re.findall(r'^import\s+(\S+)', challenge.read_text(), re.M) == ['Mathlib'], 'Challenge must be independent of the proof and FC utilities'
     fc_statement = ROOT / 'FClikelean/SimultaneousPrimitiveRoots.lean'
+    fc_reference = ROOT / 'FClikelean/OpenAIConditional.lean'
     fc_auxiliary = ROOT / 'FClikelean/SquareConditionNecessary.lean'
-    # All three central statements and the supplement are independent targets.
+    # The submission has two variants; the conditional reference and supplement
+    # remain separate independent comparison targets.
     def declaration(path, name):
         code = lean_code(path.read_text())
         return re.sub(r'\s+', '', re.search(
             rf'\btheorem {name}\b.*?\bby\s+sorry\b', code, re.S).group())
-    for name, path in [('simultaneous_primitive_roots', fc_statement),
+    for name, path in [('simultaneous_primitive_roots', fc_reference),
                        ('simultaneous_primitive_roots_unconditional', fc_statement),
                        ('positive_lower_density', fc_statement),
                        ('square_condition_necessary', fc_auxiliary)]:
@@ -185,8 +187,8 @@ def main():
     fc_digest, fc_files = hashlib.sha256(), 0
     fc_sources = sorted((ROOT / 'FClikelean').rglob('*.lean'))
     expected_theorems = {
-        fc_statement: ['simultaneous_primitive_roots', 'simultaneous_primitive_roots_unconditional',
-                       'positive_lower_density'],
+        fc_statement: ['simultaneous_primitive_roots_unconditional', 'positive_lower_density'],
+        fc_reference: ['simultaneous_primitive_roots'],
         fc_auxiliary: ['square_condition_necessary'],
     }
     assert fc_sources == sorted(expected_theorems), 'Unexpected FC statement files'
@@ -208,20 +210,29 @@ def main():
     def theorem_type(path, name):
         code = lean_code(path.read_text())
         return re.sub(r'\s+', '', re.search(rf'\btheorem {name}\b.*?(?=:= by)', code, re.S).group())
-    assert theorem_type(main_proof, 'simultaneous_primitive_roots') == theorem_type(fc_statement, 'simultaneous_primitive_roots')
+    assert theorem_type(main_proof, 'simultaneous_primitive_roots') == theorem_type(fc_reference, 'simultaneous_primitive_roots')
+    submission_code = lean_code(fc_statement.read_text())
+    assert not re.search(r'\b(?:def|abbrev|opaque|axiom)\b', submission_code), \
+        'The FC submission must contain only the two variant statements'
     for name in ['HeckeZeroFreeHypothesis', 'roughDensity', 'MarkedTypeIIHypothesis',
                  'BlockSieveHypothesis', 'RoughDensityHypothesis']:
         pattern = rf'(?:noncomputable )?def {name}\b.*?(?=\n/--)'
-        assert re.sub(r'\s+', '', re.search(pattern, main_proof.read_text(), re.S).group()) == re.sub(r'\s+', '', re.search(pattern, fc_statement.read_text(), re.S).group()), name
-        assert re.sub(r'\s+', '', re.search(pattern, challenge.read_text(), re.S).group()) == re.sub(r'\s+', '', re.search(pattern, fc_statement.read_text(), re.S).group()), name
+        assert re.sub(r'\s+', '', re.search(pattern, main_proof.read_text(), re.S).group()) == re.sub(r'\s+', '', re.search(pattern, fc_reference.read_text(), re.S).group()), name
+        assert re.sub(r'\s+', '', re.search(pattern, challenge.read_text(), re.S).group()) == re.sub(r'\s+', '', re.search(pattern, fc_reference.read_text(), re.S).group()), name
+        assert not re.search(rf'\b{name}\b', submission_code), \
+            f'The FC submission depends on a reference definition: {name}'
     for name in ['HeckeZeroFreeHypothesis', 'MarkedTypeIIHypothesis',
                  'BlockSieveHypothesis', 'RoughDensityHypothesis']:
-        code = lean_code(fc_statement.read_text())
+        code = lean_code(fc_reference.read_text())
         assert f'def {name} : Prop :=' in code, f'Undefined hypothesis {name}'
     result['fclikelean'] = {'lean_files': fc_files, 'source_sha256': fc_digest.hexdigest(),
                             'intentional_statement_placeholders': 4,
                             'input_definition_placeholders': 0,
                             'main_self_contained': True, 'auxiliary_separate': True,
+                            'submission_theorems': expected_theorems[fc_statement],
+                            'submission_definition_count': 0,
+                            'conditional_reference': str(fc_reference.relative_to(ROOT)),
+                            'conditional_reference_is_submission': False,
                             'standard_import': 'FormalConjecturesUtil',
                             'all_theorems_category': 'research solved', 'AMS': [11]}
     if args.check_port_record:

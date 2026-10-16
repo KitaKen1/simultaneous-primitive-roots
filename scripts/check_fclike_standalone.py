@@ -11,7 +11,8 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[1]
 LEAN_DIR = ROOT / 'tools/fc-style'
 STATEMENTS = [ROOT / 'FClikelean' / name for name in
-              ['SimultaneousPrimitiveRoots.lean', 'SquareConditionNecessary.lean']]
+              ['SimultaneousPrimitiveRoots.lean', 'OpenAIConditional.lean',
+               'SquareConditionNecessary.lean']]
 
 
 def main():

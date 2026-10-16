@@ -1,20 +1,9 @@
 # Lean proof of positive lower density of simultaneous primitive roots
 
-OpenAI's conditional simultaneous primitive-root theorem states the following
-(see [OpenAI (2026), Theorem 1.1][openai-simultaneous]).
-
-> **Main: simultaneous primitive roots for prime bases.**
-> Let $`A`$ be a nonempty finite set of positive primes. Assume the four analytic
-> inputs in Sections 3–5 of the paper: Inputs 3.1, 4.1, 5.1 and 5.2.
-> For all sufficiently large real $`x`$, the number of primes $`x<p<2x`$ for which
-> every $`a\in A`$ is a primitive root modulo $`p`$ is at least
->
-> $$c_A\frac{x}{(\log x)^2}$$
->
-> for some constant $`c_A>0`$ depending on $`A`$.
-
-This repository proves the following two variants in Lean 4.33.1, using pinned
-Mathlib v4.33.1. Variant 1 is a corollary of the stronger Variant 2.
+This repository proves the following two variants of
+[OpenAI's conditional simultaneous primitive-root theorem][openai-simultaneous]
+in Lean 4.33.1, using pinned Mathlib v4.33.1. These two statements are the proposed
+Formal Conjectures submission. Variant 1 is a corollary of the stronger Variant 2.
 
 > **Variant 1: OpenAI's conclusion without the four analytic hypotheses.**
 > Let $`A`$ be a nonempty finite set of positive primes. There are constants
@@ -33,10 +22,14 @@ Mathlib v4.33.1. Variant 1 is a corollary of the stronger Variant 2.
 >
 > $$N_A(x)\ge c_A\frac{x}{\log x}.$$
 
-The stronger theorem implies OpenAI's main theorem.
+For comparison, OpenAI's Theorem 1.1 assumes four analytic inputs
+(Inputs 3.1, 4.1, 5.1 and 5.2) and gives the prime-base bound
+$`c_A x/(\log x)^2`$ in $`(x,2x)`$.
 
-**Variant 2 ⇒ Variant 1 ⇒ Main.** The first implication is proved in Lean;
-Variant 1 immediately gives Main's conclusion. It does not prove the four inputs themselves.
+**Variant 2 ⇒ Variant 1** is proved in Lean. If Variant 1's conclusion matches
+the paper's statement, it also gives OpenAI's conditional conclusion, without
+proving the four inputs themselves. The paper-to-Lean correspondence remains
+under review; its four-input formalization is kept outside the proposed submission.
 
 | | Main (OpenAI) | Variant 1 (corollary) | Variant 2 (stronger result) |
 |---|---|---|---|
@@ -49,13 +42,14 @@ Variant 1 immediately gives Main's conclusion. It does not prove the four inputs
 The two main components are:
 
 1. **A Formal Conjectures style statement.**
-   [FClikelean/](FClikelean/) places OpenAI's main theorem and this repository's
-   two variants in one self-contained file.
+   [SimultaneousPrimitiveRoots.lean](FClikelean/SimultaneousPrimitiveRoots.lean)
+   places the two variants in one self-contained file, without the four analytic definitions.
 2. **The full Lean proof.**
    [MainClaim.lean](lean/SimultaneousPrimitiveRootsFinal/MainClaim.lean) combines the
    analytic and arithmetic arguments.
    [Solution.lean](lean/Solution.lean) proves both variants and the square-condition obstruction.
-   [OpenAIMain.lean](lean/SimultaneousPrimitiveRootsFinal/OpenAIMain.lean) derives the conditional main from Variant 1.
+   [OpenAIMain.lean](lean/SimultaneousPrimitiveRootsFinal/OpenAIMain.lean)
+   applies Variant 1 to the separate conditional reference statement.
 
 The subcontribution is:
 
@@ -67,28 +61,31 @@ The subcontribution is:
 ### FClikelean
 
 [SimultaneousPrimitiveRoots.lean](FClikelean/SimultaneousPrimitiveRoots.lean)
-contains three statements, in this order:
+contains only the two statements proposed for FC, in this order:
 
-1. `simultaneous_primitive_roots`: OpenAI's conditional main.
-2. `simultaneous_primitive_roots_unconditional`: the same conclusion without the four inputs.
-3. `positive_lower_density`: the stronger positive-integer variant.
+1. `simultaneous_primitive_roots_unconditional`: the prime-base conclusion without the four inputs.
+2. `positive_lower_density`: the stronger positive-integer variant.
 
-The same file defines all four
-analytic hypotheses and their shared `roughDensity`, with no placeholder definitions.
-It uses FC’s standard `public import FormalConjecturesUtil` and marks all three
+The file needs no problem-specific `def`. It uses FC's standard
+`public import FormalConjecturesUtil` and marks both
 statements `category research solved, AMS 11`, following the
 [reference format](https://github.com/KitaKen1/entropic-rogers-shephard/blob/main/FClikelean/EntropicRogersShephard.lean).
 The module cites OpenAI's paper as `[OAI26]` and the accompanying Lean formalization
 as `[Ki26]`. Each theorem links its Lean proof with `formal_proof using lean4 at "…"`.
-It is independent of the proof library.
+It is independent of the proof library and the conditional reference file.
+
+[OpenAIConditional.lean](FClikelean/OpenAIConditional.lean) keeps the four-input
+conditional statement and its five definitions as a separate reference.
+It is not part of the proposed FC submission. Its exact correspondence with the
+paper's analytic inputs remains under review.
 
 The necessary condition, `square_condition_necessary`, is isolated in
 [SquareConditionNecessary.lean](FClikelean/SquareConditionNecessary.lean): if the
-square condition fails, no odd prime works. Neither file imports the other.
-The central file has three intentional `sorry` placeholders; the supplement has one.
-Both files compile independently on Lean 4.33.1 with the pinned FC utilities
-in [tools/fc-style/](tools/fc-style/). See the
-[statement check](ci/four-target-review.json) and
+square condition fails, no odd prime works. It is also outside the two-theorem submission.
+The submission file has two intentional `sorry` placeholders; the conditional
+reference and square-condition supplement each have one. All three files are
+self-contained with the pinned FC utilities in [tools/fc-style/](tools/fc-style/).
+See the
 [Japanese correspondence guide](FClikelean/README.md).
 
 ### Comparator target
@@ -101,17 +98,20 @@ The four targets are
 `SimultaneousPrimitiveRootsChallenge.simultaneous_primitive_roots_unconditional`,
 `SimultaneousPrimitiveRootsChallenge.positive_lower_density`, and
 `SimultaneousPrimitiveRootsChallenge.square_condition_necessary`.
-They match main, both variants and the supplement after removing comments and whitespace.
+They match the separate conditional reference, both submitted variants and the
+square-condition supplement after removing comments and whitespace.
 Challenge also contains all five definitions used by main, with the same bodies as
-the FC file and the proof. The [Comparator configuration](lean/comparator.json)
+`OpenAIConditional.lean` and the proof. The [Comparator configuration](lean/comparator.json)
 checks all four, including main's four hypotheses and their dependent definitions.
 
-The solution module also compiles the exact conditional main in
+The solution module also compiles the conditional reference in
 [OpenAIMain.lean](lean/SimultaneousPrimitiveRootsFinal/OpenAIMain.lean).
-Its four input definitions and statement match the FC file; its proof applies Variant 1.
+Its four input definitions and statement match `OpenAIConditional.lean`; its proof applies Variant 1.
 Variant 1 has the same
 prime-base conclusion with its four analytic hypotheses removed. Its proof uses
-Variant 2, including the change to the open interval. This does not prove the four inputs themselves.
+Variant 2, including the change to the open interval. This does not prove the four inputs themselves
+or establish their equivalence with the paper's wording. The four-target Comparator
+configuration remains broader than the proposed FC submission.
 
 ## Mathematical explanation (AI generated)
 
@@ -165,7 +165,7 @@ grow. This leaves the claimed positive multiple of $`x/\log x`$.
 | Directory | Lean version | Purpose |
 |---|---|---|
 | [lean/](lean/) | `v4.33.1` | Canonical proof, pinned Mathlib, Challenge and Solution. |
-| [FClikelean/](FClikelean/) | `v4.33.1` | Self-contained Main / Variant 1 / Variant 2 statements and independent square-obstruction supplement. |
+| [FClikelean/](FClikelean/) | `v4.33.1` | Two-theorem FC submission; separate conditional reference and square-obstruction supplement. |
 | [tools/](tools/) | `v4.33.1` | Pinned Comparator and Lean4export sources. |
 | [ci/](ci/) | `v4.33.1` | Source audit, migration records, verification results and reproduction guide. |
 | [scripts/](scripts/) | `v4.33.1` | Build, axiom checks, Comparator execution and sandbox preparation. |
@@ -275,13 +275,14 @@ quantitative lower bound. It does not cover the full rational-base theorem.
 | Lower bound | $`c_A x/(\log x)^2`$ | Same lower bound | $`c_A x/\log x`$ |
 | Interval | $`(x,2x)`$ | Same interval | $`(x,2x]`$ |
 
-Variant 1 removes only the four hypotheses from OpenAI's statement. It is proved
+Variant 1 is intended to remove only the four hypotheses from OpenAI's statement. It is proved
 from Variant 2, which also broadens the allowed bases and strengthens the bound.
 
 For distinct prime bases, the square condition holds automatically. The stronger
 lower bound also gives OpenAI's bound after adjusting the constant and starting
-point; the endpoint difference is at most one prime. Hence the variant implies
-OpenAI's main theorem, without proving the four analytic inputs themselves.
+point; the endpoint difference is at most one prime. Once the conclusion's
+paper-to-Lean correspondence is confirmed, this gives OpenAI's conditional
+conclusion. The four analytic inputs themselves are not proved here.
 
 Positive density under GRH and the square condition were already known.
 Priority for a first unconditional proof is not established; see [HISTORY.md](HISTORY.md).
@@ -358,11 +359,11 @@ Build the reference and complete proof from the repository root:
 bash scripts/build.sh
 ```
 
-Check the two independent FC-style files:
+Check the two-theorem FC submission and the two separate reference files:
 
 ```bash
 cd lean
-lake build FClikelean.SimultaneousPrimitiveRoots FClikelean.SquareConditionNecessary
+lake build FClikelean.SimultaneousPrimitiveRoots FClikelean.OpenAIConditional FClikelean.SquareConditionNecessary
 python3 ../scripts/check_fclike_standalone.py
 ```
 

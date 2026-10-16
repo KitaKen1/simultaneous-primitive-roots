@@ -1,6 +1,6 @@
 name = "simultaneous_primitive_roots_fc"
 version = "0.1.0"
-defaultTargets = ["FClikelean.SimultaneousPrimitiveRoots", "FClikelean.SquareConditionNecessary"]
+defaultTargets = ["FClikelean.SimultaneousPrimitiveRoots", "FClikelean.OpenAIConditional", "FClikelean.SquareConditionNecessary"]
 
 [leanOptions]
 autoImplicit = false

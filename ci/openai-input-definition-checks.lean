@@ -1,4 +1,4 @@
-import FClikelean.SimultaneousPrimitiveRoots
+import FClikelean.OpenAIConditional
 
 #print axioms SimultaneousPrimitiveRootsChallenge.HeckeZeroFreeHypothesis
 #print axioms SimultaneousPrimitiveRootsChallenge.MarkedTypeIIHypothesis

@@ -1,0 +1,87 @@
+{
+  "checked_at_utc": "2026-10-16T05:55:09.892576+00:00",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "submission": {
+    "file": "FClikelean/SimultaneousPrimitiveRoots.lean",
+    "theorems": [
+      "simultaneous_primitive_roots_unconditional",
+      "positive_lower_density"
+    ],
+    "definition_count": 0,
+    "self_contained": true,
+    "imports": [
+      "FormalConjecturesUtil"
+    ],
+    "reference_imported": false
+  },
+  "conditional_reference": {
+    "file": "FClikelean/OpenAIConditional.lean",
+    "theorem": "simultaneous_primitive_roots",
+    "definition_count": 5,
+    "included_in_fc_submission": false,
+    "paper_correspondence": "under review"
+  },
+  "supplement": {
+    "file": "FClikelean/SquareConditionNecessary.lean",
+    "included_in_fc_submission": false
+  },
+  "checks": {
+    "fc_build": {
+      "passed": true,
+      "jobs": 8954,
+      "log": "results/fc-submission-split-build.log"
+    },
+    "standalone": {
+      "passed": true,
+      "files": 3,
+      "record": "results/fc-submission-split-standalone.json"
+    },
+    "source_contract": {
+      "passed": true,
+      "record": "results/fc-submission-split-source-check.json",
+      "proof_source_sha256": "3ff249e663939b73de9a49882c9c34bc95259a8f20f5532b1b85d7bd51203ee0"
+    },
+    "statement_types_and_five_definition_bodies_unchanged": true,
+    "proof_and_comparator_files_unchanged": [
+      "lean/Challenge.lean",
+      "lean/Solution.lean",
+      "lean/SimultaneousPrimitiveRootsFinal/OpenAIMain.lean",
+      "lean/comparator.json"
+    ],
+    "html": {
+      "passed": true,
+      "pages": 7,
+      "viewport_checks": 21,
+      "source_blocks": 47,
+      "record": "results/fc-submission-layout-html-qa.json",
+      "source_record": "results/fc-submission-layout-html-source-qa.json",
+      "files_sha256": {
+        "\u4eba\u9593\u7406\u89e3\u7528/4Def.html": "66d6a14e1c7d68463f7ef08908a74290aeb20db32f83a164f4a89a0d56dd56f5",
+        "\u4eba\u9593\u7406\u89e3\u7528/FClikelean.html": "d709b0c0f083a70577c8d154ecef29f78c8370698d02d02a65c9824d2b5ca277",
+        "\u4eba\u9593\u7406\u89e3\u7528/FClikeleanNew.html": "d709b0c0f083a70577c8d154ecef29f78c8370698d02d02a65c9824d2b5ca277",
+        "\u4eba\u9593\u7406\u89e3\u7528/backgorund.html": "ea546cbef551db247e34c18cf0206c482ff8da088a4fcb86a742a913c3d53be4",
+        "\u4eba\u9593\u7406\u89e3\u7528/history.html": "d755c20ef5a776633eef2a8b561bd1926daf7d43b2c28f8ec0640b389fa74edd",
+        "\u4eba\u9593\u7406\u89e3\u7528/mainvariantsCorrespondence.html": "647ad65b8888616ab5001d11d783a46d8c63e292bad519c30ab6a7ae6265d1a6",
+        "\u4eba\u9593\u7406\u89e3\u7528/openaileancomparison.html": "008958b750f486f07873bd92b5470cb4e0c65a8119d1a56191aace4c4eea5114"
+      }
+    }
+  },
+  "private_ci": {
+    "run_url": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38818388877",
+    "commit": "f9f7db3168f8afe1b25d7e9db20dd36b814e4414",
+    "run_attempt": 2,
+    "note": "This in-progress run predates the FC file split. Its proof sources and four target types are unchanged. Local checks validate the new layout separately."
+  },
+  "files_sha256": {
+    "README.md": "36093075a7c605ce55dc0b81bf4eca47e76a502b7e08e7f3c09420f28a968fd9",
+    "FClikelean/README.md": "1d624b415bda2a9faf076111294186453920973c3616a103eb5a7ecb082d41a2",
+    "FClikelean/SimultaneousPrimitiveRoots.lean": "62192e4f711b1ef231eb0853b5ecedcbfd7547c195efe92fbfcc33b46a164559",
+    "FClikelean/OpenAIConditional.lean": "f3fea686adb3e96470ab4004f792adef0d12565c82f1a26e8cb9f7634839d990",
+    "FClikelean/SquareConditionNecessary.lean": "76ffd4d018b52e5ec6f384a89d7c936e9784f74595fb81bc14353da542886905",
+    "scripts/check_sources.py": "f842d4de1c1fb1b7768a4cddbc15cb2247c3964be955ae6e83c87dea0fa66ea5",
+    "scripts/check_fclike_standalone.py": "bd4c72675952a4913121ef0154dcc450272f3a387d7e2d379eb93ffb2793a038",
+    "tools/fc-style/lakefile.toml": "a16507d42d0f671a2060002527291a986e5c18a211e2422761f899374dab40e4",
+    "ci/openai-input-definition-checks.lean": "e34507f4f3f65fc3e55ebb73cf46cc406eb80721b440f1f28a9cf0a3da8e510f"
+  },
+  "public_pushed": false
+}
