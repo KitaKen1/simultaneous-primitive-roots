@@ -5,9 +5,14 @@ public import FormalConjecturesUtil
 /-!
 # Unconditional variants of simultaneous primitive roots
 
-The conclusion of [OAI26, Theorem 1.1] without its four analytic hypotheses,
-and a stronger variant for positive integer bases satisfying the square condition.
-The conditional reference formalization is in `OpenAIConditional.lean`.
+OpenAI [OAI26, Theorem 1.1] states that, under four analytic inputs, any nonempty
+finite set $A$ of positive primes has the following property: for some $c_A > 0$
+and all sufficiently large $x$, at least $c_A x/(\log x)^2$ primes $p \in (x, 2x)$
+make every element of $A$ a primitive root modulo $p$.
+
+A natural extension of this result is to remove the four analytic hypotheses.
+A stronger extension would allow integer bases at least $2$ satisfying the square
+condition and improve the lower bound to $c_A x/\log x$ in $(x, 2x]$.
 
 *References:*
 - [OAI26] OpenAI, *Simultaneous primitive roots: a conditional
@@ -22,7 +27,8 @@ https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/pre
 
 namespace SimultaneousPrimitiveRootsChallenge
 
-/-- The prime-base corollary of [Ki26], with the conclusion of [OAI26, Theorem 1.1]. -/
+/-- Unconditional variant of [OAI26, Theorem 1.1]: a $c_A x/(\log x)^2$ lower bound
+for simultaneous primitive roots of any nonempty finite set of prime bases. -/
 @[category research solved, AMS 11,
     formal_proof using lean4 at "https://github.com/KitaKen1/simultaneous-primitive-roots/blob/c4775966844ff78f0488492ee2aef7bd1437c51d/lean/Solution.lean"]
 theorem simultaneous_primitive_roots_unconditional :
@@ -34,8 +40,8 @@ theorem simultaneous_primitive_roots_unconditional :
             ∀ a ∈ A, ¬ p ∣ a ∧ orderOf (a : ZMod p) = p - 1} : ℝ) := by
   sorry
 
-/-- The stronger Lean variant of [Ki26]: positive integer bases satisfying the square
-condition, with no external analytic hypotheses and a $c x/\log x$ lower bound. -/
+/-- Stronger variant: a $c_A x/\log x$ lower bound for integer bases at least $2$
+satisfying the square condition. -/
 @[category research solved, AMS 11,
     formal_proof using lean4 at "https://github.com/KitaKen1/simultaneous-primitive-roots/blob/c4775966844ff78f0488492ee2aef7bd1437c51d/lean/Solution.lean"]
 theorem positive_lower_density :
