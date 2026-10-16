@@ -121,9 +121,11 @@ their equivalence with the paper's wording.
 
 ## Mathematical explanation (AI generated)
 
-The following summarizes the argument using the analytic estimates in Section 2
-of the [proof note](PDF/simultaneous-primitive-roots.pdf). The Lean assembly obtains
-its required inputs from the vendored formalization and the connecting proofs.
+The [revised manuscript](NewPDF/simultaneous-primitive-roots-unconditional.pdf)
+presents the mathematical argument, from the analytic theorems through the
+candidate count and order-obstruction estimates to the conclusion.
+The [original conditional note](PDF/simultaneous-primitive-roots.pdf) is retained.
+The following summarizes the argument.
 
 **1. Arrange the quadratic signs.** Write the prime exponents of each base as a
 vector over $`\mathbb F_2`$. The square condition makes the required sign equations
@@ -176,6 +178,7 @@ grow. This leaves the claimed positive multiple of $`x/\log x`$.
 | [ci/](ci/) | `v4.33.1` | Source audit, migration records, verification results and reproduction guide. |
 | [scripts/](scripts/) | `v4.33.1` | Build, axiom checks, Comparator execution and sandbox preparation. |
 | [.github/workflows/](.github/workflows/) | GitHub-hosted Linux | Independent statements, sandboxed proof comparison and kernel replay. |
+| [NewPDF/](NewPDF/) | — | Revised mathematical proof in PDF format. |
 | [PDF/](PDF/) | — | Original proof note and timestamp evidence. |
 
 [HISTORY.md](HISTORY.md) gives the detailed historical comparison and literature review.

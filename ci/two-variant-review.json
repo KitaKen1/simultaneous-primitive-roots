@@ -105,22 +105,30 @@
   "private_ci": {
     "repository": "KitaKen1/ci-test-sandbox",
     "branch": "ci/simultaneous-primitive-roots-lean4331",
-    "status": "new workflow run registered; awaiting startup",
+    "status": "completed",
     "results_url": "https://github.com/KitaKen1/ci-test-sandbox/actions/workflows/lean.yml",
     "commit": "0d217c8afc2e57979288ba1faeee1319c897371d",
     "run_id": 38860344650,
     "run_url": "https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38860344650",
     "run_attempt": 1,
-    "previous_run_superseded": 38818388877
+    "previous_run_superseded": 38818388877,
+    "conclusion": "success",
+    "completed_at": "2026-10-16T13:01:04Z"
   },
-  "full_two_target_kernel_replay_completed": false,
+  "full_two_target_kernel_replay_completed": true,
   "historical_checks": [
     "local-verification.json",
     "three-theorem-review.json",
     "four-target-review.json",
     "fc-submission-layout.json"
   ],
-  "public_ci": "not pushed",
+  "public_ci": {
+    "repository": "KitaKen1/simultaneous-primitive-roots",
+    "branch": "main",
+    "status": "pending_public_run",
+    "workflow_url": "https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml",
+    "same_verification_sources_as_private_commit": "0d217c8afc2e57979288ba1faeee1319c897371d"
+  },
   "files_sha256": {
     "lean/Challenge.lean": "11b3859c8eddbc5b1067d0fa11db56f2bb5c3d21b1f8fdd39763a36510c04b5a",
     "lean/Solution.lean": "0b7e7952c6febee0dcd49beea8937f3e23fbc75770ae16b7b5d755f963e6465e",
