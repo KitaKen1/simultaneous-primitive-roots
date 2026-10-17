@@ -125,9 +125,18 @@
   "public_ci": {
     "repository": "KitaKen1/simultaneous-primitive-roots",
     "branch": "main",
-    "status": "pending_public_run",
-    "workflow_url": "https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml",
-    "same_verification_sources_as_private_commit": "0d217c8afc2e57979288ba1faeee1319c897371d"
+    "status": "completed",
+    "conclusion": "success",
+    "commit": "0987a8b2f63223b9b7e076816028816c20378023",
+    "run_id": 38910471634,
+    "run_url": "https://github.com/KitaKen1/simultaneous-primitive-roots/actions/runs/38910471634",
+    "run_attempt": 1,
+    "created_at": "2026-10-16T13:46:34Z",
+    "same_verification_sources_as_private_commit": "0d217c8afc2e57979288ba1faeee1319c897371d",
+    "completed_at": "2026-10-16T17:48:06Z",
+    "archive": "CIarchive/public-ci-38910471634.zip",
+    "archive_sha256": "b533094394cbda920960f00a9b4afcfc0bbad3235efb8218c005f6258e525f37",
+    "archive_record": "ci/public-ci-38910471634.json"
   },
   "files_sha256": {
     "lean/Challenge.lean": "11b3859c8eddbc5b1067d0fa11db56f2bb5c3d21b1f8fdd39763a36510c04b5a",

@@ -84,10 +84,14 @@ Private testing is on `ci/simultaneous-primitive-roots-lean4331` in [ci-test-san
 The existing v4.35.0-rc3 evidence is historical evidence for the original
 workspace, not evidence that the v4.33.1 publication build or CI passed.
 
-See [STATUS.md](STATUS.md) for current local results.
+See [STATUS.md](STATUS.md) for the successful private and public results.
+The [public verification record](public-ci-38910471634.json) identifies the tested
+commit, completed run and [saved evidence ZIP](../CIarchive/public-ci-38910471634.zip).
+The archive preserves the original verification artifacts, all job logs and the
+tested source Git bundle after the hosted artifacts expire.
 
 The FC statements use the actual `FormalConjecturesUtil` import and
 `category research solved, AMS 11` attributes. Their separate project in
 `tools/fc-style/` pins the official FC revision and the same Mathlib/Lean 4.33.1.
 The proof and Comparator projects continue to use the independent Mathlib-only Challenge.
-The FC files include `[OAI26]` / `[Ki26]` references and `formal_proof using lean4 at "…"` attributes. Their URLs name the fixed proof-snapshot commit; the links become available when the prepared candidate is published.
+The FC files include `[OAI26]` / `[Ki26]` references and `formal_proof using lean4 at "…"` attributes. Their URLs name the fixed proof-snapshot commit, now available in the public repository.

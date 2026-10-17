@@ -12,7 +12,7 @@ Lean and Mathlib are pinned to 4.33.1.
 | Local Challenge and Solution build | Passed; submitted proofs use only `propext`, `Classical.choice`, `Quot.sound` |
 | FC-style build | Passed; submission, conditional reference and supplement compile separately |
 | Private Linux CI | [Passed](https://github.com/KitaKen1/ci-test-sandbox/actions/runs/38860344650) at 22:01 JST on 16 October 2026; both submitted targets, comparator controls, axiom checks and kernel replay succeeded |
-| Public Linux CI | [Public Actions](https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml); the same two-target configuration is being submitted for a fresh run; no public success claimed yet |
+| Public Linux CI | [Passed](https://github.com/KitaKen1/simultaneous-primitive-roots/actions/runs/38910471634) at 02:48 JST on 17 October 2026, commit `0987a8b`; both targets, controls, axiom audit and kernel replay passed; [archive](../CIarchive/public-ci-38910471634.zip) |
 
 The current configuration and hashes are in [two-variant-review.json](two-variant-review.json).
 The OpenAI conditional reference and square-condition supplement remain separate

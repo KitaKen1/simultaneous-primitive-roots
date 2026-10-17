@@ -345,35 +345,46 @@ These two requirements cannot both hold.
 The 1927 entry is the original conjecture. The later entries are results related
 to it; this repo does not prove Artin's predicted exact density.
 
-## Appendix: Verification by Lean Comparator on GitHub CI runner
+## Appendix: CI verification and archived evidence
 
-Comparator checks statements and dependent definitions against the reference,
-audits permitted axioms and replays the solution in the builtin Lean kernel.
-The prepared [Linux workflow](.github/workflows/lean.yml) checks the two submitted
-variants with the pinned Landrun sandbox and uploads logs for the tested commit.
-Compilation is staged across jobs for the same commit; the final comparison uses
-the independent two-statement Challenge, the permitted-axiom audit and fresh
-kernel replay. The reference and supplementary statements are not Comparator
-targets in this configuration.
+### Public CI result
 
-### Certification Within 30 days: CI results
+**Passed on 17 October 2026 at 02:48 JST**, using Lean 4.33.1 and pinned Mathlib.
+The [public CI run](https://github.com/KitaKen1/simultaneous-primitive-roots/actions/runs/38910471634)
+verified commit
+[`0987a8b`](https://github.com/KitaKen1/simultaneous-primitive-roots/commit/0987a8b2f63223b9b7e076816028816c20378023).
+All nine jobs succeeded.
 
-The workflow retains verification logs for 30 days and temporary compilation
-artifacts for one day.
-Private Linux CI in [`KitaKen1/ci-test-sandbox`](https://github.com/KitaKen1/ci-test-sandbox)
-and public Linux CI in
-[`KitaKen1/simultaneous-primitive-roots`](https://github.com/KitaKen1/simultaneous-primitive-roots)
-are tracked in [private Actions](https://github.com/KitaKen1/ci-test-sandbox/actions/workflows/lean.yml) and [public Actions](https://github.com/KitaKen1/simultaneous-primitive-roots/actions/workflows/lean.yml).
-The current two-variant run is tracked in
-[two-variant-review.json](ci/two-variant-review.json); earlier runs used different
-target lists and do not certify this configuration.
-The intended order is human review, private CI, then public CI on the reviewed sources.
+| Check | Result |
+|---|---|
+| Independent statements | Both submitted FC statements match the Mathlib-only Challenge. |
+| Proof build | All five components, the Hecke boundary and final proof assembly passed. |
+| Comparator | Both target types and their dependent definitions passed comparison. |
+| Acceptance and rejection controls | The valid proof was accepted; the wrong type and extra axiom were rejected. |
+| Axiom audit | Both proofs use only `propext`, `Classical.choice` and `Quot.sound`. |
+| Fresh Lean kernel replay | Accepted: `Lean default kernel accepts the solution`. |
 
-### Certification After 30 days: archive
+The two targets are the unconditional prime-base variant and the stronger
+integer-base variant. The four-input conditional reference and square-condition
+supplement are outside this Comparator target list.
+See the [tested configuration](ci/two-variant-review.json) and
+[verification record](ci/public-ci-38910471634.json).
 
-No CI archive exists yet. After successful runs, preserve the original artifact ZIPs,
-complete job logs, run metadata, tested commit and SHA-256 checksums.
-The current [local verification record](ci/local-verification.json) covers macOS checks only.
+### Archived evidence
+
+[**Download the CI archive (20 MB)**](CIarchive/public-ci-38910471634.zip?raw=true)
+· [SHA-256](CIarchive/public-ci-38910471634.zip.sha256)
+
+The ZIP is stored in this repository so the evidence remains available after
+GitHub Actions artifacts expire. It contains:
+
+- The seven original verification and diagnostic artifact ZIPs.
+- Complete logs for all nine jobs and GitHub's run, job and artifact metadata.
+- A Git bundle containing the exact tested source and its history.
+- A verification receipt and SHA-256 checksums for every payload file.
+
+All seven original artifact ZIPs were checked against GitHub's recorded SHA-256
+digests. Temporary compiled component caches are excluded.
 
 ### Reproduce the verification
 
